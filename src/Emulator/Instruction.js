@@ -3,10 +3,9 @@ import { memory } from "../Ide.jsx";
 import { TwosComplement } from "./ALU.js";
 import { Alu1 } from "../Ide.jsx";
 import { IP } from "../Ide.jsx";
-import { animations } from "./animations";
-import gsap from "gsap";
-animations[0]=()=>{gsap.to(".box",{x:400,duration:3});}
-animations[1]=()=>{gsap.to(".box",{backgroundColor:"green",x:700,duration:3,delay:3});}
+
+
+
 
 
 class InstructionADD{

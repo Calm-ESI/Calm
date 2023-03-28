@@ -285,3 +285,21 @@ nav, .link {
   caret-color: rgb(255, 255, 255) !important;
 }
 /*//////////////////////////*/
+
+/* .ball{
+  height:3.75%;
+  width:1.87%;
+  border-radius:50%;
+  position:fixed;
+  background-color: #1BE985;
+  top:38%;
+  left:29.7%;
+  /* display: none; */
+
+.execButton{
+  height:2em;
+  width: 5em;
+  background-color: #1BE985;
+  border-radius: 20px;
+  margin: 10px 30px;
+}

@@ -1,40 +1,37 @@
 import Archi from "./assets/archi.png"
-import { useRef,useState,useEffect } from "react";
-import  {animations}  from "./Emulator/animations.js";
-const Arch = ()=>{
-    const boxRef = useRef();
-    // X
-    const [x, setX] = useState();
-    // Y
-    const [y, setY] = useState();
-    // This function calculate X and Y
-    const getPosition = () => {
-    const x = boxRef.current.offsetLeft;
-    setX(x);
-    const y = boxRef.current.offsetTop;
-    setY(y);
-    };
-    // Get the position of the red box in the beginning
-    useEffect(() => {
-    getPosition();
-    }, []);
-    //Re-calculate X and Y of the red box when the window is resized by the user
-    useEffect(() => {
-    for(let animation of animations){
-        animation();
+import { useEffect } from "react";
+import { useState } from "react";
+import gsap from "gsap";
+import { useRef } from "react";
+const Arch = (props)=>{
+    ///////////////to add delay/////
+    const animate=(i,animation)=>{
+        setTimeout(function() {
+            animation();
+        }, 4000 * i);
     }
+    let myref=useRef()
+    ///////////////////////////////
+    useEffect(() => {
+    let i=0;
+    for(let animation of props.anim){
+        animate(i,animation);
+        i++;
+    }
+    // props.anim[0](myref.current.clientHeight,current.clientWidth);
     }, []);
 //////////////////////////
     return <>
-    <img src={Archi} alt="" className="archi" ref={boxRef} />
-    <div className="box" style={{
-        height:"120px",//Y
-        width:"140px",//X
-        backgroundColor:"red",
-        position:"absolute",
-        top:`${y}px`,
-        left:`${x}px`,
+    <img src={Archi} alt="" className="archi" ref={myref}/>
+    <div className="ball" style={{
+        height:"2.812%",
+        width:"1.4%",
+        borderRadius:"50%",
+        position:"fixed",
+        backgroundColor: "#1BE985",
+        top:`13.7%`,
+        left:'69%',
     }}></div> 
     </>
 }
-export default Arch
+export default Arch;
