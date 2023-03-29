@@ -268,10 +268,16 @@ nav, .link {
   background: #ffffff56;
 }
 
-.archi{
+.arch-contain{
+  position: absolute;
   width: 70%;
-  margin: auto;
-  margin-top: 1%;
+  left: 15%;
+  top:3%;
+
+}
+.archi{
+  position: relative;
+  width: 100%;
 }
 
 /*//////////// some modifications to the editor //////////////*/
