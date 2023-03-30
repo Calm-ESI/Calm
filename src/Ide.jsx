@@ -46,24 +46,24 @@ const Ide = ()=>{
   let [simul,setsimul]=useState(false)
 
   ///////////////////////////////executions function////////////////////////////////////////
-const traitement= (codeArray)=>{
-Registers[0].setvalue("0000000000000010");
-Registers[1].setvalue("0000000000000011");
+  const traitement= (codeArray)=>{
+  Registers[0].setvalue("0000000000000010");
+  Registers[1].setvalue("0000000000000011");
 
-for(let i=0;i<50;i++){//initializing first 10 bytes in memory to 0 (data memory)
-memory.setRam(i);
-memory.setRim("00000000");
-memory.write();
-}
+  for(let i=0;i<50;i++){//initializing first 10 bytes in memory to 0 (data memory)
+  memory.setRam(i);
+  memory.setRim("00000000");
+  memory.write();
+  }
 
 
-memory.setcode(codeArray)
-queue.instructionset([]);
+  memory.setcode(codeArray)
+  queue.instructionset([]);
 
-//------//
-while(queue.getqueuelen()<6){
-    queue.fetchInstruction();
-}
+  //------//
+  while(queue.getqueuelen()<6){
+      queue.fetchInstruction();
+  }
 //-----//
 let resulttmp="";
 sequenceur.getinstrbyte();
@@ -225,16 +225,12 @@ setresult(resulttmp);
 
 
 ///////////////////animations to test////////////////////
+const initialWidthPercentage = "1.4%";
+const initialHeightPercentage = "2.812%";
 const IounitToBus=(h,w)=>{
   ///depart: ( 29.7% , 38% )
   // gsap.to(".ball",{top:"44%" ,duration:3});
   gsap.fromTo(".ball", {left:"29.7%",top:"38%"}, {top:"44%" ,duration:1});
-};
-
-
-const BusToRual1=()=>{
-  ///depart: ( 54% , 24,45% )
-  gsap.fromTo(".ball",{left:"24.45%",top:"54%"},{top:"60%" ,duration:1});
 };
 
 const BusToRual2=()=>{
@@ -242,9 +238,9 @@ const BusToRual2=()=>{
   gsap.fromTo(".ball",{left:"35.2%",top:"54%"},{top:"60%" ,duration:1});
 };
 
-const BusToRegisters=()=>{
+const BusToRegisters=(width, height)=>{
   ///depart: ( 53.7% , 47.8% )
-  gsap.fromTo(".ball",{left:"47.8%",top:"53.7%"},{top:`55.5%` ,duration:1});
+  gsap.fromTo(".ball",{left:`${0.694 * width}px`,top:`${0.50 * height}px`},{top:`${ 0.613 * height}px` ,duration:1});
 };
 
 const DecoderToSequencer=()=>{
@@ -294,19 +290,241 @@ const IpToAdr=()=>{
   gsap.fromTo(".ball",{left:"69%",top:"13.7%"},{top:`17.8%` ,duration:1});
 };
 
-animations[0]=IounitToBus;
-animations[1]=BusToRual1;
-animations[2]=BusToRual2;
-animations[3]=BusToRegisters;
-animations[4]=IrToDecoder;
-animations[5]=QueueToIr;
-animations[6]=BusToQueue;
-animations[7]=BusToAcc;
-animations[8]=AluToAcc;
-animations[9]=MdrToBus;
-animations[10]=AdrToBus;
-animations[11]=IpToAdr;
-animations[12]=DecoderToSequencer;
+const fitRual = () => {
+  gsap.to(".ball", {borderRadius: "25%", width: "5%", height: "4.5%"});
+}
+
+const fitRegister = () => {
+  gsap.to(".ball", {borderRadius: "15%", left:"686px", width: "8.166%", height: "4.3%"});
+}
+
+const fitFlags = () => {
+  gsap.timeline().fromTo(".ball", {top: "54.6%", left: "24.6%"}, {top: "71.25%"})
+  .to(".ball", {left: "23.6%"})
+  .to(".ball", {borderRadius: "25%", top: "70.5%", left: "18.65%", width: "4.95%", height: "4.6%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "71.25%", left: "23.6%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+}
+
+const enterFlags = () => {
+  gsap.timeline().fromTo(".ball",{left:"35.2%",top:"54%"},{top:"71.5%" ,duration:1}).to(".ball", {left: "23.6%"})
+  .to(".ball", {borderRadius: "25%", left:"18.75%", top: "70.5%" , width: "4.8%", height: "4.55%"}); //transformation function
+}
+
+const enterMDR = () => {
+  gsap.timeline().fromTo(".ball", {left:"29.7%",top:"38%"}, {top:"44%"})
+  .to(".ball", {left:`51.9%`})
+  .to(".ball", {top: "39%"})
+  .to(".ball", {borderRadius: "15%", left:"48%", top: "33%", width: "9.2%", height: "6%" , duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", left: "51.9%", top: "39%", width: initialWidthPercentage, height: initialHeightPercentage, duration: 1}) //unfit
+}
+
+const enterIoUnit = () => {
+  gsap.timeline().fromTo(".ball", {left:"29.9%",top:"44%"}, {top:"34.3%"})
+  .to(".ball", {borderRadius: "15%", left: "27%", top: "24.5%", width: "7.4%", height: "9.8%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", left: "29.9%", top: "34.3%", width: initialWidthPercentage, height: initialHeightPercentage, duration: 1}) //unfit
+
+}
+
+const fitIP = () => {
+  gsap.timeline().to(".ball", {top: "12.45%"})
+  .to(".ball", {borderRadius: "25%", left: "66.6%", top: "6.7%", width: "6.1%", height: "5.61%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", left: "69%", top: "12.45%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+}
+
+const fitMAR = () => {
+  gsap.timeline().fromTo(".ball", {top: "19.5%", left: "69%"}, {left: "60.25%"})
+  .to(".ball", {rotation: "270_ccw"}) //rotate the circle before transofrmation
+  .to(".ball", {borderRadius: "0%", top: "17%",left: "55.7%", width: "8.16%", height: "5%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "19.5%", left: "60.25%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+  .to(".ball", {rotation: "0_ccw", duration: "1"}) //undo rotation
+}
+
+const fitIR = () => {
+  gsap.timeline().fromTo(".ball", {top: "19.5%", left: "60.25%"}, {left:"66.4%"})
+  .to(".ball", {top: "44.5%"})
+  .to(".ball", {left: "79.1%"})
+  .to(".ball", {top: "58%"})
+  .to(".ball", {left: "63.9%"})
+  .to(".ball", {borderRadius: "15%", top: "56.75%", left: "55.7%", width: "8.2%", height: "5.2%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "58%", left: "63.9%", width: initialWidthPercentage, height: initialHeightPercentage, duration: 1}) //unfit
+}
+
+const fitDecoder = () => {
+  gsap.timeline().fromTo(".ball", {top: "58%", left: "63.9%", }, {left: "59.25%"})
+  .to(".ball", {top: "63%"})
+  .to(".ball", {borderRadius: "15%", top: "65.8%", left: "55.75%", width: "8.15%", height: "5.25%"}) //transfromation function
+  .to(".ball", {borderRadius: "50%", top: "63%", left: "59.25%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+}
+
+const fitSequencer = () => {
+  gsap.timeline().fromTo(".ball", {top: "63%", left: "59.25%"}, {top: "72%"})
+  .to(".ball", {borderRadius: "15%", top: "74.85%", left: "55.75%", width: "8.15%", height: "5.25%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "72%", left: "59.25%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+}
+
+const fitRUAL1 = () => {
+  gsap.timeline().fromTo(".ball", {top: "44.5%", left: "79.1%"}, {left: "24.6%"})
+  .to(".ball", {top: "54.6%"})
+  .to(".ball", {borderRadius: "25%", top: "57.5%", left: "22.9%", width: "4.85%", height: "4.65%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "54.6%", left: "24.6%", width: initialWidthPercentage, height: initialHeightPercentage}) // unfit
+}
+
+const fitRUAL2 = () => {
+  gsap.timeline().fromTo(".ball", {top: "80.55%", left: "30.15%"}, {left: "39.7%"})
+  .to(".ball", {top: "44.5%"})
+  .to(".ball", {left: "35.4%"})
+  .to(".ball", {top: "54.6%"})
+  .to(".ball", {borderRadius: "25%", top: "57.5%", left: "33.7%", width: "4.85%", height: "4.65%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "54.6%", left: "35.4%", width: initialWidthPercentage, height: initialHeightPercentage}) // unfit
+}
+
+const globalFittingAnimations = () => {
+  // enter the IO unit
+  gsap.timeline().fromTo(".ball", {left:"29.9%",top:"44.5%"}, {top:"34.3%"})
+  .to(".ball", {borderRadius: "15%", left: "27%", top: "24.5%", width: "7.4%", height: "9.8%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", left: "29.9%", top: "34.3%", width: initialWidthPercentage, height: initialHeightPercentage, duration: 1}) //unfit
+
+  //back to data bus
+  .to(".ball", {top: "44.5%"})
+
+  //enter MDR
+  .to(".ball", {left:`51.9%`})
+  .to(".ball", {top: "39%"})
+  .to(".ball", {borderRadius: "15%", left:"48%", top: "33%", width: "9.2%", height: "6%" , duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", left: "51.9%", top: "39%", width: initialWidthPercentage, height: initialHeightPercentage, duration: 1}) //unfit
+
+  //back to data bus
+  .to(".ball", {top: "44.5%"})
+
+  //go to address bus
+  .to(".ball", {left: "66.4%"})
+  .to(".ball", {top: "19.5%"})
+  .to(".ball", {left: "69%"})
+
+  //enter IP
+  .to(".ball", {top: "12.45%"})
+  .to(".ball", {borderRadius: "25%", left: "66.6%", top: "6.7%", width: "6.1%", height: "5.61%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", left: "69%", top: "12.45%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+
+  //back to address bus
+  .to(".ball", {top: "19.5%"})
+
+  //enter MAR
+  .to(".ball", {left: "60.25%"})
+  .to(".ball", {rotation: "270_ccw"})
+  .to(".ball", {rotation: "270_ccw"}) //rotate the circle before transofrmation
+  .to(".ball", {borderRadius: "0%", top: "17%",left: "55.7%", width: "8.16%", height: "5%", duration: 1}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "19.5%", left: "60.25%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+  .to(".ball", {rotation: "0_ccw", duration: "1"}) //undo rotation
+
+  //back to Data bus
+  .to(".ball", {left: "66.4%"})
+  .to(".ball", {top: "44.5%"})
+
+  //move to IR
+  .to(".ball", {left: "79.1%"})
+  .to(".ball", {top: "58%"})
+  .to(".ball", {left: "63.9%"})
+
+  //enter IR
+  .to(".ball", {borderRadius: "15%", top: "56.75%", left: "55.7%", width: "8.2%", height: "5.2%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "58%", left: "63.9%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+
+  //move to Decoder
+  .to(".ball", {left: "59.25%"})
+  .to(".ball", {top: "63%"})
+  .to(".ball", {borderRadius: "15%", top: "65.8%", left: "55.75%", width: "8.15%", height: "5.25%"}) //transfromation function
+  .to(".ball", {borderRadius: "50%", top: "63%", left: "59.25%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+
+  //go to Sequencer
+  .to(".ball", {top: "72%"})
+
+  //enter Sequencer
+  .to(".ball", {borderRadius: "15%", top: "74.85%", left: "55.75%", width: "8.15%", height: "5.25%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "72%", left: "59.25%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+
+  //back to data bus
+  .to(".ball", {top: "58%"})
+  .to(".ball", {left: "79.1%"})
+  .to(".ball", {top: "44.5%"})
+
+  //go to RUAL1
+  .to(".ball", {left: "24.6%"})
+  .to(".ball", {top: "54.6%"})
+
+  //enter RUAL1
+  .to(".ball", {borderRadius: "25%", top: "57.5%", left: "22.9%", width: "4.85%", height: "4.65%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "54.6%", left: "24.6%", width: initialWidthPercentage, height: initialHeightPercentage}) // unfit
+
+  //go to Flags
+  .to(".ball", {top: "71.25%"})
+  .to(".ball", {left: "23.6%"})
+
+  //enter Flags
+  .to(".ball", {borderRadius: "25%", top: "70.5%", left: "18.65%", width: "4.95%", height: "4.6%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "71.25%", left: "23.6%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+
+  //go to ACC
+  .to(".ball", {left: "30.15%"})
+  .to(".ball", {top: "76.15%"})
+
+  //enter ACC
+  .to(".ball", {borderRadius: "15%", top: "79.1%", left: "27.89%", width: "6.1%", height: "5.8%"}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "76.15%", left: "30.15%", width: initialWidthPercentage, height: initialHeightPercentage}) //unfit
+
+  //back to Data bus
+  .to(".ball", {top: "80.55%"})
+  .to(".ball", {left: "39.7%"})
+  .to(".ball", {top: "44.5%"})
+
+  //go to RUAL2
+  .to(".ball", {left: "35.4%"})
+  .to(".ball", {top: "54.6%"})
+
+  //enter RUAL2
+  .to(".ball", {borderRadius: "25%", top: "57.5%", left: "33.7%", width: "4.85%", height: "4.65%", duration: 2}) //transformation function
+  .to(".ball", {borderRadius: "50%", top: "54.6%", left: "35.4%", width: initialWidthPercentage, height: initialHeightPercentage}) // unfit
+
+}
+
+animations[0] = globalFittingAnimations;
+// animations[0] = temp;
+
+  // animations[0]=IounitToBus;
+  // animations[1]=BusToRual1;
+  // animations[2]=BusToRual2;
+  // animations[3]=BusToRegisters;
+  // animations[4]=IrToDecoder;
+  // animations[5]=QueueToIr;
+  // animations[6]=BusToQueue;
+  // animations[7]=BusToAcc;
+  // animations[8]=AluToAcc;
+  // animations[9]=MdrToBus;
+  // animations[10]=AdrToBus;
+  // animations[11]=IpToAdr;
+  // animations[12]=DecoderToSequencer;
+
+  // //animation to fit into the RUAL registers
+  // animations[0] = BusToRual2;
+  // animations[1] = fitRual;
+
+  // //animation to fit into the 7 registers
+  // animations[0]=BusToRegisters;
+  // animations[1]=fitRegister;
+
+  // //animation to fit into the flags register
+  // animations[0] = enterFlags;
+  // animations[1] = fitFlags;
+  
+  // // animation to fit into the MDR register
+  // animations[0] = enterMDR;
+
+  // // animation to fit into the IO unit register
+  // animations[0] = enterIoUnit;
+  
+  // //global dimonstration of transformations
+  // animations[0] = globalFittingAnimations;
+
 }
 // useEffect(()=>{
 //   setTimeout(()=>{traitement()
