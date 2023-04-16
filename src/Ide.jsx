@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import Console from './Console.jsx';
 import Arch from './Arch.jsx';
+import { TransgenderOutlined } from '@mui/icons-material';
 
 
 ////////////////animations declarations////////////////////////////////
@@ -66,9 +67,11 @@ while(queue.getqueuelen()<6){
 }
 //-----//
 let resulttmp="";
-sequenceur.getinstrbyte();
-let instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
+sequenceur.getinstrbyte(animations,true);
+let instrobject={...sequenceur.decode(animations)};
+console.log(instrobject);
+
+sequenceur.execute(instrobject,1,animations);
 console.log(` after first instruction :`);
 resulttmp=resulttmp+` after first instruction :`;
 memory.setRam(0);
@@ -112,51 +115,51 @@ memory.read(0);
 console.log(`memory 16 :${memory.getRim()}`);
 resulttmp=resulttmp+`
   memory 14 :${memory.getRim()}`;
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
-sequenceur.getinstrbyte();
-instrobject=sequenceur.decode();
-sequenceur.execute(instrobject,0);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
 
 console.log(` after last instruction :`);
 resulttmp=resulttmp+`
@@ -224,168 +227,32 @@ resulttmp=resulttmp+`
 setresult(resulttmp);
 
 
-///////////////////animations to test////////////////////
-const IounitToBus=(h,w)=>{
-  ///depart: ( 29.7% , 38% )
-  // gsap.to(".ball",{top:"44%" ,duration:3});
-  gsap.fromTo(".ball", {x:w*0.425,y:h*0.39,opacity:"0"}, {opacity:"1",duration:1,delay:1});
-  gsap.fromTo(".ball", {x:w*0.425,y:h*0.39}, {y:h*0.46 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
 
 
-const BusToRual1=(h,w)=>{
-  ///depart: ( 54% , 24,45% )
-  gsap.fromTo(".ball",{x:w*0.347,y:h*0.56,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.347,y:h*0.56},{y:h*0.625 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
+// animations[0]=BusToIr;
 
-const BusToRual2=(h,w)=>{
-  ///depart: ( 54% , 35,2% )
-  gsap.fromTo(".ball",{x:w*0.503,y:h*0.56,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.503,y:h*0.56},{y:h*0.625 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
 
-const BusToRegisters=(h,w)=>{
-  ///depart: ( 53.7% , 47.8% )
-  gsap.fromTo(".ball",{x:w*0.685,y:h*0.555,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.685,y:h*0.555},{y:h*0.58 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-const IrToDecoder=(h,w)=>{
-  ///depart: ( 59% , 78.2% )
-  gsap.fromTo(".ball",{x:w*0.848,y:h*0.708,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.848,y:h*0.708},{y:h*0.725 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-const DecoderToSequencer=(h,w)=>{
-  ///depart: ( 59% , 78.2% )
-  gsap.fromTo(".ball",{x:w*0.848,y:h*0.813,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.848,y:h*0.813},{y:h*0.827 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-const QueueToIr=(h,w)=>{
-  ///depart: ( 64.9% , 64.2% )  W:1.4% ,H:2.812
-  gsap.fromTo(".ball",{x:w*0.93,y:h*0.6638,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.93,y:h*0.6638},{x:w*0.915 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-const BusToQueue=(h,w)=>{
-  ///depart: ( 79.1% , 53.6% )  W:1.4% ,H:2.812
-  gsap.fromTo(".ball",{x:w*1.135,y:h*0.56,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*1.135,y:h*0.56},{y:h*0.6638 ,duration:1,delay:2});
-  gsap.to(".ball",{x:w*1.125 ,duration:1,delay:3});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:4});
-};
-
-const BusToAcc=(h,w)=>{
-  ///depart: ( 39.7% , 54% )  W:1.4% ,H:2.812
-  gsap.fromTo(".ball",{x:w*0.565,y:h*0.56,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.565,y:h*0.56},{y:h*0.923 ,duration:1,delay:2});
-  gsap.to(".ball",{x:w*0.486 ,duration:1,delay:3});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:4});
-};
-
-const AluToAcc=(h,w)=>{
-  ///depart: ( 30.3% , 83.5% )  W:1.4% ,H:2.812
-  gsap.fromTo(".ball",{x:w*0.43,y:h*0.863,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.43,y:h*0.863},{y:h*0.877 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-const MdrToBus=(h,w)=>{
-  ///depart: ( 51.8% , 43.2% )
-  gsap.fromTo(".ball",{x:w*0.743,y:h*0.445,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.743,y:h*0.445},{y:h*0.465 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-const AdrToBus=(h,w)=>{
-  ///depart: ( 66.3% , 25.4% )
-  gsap.fromTo(".ball",{x:w*0.988,y:h*0.137,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.988,y:h*0.137},{y:h*0.18 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-const IpToAdr=(h,w)=>{
-  ///depart: ( 69% , 13.7% )
-  gsap.fromTo(".ball",{x:w*0.95,y:h*0.26,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
-  gsap.fromTo(".ball",{x:w*0.95,y:h*0.26},{y:h*0.46 ,duration:1,delay:2});
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
-};
-
-/////////////data bus animations/////////////////:
-
-const MdrTOQue=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1,delay:1})
-  gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.874,duration:3,delay:3})
-  gsap.to(".ball",{opacity:"0" ,duration:1,delay:7});
-};
-
-const MdrToReg=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1,delay:1})
-gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.44,duration:2,delay:3})
-gsap.to(".ball",{opacity:"0" ,duration:1,delay:6});
-};
-
-const MdrToIO=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1,delay:1})
-gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.182,duration:3,delay:3})
-gsap.to(".ball",{opacity:"0" ,duration:1,delay:7});
-};
-const IOToMdr=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.182,opacity:"0"},{opacity:"1",duration:1,delay:1})
-gsap.fromTo(".box-data",{x:w*0.182},{x:w*0.497,duration:3,delay:3})
-gsap.to(".ball",{opacity:"0" ,duration:1,delay:7});
-};
-const MdrToRual1=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1,delay:1})
-gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.262,duration:3,delay:3})
-gsap.to(".ball",{opacity:"0" ,duration:1,delay:7});
-};
-const MdrToRual2=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1,delay:1})
-gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.106,duration:3,delay:3})
-gsap.to(".ball",{opacity:"0" ,duration:1,delay:7});
-};
-const AccToMDR=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1,delay:1})
-gsap.fromTo(".box-data",{x:w*0.321},{x:w*0.497,duration:2,delay:3})
-gsap.to(".ball",{opacity:"0" ,duration:1,delay:6});
-};
-
-const MdrToADR=(h,w)=>{
-  gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1,delay:1})
-gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.705,duration:2,delay:3})
-gsap.to(".ball",{opacity:"0" ,duration:1,delay:6});
-};
-animations[0]=IounitToBus;
-animations[1]=BusToRual1;
-animations[2]=BusToRual2;
-animations[3]=BusToRegisters;
-animations[4]=IrToDecoder;
-animations[5]=QueueToIr;
-animations[6]=BusToQueue;
-animations[7]=BusToAcc;
-animations[8]=AluToAcc;
-animations[9]=MdrToBus;
-animations[10]=AdrToBus;
-animations[11]=IpToAdr;
-animations[12]=DecoderToSequencer;
-animations[13]=MdrTOQue;
-animations[14]=MdrToReg;
-animations[15]=MdrToIO;
-animations[16]=IOToMdr;
-animations[17]=MdrToRual1;
-animations[18]=MdrToRual2;
-animations[19]=AccToMDR;
-animations[20]=MdrToADR;
+// animations[0]=IounitToBus;
+// animations[1]=BusToRual1;
+// animations[2]=BusToRual2;
+// animations[3]=BusToRegisters;
+// animations[4]=IrToDecoder;
+// animations[5]=QueueToIr;
+// animations[6]=BusToQueue;
+// animations[7]=BusToAcc;
+// animations[8]=AluToAcc;
+// animations[9]=MdrToBus;
+// animations[10]=AdrToBus;
+// animations[11]=IpToAdr;
+// animations[12]=DecoderToSequencer;
+// animations[13]=MdrTOQue;
+// animations[14]=MdrToReg;
+// animations[15]=MdrToIO;
+// animations[16]=IOToMdr;
+// animations[17]=MdrToRual1;
+// animations[18]=MdrToRual2;
+// animations[19]=AccToMDR;
+// animations[20]=MdrToADR;
 }
 // useEffect(()=>{
 //   setTimeout(()=>{traitement()
@@ -449,7 +316,7 @@ return <>
     </div>
   }
 </div>}
-{simul && <Arch anim={animations}/>}
+{simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers}/>}
 </>
 }
 export default Ide;

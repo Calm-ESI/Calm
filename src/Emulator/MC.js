@@ -16,9 +16,9 @@ class MC {
     setRam (adr){//val in decimal
     this.ram=adr;
     }
-    // getRam(){
-    // return this.ram;
-    // }
+    getRam(){
+    return this.ram;
+    }
     getRim (){
     return this.rim
     }
@@ -38,6 +38,9 @@ class MC {
     }
     pushval(){
     this.stack.push(this.rim);
+    }
+    getData(){
+        return this.data;
     }
 }
 export default MC;

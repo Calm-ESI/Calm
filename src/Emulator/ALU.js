@@ -82,6 +82,9 @@ class Alu{
     getFlags(i){
         return this.Flags[i];
     }
+    getAllFlags(){
+        return this.Flags;
+    }
 
        //!!!! Note:
        // Flags will b modified in all methods 
