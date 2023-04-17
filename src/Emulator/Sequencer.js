@@ -1,7 +1,7 @@
 import { Register } from "./Register.js";
 import { queue } from "../Ide.jsx";
 import { Registers } from "../Ide.jsx";
-import { hash,hashmap } from "./Opcodes.js";
+import { hash, hashmap } from "./Opcodes.js";
 import { addressingModes } from "../Ide.jsx";
 import { gsap } from "gsap";
 const IpToAdr={

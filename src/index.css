@@ -16,11 +16,11 @@
 }
 
 body {
+  margin: 0;
   background-image: url("./assets/bg4.png") ;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  overflow: hidden;
 } 
 @keyframes rotate {
 	0% {
@@ -84,12 +84,14 @@ body {
 .button {
   width: 300px;
   height: 80px;
+  grid-column: 2 / span 2;
+  grid-row: 4 / span 1;
+  position: relative;
+  right: 15%;
+  bottom: 120px;
   border-radius: 30px;
   background: #1BE985;
   cursor: pointer; 
-  position: fixed;
-  bottom:5em;
-  left:8em;
   z-index: 1;
   text-align: center;
   box-shadow: 2px 2px 2px rgba(45, 42, 42, 0.66);
@@ -106,6 +108,8 @@ letter-spacing: 2px;
 } */
 
 .navbar{
+  /* position: fixed;
+  min-width: 72%; */
   display: flex;
   align-items: center;
   gap: 25%;
@@ -195,12 +199,14 @@ nav, .link {
 .heroide{
   width:260px;
   height:330px;
+  position: relative;
+  grid-column: 5 / span 2;
+  grid-row: 1 / span 4;
+
   background-image: url("./assets/heroide.svg") ;
   background-size: contain;
   background-repeat: no-repeat;
-  position: fixed;
-  right:10em;
-  top:9em; 
+
   text-align: left;
   padding: 30px;
   padding-top: 70px;
@@ -217,9 +223,9 @@ nav, .link {
 }
 .playhero{
   width:30px;
-  position: fixed;
-  top: 165px;
-  right:200px;
+  position: absolute;
+  top: 20px;
+  right:40px;
   transition: 1s;
 }
 .playhero:hover{

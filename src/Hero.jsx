@@ -9,25 +9,33 @@ import { motion } from "framer-motion"
 import Navbar from "./Navbar.jsx";
 const Hero = ()=>{
     return <>
-    <Navbar/>
-    <Title/>
+
+      <Navbar/>
+
+      <main style={{position: "relative", height: "10%"}}>
+        <Title/>
+
+        <motion.div
+          className="button"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          > 
+          <img alt="" src={getstarted} style={{
+          margin:"1.2em 1em 0 0",
+          width:"12em"
+          }}/>
+          <img alt="" src={cpu} style={{
+          margin:"1.2em 0 0 0",
+          width:"2em"
+          }}/>
+        </motion.div>
+        
+        <HeroIde/>
+      </main>
+        
+
       
-      <motion.div
-      className="button"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      > 
-      <img alt="" src={getstarted} style={{
-      margin:"1.2em 1em 0 0",
-      width:"12em"
-      }}/>
-      <img alt="" src={cpu} style={{
-      margin:"1.2em 0 0 0",
-      width:"2em"
-      }}/>
-      </motion.div>
-      <HeroIde/>
     </>
 }
 export default Hero;

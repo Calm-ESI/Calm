@@ -3,10 +3,11 @@ import brackets from "./assets/brackets.svg"
 const Title= () => {
     return <>
     <img src={title} alt="" style={{
-        position:"fixed",
-        top:"10em",
         width:"40em",
-        left:"30px"
+        gridColumn: "1 / span 4",
+        gridRow: "1 / span 2",
+        position: "relative",
+        left: "15%",
     }}/>
     
     </>
