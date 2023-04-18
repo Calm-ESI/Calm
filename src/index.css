@@ -307,7 +307,7 @@ nav, .link {
   width: 5em;
   background-color: #1BE985;
   border-radius: 10px;
-  margin: 10px 30px;
+  margin: 10px 10px;
 }
 
 .contentTableDiv{
@@ -419,3 +419,22 @@ nav, .link {
   border-radius:5px;
   background: #ffffff56;
 }
+.aregide{
+  display: block;
+  font-size: 15px;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  margin: 15px 40px;
+}
+.contentTableMCIde{
+  width:29em;
+  margin: auto;
+  border-radius: 20px;
+  background-color: #212529;
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 50px;
+}
+

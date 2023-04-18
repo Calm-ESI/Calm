@@ -227,7 +227,16 @@ const BusToRual1={
   gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.497,duration:1,delay:1})
   gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
   },}
-  
+  let queueExitToReg={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.44,duration:1,delay:1})
+        gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    }
+}
   const MdrToIO={
     value:"",
     target:".box-data",
@@ -344,7 +353,7 @@ const IPToMAR={
     value:"",
     target:".box-ADR",
     time:3000,
-    anim:(h,w)=>{
+    anim:(val,h,w)=>{
     gsap.fromTo(".box-ADR",{x:w*0.753,opacity:"0"},{opacity:"1",duration:1})
     gsap.fromTo(".box-ADR",{x:w*0.753},{x:w*0.648,duration:1,delay:1})
     gsap.to(".box-ADR",{opacity:"0" ,duration:1,delay:2});
@@ -354,7 +363,7 @@ const ADRToMAR={
     value:"",
     target:".box-ADR",
     time:3000,
-    anim:(h,w)=>{
+    anim:(val,h,w)=>{
     gsap.fromTo(".box-ADR",{x:w*0.712,opacity:"0"},{opacity:"1",duration:1})
     gsap.fromTo(".box-ADR",{x:w*0.712},{x:w*0.648,duration:1,delay:1})
     gsap.to(".box-ADR",{opacity:"0" ,duration:1,delay:2});
@@ -1599,11 +1608,28 @@ class InstructionMOV01{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.isimmed=0;
         this.steps=[()=>{
             Registers[this.register1].setvalue(this.value2.toString(2));
         }
         ];
         if(this.register1=="000"){
+            if(this.isimmed){
+                this.animationSteps=[
+                {
+                    value:"value2",
+                    target:queueExitToReg.target,
+                    time:queueExitToReg.time,
+                    anim:queueExitToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToR1.target,
+                    time:fitToR1.time,
+                    anim:fitToR1.anim,
+                },
+            ];
+            }else{
             this.animationSteps=[{
                 value:"value2",
                 target:infitToMdr.target,
@@ -1628,7 +1654,7 @@ class InstructionMOV01{
                 time:fitToR1.time,
                 anim:fitToR1.anim,
             },
-        ];
+        ];}
         }else if (this.register1=="001") {
             this.animationSteps=[{
                 value:"value2",

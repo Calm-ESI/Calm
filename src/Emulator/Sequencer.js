@@ -4,6 +4,81 @@ import { Registers } from "../Ide.jsx";
 import { hash,hashmap } from "./Opcodes.js";
 import { addressingModes } from "../Ide.jsx";
 import { gsap } from "gsap";
+const fitToR1={
+    value:"",
+    target:".ball",
+    time:1000,
+    anim:(val,h,w)=>{
+      gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.045,x:w*0.442,y:h*0.6105,opacity:"0"},{opacity:"1" ,duration:1});
+    //   gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.045,duration:1,delay:1});
+    //   gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+    },}
+    const BusToRual2={
+        value:"",
+        target:".ball",
+        time:3000,
+        anim:(val,h,w)=>{
+        ///depart: ( 54% , 35,2% )
+        gsap.fromTo(".ball",{height:"2.812%",width:"1.4%",borderRadius:"50%",x:w*0.299,y:h*0.56,opacity:"0"},{opacity:"1" ,duration:1});
+        gsap.fromTo(".ball",{x:w*0.299,y:h*0.56},{y:h*0.625 ,duration:1,delay:1});
+        gsap.to(".ball",{opacity:"0" ,duration:1,delay:2});
+      },}
+      const RegToRual2={
+        value:"",
+        target:".box-data",
+        time:3000,
+        anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.44,opacity:"0"},{opacity:"1",duration:1})
+      gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.106,duration:1,delay:1})
+      gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+      },}
+      const fitToRual2={
+        value:"",
+        target:".ball",
+        time:1000,
+        anim:(val,h,w)=>{
+        gsap.fromTo(".ball",{borderRadius:"20px",width:w*0.067,height:h*0.05,x:w*0.275,y:h*0.658,opacity:"0"},{opacity:"1" ,duration:1});
+        // gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"20px",width:w*0.067,height:h*0.05,duration:1,delay:1});
+        // gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+      },}
+const BusToRual1={
+    value:"",
+    target:".ball",
+    time:3000,
+    anim:(val,h,w)=>{
+    ///depart: ( 54% , 24,45% )
+    gsap.fromTo(".ball",{height:"2.812%",width:"1.4%",borderRadius:"50%",x:w*0.143,y:h*0.56,opacity:"0"},{opacity:"1" ,duration:1});
+    gsap.fromTo(".ball",{x:w*0.143,y:h*0.56},{y:h*0.625 ,duration:1,delay:1});
+    gsap.to(".ball",{opacity:"0" ,duration:1,delay:2});
+  },}
+  const RegToRual1={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.44,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.262,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+  const fitToRual1={
+    value:"",
+    target:".ball",
+    time:1000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".ball",{borderRadius:"20px",width:w*0.067,height:h*0.05,x:w*0.12,y:h*0.658,opacity:"0"},{opacity:"1" ,duration:1});
+    // gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"20px",width:w*0.067,height:h*0.05,duration:1,delay:1});
+    // gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+  },}
+  const infitToR1={
+    value:"",
+    target:".ball",
+    time:1000,
+    anim:(val,h,w)=>{
+        // gsap.fromTo(".ball",{x:w*0.442,y:h*0.6105,opacity:"0",height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.045,duration:1,delay:1});
+        // gsap.fromTo(".ball",{x:w*0.442,y:h*0.6105,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
+        // gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.045,},{height:"2.812%",width:"1.4%",borderRadius:"50%",duration:1,delay:1});
+        gsap.to(".ball",{opacity:"0" ,duration:1});
+    },}
 const IpToAdr={
     value:"",
     target:".ball",
@@ -18,7 +93,7 @@ const IpToAdr={
     value:"",
     target:".box-ADR",
     time:3000,
-    anim:(h,w)=>{
+    anim:(val,h,w)=>{
     gsap.fromTo(".box-ADR",{x:w*0.753,opacity:"0"},{opacity:"1",duration:1})
     gsap.fromTo(".box-ADR",{x:w*0.753},{x:w*0.648,duration:1,delay:1})
     gsap.to(".box-ADR",{opacity:"0" ,duration:1,delay:2});
@@ -155,6 +230,93 @@ const IpToAdr={
     gsap.fromTo(".ball",{x:w*0.644,y:h*0.813},{y:h*0.827 ,duration:1,delay:1});
     gsap.to(".ball",{opacity:"0" ,duration:1,delay:2});
   },}
+  const fitqueue6={
+    value:"",
+    target:".queue1",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue1",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue5={
+    value:"",
+    target:".queue2",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue2",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue4={
+    value:"",
+    target:".queue3",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue3",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue3={
+    value:"",
+    target:".queue4",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue4",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue2={
+    value:"",
+    target:".queue5",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue5",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue1={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue6",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  
+  const infitqueue6={
+    value:"",
+    target:".queue1",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue1",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue5={
+    value:"",
+    target:".queue2",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue2",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue4={
+    value:"",
+    target:".queue3",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue3",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue3={
+    value:"",
+    target:".queue4",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue4",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue2={
+    value:"",
+    target:".queue5",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue5",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue1={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue6",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+
+
 
 function hex2bin(hex){
     return ("00000000" + (parseInt(hex, 16)).toString(2)).substr(-8);
@@ -169,7 +331,6 @@ class Sequenceur{
         let Ins=hex2bin(Inshex);
         this.RI.setvalue(Ins);
         //the animation for this instruction goes here
-        queue.fetchInstruction(animations);//----///here we have the fetch from the memory
         
 
         /////those 2 animations must be at the same time___________________
@@ -177,8 +338,75 @@ class Sequenceur{
 
         if(is_animated){
         //animation of shift from queue
+        // animations.push({
+        //     value:"",
+        //     target:infitqueue6.target,
+        //     time:infitqueue6.time,
+        //     anim:infitqueue6.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:infitqueue5.target,
+        //         time:infitqueue5.time,
+        //         anim:infitqueue5.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:fitqueue6.target,
+        //         time:fitqueue6.time,
+        //         anim:fitqueue6.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:infitqueue4.target,
+        //         time:infitqueue4.time,
+        //         anim:infitqueue4.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:fitqueue5.target,
+        //         time:fitqueue5.time,
+        //         anim:fitqueue5.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:infitqueue3.target,
+        //         time:infitqueue3.time,
+        //         anim:infitqueue3.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:fitqueue4.target,
+        //         time:fitqueue4.time,
+        //         anim:fitqueue4.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:infitqueue2.target,
+        //         time:infitqueue2.time,
+        //         anim:infitqueue2.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:fitqueue3.target,
+        //         time:fitqueue3.time,
+        //         anim:fitqueue3.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:infitqueue1.target,
+        //         time:infitqueue1.time,
+        //         anim:infitqueue1.anim,
+        //     });
+        //     animations.push({
+        //         value:"",
+        //         target:fitqueue2.target,
+        //         time:fitqueue2.time,
+        //         anim:fitqueue2.anim,
+        //     });
         animations.push({
             value:"",
+            nom:"QueueToIr",
             target:QueueToIr.target,
             time:QueueToIr.time,
             anim:QueueToIr.anim,
@@ -227,6 +455,7 @@ class Sequenceur{
         });
         ///animation of the sequencer
     }
+    queue.fetchInstruction(animations,5,false);//----///here we have the fetch from the memory
     }
     decode(animations){
         let instruction=this.RI.getvalue();
@@ -569,7 +798,37 @@ class Sequenceur{
                         let value1 =addressingModes.modesVal[parseInt(regMod1,2)](adresse,0,taille,depl,animations,1,1);
                         let value2=0;
                         if(taille=='1'){
-                            value2 = parseInt(Registers[parseInt(regMod2, 2)].getvalue(),2);
+                            value2 = parseInt(Registers[parseInt(regMod2, 2)].getvalue(),2);/////les animations des registres vers RUAL
+                            animations.push({
+                                value:value2,
+                                target:fitToR1.target,
+                                time:fitToR1.time,
+                                anim:fitToR1.anim,
+                            })
+                            animations.push({
+                                value:value2,
+                                target:infitToR1.target,
+                                time:infitToR1.time,
+                                anim:infitToR1.anim,
+                            })
+                            animations.push({
+                                value:value2,
+                                target:RegToRual1.target,
+                                time:RegToRual1.time,
+                                anim:RegToRual1.anim,
+                            })
+                            animations.push({
+                                value:"",
+                                target:BusToRual2.target,
+                                time:BusToRual2.time,
+                                anim:BusToRual2.anim,
+                            })
+                            animations.push({
+                                value:value2,
+                                target:fitToRual2.target,
+                                time:fitToRual2.time,
+                                anim:fitToRual2.anim,
+                            })
                         }else{
                             if(regMod2=='000'){
                                 value2 = parseInt(Registers[0].getright(),2);

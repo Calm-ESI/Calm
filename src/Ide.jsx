@@ -18,6 +18,9 @@ import Arch from './Arch.jsx';
 import { TransgenderOutlined } from '@mui/icons-material';
 
 
+
+
+
 ////////////////animations declarations////////////////////////////////
 let animations=[];
 
@@ -45,13 +48,15 @@ const Ide = ()=>{
   let [result,setresult]=useState("");
   let [done,setdone]=useState(false);
   let [simul,setsimul]=useState(false)
-
+  let [memo,setmemo]=useState(false);
+  let [reg,setreg]=useState(false);
+  let [stk,setstk]=useState(false);
   ///////////////////////////////executions function////////////////////////////////////////
 const traitement= (codeArray)=>{
-Registers[0].setvalue("0000000000000010");
-Registers[1].setvalue("0000000000000011");
+// Registers[0].setvalue("0000000000000010");
+// Registers[1].setvalue("0000000000000011");
 
-for(let i=0;i<50;i++){//initializing first 10 bytes in memory to 0 (data memory)
+for(let i=0;i<50;i++){//initializing first 50 bytes in memory to 0 (data memory)
 memory.setRam(i);
 memory.setRim("00000000");
 memory.write();
@@ -62,168 +67,175 @@ memory.setcode(codeArray)
 queue.instructionset([]);
 
 //------//
-while(queue.getqueuelen()<6){
-    queue.fetchInstruction();
-}
+let numtmp=0;
+// while(queue.getqueuelen()<6){
+//     queue.fetchInstruction(animations,numtmp,1);
+//     numtmp++;
+// }
+queue.fetchInstruction(animations,0,1,0,0,"19C8");
+queue.fetchInstruction(animations,1,1,2,2,"0000");
+queue.fetchInstruction(animations,2,1,4,4,"0001");
+queue.fetchInstruction(animations,numtmp,0,0,0,"19C8");
+queue.fetchInstruction(animations,numtmp,0,0,0,"19C8");
+queue.fetchInstruction(animations,numtmp,0,0,0,"19C8");
+
 //-----//
 let resulttmp="";
 sequenceur.getinstrbyte(animations,true);
 let instrobject={...sequenceur.decode(animations)};
-console.log(instrobject);
+sequenceur.execute(instrobject,1,animations);
+// console.log(` after first instruction :`);
+// resulttmp=resulttmp+` after first instruction :`;
+// memory.setRam(0);
+// memory.read(0);
+// console.log(`memory 0 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 0 :${memory.getRim()}`;
 
+// memory.setRam(2);
+// memory.read(0);
+// console.log(`memory 2 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 2 :${memory.getRim()}`;
+// memory.setRam(4);
+// memory.read(0);
+// console.log(`memory 4 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 4 :${memory.getRim()}`;
+// memory.setRam(6);
+// memory.read(0);
+// console.log(`memory 6 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 6 :${memory.getRim()}`;
+// memory.setRam(10);
+// memory.read(0);
+// console.log(`memory 10 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 10 :${memory.getRim()}`;
+// memory.setRam(12);
+// memory.read(0);
+// console.log(`memory 12 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 12 :${memory.getRim()}`;
+// memory.setRam(14);
+// memory.read(0);
+// console.log(`memory 14 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 14 :${memory.getRim()}`;
+// memory.setRam(16);
+// memory.read(0);
+// console.log(`memory 16 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 14 :${memory.getRim()}`;
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
 sequenceur.execute(instrobject,1,animations);
-console.log(` after first instruction :`);
-resulttmp=resulttmp+` after first instruction :`;
-memory.setRam(0);
-memory.read(0);
-console.log(`memory 0 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 0 :${memory.getRim()}`;
+sequenceur.getinstrbyte(animations,true);
+instrobject=sequenceur.decode(animations);
+sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
 
-memory.setRam(2);
-memory.read(0);
-console.log(`memory 2 :${memory.getRim()}`);
+// console.log(` after last instruction :`);
+// resulttmp=resulttmp+`
+//   after last instruction :`;
+// memory.setRam(0);
+// memory.read(0);
+// console.log(`memory 0 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 0 :${memory.getRim()}`;
+// memory.setRam(2);
+// memory.read(0);
+// console.log(`memory 2 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 2 :${memory.getRim()}`;
+// memory.setRam(4);
+// memory.read(0);
+// console.log(`memory 4 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 4 :${memory.getRim()}`;
+// memory.setRam(6);
+// memory.read(0);
+// console.log(`memory 6 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 6 :${memory.getRim()}`;
+// memory.setRam(10);
+// memory.read(0);
+// console.log(`memory 10 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 10 :${memory.getRim()}`;
+// memory.setRam(12);
+// memory.read(0);
+// console.log(`memory 12 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 12 :${memory.getRim()}`;
+// memory.setRam(14);
+// memory.read(0);
+// console.log(`memory 14 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 14 :${memory.getRim()}`;
+// memory.setRam(16);
+// memory.read(0);
+// console.log(`memory 16 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 16 :${memory.getRim()}`;
+// memory.setRam(20);
+// memory.read(0);
+// console.log(`memory 20 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 20 :${memory.getRim()}`;
+// memory.setRam(22);
+// memory.read(0);
+// console.log(`memory 22 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 22 :${memory.getRim()}`;
+// memory.setRam(24);
+// memory.read(0);
+// console.log(`memory 24 :${memory.getRim()}`);
+// resulttmp=resulttmp+`
+//   memory 24 :${memory.getRim()}`;
+// memory.setRam(26);
+// memory.read(0);
+// console.log(`memory 26 :${memory.getRim()}`);
 resulttmp=resulttmp+`
-  memory 2 :${memory.getRim()}`;
-memory.setRam(4);
-memory.read(0);
-console.log(`memory 4 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 4 :${memory.getRim()}`;
-memory.setRam(6);
-memory.read(0);
-console.log(`memory 6 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 6 :${memory.getRim()}`;
-memory.setRam(10);
-memory.read(0);
-console.log(`memory 10 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 10 :${memory.getRim()}`;
-memory.setRam(12);
-memory.read(0);
-console.log(`memory 12 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 12 :${memory.getRim()}`;
-memory.setRam(14);
-memory.read(0);
-console.log(`memory 14 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 14 :${memory.getRim()}`;
-memory.setRam(16);
-memory.read(0);
-console.log(`memory 16 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 14 :${memory.getRim()}`;
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-
-console.log(` after last instruction :`);
-resulttmp=resulttmp+`
-  after last instruction :`;
-memory.setRam(0);
-memory.read(0);
-console.log(`memory 0 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 0 :${memory.getRim()}`;
-memory.setRam(2);
-memory.read(0);
-console.log(`memory 2 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 2 :${memory.getRim()}`;
-memory.setRam(4);
-memory.read(0);
-console.log(`memory 4 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 4 :${memory.getRim()}`;
-memory.setRam(6);
-memory.read(0);
-console.log(`memory 6 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 6 :${memory.getRim()}`;
-memory.setRam(10);
-memory.read(0);
-console.log(`memory 10 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 10 :${memory.getRim()}`;
-memory.setRam(12);
-memory.read(0);
-console.log(`memory 12 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 12 :${memory.getRim()}`;
-memory.setRam(14);
-memory.read(0);
-console.log(`memory 14 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 14 :${memory.getRim()}`;
-memory.setRam(16);
-memory.read(0);
-console.log(`memory 16 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 16 :${memory.getRim()}`;
-memory.setRam(20);
-memory.read(0);
-console.log(`memory 20 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 20 :${memory.getRim()}`;
-memory.setRam(22);
-memory.read(0);
-console.log(`memory 22 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 22 :${memory.getRim()}`;
-memory.setRam(24);
-memory.read(0);
-console.log(`memory 24 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 24 :${memory.getRim()}`;
-memory.setRam(26);
-memory.read(0);
-console.log(`memory 26 :${memory.getRim()}`);
-resulttmp=resulttmp+`
-  memory 26 :${memory.getRim()}`;
+  r1 :${Registers[0].getvalue()}  acc :${Registers[4].getvalue()} `;
 setresult(resulttmp);
 
 
@@ -283,7 +295,19 @@ setresult(resulttmp);
       fontWeight: 400,
     },
   })
+
   /////////////////////returning the component//////////////////
+  let tablec=[];
+  memory.getData().forEach((element,index) => {
+      tablec.push( <tr>
+      <td>
+          {index}
+      </td>
+      <td>
+          {element}
+      </td>
+  </tr>)
+  });
 return <> 
 {!simul && <Navbar/>}
 {/* <CodeMirror theme={aura} /> */}
@@ -297,25 +321,88 @@ return <>
   width="500px"
 />
 </div>
-
 {!done && <div className="codeContainer console">
-  <button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","C8","00","04","00","03","19","C8","00","06","00","04","19","C8","00","0A","00","05","19","C8","00","0C","00","06","19","C8","00","0E","00","07","19","C8","00","10","00","08","01","C9","00","00","00","0A","19","8C","00","14","03","C9","00","0C","00","02","19","8C","00","16","05","D1","00","06","00","0E","19","8C","00","18","07","C9","00","10","00","06","19","8C","00","1A"])
+  <button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"])
   setdone(true)
   }}>execute</button>
     <pre style={{color:"white"}}>{result}</pre>
     </div>
   }
 {done && <div className="codeContainer console">
-  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","C8","00","04","00","03","19","C8","00","06","00","04","19","C8","00","0A","00","05","19","C8","00","0C","00","06","19","C8","00","0E","00","07","19","C8","00","10","00","08","01","C9","00","00","00","0A","19","8C","00","14","03","C9","00","0C","00","02","19","8C","00","16","05","D1","00","06","00","0E","19","8C","00","18","07","C9","00","10","00","06","19","8C","00","1A"])
+  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","41","00","02","01","81","00","00"])
   setdone(true)
   }}>execute</button>
   <button className='execButton' onClick={()=>{setsimul(true)
   }}>simulate</button>
+  <button className='execButton' onClick={()=>{setreg(true)
+  setmemo(false)
+  setstk(false)
+  }}>registers</button>
+  <button className='execButton' onClick={()=>{setmemo(true)
+  setstk(false)
+  setreg(false)
+  }}>memory</button>
+    <button className='execButton' onClick={()=>{setstk(true)
+  }}>stack</button>
+  
+
   </div>
-    <pre style={{color:"white",marginTop:"2.5em"}}>{result}</pre>
+    {/* <pre style={{color:"white",marginTop:"2.5em"}}>{result}</pre> */}
+    {reg && <div className="IdeReg">
+                <div className="aregister">
+                    <p className="aregide">R1  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[0].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">R1  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[0].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">R2  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[1].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">R3  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[2].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">R4  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[3].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">RI  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[6].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">RB  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[5].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">RS  :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[7].getvalue()}</p></div>
+                </div>
+                <div className="aregister">
+                    <p className="aregide">Acc :</p>
+                    <div className="aregC"><p style={{margin:"6px"}}>{Registers[4].getvalue()}</p></div>
+                </div>
+            </div> }
+            {memo && <table className="contentTableMCIde">
+                <tbody>
+                <tr>
+                    <td style={{color:"#1BE985"}}>
+                        adresse
+                    </td>
+                    <td style={{color:"#1BE985"}}>
+                        content
+                    </td>
+                </tr>
+                    {tablec}
+                </tbody>
+            </table>}
     </div>
   }
 </div>}
+
 {simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers}/>}
 </>
 }
