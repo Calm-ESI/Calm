@@ -14,9 +14,9 @@ function LearnPage(props) {
       </main>
 
       <div className="globalContainerLearn">
-        <Learn title={"Get Started"}/>
-        <Learn title={"Adressing Modes"}/>
-        <Learn title={"Components"}/>
+        <Learn title={"Get Started"} link={"/learn"}/>
+        <Learn title={"Adressing Modes"} link={"/learn/addressing-modes"}/>
+        <Learn title={"Components"} link={"learn/components"}/>
         <Learn title={"Examples"}/>
 
       </div>

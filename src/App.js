@@ -8,6 +8,8 @@ import Hero from './Hero.jsx';
 import Ide from './Ide.jsx';
 import Arch from './Arch.jsx';
 import LearnPage from './LearnPage';
+import AdressingModes from "./AdressingModes";
+import  Components  from "./Components";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route exact path="/ide" element={<Ide/>}/>
           <Route exact path="/archi" element={<Arch/>}/>
           <Route exact path="/learn" element={<LearnPage/>}/>
+          <Route exact path="/learn/addressing-modes" element={<AdressingModes/>}/>
+          <Route exact path="/learn/components" element={<Components/>}/>
         </Routes>
         
       </div>

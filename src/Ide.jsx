@@ -1,6 +1,6 @@
 /*import { tags as t } from '@lezer/highlight';
 import { aura, auraInit } from '@uiw/codemirror-theme-aura';*/
-import CodeMirror from '@uiw/react-codemirror';
+import { Controlled as CodeMirror } from "react-codemirror2";
 import Navbar from './Navbar.jsx';
 import {EditorView} from "@codemirror/view"
 import { useState } from 'react';
@@ -17,6 +17,9 @@ import Console from './Console.jsx';
 import Arch from './Arch.jsx';
 import { TransgenderOutlined } from '@mui/icons-material';
 
+import "./codemirror/lib/codemirror.css"
+import "./codemirror/theme/material.css";
+// import "./codemirror/mode/myLang/assembly.js"
 
 ////////////////animations declarations////////////////////////////////
 let animations=[];
@@ -284,6 +287,7 @@ setresult(resulttmp);
     },
   })
   /////////////////////returning the component//////////////////
+  const [code, setCode] = useState("");
 return <> 
 {!simul && <Navbar/>}
 {/* <CodeMirror theme={aura} /> */}
@@ -292,9 +296,19 @@ return <>
 }}>
 <div className='codeContainer'>
 <CodeMirror
-  theme={myTheme}
-  height="420px"
-  width="500px"
+
+  value={code}
+
+  options={{ 
+    mode: "8086",
+    theme: "material",
+    lineNumbers:true,
+    readOnly: false,
+
+  }}
+  onBeforeChange={(editor, data, value) => {
+    setCode(value);
+  }}
 />
 </div>
 
