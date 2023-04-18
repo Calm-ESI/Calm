@@ -7,12 +7,14 @@ import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 import HeroIde from './HeroIde.jsx';
 import { motion } from "framer-motion"
 import Navbar from "./Navbar.jsx";
+import Riad from "./Riad.jsx";
+
 const Hero = ()=>{
     return <>
 
       <Navbar/>
 
-      <main style={{position: "relative", height: "10%"}}>
+      <main id="get-started-container" style={{position: "relative", height: "10%"}}>
         <Title/>
 
         <motion.div
@@ -34,7 +36,7 @@ const Hero = ()=>{
         <HeroIde/>
       </main>
         
-
+      <Riad/>
       
     </>
 }

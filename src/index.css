@@ -17,10 +17,10 @@
 
 body {
   margin: 0;
-  background-image: url("./assets/bg4.png") ;
+  /* background-image: url("./assets/bg4.png") ;
   background-attachment: fixed;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 } 
 @keyframes rotate {
 	0% {
@@ -162,40 +162,6 @@ letter-spacing: 2px;
   transform: scale(1.3,1.3);
 }
 
-
-
-/* nav {
-  margin: 0px;
-  padding: 0px;
-  overflow: hidden;
-  background-color: #FFC500;
-  border-radius: 10px;
-  height:60px;
-  
-}
-nav, ul {
-  display: flex;
-    padding:1em; 
-  margin: 0px;
-  align-items: center;
-}
-nav, .link {
-  z-index: 1;
-  list-style-type: none;
-  margin: 0.8em;
-     margin-left:1em; 
-  display: flex;
-  gap: 10em;
-  color:#000083;
-  justify-content: space-around;
-  text-decoration: none;
-  transition:2s;
-  font-size:2;
-}
-.link:hover{
-  transform: scale(1.2);
-  text-decoration: underline;
-} */
 .heroide{
   width:260px;
   height:330px;

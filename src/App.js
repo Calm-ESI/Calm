@@ -7,7 +7,8 @@ import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 import Hero from './Hero.jsx';
 import Ide from './Ide.jsx';
 import Arch from './Arch.jsx';
-import Riad from './Riad'
+import LearnPage from './LearnPage';
+
 function App() {
   return (
     <Router>
@@ -33,9 +34,9 @@ function App() {
           <Route exact path="/" element={<Hero/>}/>
           <Route exact path="/ide" element={<Ide/>}/>
           <Route exact path="/archi" element={<Arch/>}/>
+          <Route exact path="/learn" element={<LearnPage/>}/>
         </Routes>
         
-        <Riad/>
       </div>
     </Router>
   );

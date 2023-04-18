@@ -8,7 +8,7 @@ import img5 from './assets/Vector(3).png';
 import AOS from 'aos';
 import React, {useEffect} from 'react';
 import'aos/dist/aos.css'
-
+import Footer from './Footer'
 
 function Riad() {
  
@@ -93,42 +93,11 @@ function Riad() {
   const Part7=()=>{
     return(
       <>
-      <section className="thanks-collaboration-section"> 
-        <h2 className="part7-2">
-          Thanks for everyone who contributed to this project <img className="ceour-vert" src={img2} alt="court-vert"/>
-        </h2>
-        <h2 className="part7-3">You can always contribute from <a href="/"> here</a></h2>
-
-      </section>
-
         <Footer></Footer>
       </>
     )
   }
 
-  const Footer = () => {
-    return (
-      
-      <footer >
-          <div id="email-us-container">
-            <h2 className="part7-7">You can reach us out anytime</h2>
-            <button className="email-us-button">
-              <h1 className="email-us-text">Email us</h1>
-              <img className="mail-icon" src={img4} alt='mail-icon'/>
-            </button>
-          </div>
-
-          <div id='social-media-container'>
-            <h2 className="social-media-text">Follow us for updates</h2>
-            <div id="social-media-icons-wrapper">
-              <img className="git-icon" src={img3} alt='git-icon'/>
-              <img className="discord-icon" src={img1} alt='discord-icon'/>
-              <img className="linkedin-icon" src={img5} alt='linkedin-icon'/>
-            </div>
-          </div>
-        </footer>
-    )
-  }
   return (
     <>
       
