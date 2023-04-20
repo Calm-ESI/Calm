@@ -1,24 +1,10 @@
-@font-face {
-  font-family: "Mona Sans";
-  src: url("font/Mona-Sans.woff2") format("woff2 supports variations"),
-    url("font/Mona-Sans.woff2") format("woff2-variations");
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("font/JetBrainsMono-Regular.woff2") format("woff2"),
-    url("font/JetBrainsMono-Bold.woff2") format("woff2");
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
-:root {
+/* :root {
   --main-background-color: #1b1f24;
   --main-accent-color: #1be985f4;
   --adress-mode-color: #24292e;
   --button-color: #4e4e4e;
   --container-color: #24292e;
-}
+} */
 
 body {
   font-family: "Mona sans", sans-serif;

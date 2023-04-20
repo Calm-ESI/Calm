@@ -1,10 +1,7 @@
-import { Registers } from "../Ide.jsx";
-import { memory } from "../Ide.jsx";
+import { Registers, memory, Alu1, IP } from "../pages/Ide";
 import { TwosComplement } from "./ALU.js";
-import { Alu1 } from "../Ide.jsx";
-import { IP } from "../Ide.jsx";
 import { gsap } from "gsap";
-import { Register } from "./Register.js";
+// import { Register } from "./Register.js";
 ////////////////////////////////////////////////
 /////////////////animations to test////////////////////
 const IounitToBus={

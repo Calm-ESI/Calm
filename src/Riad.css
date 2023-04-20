@@ -1,16 +1,3 @@
-
-@font-face {
-  font-family: "Mona Sans";
-  src: url("font/Mona-Sans.woff2") format("woff2 supports variations"), url("font/Mona-Sans.woff2") format("woff2-variations");
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("font/JetBrainsMono-Regular.woff2") format("woff2"), url("font/JetBrainsMono-Bold.woff2") format("woff2");
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
 @keyframes blink {
   0% {
     opacity: 1;

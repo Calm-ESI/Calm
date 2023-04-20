@@ -4,15 +4,23 @@
 
 @font-face {
   font-family: "Mona Sans";
-  src: url("font/Mona-Sans.woff2") format("woff2 supports variations"), url("font/Mona-Sans.woff2") format("woff2-variations");
+  src: url("assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("assets/font/Mona-Sans.woff2") format("woff2-variations");
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("font/JetBrainsMono-Regular.woff2") format("woff2"), url("font/JetBrainsMono-Bold.woff2") format("woff2");
+  src: url("assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("assets/font/JetBrainsMono-Bold.woff2") format("woff2");
   font-weight: 200 900;
   font-stretch: 75% 125%;
+}
+
+:root {
+  --main-background-color: #1b1f24;
+  --main-accent-color: #1be985f4;
+  --adress-mode-color: #24292e;
+  --button-color: #4e4e4e;
+  --container-color: #24292e;
 }
 
 body {
@@ -169,7 +177,7 @@ letter-spacing: 2px;
   grid-column: 5 / span 2;
   grid-row: 1 / span 4;
 
-  background-image: url("./assets/heroide.svg") ;
+  background-image: url("/src/assets/images/interface-elements/heroide.svg") ;
   background-size: contain;
   background-repeat: no-repeat;
 

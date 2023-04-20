@@ -1,5 +1,4 @@
-import { memory } from "../Ide.jsx";
-import {BR,IR} from "../Ide.jsx";
+import { memory, BR, IR } from "../pages/Ide";
 import { gsap } from "gsap";
 function hex2bin(hex){
     return ("00000000" + (parseInt(hex, 16)).toString(2)).substr(-8);
