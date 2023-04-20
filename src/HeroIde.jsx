@@ -1,13 +1,13 @@
-import heroide from "./assets/heroide.svg"
-import { Icon } from '@iconify/react';
+// import heroide from "./assets/heroide.svg"
+// import { Icon } from '@iconify/react';
 import { useState } from "react";
 import play from "./assets/play.png"
 import TypeWriterEffect from 'react-typewriter-effect';
 
 const HeroIde= ()=>{
-    let [show, setshow] = useState("");
-    let [iscode,setIsCode] =useState(true)
-    let [result, setresult] = useState(false);
+    // let [show, setshow] = useState("");
+    // let [iscode,setIsCode] =useState(true)
+    // let [result, setresult] = useState(false);
 
     
 

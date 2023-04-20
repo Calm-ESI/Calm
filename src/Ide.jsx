@@ -11,15 +11,12 @@ import AddressingModes from "./Emulator/Adressing.js";
 import { generalPurposeRegister } from "./Emulator/Register.js";
 import { Register } from "./Emulator/Register.js";
 import Alu from "./Emulator/ALU.js";
-import { useEffect } from 'react';
-import gsap from 'gsap';
-import Console from './Console.jsx';
+// import Console from './Console.jsx';
 import Arch from './Arch.jsx';
-import { TransgenderOutlined } from '@mui/icons-material';
 
 import "./codemirror/lib/codemirror.css"
 import "./codemirror/theme/material.css";
-// import "./codemirror/mode/myLang/assembly.js"
+import "./codemirror/mode/myLang/assembly.js"
 
 ////////////////animations declarations////////////////////////////////
 let animations=[];

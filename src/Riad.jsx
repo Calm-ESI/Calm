@@ -1,12 +1,8 @@
 import './Riad.css';
 import img from './assets/to-do-list 2.png' ;
 import img1 from './assets/Vector.png' ;
-import img2 from './assets/heart.png';
-import img3 from './assets/Vector123.png';
-import img4 from './assets/Vector(2).png';
-import img5 from './assets/Vector(3).png';
-import AOS from 'aos';
-import React, {useEffect} from 'react';
+// import AOS from 'aos';
+import React from 'react';
 import'aos/dist/aos.css'
 import Footer from './Footer'
 

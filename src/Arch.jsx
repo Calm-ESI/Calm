@@ -1,10 +1,9 @@
 import Archi from "./assets/archi.png"
-import { useEffect } from "react";
-import { useState ,useMemo} from "react";
-import gsap from "gsap";
+import { useState} from "react";
+// import gsap from "gsap";
 import { useRef } from "react";
-import MaterialReactTable from 'material-react-table';
-import { animationControls, animations } from "framer-motion";
+// import MaterialReactTable from 'material-react-table';
+// import { animationControls, animations } from "framer-motion";
 
 
 const Arch = (props)=>{

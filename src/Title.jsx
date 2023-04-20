@@ -1,5 +1,6 @@
 import title from "./assets/calmtitle.svg"
-import brackets from "./assets/brackets.svg"
+// import brackets from "./assets/brackets.svg"
+
 const Title= () => {
     return <>
     <img src={title} alt="" style={{
