@@ -1,0 +1,111 @@
+#examplesBloc {
+    background: var(--example-bloc-backgrouund-color);
+    width: 70vw;
+    height: 60vh;
+    border: 20px solid var(--main-accent-color);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    padding-top: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+#examplesBloc::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+#examplesBloc.scrolling::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    transition: transform 1s ease-in-out;
+}
+
+#examplesBloc.scrolling::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #ffffff56;
+    transition: transform 1s ease-in-out;
+}
+
+#example-icon {
+    width: 400px;
+    height: 70px;
+    position: absolute;
+    top: -20px;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-accent-color);
+    border-radius: 25px;
+    font-family: "Mona sans", sans-serif;
+    z-index: 19;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 63px;
+    color: #000000;
+}
+
+.examples {
+    width: 90%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line-break-color);
+    padding: 1em;
+}
+
+.examples p {
+    font-family: "Mona sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    display: inline-block;
+    color: #ffffff;
+    position: relative;
+}
+
+.examples p:hover {
+    color: var(--main-accent-color);
+    transition: 0.25s;
+    cursor: default;
+    /* box-shadow: 0px 0px 35px #1be985; */
+}
+
+.execButton {
+    position: relative;
+    height: 25px;
+    width: 70px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Mona sans", sans-serif;
+    color: white;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 12px 34px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: var(--button-color);
+    box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.07), 0 15px 15px rgba(0, 0, 0, 0.06), 0 10px 8px rgba(0, 0, 0, 0.05), 0 4px 4px rgba(0, 0, 0, 0.04), 0 2px 2px rgba(0, 0, 0, 0.03);
+}
+
+.execButton:hover {
+    font-family: "Mona sans", sans-serif;
+    font-weight: 900;
+    border: 1px solid black;
+    background: var(--main-accent-color);
+    color: #000;
+    transform: scale(1.1);
+    transition: 0.5s;
+
+}

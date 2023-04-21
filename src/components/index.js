@@ -1,6 +1,5 @@
 export { default as AddressingModeCard} from './AddressingModeCard';
 export { default as ComponentsCard} from './ComponentsCard';
-export { default as Console} from './Console';
 export { default as HeroIde} from './HeroIde';
 export { default as LearnCard} from './LearnCard';
 export { default as NavBar} from './NavBar';

@@ -2,6 +2,7 @@
 // import { Icon } from '@iconify/react';
 import play from "../../assets/images/decorations/play.png"
 import TypeWriterEffect from 'react-typewriter-effect';
+import "./style.css"
 
 const HeroIde= ()=>{
     // let [show, setshow] = useState("");
@@ -16,7 +17,6 @@ const HeroIde= ()=>{
     }} onMouseLeave={(e)=>{
         e.currentTarget.src=require('../../assets/images/decorations/play.png');
     }} />
-        {/* <p className="css-fix">{show}{/*<Icon icon="mdi:cursor-text" color="white" className="" />*/}{/*</p>   */}
         
         <TypeWriterEffect
             textStyle={{ fontSize: "24px",color: "#45B15D",fontFamily: "JetBrains Mono , monospace",marginBottom: "-20px",display: "inline-block",marginTop:"20px"}}

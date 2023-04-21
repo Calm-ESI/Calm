@@ -1,0 +1,34 @@
+.codeContainer{
+  width: 500px;
+  height: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 5em ;
+  margin-top: 2em;
+  text-align: left;
+  font-size: 20px;
+}
+  
+.console{
+  background-color: #000;
+  overflow-y: auto;
+}
+.console::-webkit-scrollbar {
+  width:8px;
+}
+.console::-webkit-scrollbar-track {
+  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius:5px;
+}
+.console::-webkit-scrollbar-thumb {
+  border-radius:5px;
+  background: #ffffff56;
+}
+
+.ide-exec-button{
+  height:2em;
+  width: 5em;
+  background-color: #1BE985;
+  border-radius: 10px;
+  margin: 10px 30px;
+}

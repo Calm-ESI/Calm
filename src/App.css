@@ -1,6 +1,13 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
   text-align: center;
   height: fit-content;
+  
+  background-color: #1B1F24;
+  
 }
 
 .App-logo {
@@ -36,4 +43,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.upperasteriks{
+  animation-name: rotate;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite ;
+  width:200px;
+  position:fixed;
+  bottom:28em;
+  left:-6em;
+  transition: 2s;
+}
+
+.upperasteriks:hover{
+  width:250px;
+  animation-duration: 3s;
+}
+
+.lowerasteriks{
+  width: 300px;
+  position: fixed;
+  right: -8em;
+  /* bottom: 8em; */
+  top: 24em;
+  transition:2s;
+  
+  animation-name: rotate;
+  animation-duration: 10s;
+  animation-fill-mode: backwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite ;
+}
+
+.lowerasteriks:hover{
+  width:350px;
+  animation-duration: 3s;
 }

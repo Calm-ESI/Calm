@@ -1,0 +1,136 @@
+.arch-contain{
+    position: absolute;
+    width: 70%;
+    /* left: 15%; */
+    top:3%;
+}
+
+.archi{
+    position: relative;
+    width: 100%;
+}
+
+.contentTableDiv{
+    height:9em;
+    width:17em;
+    margin: auto;
+    border-radius: 20px;
+    overflow-y: auto;
+    background-color: #212529;
+    border: 2px solid #1BE985;
+}
+
+
+.contentTableDivFlags{
+    height:2em;
+    width:17em;
+    background-color: #212529;
+    margin: auto;
+    border-radius: 20px;
+    border: 2px solid #1BE985;
+    display: flex;
+}
+
+.contentTableText{
+    color: #ffffff;
+    padding: 0%;
+    margin: 2%;
+}
+
+
+.contentTableMC{
+    width:15em;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #212529;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 20px;
+    /*overflow-y: auto; */
+}   
+  
+.contentTableDiv::-webkit-scrollbar {
+    width:5px;
+}
+
+.contentTableDiv::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius:5px;
+}
+
+.contentTableDiv::-webkit-scrollbar-thumb {
+    border-radius:5px;
+    background: #ffffff56;
+}
+
+.MChead{
+      display:flex;
+      gap:5px;
+      position:absolute;
+      background:#212529;
+      width:17em;
+      border-radius:20px;
+      font-size: 16px;
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+      border-bottom: 2px solid #1BE985;
+}
+
+.aflag{
+    margin: 4px;
+    font-size: 15px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.aflagdiv{
+    height: 25px;
+      width: 30px;
+      border:1px solid #1BE985;
+    background-color: #212529;
+      border-radius: 10px;
+      margin: 0 14px;
+      margin: 3px 5px;
+}
+    
+.aregP{
+    display: block;
+    font-size: 15px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 15px;
+}
+
+.aregC{
+    height: 2em;
+    width:10em;
+    border-radius: 20px;
+    background-color: #212529;
+    border: 2px solid #1BE985;
+    margin: 7px;
+    font-size: 15px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.aregister{
+    display: flex;
+    overflow-y: auto;
+}
+
+.aregister::-webkit-scrollbar {
+    width:5px;
+}
+
+.aregister::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius:5px;
+}
+
+.aregister::-webkit-scrollbar-thumb {
+    border-radius:5px;
+    background: #ffffff56;
+}
+  

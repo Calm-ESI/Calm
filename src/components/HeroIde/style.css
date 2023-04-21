@@ -1,0 +1,41 @@
+.heroide{
+    width:260px;
+    height:330px;
+    position: relative;
+    grid-column: 5 / span 2;
+    grid-row: 1 / span 4;
+
+    background-image: url("/src/assets/images/interface-elements/heroide.svg") ;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    text-align: left;
+    padding: 30px;
+    padding-top: 70px;
+}
+.heroide p{
+    font-size: 22px;
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: -20px;
+    display: inline-block;
+}
+
+/* the play button in the ide */
+
+.playhero {
+    width:30px;
+    position: absolute;
+    top: 20px;
+    right:40px;
+    transition: 1s;
+  }
+  .playhero:hover{
+    transform: scale(1.1,1.1);
+  }
+  
+  .react-typewriter-text-wrap{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  

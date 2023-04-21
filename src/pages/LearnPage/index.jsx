@@ -3,7 +3,7 @@ import React from "react";
 // import components
 import { NavBar, Title } from "../../components";
 import {Learn, Footer} from "../../containers";
-import "../../Fares.css";
+import "./style.css";
 
 function LearnPage(props) {
   return (

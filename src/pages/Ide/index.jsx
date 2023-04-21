@@ -1,6 +1,7 @@
 /*import { tags as t } from '@lezer/highlight';
 import { aura, auraInit } from '@uiw/codemirror-theme-aura';*/
 import { Controlled as CodeMirror } from "react-codemirror2";
+import "./style.css"
 
 // import components
 import { NavBar } from "../../components"
@@ -14,7 +15,6 @@ import AddressingModes from "../../Emulator/Adressing.js";
 import { generalPurposeRegister } from "../../Emulator/Register.js";
 import { Register } from "../../Emulator/Register.js";
 import Alu from "../../Emulator/ALU.js";
-// import Console from './Console.jsx';
 import Arch from '../Arch/index.jsx';
 
 import "../../codemirror/lib/codemirror.css"
@@ -313,17 +313,17 @@ return <>
 </div>
 
 {!done && <div className="codeContainer console">
-  <button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","C8","00","04","00","03","19","C8","00","06","00","04","19","C8","00","0A","00","05","19","C8","00","0C","00","06","19","C8","00","0E","00","07","19","C8","00","10","00","08","01","C9","00","00","00","0A","19","8C","00","14","03","C9","00","0C","00","02","19","8C","00","16","05","D1","00","06","00","0E","19","8C","00","18","07","C9","00","10","00","06","19","8C","00","1A"])
+  <button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","C8","00","04","00","03","19","C8","00","06","00","04","19","C8","00","0A","00","05","19","C8","00","0C","00","06","19","C8","00","0E","00","07","19","C8","00","10","00","08","01","C9","00","00","00","0A","19","8C","00","14","03","C9","00","0C","00","02","19","8C","00","16","05","D1","00","06","00","0E","19","8C","00","18","07","C9","00","10","00","06","19","8C","00","1A"])
   setdone(true)
   }}>execute</button>
     <pre style={{color:"white"}}>{result}</pre>
     </div>
   }
 {done && <div className="codeContainer console">
-  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","C8","00","04","00","03","19","C8","00","06","00","04","19","C8","00","0A","00","05","19","C8","00","0C","00","06","19","C8","00","0E","00","07","19","C8","00","10","00","08","01","C9","00","00","00","0A","19","8C","00","14","03","C9","00","0C","00","02","19","8C","00","16","05","D1","00","06","00","0E","19","8C","00","18","07","C9","00","10","00","06","19","8C","00","1A"])
+  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","C8","00","04","00","03","19","C8","00","06","00","04","19","C8","00","0A","00","05","19","C8","00","0C","00","06","19","C8","00","0E","00","07","19","C8","00","10","00","08","01","C9","00","00","00","0A","19","8C","00","14","03","C9","00","0C","00","02","19","8C","00","16","05","D1","00","06","00","0E","19","8C","00","18","07","C9","00","10","00","06","19","8C","00","1A"])
   setdone(true)
   }}>execute</button>
-  <button className='execButton' onClick={()=>{setsimul(true)
+  <button className='ide-exec-button' onClick={()=>{setsimul(true)
   }}>simulate</button>
   </div>
     <pre style={{color:"white",marginTop:"2.5em"}}>{result}</pre>

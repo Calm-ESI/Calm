@@ -1,4 +1,4 @@
-import '../../Riad.css';
+import "./style.css";
 
 //import components
 import { NavBar, Title, HeroIde } from "../../components"
@@ -31,7 +31,7 @@ const Hero = ()=>{
 
         <section className="why-calm-section">
             <h1 className="whycalm ">why calM</h1>
-            <div className="txt1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis architecto similique, iure nihil vel illo, sed quidem voluptate odio voluptatem.</div>
+            <div className="why-calm-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis architecto similique, iure nihil vel illo, sed quidem voluptate odio voluptatem.</div>
         </section>
     )
   }
@@ -39,7 +39,7 @@ const Hero = ()=>{
   const Part3=()=>{
      return(
         <section className="what-we-offer-section">
-              <h2 className="part3-1">What we offer</h2>
+              <h2 className="what-we-offer">What we offer</h2>
               <div className="what-we-offer-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, ipsum voluptate? Rerum magnam dolorum quaerat, itaque odio aliquam repellendus.</div>
 
             <img  className='todolist' src={to_do_list} alt="to-do list"/>
@@ -52,8 +52,8 @@ const Hero = ()=>{
     return(
       <>
         <section className="learn-section">
-            <h1 className="part4-1">Learn</h1>
-            <h3 className="part4-2" >---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h3>
+            <h1 className="learn">Learn</h1>
+            <h3 className="learn-description" >---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h3>
         </section>
 
           <button className="learn-button">Press me!</button>
@@ -62,18 +62,18 @@ const Hero = ()=>{
   }
   const Part5=()=>{
     return(
-        <section className="part5">
-            <div className="part5-1"> 
+        <section className="emulation-simulation-section">
+            <div className="emulation-container"> 
                 <h1 className="emul">Emulation</h1>
                 <h2 className="emul-1"> You can write your machine code and execute it</h2>
             </div>
 
-            <div className="part5-2">
+            <div className="simulation-container">
                 <h1 className="simul">Simulation</h1> 
                 <h2 className="simul-1"> You can graphically simulate your program</h2>
             </div>
             
-            <button className="part5-3">Let's code</button>
+            <button className="lets-code-button">Let's code</button>
       
        </section>
     )
@@ -81,7 +81,7 @@ const Hero = ()=>{
   const Part6=()=>{
     return(
         <section className="keep-in-touch-section">
-            <h1 className="part6-1"> Keep in touch :</h1>
+            <h1 className="keep-in-touch"> Keep in touch :</h1>
             <div className="discord-server-container">
                 <h2 className="discord-title">Discord Server</h2>
                 <div className="part6-3"><img   src={discordIcon} alt="discord-logo" width={240}/></div>
@@ -106,7 +106,7 @@ const Hero = ()=>{
         <Title/>
 
         <motion.div
-          className="button"
+          className="get-started-button"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}

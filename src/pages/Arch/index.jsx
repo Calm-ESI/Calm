@@ -1,4 +1,5 @@
 import Archi from "../../assets/images/calm/archi.png"
+import "./style.css"
 import { useState, useRef} from "react";
 
 // import gsap from "gsap";
