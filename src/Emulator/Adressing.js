@@ -55,6 +55,27 @@ let queueExitToAcc={
         gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
     }
 }
+let queueExitToRual1={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.143,duration:1,delay:1})
+        gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    }
+}
+
+let queueExitToRual2={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.299,duration:1,delay:1})
+        gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    }
+}
 const ADRbusToDATABus={
     value:"",
     target:".ball",
@@ -457,6 +478,7 @@ class AddressingModes{
                 //             anim:fitqueue4_3.anim,
                 //         });
                 // }
+                if(target===0){
                 animations.push({
                     value:"",
                     nom:"queueExitToBus",
@@ -481,7 +503,87 @@ class AddressingModes{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
-                });//uncomment the above later !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                });}else if(target===3){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToReg.target,
+                        time:queueExitToReg.time,
+                        anim:queueExitToReg.anim,
+                    });
+                }else if(target===1){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToRual1.target,
+                        time:queueExitToRual1.time,
+                        anim:queueExitToRual1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:BusToRual1.target,
+                        time:BusToRual1.time,
+                        anim:BusToRual1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitToRual1.target,
+                        time:fitToRual1.time,
+                        anim:fitToRual1.anim,
+                    });
+                }else if(target===2){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToRual2.target,
+                        time:queueExitToRual2.time,
+                        anim:queueExitToRual2.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:BusToRual2.target,
+                        time:BusToRual2.time,
+                        anim:BusToRual2.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitToRual2.target,
+                        time:fitToRual2.time,
+                        anim:fitToRual2.anim,
+                    });
+                }else if(target===4){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToAcc.target,
+                        time:queueExitToAcc.time,
+                        anim:queueExitToAcc.anim,
+                    });
+                }
                 return adresse;
             },//correspend au mode immediat
             function directVal(adresse,animated,size,depl,animations,is_anim,target){//the animation is missing//adresse is in decimal
@@ -1271,105 +1373,105 @@ class AddressingModes{
                 memory.read(0);
                 //animation:
             //il faut ajouter d'abord deux shift du queue_____________
-            if(size==0){
-                animations.push({
-                    value:"",
-                    target:infitqueue6.target,
-                    time:infitqueue6.time,
-                    anim:infitqueue6.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:infitqueue5.target,
-                        time:infitqueue5.time,
-                        anim:infitqueue5.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:fitqueue6.target,
-                        time:fitqueue6.time,
-                        anim:fitqueue6.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:infitqueue4.target,
-                        time:infitqueue4.time,
-                        anim:infitqueue4.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:fitqueue5.target,
-                        time:fitqueue5.time,
-                        anim:fitqueue5.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:infitqueue3.target,
-                        time:infitqueue3.time,
-                        anim:infitqueue3.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:fitqueue4.target,
-                        time:fitqueue4.time,
-                        anim:fitqueue4.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:infitqueue2.target,
-                        time:infitqueue2.time,
-                        anim:infitqueue2.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:fitqueue3.target,
-                        time:fitqueue3.time,
-                        anim:fitqueue3.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:infitqueue1.target,
-                        time:infitqueue1.time,
-                        anim:infitqueue1.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:fitqueue2.target,
-                        time:fitqueue2.time,
-                        anim:fitqueue2.anim,
-                    });
-            }else{
-                animations.push({
-                    value:"",
-                    target:infitqueue6_5.target,
-                    time:infitqueue6.time,
-                    anim:infitqueue6.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:infitqueue4_3.target,
-                        time:infitqueue5.time,
-                        anim:infitqueue5.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:fitqueue6_5.target,
-                        time:fitqueue6_5.time,
-                        anim:fitqueue6_5.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:infitqueue2_1.target,
-                        time:infitqueue2_1.time,
-                        anim:infitqueue2_1.anim,
-                    });
-                    animations.push({
-                        value:"",
-                        target:fitqueue4_3.target,
-                        time:fitqueue4_3.time,
-                        anim:fitqueue4_3.anim,
-                    });
-            }
+            // if(size==0){
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue5.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6.target,
+            //             time:fitqueue6.time,
+            //             anim:fitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4.target,
+            //             time:infitqueue4.time,
+            //             anim:infitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue5.target,
+            //             time:fitqueue5.time,
+            //             anim:fitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue3.target,
+            //             time:infitqueue3.time,
+            //             anim:infitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4.target,
+            //             time:fitqueue4.time,
+            //             anim:fitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2.target,
+            //             time:infitqueue2.time,
+            //             anim:infitqueue2.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue3.target,
+            //             time:fitqueue3.time,
+            //             anim:fitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue1.target,
+            //             time:infitqueue1.time,
+            //             anim:infitqueue1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue2.target,
+            //             time:fitqueue2.time,
+            //             anim:fitqueue2.anim,
+            //         });
+            // }else{
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6_5.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4_3.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6_5.target,
+            //             time:fitqueue6_5.time,
+            //             anim:fitqueue6_5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2_1.target,
+            //             time:infitqueue2_1.time,
+            //             anim:infitqueue2_1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4_3.target,
+            //             time:fitqueue4_3.time,
+            //             anim:fitqueue4_3.anim,
+            //         });
+            // }
             animations.push({
                 value:"",
                 target:queueExitToBus.target,

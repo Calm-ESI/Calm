@@ -23,6 +23,8 @@ import { TransgenderOutlined } from '@mui/icons-material';
 
 ////////////////animations declarations////////////////////////////////
 let animations=[];
+////////////////context declarations///////////////////////////////////
+let Contextarray=[];
 
 ////////////////machine declarations////////////////////////////////
 let memory=new MC();
@@ -43,14 +45,13 @@ let Registers=[R1,R2,R3,R4,Alu1.Acc,BR,IR,SR];
 
 ///////////////////////////////////the component/////////////////////////
 const Ide = ()=>{
-
   ////////////////////hooks///////////////////////////////:
   let [result,setresult]=useState("");
   let [done,setdone]=useState(false);
   let [simul,setsimul]=useState(false)
   let [memo,setmemo]=useState(false);
   let [reg,setreg]=useState(false);
-  let [stk,setstk]=useState(false);
+  let [stk,setstk]=useState(false);//for showing stack
   ///////////////////////////////executions function////////////////////////////////////////
 const traitement= (codeArray)=>{
 // Registers[0].setvalue("0000000000000010");
@@ -72,17 +73,26 @@ let numtmp=0;
 //     queue.fetchInstruction(animations,numtmp,1);
 //     numtmp++;
 // }
-queue.fetchInstruction(animations,0,1,0,0,"19C8");
-queue.fetchInstruction(animations,1,1,2,2,"0000");
-queue.fetchInstruction(animations,2,1,4,4,"0001");
-queue.fetchInstruction(animations,numtmp,0,0,0,"19C8");
-queue.fetchInstruction(animations,numtmp,0,0,0,"19C8");
-queue.fetchInstruction(animations,numtmp,0,0,0,"19C8");
+queue.fetchInstruction(animations,0,1,Contextarray,0);
+queue.fetchInstruction(animations,numtmp,0,Contextarray,0);
+queue.fetchInstruction(animations,1,1,Contextarray,0);
+queue.fetchInstruction(animations,numtmp,0,Contextarray,0);
+queue.fetchInstruction(animations,2,1,Contextarray,0);
+queue.fetchInstruction(animations,numtmp,0,Contextarray,0);
+
+
+
 
 //-----//
 let resulttmp="";
-sequenceur.getinstrbyte(animations,true);
-let instrobject={...sequenceur.decode(animations)};
+sequenceur.getinstrbyte(animations,true,Contextarray);
+let instrobject={...sequenceur.decode(animations,Contextarray)};
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true,Contextarray);
+instrobject={...sequenceur.decode(animations,Contextarray)};
+sequenceur.execute(instrobject,1,animations);
+sequenceur.getinstrbyte(animations,true,Contextarray);
+instrobject={...sequenceur.decode(animations,Contextarray)};
 sequenceur.execute(instrobject,1,animations);
 // console.log(` after first instruction :`);
 // resulttmp=resulttmp+` after first instruction :`;
@@ -127,12 +137,12 @@ sequenceur.execute(instrobject,1,animations);
 // console.log(`memory 16 :${memory.getRim()}`);
 // resulttmp=resulttmp+`
 //   memory 14 :${memory.getRim()}`;
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true);
-instrobject=sequenceur.decode(animations);
-sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true);
+// instrobject=sequenceur.decode(animations);
+// sequenceur.execute(instrobject,1,animations);
 // sequenceur.getinstrbyte(animations,true);
 // instrobject=sequenceur.decode(animations);
 // sequenceur.execute(instrobject,1,animations);
@@ -322,6 +332,7 @@ return <>
 />
 </div>
 {!done && <div className="codeContainer console">
+  {/* <button className='execButton' onClick={()=>{traitement(["19","49","00","01"]) */}
   <button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"])
   setdone(true)
   }}>execute</button>
@@ -329,7 +340,8 @@ return <>
     </div>
   }
 {done && <div className="codeContainer console">
-  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","C8","00","02","00","02","19","41","00","02","01","81","00","00"])
+  {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='execButton' onClick={()=>{traitement(["19","49","00","01"]) */}
+  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='execButton' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"])
   setdone(true)
   }}>execute</button>
   <button className='execButton' onClick={()=>{setsimul(true)
@@ -345,7 +357,6 @@ return <>
     <button className='execButton' onClick={()=>{setstk(true)
   }}>stack</button>
   
-
   </div>
     {/* <pre style={{color:"white",marginTop:"2.5em"}}>{result}</pre> */}
     {reg && <div className="IdeReg">
@@ -403,7 +414,7 @@ return <>
   }
 </div>}
 
-{simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers}/>}
+{simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers} theCTX={Contextarray}/>}
 </>
 }
 export default Ide;

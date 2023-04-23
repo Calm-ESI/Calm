@@ -6,6 +6,7 @@ import { useRef } from "react";
 import MaterialReactTable from 'material-react-table';
 import { animationControls, animations } from "framer-motion";
 import  {queue} from "./Ide"
+import Archi2 from "./assets/nvlarchi.png"
 //////////////////////////////////////
 const fitqueue6={
     value:"",
@@ -253,6 +254,7 @@ let [AdrBusText,setAdrBusText]=useState("");
 let [ballText,setballText]=useState("");
 let [ball2Text,setball2Text]=useState(0);
 let [IPval,setipval]=useState(0);
+
 let MC=props.mem.getData();
 let tablec=[];
 MC.forEach((element,index) => {
@@ -266,44 +268,29 @@ MC.forEach((element,index) => {
 </tr>)
 });
     ///////////////to add delay/////
-    let thecontext=[6,"1941",8,"0000",10,"0188",12,"0000",14,16,18,19,20,22];
+    let thecontext=[...props.theCTX];
     let tmpctx=0;
     let done=0;
     const animate=(i,animation,h,w,dl,chaine)=>{
         setTimeout(function() {
             if(animation.target===".ball"){
-                if(animation.value=="0000000000000010"){
-                    setballText("0002");
-                }else if(animation.value>1000|animation.value.lenght>6){
+                if(animation.value.toString().length>7){
                     setballText(parseInt(animation.value, 2).toString(16));
-                }else if(animation.value=="0000000000000001"){
-                    setballText("0001");
-                }else if(animation.value=="11001000"){
-                    setballText("C8");
-                }else if(animation.value=="00000001"){
-                    setballText("01");
-                }else if(animation.value=="00011001"){
-                    setballText("19");
-                }else if(animation.value=="01000001"){
-                    setballText("41");
-                }else if(animation.value=="10001000"){
-                    setballText("88");
                 }else{
-                    setballText(animation.value.toString(16));
+                    setballText(animation.value.toString());
                 }
-                
             }else if(animation.target===".box-data"){
-                if(animation.value>1000|animation.value.lenght>6){
+                if(animation.value.toString().length>7){
                     setDataBusText(parseInt(animation.value, 2).toString(16));
-                }else if(animation.value=="0000000000000010"){
-                    setDataBusText("0002");
-                }if(animation.value=="0000000000000001"){
-                    setDataBusText("0001");
                 }else{
-                    setDataBusText(animation.value.toString(16));
+                    setDataBusText(animation.value.toString());
                 }
             }else if(animation.target===".box-ADR"){
-                setAdrBusText(animation.value);
+                if(animation.value.toString().length>7){
+                    setAdrBusText(parseInt(animation.value, 2).toString(16));
+                }else{
+                    setAdrBusText(animation.value.toString());
+                }
             }else if(animation.target==="IP"){
                 IPval=IPval+2;
                 setipval(IPval);
@@ -513,22 +500,11 @@ MC.forEach((element,index) => {
     const simulate=(h,w) => {
         let i=0;
         let dl=0;
-        
-        // let k=0;
-        // for(let j=0;j<props.anim.length;j++){
-        //     k=0;
-        //     while(k<7){
-        //         if(props.anim[j].target!==".box-data"){
-        //             k++;
-        //         }else{
-        //             break;
-        //         }
-        //     }
-            
-        // }
         let allow=true;
         let allowtmp=0;
-        for(let j=0;j<props.anim.length;j++){
+        let contin=true;
+        let j=0
+        while(j<props.anim.length){
             let k=0;
             let stop=false;
             let chaine=false;
@@ -551,6 +527,10 @@ MC.forEach((element,index) => {
             animate(i,props.anim[j],h,w,dl,chaine);
             dl=dl+props.anim[j].time+1;
             i++;
+            if((props.anim[j+1].nom==="QueueToIr")&(j<props.anim.length-4)&(props.anim[j+2].nom==="fitToIr"|props.anim[j+3].nom==="fitToIr")){//en cas instruction avec 2 general bytes
+            contin=false;
+            }
+            j++;
         };
     }
     
@@ -566,7 +546,8 @@ MC.forEach((element,index) => {
 //////////////////////////
     return <>
     <div className="arch-contain">{/*///*/}
-    <img src={Archi} alt="" className="archi" ref={myref} onLoad={()=>{simulate(myref.current.clientHeight,myref.current.clientWidth)}}/>
+    {/* <img src={Archi} alt="" className="archi" ref={myref} onLoad={()=>{simulate(myref.current.clientHeight,myref.current.clientWidth)}}/> */}
+    <img src={Archi2} alt="" className="archi" ref={myref} onLoad={()=>{simulate(myref.current.clientHeight,myref.current.clientWidth)}}/>
     <div className="IP" style={{
         height:"4.2%",
         width:"6%",
@@ -765,6 +746,9 @@ MC.forEach((element,index) => {
             </table>
             </div>
         </div>
+        <button className="returnBtn" onClick={()=>{
+            
+        }}>return</button>
     </div>
     </>
 }

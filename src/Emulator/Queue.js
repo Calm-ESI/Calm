@@ -200,14 +200,22 @@ class Queue {
     getqueuelen(){
         return this.instructionBytes.length;
     }
-    fetchInstruction(animations,num,is_animated,ipval,marval,mdrval){//for queue length cause i coudln't access directly with this.getqueuelen
-        memory.setRam(IP.getvalue());
+    fetchInstruction(animations,num,is_animated,Contextarray,buildCTX){//for queue length cause i coudln't access directly with this.getqueuelen
+        let marval=IP.getvalue();
+        memory.setRam(marval);
         memory.read(1);
         let instruction=memory.getRim();
+        ///this one is jyst for anim
+        memory.setRam(TwosComplement(parseInt(marval,2)+1,16));
+        memory.read(1);
+        let instructionpart2=memory.getRim();
+        let mdrval=instruction+instructionpart2;
+        //////
         this.instructionBytes.push(instruction);
         IP.setvalue(TwosComplement(parseInt(IP.getvalue(),2)+1,16));
         //animation:
         if(is_animated){
+          marval=parseInt(marval,2).toString(16);
         animations.push({
             value:"",
             target:"IP",
@@ -215,7 +223,7 @@ class Queue {
             anim:IpToAdr.anim,
         });
         animations.push({
-            value:ipval,
+            value:marval,
             target:IPToMAR.target,
             time:IPToMAR.time,
             anim:IPToMAR.anim,
@@ -512,13 +520,25 @@ class Queue {
           //   time:fitqueue1.time,
           //   anim:fitqueue1.anim,
           // });
-        }}
+        }}else{
+          
+
+          if(parseInt(marval,2)%2===0 & buildCTX===1){
+            marval=parseInt(marval,2).toString(16);
+            mdrval=parseInt(mdrval,2).toString(16);
+            Contextarray.push(marval);
+            Contextarray.push(mdrval);
+          }
+        }
     }
     push(value) {
     this.instructionBytes.push(value);
     }
     shift() {
     return this.instructionBytes.shift();//in hexa
+    }
+    getinstwithoutshift(){//this one is used to get the instruction in head of the list without loosing it not like shift , and it is used in RI animation
+      return this.instructionBytes[0];//in hexa
     }
     /////this one is for test reasons
     instructionset(hexains){
