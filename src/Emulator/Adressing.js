@@ -10,7 +10,7 @@ const infitToMar={
     anim:(val,h,w)=>{
     // gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.032,height:h*0.14,x:w*0.623,y:h*0.165,opacity:"0"},{opacity:"1" ,duration:1});
     // gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.032,height:h*0.14,duration:1,delay:1});
-    gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+    gsap.to(".ball",{opacity:"0" ,duration:1});
   },}
 let queueExitToBus={
     value:"",
@@ -32,8 +32,8 @@ const BusToMdr={
     gsap.fromTo(".ball",{height:"2.812%",width:"1.4%",borderRadius:"50%",x:w*0.539,y:h*0.465,opacity:"0"},{opacity:"1" ,duration:1});
     gsap.fromTo(".ball",{x:w*0.539,y:h*0.465},{y:h*0.445 ,duration:1,delay:1});
     gsap.to(".ball",{opacity:"0" ,duration:1,delay:2});
-  },}
-  
+},}
+
 let queueExitToMdr={
     value:"",
     target:".box-data",
@@ -54,7 +54,37 @@ let queueExitToAcc={
         gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
     }
 }
+let queueExitToRual1={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.143,duration:1,delay:1})
+        gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    }
+}
 
+let queueExitToRual2={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.299,duration:1,delay:1})
+        gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    }
+}
+const ADRbusToDATABus={
+    value:"",
+    target:".ball",
+    time:1800,
+    anim:(val,h,w)=>{
+    ///depart: ( 69% , 13.7% )
+    gsap.fromTo(".ball",{height:"2.812%",width:"1.4%",borderRadius:"50%",x:w*0.746,y:h*0.46,opacity:"0"},{opacity:"1" ,duration:0.5});
+    gsap.fromTo(".ball",{x:w*0.746,y:h*0.46},{y:h*0.26 ,duration:0.8,delay:0.5});
+    gsap.to(".ball",{opacity:"0" ,duration:0.5,delay:1.3});
+  },}
 let queueExitToAdr={
     value:"",
     target:".box-data",
@@ -65,12 +95,22 @@ let queueExitToAdr={
         gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
     }
 }
+let queueExitToReg={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.44,duration:1,delay:1})
+        gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    }
+}
 
 const ADRToMAR={
     value:"",
     target:".box-ADR",
     time:3000,
-    anim:(h,w)=>{
+    anim:(val,h,w)=>{
     gsap.fromTo(".box-ADR",{x:w*0.712,opacity:"0"},{opacity:"1",duration:1})
     gsap.fromTo(".box-ADR",{x:w*0.712},{x:w*0.648,duration:1,delay:1})
     gsap.to(".box-ADR",{opacity:"0" ,duration:1,delay:2});
@@ -113,7 +153,7 @@ const ADRToMAR={
     gsap.fromTo(".ball",{x:w*0.539,y:h*0.445},{y:h*0.465 ,duration:1,delay:1});
     gsap.to(".ball",{opacity:"0" ,duration:1,delay:2});
   },}
-  const MdrToRual1={
+  const MdrToRual2={
     value:"",
     target:".box-data",
     time:3000,
@@ -122,7 +162,7 @@ const ADRToMAR={
   gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.262,duration:1,delay:1})
   gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
   },}
-  const MdrToRual2={
+  const MdrToRual1={
     value:"",
     target:".box-data",
     time:3000,
@@ -207,14 +247,240 @@ const ADRToMAR={
   gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.321,duration:1,delay:1})
   gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
   },}
+  const fitqueue6={
+    value:"",
+    target:".queue1",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue1",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue5={
+    value:"",
+    target:".queue2",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue2",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue4={
+    value:"",
+    target:".queue3",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue3",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue3={
+    value:"",
+    target:".queue4",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue4",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue2={
+    value:"",
+    target:".queue5",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue5",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue1={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue6",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  
+  const infitqueue6={
+    value:"",
+    target:".queue1",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue1",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue5={
+    value:"",
+    target:".queue2",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue2",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue4={
+    value:"",
+    target:".queue3",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue3",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue3={
+    value:"",
+    target:".queue4",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue4",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue2={
+    value:"",
+    target:".queue5",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue5",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue1={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue6",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue2_1={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue6",{opacity:"1"},{opacity:"0",duration:1});
+        gsap.fromTo(".queue5",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue4_3={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue4",{opacity:"1"},{opacity:"0",duration:1});
+        gsap.fromTo(".queue3",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const infitqueue6_5={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue2",{opacity:"1"},{opacity:"0",duration:1});
+        gsap.fromTo(".queue1",{opacity:"1"},{opacity:"0",duration:1});
+  },}
+  const fitqueue4_3={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue4",{opacity:"0"},{opacity:"1",duration:1});
+        gsap.fromTo(".queue3",{opacity:"0"},{opacity:"1",duration:1});
+  },}
+  const fitqueue6_5={
+    value:"",
+    target:".queue6",
+    time:1000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".queue2",{opacity:"0"},{opacity:"1",duration:1});
+        gsap.fromTo(".queue1",{opacity:"0"},{opacity:"1",duration:1});
+  },}
 
 class AddressingModes{
     constructor(){
         this.modesVal=[
             function immediatVal(adresse,animated,size,depl,animations,is_anim,target){
                 //////////////this animation is correct only in the case of mov 11 else we have to specify here if we put it above registers in bus or MDR , so that the mov take the animation from MDR or above the registers (a certain logique for MOV10 MOV11 and this function maybe add the scope of target and enter a boolean to the MOV)
+                // if(size==0){
+                //     animations.push({
+                //         value:"",
+                //         target:infitqueue6.target,
+                //         time:infitqueue6.time,
+                //         anim:infitqueue6.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:infitqueue5.target,
+                //             time:infitqueue5.time,
+                //             anim:infitqueue5.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:fitqueue6.target,
+                //             time:fitqueue6.time,
+                //             anim:fitqueue6.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:infitqueue4.target,
+                //             time:infitqueue4.time,
+                //             anim:infitqueue4.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:fitqueue5.target,
+                //             time:fitqueue5.time,
+                //             anim:fitqueue5.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:infitqueue3.target,
+                //             time:infitqueue3.time,
+                //             anim:infitqueue3.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:fitqueue4.target,
+                //             time:fitqueue4.time,
+                //             anim:fitqueue4.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:infitqueue2.target,
+                //             time:infitqueue2.time,
+                //             anim:infitqueue2.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:fitqueue3.target,
+                //             time:fitqueue3.time,
+                //             anim:fitqueue3.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:infitqueue1.target,
+                //             time:infitqueue1.time,
+                //             anim:infitqueue1.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:fitqueue2.target,
+                //             time:fitqueue2.time,
+                //             anim:fitqueue2.anim,
+                //         });
+                // }else{
+                //     animations.push({
+                //         value:"",
+                //         target:infitqueue6_5.target,
+                //         time:infitqueue6.time,
+                //         anim:infitqueue6.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:infitqueue4_3.target,
+                //             time:infitqueue5.time,
+                //             anim:infitqueue5.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:fitqueue6_5.target,
+                //             time:fitqueue6_5.time,
+                //             anim:fitqueue6_5.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:infitqueue2_1.target,
+                //             time:infitqueue2_1.time,
+                //             anim:infitqueue2_1.anim,
+                //         });
+                //         animations.push({
+                //             value:"",
+                //             target:fitqueue4_3.target,
+                //             time:fitqueue4_3.time,
+                //             anim:fitqueue4_3.anim,
+                //         });
+                // }
+                if(target===0){
                 animations.push({
                     value:"",
+                    nom:"queueExitToBus",
                     target:queueExitToBus.target,
                     time:queueExitToBus.time,
                     anim:queueExitToBus.anim,
@@ -236,7 +502,87 @@ class AddressingModes{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
-                });
+                });}else if(target===3){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToReg.target,
+                        time:queueExitToReg.time,
+                        anim:queueExitToReg.anim,
+                    });
+                }else if(target===1){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToRual1.target,
+                        time:queueExitToRual1.time,
+                        anim:queueExitToRual1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:BusToRual1.target,
+                        time:BusToRual1.time,
+                        anim:BusToRual1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitToRual1.target,
+                        time:fitToRual1.time,
+                        anim:fitToRual1.anim,
+                    });
+                }else if(target===2){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToRual2.target,
+                        time:queueExitToRual2.time,
+                        anim:queueExitToRual2.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:BusToRual2.target,
+                        time:BusToRual2.time,
+                        anim:BusToRual2.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitToRual2.target,
+                        time:fitToRual2.time,
+                        anim:fitToRual2.anim,
+                    });
+                }else if(target===4){
+                    animations.push({
+                        value:"",
+                        nom:"queueExitToBus",
+                        target:queueExitToBus.target,
+                        time:queueExitToBus.time,
+                        anim:queueExitToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:queueExitToAcc.target,
+                        time:queueExitToAcc.time,
+                        anim:queueExitToAcc.anim,
+                    });
+                }
                 return adresse;
             },//correspend au mode immediat
             function directVal(adresse,animated,size,depl,animations,is_anim,target){//the animation is missing//adresse is in decimal
@@ -245,8 +591,108 @@ class AddressingModes{
             let byte1=hex2bin(memory.getRim());
             //animation:
             //il faut ajouter d'abord deux shift du queue_____________
+            // if(size==0){
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue5.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6.target,
+            //             time:fitqueue6.time,
+            //             anim:fitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4.target,
+            //             time:infitqueue4.time,
+            //             anim:infitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue5.target,
+            //             time:fitqueue5.time,
+            //             anim:fitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue3.target,
+            //             time:infitqueue3.time,
+            //             anim:infitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4.target,
+            //             time:fitqueue4.time,
+            //             anim:fitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2.target,
+            //             time:infitqueue2.time,
+            //             anim:infitqueue2.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue3.target,
+            //             time:fitqueue3.time,
+            //             anim:fitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue1.target,
+            //             time:infitqueue1.time,
+            //             anim:infitqueue1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue2.target,
+            //             time:fitqueue2.time,
+            //             anim:fitqueue2.anim,
+            //         });
+            // }else{
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6_5.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4_3.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6_5.target,
+            //             time:fitqueue6_5.time,
+            //             anim:fitqueue6_5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2_1.target,
+            //             time:infitqueue2_1.time,
+            //             anim:infitqueue2_1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4_3.target,
+            //             time:fitqueue4_3.time,
+            //             anim:fitqueue4_3.anim,
+            //         });
+            // }
             animations.push({
                 value:"",
+                nom:"queueExitToBus",
                 target:queueExitToBus.target,
                 time:queueExitToBus.time,
                 anim:queueExitToBus.anim,
@@ -256,6 +702,12 @@ class AddressingModes{
                 target:queueExitToAdr.target,
                 time:queueExitToAdr.time,
                 anim:queueExitToAdr.anim,
+            });
+            animations.push({
+                value:"",
+                target:ADRbusToDATABus.target,
+                time:ADRbusToDATABus.time,
+                anim:ADRbusToDATABus.anim,
             });
             animations.push({
                 value:adresse,
@@ -438,6 +890,105 @@ class AddressingModes{
                 }
                 //animation:
             //il faut ajouter d'abord deux shift du queue_____________
+            if(size==0){
+                animations.push({
+                    value:"",
+                    target:infitqueue6.target,
+                    time:infitqueue6.time,
+                    anim:infitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue5.target,
+                        time:infitqueue5.time,
+                        anim:infitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue6.target,
+                        time:fitqueue6.time,
+                        anim:fitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue4.target,
+                        time:infitqueue4.time,
+                        anim:infitqueue4.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue5.target,
+                        time:fitqueue5.time,
+                        anim:fitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue3.target,
+                        time:infitqueue3.time,
+                        anim:infitqueue3.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue4.target,
+                        time:fitqueue4.time,
+                        anim:fitqueue4.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue2.target,
+                        time:infitqueue2.time,
+                        anim:infitqueue2.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue3.target,
+                        time:fitqueue3.time,
+                        anim:fitqueue3.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue1.target,
+                        time:infitqueue1.time,
+                        anim:infitqueue1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue2.target,
+                        time:fitqueue2.time,
+                        anim:fitqueue2.anim,
+                    });
+            }else{
+                animations.push({
+                    value:"",
+                    target:infitqueue6_5.target,
+                    time:infitqueue6.time,
+                    anim:infitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue4_3.target,
+                        time:infitqueue5.time,
+                        anim:infitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue6_5.target,
+                        time:fitqueue6_5.time,
+                        anim:fitqueue6_5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue2_1.target,
+                        time:infitqueue2_1.time,
+                        anim:infitqueue2_1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue4_3.target,
+                        time:fitqueue4_3.time,
+                        anim:fitqueue4_3.anim,
+                    });
+            }
             animations.push({
                 value:"",
                 target:queueExitToBus.target,
@@ -656,8 +1207,108 @@ class AddressingModes{
             function directAdr(adresse,animated,size,depl,animations,is_anim,target){//here target=0 ==> target=MAR , target=1 ==>target=Acc //because we can performe an addition to have the addresse (ex basé indexé avec ou sans deplacement)
                 //animation:
             //il faut ajouter d'abord deux shift du queue_____________
+            //if(size==0){
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue5.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6.target,
+            //             time:fitqueue6.time,
+            //             anim:fitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4.target,
+            //             time:infitqueue4.time,
+            //             anim:infitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue5.target,
+            //             time:fitqueue5.time,
+            //             anim:fitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue3.target,
+            //             time:infitqueue3.time,
+            //             anim:infitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4.target,
+            //             time:fitqueue4.time,
+            //             anim:fitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2.target,
+            //             time:infitqueue2.time,
+            //             anim:infitqueue2.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue3.target,
+            //             time:fitqueue3.time,
+            //             anim:fitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue1.target,
+            //             time:infitqueue1.time,
+            //             anim:infitqueue1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue2.target,
+            //             time:fitqueue2.time,
+            //             anim:fitqueue2.anim,
+            //         });
+            // }else{
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6_5.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4_3.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6_5.target,
+            //             time:fitqueue6_5.time,
+            //             anim:fitqueue6_5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2_1.target,
+            //             time:infitqueue2_1.time,
+            //             anim:infitqueue2_1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4_3.target,
+            //             time:fitqueue4_3.time,
+            //             anim:fitqueue4_3.anim,
+            //         });
+            // }
             animations.push({
                 value:"",
+                nom:"queueExitToBus",
                 target:queueExitToBus.target,
                 time:queueExitToBus.time,
                 anim:queueExitToBus.anim,
@@ -668,6 +1319,12 @@ class AddressingModes{
                 target:queueExitToAdr.target,
                 time:queueExitToAdr.time,
                 anim:queueExitToAdr.anim,
+            });
+            animations.push({
+                value:"",
+                target:ADRbusToDATABus.target,
+                time:ADRbusToDATABus.time,
+                anim:ADRbusToDATABus.anim,
             });
             animations.push({
                 value:adresse,
@@ -715,6 +1372,105 @@ class AddressingModes{
                 memory.read(0);
                 //animation:
             //il faut ajouter d'abord deux shift du queue_____________
+            // if(size==0){
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue5.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6.target,
+            //             time:fitqueue6.time,
+            //             anim:fitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4.target,
+            //             time:infitqueue4.time,
+            //             anim:infitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue5.target,
+            //             time:fitqueue5.time,
+            //             anim:fitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue3.target,
+            //             time:infitqueue3.time,
+            //             anim:infitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4.target,
+            //             time:fitqueue4.time,
+            //             anim:fitqueue4.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2.target,
+            //             time:infitqueue2.time,
+            //             anim:infitqueue2.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue3.target,
+            //             time:fitqueue3.time,
+            //             anim:fitqueue3.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue1.target,
+            //             time:infitqueue1.time,
+            //             anim:infitqueue1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue2.target,
+            //             time:fitqueue2.time,
+            //             anim:fitqueue2.anim,
+            //         });
+            // }else{
+            //     animations.push({
+            //         value:"",
+            //         target:infitqueue6_5.target,
+            //         time:infitqueue6.time,
+            //         anim:infitqueue6.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue4_3.target,
+            //             time:infitqueue5.time,
+            //             anim:infitqueue5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue6_5.target,
+            //             time:fitqueue6_5.time,
+            //             anim:fitqueue6_5.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:infitqueue2_1.target,
+            //             time:infitqueue2_1.time,
+            //             anim:infitqueue2_1.anim,
+            //         });
+            //         animations.push({
+            //             value:"",
+            //             target:fitqueue4_3.target,
+            //             time:fitqueue4_3.time,
+            //             anim:fitqueue4_3.anim,
+            //         });
+            // }
             animations.push({
                 value:"",
                 target:queueExitToBus.target,

@@ -24,9 +24,9 @@ const BusToRual1={
     gsap.fromTo(".ball",{height:"2.812%",width:"1.4%",borderRadius:"50%",x:w*0.143,y:h*0.56,opacity:"0"},{opacity:"1" ,duration:1});
     gsap.fromTo(".ball",{x:w*0.143,y:h*0.56},{y:h*0.625 ,duration:1,delay:1});
     gsap.to(".ball",{opacity:"0" ,duration:1,delay:2});
-  },}
+},}
 
-  const Rual1ToBus={
+const Rual1ToBus={
     value:"",
     target:".ball",
     time:3000,
@@ -224,7 +224,16 @@ const BusToRual1={
   gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.497,duration:1,delay:1})
   gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
   },}
-  
+  let queueExitToReg={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.44,duration:1,delay:1})
+        gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    }
+}
   const MdrToIO={
     value:"",
     target:".box-data",
@@ -292,6 +301,35 @@ const BusToRual1={
   gsap.fromTo(".box-data",{x:w*0.321},{x:w*0.497,duration:1,delay:1})
   gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
   },}
+  const MDRToAcc={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.321,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+
+  const AccToReg={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.321,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.321},{x:w*0.44,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+
+  const RegToAcc={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.44,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.321,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
   
   const MdrToADR={
     value:"",
@@ -341,7 +379,7 @@ const IPToMAR={
     value:"",
     target:".box-ADR",
     time:3000,
-    anim:(h,w)=>{
+    anim:(val,h,w)=>{
     gsap.fromTo(".box-ADR",{x:w*0.753,opacity:"0"},{opacity:"1",duration:1})
     gsap.fromTo(".box-ADR",{x:w*0.753},{x:w*0.648,duration:1,delay:1})
     gsap.to(".box-ADR",{opacity:"0" ,duration:1,delay:2});
@@ -351,7 +389,7 @@ const ADRToMAR={
     value:"",
     target:".box-ADR",
     time:3000,
-    anim:(h,w)=>{
+    anim:(val,h,w)=>{
     gsap.fromTo(".box-ADR",{x:w*0.712,opacity:"0"},{opacity:"1",duration:1})
     gsap.fromTo(".box-ADR",{x:w*0.712},{x:w*0.648,duration:1,delay:1})
     gsap.to(".box-ADR",{opacity:"0" ,duration:1,delay:2});
@@ -600,6 +638,54 @@ const ADRToMAR={
     // gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
   },}
 
+  const addanim={
+    value:"",
+    target:"",
+    time:1000,
+    anim:(val,h,w)=>{
+        // Example JavaScript function to animate the word "ADD" with an ALU effect using GSAP
+    
+      // Create a container element for the word "ADD"
+      const wordContainer = document.createElement('div');
+      wordContainer.classList.add('word-container');
+      const arch = document.getElementsByClassName('arch-contain')
+      document.body.appendChild(wordContainer);
+    
+      // Set the word "ADD" as the text content of the container
+      wordContainer.textContent = 'ADD';
+    
+      // Apply styles to the word container
+      wordContainer.style.fontSize = '30px'; // Set font size to 48 pixels
+      wordContainer.style.color = '#1BE985'; // Set text color to blue
+      wordContainer.style.fontFamily="Mona Sans";
+      wordContainer.style.fontWeight="700";
+      wordContainer.style.position = 'absolute'; // Set position to absolute
+      wordContainer.style.top = '78.1%'; // Set top position to 50% for vertical centering
+      wordContainer.style.left = '13.5%'; // Set left position to 50% for horizontal centering
+    
+     
+    
+      const tl = gsap.timeline({ repeat:3 , yoyo: true });
+      tl.to(wordContainer, {
+        duration: 1.5, // Animation duration
+        // rotation: 10, // Rotate the word by 10 degrees
+        scale: 1.1, // Scale the word by 1.1
+        ease: 'power2.inOut', // Easing function for smooth animation
+      })
+        .to(wordContainer, {
+          duration: 1, // Animation duration
+          // rotation: -10, // Rotate the word by -10 degrees to the opposite direction
+          scale: 0.9, // Scale the word by 0.9 to the opposite direction
+          ease: 'power2.inOut', // Easing function for smooth animation
+        });
+    
+    
+    // Call the function to start the animation
+    
+    
+    
+      }}
+
 ////////////////////////////////////////////////
 
 
@@ -616,6 +702,7 @@ class InstructionADD{
         this.taille=0;
         this.stepsNum=1;
         this.res=0;
+        this.name="ADD";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -633,20 +720,29 @@ class InstructionADD{
             
         }
         ];
-        this.animationSteps=[{
-            value:"",
-            target:AluToAcc.target,
-            time:AluToAcc.time,
-            anim:AluToAcc.anim,
-        },
-        {
-            value:"res",
-            target:fitToAcc.target,
-            time:fitToAcc.time,
-            anim:fitToAcc.anim,
-        },
-    ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
+    
 }
 class InstructionMOV00{
     constructor(){
@@ -658,933 +754,1105 @@ class InstructionMOV00{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="MOV-RR";
         this.steps=[()=>{
             Registers[this.register1].setvalue(this.value2.toString(2));
         }
         ];
-        if(this.register1=="000"){
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR1.target,
-                    time:fitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR1.target,
-                    time:fitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR1.target,
-                    time:fitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR1.target,
-                    time:fitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR1.target,
-                    time:fitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR1.target,
-                    time:fitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR1.target,
-                    time:fitToR1.time,
-                    anim:fitToR1.anim,
-                },
-            ];
+        this.buildanim=function(){
+            if(this.register1=="000"){
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:AccToReg.target,
+                        time:AccToReg.time,
+                        anim:AccToReg.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }
+            }else if (this.register1=="001") {
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        value:"value2",
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:AccToReg.target,
+                        time:AccToReg.time,
+                        anim:AccToReg.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }
+            }else if (this.register1=="010") {
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:AccToReg.target,
+                        time:AccToReg.time,
+                        anim:AccToReg.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }
+            }else if (this.register1=="011") {
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:AccToReg.target,
+                        time:AccToReg.time,
+                        anim:AccToReg.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }
+            }else if (this.register1=="100") {
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:RegToAcc.target,
+                        time:RegToAcc.time,
+                        anim:RegToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:RegToAcc.target,
+                        time:RegToAcc.time,
+                        anim:RegToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:RegToAcc.target,
+                        time:RegToAcc.time,
+                        anim:RegToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:RegToAcc.target,
+                        time:RegToAcc.time,
+                        anim:RegToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:RegToAcc.target,
+                        time:RegToAcc.time,
+                        anim:RegToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:RegToAcc.target,
+                        time:RegToAcc.time,
+                        anim:RegToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:RegToAcc.target,
+                        time:RegToAcc.time,
+                        anim:RegToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }
+            }else if (this.register1=="101") {
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:AccToReg.target,
+                        time:AccToReg.time,
+                        anim:AccToReg.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }
+            }else if (this.register1=="110") {
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:AccToReg.target,
+                        time:AccToReg.time,
+                        anim:AccToReg.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }
+            }else if (this.register1=="111") {
+                if(this.register2=="000"){
+                    return[{
+                        value:"value2",
+                        target:infitToR1.target,
+                        time:infitToR1.time,
+                        anim:infitToR1.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }else if (this.register2=="001") {
+                    return[{
+                        value:"value2",
+                        target:infitToR2.target,
+                        time:infitToR2.time,
+                        anim:infitToR2.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                    
+                }else if (this.register2=="010") {
+                    return[{
+                        value:"value2",
+                        target:infitToR3.target,
+                        time:infitToR3.time,
+                        anim:infitToR3.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }else if (this.register2=="011") {
+                    return[{
+                        value:"value2",
+                        target:infitToR4.target,
+                        time:infitToR4.time,
+                        anim:infitToR4.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }else if (this.register2=="100") {
+                    return[{
+                        value:"value2",
+                        target:infitToAcc.target,
+                        time:infitToAcc.time,
+                        anim:infitToAcc.anim,
+                    },
+                    {
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:AccToReg.target,
+                        time:AccToReg.time,
+                        anim:AccToReg.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }else if (this.register2=="101") {
+                    return[{
+                        value:"value2",
+                        target:infitToBr.target,
+                        time:infitToBr.time,
+                        anim:infitToBr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }else if (this.register2=="110") {
+                    return[{
+                        value:"value2",
+                        target:infitToIdr.target,
+                        time:infitToIdr.time,
+                        anim:infitToIdr.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }else if (this.register2=="111") {
+                    return[{
+                        value:"value2",
+                        target:infitToSR.target,
+                        time:infitToSR.time,
+                        anim:infitToSR.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }
             }
-        }else if (this.register1=="001") {
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    value:"value2",
-                    anim:fitToR2.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    anim:fitToR2.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    anim:fitToR2.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    anim:fitToR2.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    anim:fitToR2.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    anim:fitToR2.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    anim:fitToR2.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR2.target,
-                    time:fitToR2.time,
-                    anim:fitToR2.anim,
-                },
-            ];
-            }
-        }else if (this.register1=="010") {
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR3.target,
-                    time:fitToR3.time,
-                    anim:fitToR3.anim,
-                },
-            ];
-            }
-        }else if (this.register1=="011") {
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToR4.target,
-                    time:fitToR4.time,
-                    anim:fitToR4.anim,
-                },
-            ];
-            }
-        }else if (this.register1=="100") {
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToAcc.target,
-                    time:fitToAcc.time,
-                    anim:fitToAcc.anim,
-                },
-            ];
-            }
-        }else if (this.register1=="101") {
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToBr.target,
-                    time:fitToBr.time,
-                    anim:fitToBr.anim,
-                },
-            ];
-            }
-        }else if (this.register1=="110") {
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToIdr.target,
-                    time:fitToIdr.time,
-                    anim:fitToIdr.anim,
-                },
-            ];
-            }
-        }else if (this.register1=="111") {
-            if(this.register2=="000"){
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR1.target,
-                    time:infitToR1.time,
-                    anim:infitToR1.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-            }else if (this.register2=="001") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR2.target,
-                    time:infitToR2.time,
-                    anim:infitToR2.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-                
-            }else if (this.register2=="010") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR3.target,
-                    time:infitToR3.time,
-                    anim:infitToR3.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-            }else if (this.register2=="011") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToR4.target,
-                    time:infitToR4.time,
-                    anim:infitToR4.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-            }else if (this.register2=="100") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToAcc.target,
-                    time:infitToAcc.time,
-                    anim:infitToAcc.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-            }else if (this.register2=="101") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToBr.target,
-                    time:infitToBr.time,
-                    anim:infitToBr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-            }else if (this.register2=="110") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToIdr.target,
-                    time:infitToIdr.time,
-                    anim:infitToIdr.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-            }else if (this.register2=="111") {
-                this.animationSteps=[{
-                    value:"value2",
-                    target:infitToSR.target,
-                    time:infitToSR.time,
-                    anim:infitToSR.anim,
-                },
-                {
-                    value:"value2",
-                    target:fitToSr.target,
-                    time:fitToSr.time,
-                    anim:fitToSr.anim,
-                },
-            ];
-            }
+            
         }
-        
     }
+    
 }
 class InstructionMOV01{
     constructor(){
@@ -1596,221 +1864,318 @@ class InstructionMOV01{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.isimmed=0;
+        this.name="MOV-RM";
         this.steps=[()=>{
             Registers[this.register1].setvalue(this.value2.toString(2));
         }
         ];
-        if(this.register1=="000"){
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToR1.target,
-                time:fitToR1.time,
-                anim:fitToR1.anim,
-            },
-        ];
-        }else if (this.register1=="001") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToR2.target,
-                time:fitToR2.time,
-                anim:fitToR2.anim,
-            },
-        ];
-            
-        }else if (this.register1=="010") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToR3.target,
-                time:fitToR3.time,
-                anim:fitToR3.anim,
-            },
-        ];
-        }else if (this.register1=="011") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToR4.target,
-                time:fitToR4.time,
-                anim:fitToR4.anim,
-            },
-        ];
-        }else if (this.register1=="100") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToAcc.target,
-                time:fitToAcc.time,
-                anim:fitToAcc.anim,
-            },
-        ];
-        }else if (this.register1=="101") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToBr.target,
-                time:fitToBr.time,
-                anim:fitToBr.anim,
-            },
-        ];
-        }else if (this.register1=="110") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToIdr.target,
-                time:fitToIdr.time,
-                anim:fitToIdr.anim,
-            },
-        ];
-        }else if (this.register1=="111") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-            {
-                value:"",
-                target:MdrToBus.target,
-                time:MdrToBus.time,
-                anim:MdrToBus.anim,
-            },
-            {
-                value:"value2",
-                target:MdrToReg.target,
-                time:MdrToReg.time,
-                anim:MdrToReg.anim,
-            },
-            {
-                value:"value2",
-                target:fitToSr.target,
-                time:fitToSr.time,
-                anim:fitToSr.anim,
-            },
-        ];
+        this.buildanim=function(){
+            if(this.register1=="000"){
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:fitToR1.target,
+                        time:fitToR1.time,
+                        anim:fitToR1.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToR1.target,
+                    time:fitToR1.time,
+                    anim:fitToR1.anim,
+                },
+            ];}
+            }else if (this.register1=="001") {
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:fitToR2.target,
+                        time:fitToR2.time,
+                        anim:fitToR2.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToR2.target,
+                    time:fitToR2.time,
+                    anim:fitToR2.anim,
+                },
+            ];
+        }
+            }else if (this.register1=="010") {
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:fitToR3.target,
+                        time:fitToR3.time,
+                        anim:fitToR3.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToR3.target,
+                    time:fitToR3.time,
+                    anim:fitToR3.anim,
+                },
+            ];}
+            }else if (this.register1=="011") {
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:fitToR4.target,
+                        time:fitToR4.time,
+                        anim:fitToR4.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToR4.target,
+                    time:fitToR4.time,
+                    anim:fitToR4.anim,
+                },
+            ];}
+            }else if (this.register1=="100") {
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:BusToAcc.target,
+                        time:BusToAcc.time,
+                        anim:BusToAcc.anim,
+                    },
+                    {
+                        value:"value2",
+                        target:fitToAcc.target,
+                        time:fitToAcc.time,
+                        anim:fitToAcc.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MDRToAcc.target,
+                    time:MDRToAcc.time,
+                    anim:MDRToAcc.anim,
+                },
+                {
+                    value:"value2",
+                    target:BusToAcc.target,
+                    time:BusToAcc.time,
+                    anim:BusToAcc.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToAcc.target,
+                    time:fitToAcc.time,
+                    anim:fitToAcc.anim,
+                },
+            ];}
+            }else if (this.register1=="101") {
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:fitToBr.target,
+                        time:fitToBr.time,
+                        anim:fitToBr.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToBr.target,
+                    time:fitToBr.time,
+                    anim:fitToBr.anim,
+                },
+            ];}
+            }else if (this.register1=="110") {
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:fitToIdr.target,
+                        time:fitToIdr.time,
+                        anim:fitToIdr.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToIdr.target,
+                    time:fitToIdr.time,
+                    anim:fitToIdr.anim,
+                },
+            ];}
+            }else if (this.register1=="111") {
+                if(this.isimmed===1){
+                    return[
+                    {
+                        value:"value2",
+                        target:fitToSr.target,
+                        time:fitToSr.time,
+                        anim:fitToSr.anim,
+                    },
+                ];
+                }else{
+                return[{
+                    value:"value2",
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToSr.target,
+                    time:fitToSr.time,
+                    anim:fitToSr.anim,
+                },
+            ];
+            }}
         }
     }
+    
 }
 class InstructionMOV10{
     constructor(){
@@ -1822,280 +2187,284 @@ class InstructionMOV10{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="MOV-MR";
         this.steps=[()=>{
             memory.setRim(this.value2.toString(16));
             memory.setRam(this.addresse1);
             memory.write();
         }
         ];
-        if(this.register1=="000"){
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToR1.target,
-                time:infitToR1.time,
-                anim:infitToR1.anim,
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
+        this.buildanim=function(){
+            if(this.register1=="000"){
+                return[{
+                    value:"value2",
+                    target:infitToR1.target,
+                    time:infitToR1.time,
+                    anim:infitToR1.anim,
+                },
+                {
+                    value:"",
+                    target:RegistersToBus.target,
+                    time:RegistersToBus.time,
+                    anim:RegistersToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
+            }else if (this.register1=="001") {
+                return[{
+                    value:"value2",
+                    target:infitToR2.target,
+                    time:infitToR2.time,
+                    anim:infitToR2.anim,
+                },
+                {
+                    value:"",
+                    target:RegistersToBus.target,
+                    time:RegistersToBus.time,
+                    anim:RegistersToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
+                
+            }else if (this.register1=="010") {
+                return[{
+                    value:"value2",
+                    target:infitToR3.target,
+                    time:infitToR3.time,
+                    anim:infitToR3.anim,
+                },
+                {
+                    value:"",
+                    target:RegistersToBus.target,
+                    time:RegistersToBus.time,
+                    anim:RegistersToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
+            }else if (this.register1=="011") {
+                return[{
+                    value:"value2",
+                    target:infitToR4.target,
+                    time:infitToR4.time,
+                    anim:infitToR4.anim,
+                },
+                {
+                    value:"",
+                    target:RegistersToBus.target,
+                    time:RegistersToBus.time,
+                    anim:RegistersToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
+            }else if (this.register1=="100") {
+                return[{
+                    value:"value2",
+                    target:infitToAcc.target,
+                    time:infitToAcc.time,
+                    anim:infitToAcc.anim,//we have to change animations here___________________________________
+                },
+                {
+                    value:"",
+                    target:AccToBus.target,
+                    time:AccToBus.time,
+                    anim:AccToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:AccToMDR.target,
+                    time:AccToMDR.time,
+                    anim:AccToMDR.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
+            }else if (this.register1=="101") {
+                return[{
+                    value:"value2",
+                    target:infitToBr.target,
+                    time:infitToBr.time,
+                    anim:infitToBr.anim,
+                },
+                {
+                    value:"",
+                    target:RegistersToBus.target,
+                    time:RegistersToBus.time,
+                    anim:RegistersToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
+            }else if (this.register1=="110") {
+                return[{
+                    value:"value2",
+                    target:infitToIdr.target,
+                    time:infitToIdr.time,
+                    anim:infitToIdr.anim,
+                },
+                {
+                    value:"",
+                    target:RegistersToBus.target,
+                    time:RegistersToBus.time,
+                    anim:RegistersToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
+            }else if (this.register1=="111") {
+                return[{
+                    value:"value2",
+                    target:infitToSR.target,
+                    time:infitToSR.time,
+                    anim:infitToSR.anim,
+                },
+                {
+                    value:"",
+                    target:RegistersToBus.target,
+                    time:RegistersToBus.time,
+                    anim:RegistersToBus.anim,
+                },
+                {
+                    value:"value2",
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:"value2",
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                }
+                ///animation of writing in MC/___________________________
+            ];
             }
-            ///animation of writing in MC/___________________________
-        ];
-        }else if (this.register1=="001") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToR2.target,
-                time:infitToR2.time,
-                anim:infitToR2.anim,
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
-            }
-            ///animation of writing in MC/___________________________
-        ];
             
-        }else if (this.register1=="010") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToR3.target,
-                time:infitToR3.time,
-                anim:infitToR3.anim,
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
-            }
-            ///animation of writing in MC/___________________________
-        ];
-        }else if (this.register1=="011") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToR4.target,
-                time:infitToR4.time,
-                anim:infitToR4.anim,
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
-            }
-            ///animation of writing in MC/___________________________
-        ];
-        }else if (this.register1=="100") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToAcc.target,
-                time:infitToAcc.time,
-                anim:infitToAcc.anim,//we have to change animations here___________________________________
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
-            }
-            ///animation of writing in MC/___________________________
-        ];
-        }else if (this.register1=="101") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToBr.target,
-                time:infitToBr.time,
-                anim:infitToBr.anim,
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
-            }
-            ///animation of writing in MC/___________________________
-        ];
-        }else if (this.register1=="110") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToIdr.target,
-                time:infitToIdr.time,
-                anim:infitToIdr.anim,
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
-            }
-            ///animation of writing in MC/___________________________
-        ];
-        }else if (this.register1=="111") {
-            this.animationSteps=[{
-                value:"value2",
-                target:infitToSR.target,
-                time:infitToSR.time,
-                anim:infitToSR.anim,
-            },
-            {
-                value:"",
-                target:RegistersToBus.target,
-                time:RegistersToBus.time,
-                anim:RegistersToBus.anim,
-            },
-            {
-                value:"value2",
-                target:RegToMdr.target,
-                time:RegToMdr.time,
-                anim:RegToMdr.anim,
-            },
-            {
-                value:"",
-                target:BusToMdr.target,
-                time:BusToMdr.time,
-                anim:BusToMdr.anim,
-            },
-            {
-                value:"value2",
-                target:fitToMdr.target,
-                time:fitToMdr.time,
-                anim:fitToMdr.anim,
-            }
-            ///animation of writing in MC/___________________________
-        ];
         }
-        
     }
+    
 }
 class InstructionMOV11{////the difference between them will be in the animation part
     constructor(){
@@ -2108,57 +2477,60 @@ class InstructionMOV11{////the difference between them will be in the animation 
         this.taille=0;
         this.stepsNum=1;
         this.isimmed=true;
-        
+        this.name="MOV-MM";
         this.steps=[()=>{
             memory.setRim(this.value2.toString(16));
             memory.setRam(this.addresse1);
             memory.write();
         }
         ];
-        if(this.isimmed==false){
-        this.animationSteps=[{
-            value:"addresse1",
-            target:infitToAcc.target,
-            time:infitToAcc.time,
-            anim:infitToAcc.anim,
-        },
-        {
-            value:"",
-            target:AccToBus.target,
-            time:AccToBus.time,
-            anim:AccToBus.anim,
-        },
-        {
-            value:"addresse1",
-            target:AccToADR.target,
-            time:AccToADR.time,
-            anim:AccToADR.anim,
-        },
-        {
-            value:"addresse1",
-            target:ADRToMAR.target,
-            time:ADRToMAR.time,
-            anim:ADRToMAR.anim,
-        },
-        {
-            value:"addresse1",
-            target:fitToMar.target,
-            time:fitToMar.time,
-            anim:fitToMar.anim,
-        },
-        
-        ///animation of writing in MC/___________________________
-    ];}else{
-        this.animationSteps=[
-            {
-                value:"value2",
-                target:infitToMdr.target,
-                time:infitToMdr.time,
-                anim:infitToMdr.anim,
-            },
-        ];///animation of writing in MC/___________________________
+        this.buildanim=function(){
+            if(this.isimmed==false){
+                return[{
+                    value:"addresse1",
+                    target:infitToAcc.target,
+                    time:infitToAcc.time,
+                    anim:infitToAcc.anim,
+                },
+                {
+                    value:"",
+                    target:AccToBus.target,
+                    time:AccToBus.time,
+                    anim:AccToBus.anim,
+                },
+                {
+                    value:"addresse1",
+                    target:AccToADR.target,
+                    time:AccToADR.time,
+                    anim:AccToADR.anim,
+                },
+                {
+                    value:"addresse1",
+                    target:ADRToMAR.target,
+                    time:ADRToMAR.time,
+                    anim:ADRToMAR.anim,
+                },
+                {
+                    value:"addresse1",
+                    target:fitToMar.target,
+                    time:fitToMar.time,
+                    anim:fitToMar.anim,
+                },
+                
+                ///animation of writing in MC/___________________________
+            ];}else{
+                return[
+                    {
+                        value:"value2",
+                        target:infitToMdr.target,
+                        time:infitToMdr.time,
+                        anim:infitToMdr.anim,
+                    },
+                ];///animation of writing in MC/___________________________
+            }
+        }
     }
-    }
+    
 }
 
 
@@ -2172,6 +2544,7 @@ class InstructionSUB{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="SUB";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2187,20 +2560,23 @@ class InstructionSUB{
             
         }
         ];
-        this.animationSteps=[{
-            value:"",
-            target:AluToAcc.target,
-            time:AluToAcc.time,
-            anim:AluToAcc.anim,
-        },
-        {
-            value:"res",
-            target:fitToAcc.target,
-            time:fitToAcc.time,
-            anim:fitToAcc.anim,
-        },
-    ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
+    
 }
 
 class InstructionMUL{
@@ -2213,6 +2589,7 @@ class InstructionMUL{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="MUL";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2230,20 +2607,23 @@ class InstructionMUL{
             }
         }
         ];
-        this.animationSteps=[{
-            value:"",
-            target:AluToAcc.target,
-            time:AluToAcc.time,
-            anim:AluToAcc.anim,
-        },
-        {
-            value:"res",
-            target:fitToAcc.target,
-            time:fitToAcc.time,
-            anim:fitToAcc.anim,
-        },
-    ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
+    
 }
 
 class InstructionDIV{
@@ -2256,6 +2636,7 @@ class InstructionDIV{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="DIV";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2272,20 +2653,23 @@ class InstructionDIV{
             }
         }
         ];
-        this.animationSteps=[{
-            value:"",
-            target:AluToAcc.target,
-            time:AluToAcc.time,
-            anim:AluToAcc.anim,
-        },
-        {
-            value:"res",
-            target:fitToAcc.target,
-            time:fitToAcc.time,
-            anim:fitToAcc.anim,
-        },
-    ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
+    
 }
 class InstructionAND{
     constructor(){
@@ -2297,6 +2681,7 @@ class InstructionAND{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="AND";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2311,20 +2696,23 @@ class InstructionAND{
             }
         }
         ];
-        this.animationSteps=[{
-            value:"",
-            target:AluToAcc.target,
-            time:AluToAcc.time,
-            anim:AluToAcc.anim,
-        },
-        {
-            value:"res",
-            target:fitToAcc.target,
-            time:fitToAcc.time,
-            anim:fitToAcc.anim,
-        },
-    ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
+    
 }
 class InstructionOR{
     constructor(){
@@ -2336,6 +2724,7 @@ class InstructionOR{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="OR";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2350,20 +2739,23 @@ class InstructionOR{
             }
         }
         ];
-        this.animationSteps=[{
-            value:"",
-            target:AluToAcc.target,
-            time:AluToAcc.time,
-            anim:AluToAcc.anim,
-        },
-        {
-            value:"res",
-            target:fitToAcc.target,
-            time:fitToAcc.time,
-            anim:fitToAcc.anim,
-        },
-    ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
+    
 }
 
 class InstructionXOR{
@@ -2376,6 +2768,7 @@ class InstructionXOR{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="XOR";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2390,20 +2783,23 @@ class InstructionXOR{
             }
         }
         ];
-        this.animationSteps=[{
-            value:"",
-            target:AluToAcc.target,
-            time:AluToAcc.time,
-            anim:AluToAcc.anim,
-        },
-        {
-            value:"res",
-            target:fitToAcc.target,
-            time:fitToAcc.time,
-            anim:fitToAcc.anim,
-        },
-    ];
+        this.buildanim=function(){
+            return [{
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
+    
 }
 
 class InstructionNOR{
@@ -2416,6 +2812,7 @@ class InstructionNOR{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="NOR";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2444,6 +2841,7 @@ class InstructionNAND{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="NAND";
         this.steps=[()=>{
             // let res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
@@ -2472,6 +2870,7 @@ class InstructionPUSH{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="PUSH";
         this.steps=[()=>{
             memory.setRim(this.value1);
             memory.pushval();
@@ -2491,6 +2890,7 @@ class InstructionPOP{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="POP";
         this.steps=[()=>{
             memory.popval();
             Registers[this.register1].setvalue(memory.getRim());//the operand of pop can only be a register
@@ -2510,6 +2910,7 @@ class InstructionBR{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="BR";
         this.steps=[()=>{
             IP.setvalue(this.addresse1);
             /////we need to clear the queue from old instruction 
@@ -2529,6 +2930,7 @@ class InstructionBE{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="BE";
         this.steps=[()=>{
             if(Alu1.getFlags(0)==='1'){
                 IP.setvalue(this.addresse1);
@@ -2550,6 +2952,7 @@ class InstructionBNE{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="BNE";
         this.steps=[()=>{
             if(Alu1.getFlags(0)==='0'){
                 IP.setvalue(this.addresse1);
@@ -2571,6 +2974,7 @@ class InstructionBS{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="BS";
         this.steps=[()=>{
             if(Alu1.Acc.getvalue().charAt[0]==='0'){
                 IP.setvalue(this.addresse1);
@@ -2592,6 +2996,7 @@ class InstructionBI{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="BI";
         this.steps=[()=>{
             if(Alu1.Acc.getvalue().charAt[0]==='1'){
                 IP.setvalue(this.addresse1);
@@ -2613,6 +3018,7 @@ class InstructionBIE{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="BIE";
         this.steps=[()=>{
             if(Alu1.Acc.getvalue().charAt[0]==='1' | Alu1.getFlags(0)==='1' ){
                 IP.setvalue(this.addresse1);
@@ -2634,6 +3040,7 @@ class InstructionBSE{
         this.register2=0;
         this.taille=0;
         this.stepsNum=1;
+        this.name="BSE";
         this.steps=[()=>{
             if(Alu1.Acc.getvalue().charAt[0]==='0' | Alu1.getFlags(0)==='1' ){
                 IP.setvalue(this.addresse1);
