@@ -660,7 +660,7 @@ const ADRToMAR={
       wordContainer.style.fontFamily="Mona Sans";
       wordContainer.style.fontWeight="700";
       wordContainer.style.position = 'absolute'; // Set position to absolute
-      wordContainer.style.top = '78.1%'; // Set top position to 50% for vertical centering
+      wordContainer.style.top = '76.1%'; // Set top position to 50% for vertical centering
       wordContainer.style.left = '13.5%'; // Set left position to 50% for horizontal centering
     
      
@@ -3051,6 +3051,7 @@ class InstructionBSE{
         this.animationSteps=[];
     }
 }
+
 
 
 export {InstructionADD,InstructionMOV00,InstructionMOV01,InstructionMOV10,InstructionMOV11,InstructionSUB,InstructionMUL,InstructionDIV,InstructionBSE,InstructionBIE,InstructionBI,InstructionBS,InstructionBNE,InstructionBE,InstructionBR,InstructionPOP,InstructionPUSH,InstructionAND,InstructionOR,InstructionNAND,InstructionNOR,InstructionXOR}
