@@ -364,7 +364,7 @@ setresult(resulttmp);
 
       if (lineWithoutComment !== '') {
         // If the line without comments is not empty, store it in codeArray
-        codeArray.push(lineWithoutComment);
+        codeArray.push(lineWithoutComment.toUpperCase());
       }
     });
     return codeArray;

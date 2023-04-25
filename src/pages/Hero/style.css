@@ -112,21 +112,26 @@
 }
 
 .whycalm{
-  text-align: center;
+  /* text-align: center;
   color: white;
   font-size: 70px;
-  font-weight: 700;
+  font-weight: 700; */
+  height: 200px;
+  width:600px;
+  position: relative;
+  top:80px;
 }
 
 .why-calm-description{
   width: 50%;
-  padding: 16px 8px;
+  padding: 25px 35px;
   border-radius: 30px;
 
   background-color: #24292E;
   color: white;
-  font-size: 45px;
-  line-height: 60px;
+  font-size: 30px;
+  line-height: 40px;
+  border: 4px solid white;
 }
 
 body{background-color: #1B1F24;}
@@ -135,21 +140,74 @@ body{background-color: #1B1F24;}
   width:100%;
   height: fit-content;
   margin: 128px 0;
-  display: grid;
+  /* display: grid;
   grid-template-rows: 1fr 80%;
-  grid-template-columns: 70% 1fr;
+  grid-template-columns: 70% 1fr; */
   justify-items: center;
   align-items: center;
   font-family: "Mona Sans";
   color: white;
+  display: grid;
+}
+
+.whatWeOfferCard {
+  /* Rectangle 45 */
+  display: flex;
+  flex-direction: column;
+  width: 12.5rem;
+  height: 12.5rem;
+
+  background: var(--adress-mode-color);
+  border-radius: 40px;
+
+  /* Inside auto layout */
+
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+    0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+    0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+  padding: 1em;
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid black;
+}
+.whatWeOfferCard:hover {
+  /*background-color: var(--main-accent-color);*/
+  /*color: var(--main-background-color);*/
+  /*border: 1px solid black;*/
+  /*transform: scale(1.1);*/
+  /*transition: 0.5s;*/
+  border: 1px solid black;
+  transform: translatey(-0.5rem);
+  transition: 0.3s;
+  box-shadow: 0 25px 30px -20px var(--main-accent-color);
+}
+.whatWeOfferCard img {
+  width: 40%;
+  height: 40%;
+}
+.whatWeOfferCard:hover img {
+  transition: 0.3s;
+  transform: scale(1.01);
+  filter: invert(20%) sepia(32%) saturate(2127%) hue-rotate(90deg) brightness(100%) contrast(100%);
+}
+.whatWeOfferCard p {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
 }
 
 .what-we-offer{
-  color: white;
+  /* color: white;
   font-size: 55px;
-  line-height: 60px;
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
+  line-height: 60px;*/
+  /* grid-row: 1 / 2;
+  grid-column: 1 / 2;  */
+  width: 600px;
+  height:200px;
+  position: relative;
+  top: 70px;
 }
 .what-we-offer-description{
   width: 75%;

@@ -1,6 +1,8 @@
 import "./style.css";
 import logoHero from "../../assets/images/logos/logoHero.png"
 import Slogan from "../../assets/images/logos/Slogan.png"
+import whyCalm from "../../assets/images/logos/whyCalm.png"
+import whatCalmOffers from "../../assets/images/logos/whatCalmOffers.png"
 //import components
 import { NavBar, Title, HeroIde } from "../../components"
 import {Footer} from '../../containers'
@@ -33,7 +35,7 @@ const Hero = ()=>{
     return(
 
         <section className="why-calm-section">
-            <h1 className="whycalm ">why calM</h1>
+            <img src={whyCalm} alt="" className="whycalm "/>
             <div className="why-calm-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis architecto similique, iure nihil vel illo, sed quidem voluptate odio voluptatem.</div>
         </section>
     )
@@ -42,10 +44,14 @@ const Hero = ()=>{
   const Part3=()=>{
      return(
         <section className="what-we-offer-section">
-              <h2 className="what-we-offer">What we offer</h2>
-              <div className="what-we-offer-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, ipsum voluptate? Rerum magnam dolorum quaerat, itaque odio aliquam repellendus.</div>
-
-            <img  className='todolist' src={to_do_list} alt="to-do list"/>
+              <img src={whatCalmOffers} alt="" className="what-we-offer"/>
+              <div style={{display:"flex",gap:"7rem"}}>
+                <div className="whatWeOfferCard" ></div>
+                <div className="whatWeOfferCard" ></div>
+                <div className="whatWeOfferCard" ></div>
+                </div>
+              {/* <div className="what-we-offer-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, ipsum voluptate? Rerum magnam dolorum quaerat, itaque odio aliquam repellendus.</div> */}
+            {/* <img  className='todolist' src={to_do_list} alt="to-do list"/> */}
         </section>
      )
 
@@ -127,7 +133,6 @@ const Hero = ()=>{
       </main>
         
       <Part1></Part1>
-      <Part2></Part2>
       <Part3></Part3>
       <Part4></Part4>
       <Part5></Part5>

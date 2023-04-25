@@ -617,7 +617,7 @@ class AddressingModes{
                         anim:queueExitToBus.anim,
                     });
                     animations.push({
-                        value:"",
+                        value:adresse,
                         target:queueExitToReg.target,
                         time:queueExitToReg.time,
                         anim:queueExitToReg.anim,
@@ -631,7 +631,7 @@ class AddressingModes{
                         anim:queueExitToBus.anim,
                     });
                     animations.push({
-                        value:"",
+                        value:adresse,
                         target:queueExitToRual1.target,
                         time:queueExitToRual1.time,
                         anim:queueExitToRual1.anim,
@@ -657,7 +657,7 @@ class AddressingModes{
                         anim:queueExitToBus.anim,
                     });
                     animations.push({
-                        value:"",
+                        value:adresse,
                         target:queueExitToRual2.target,
                         time:queueExitToRual2.time,
                         anim:queueExitToRual2.anim,
@@ -683,7 +683,7 @@ class AddressingModes{
                         anim:queueExitToBus.anim,
                     });
                     animations.push({
-                        value:"",
+                        value:adresse,
                         target:queueExitToAcc.target,
                         time:queueExitToAcc.time,
                         anim:queueExitToAcc.anim,
