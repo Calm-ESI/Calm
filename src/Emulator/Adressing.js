@@ -1,8 +1,114 @@
 import { memory, BR, IR } from "../pages/Ide";
 import { gsap } from "gsap";
+import Alu from "./ALU";
 function hex2bin(hex){
     return ("00000000" + (parseInt(hex, 16)).toString(2)).substr(-8);
 }
+const AccToADR={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.321,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.321},{x:w*0.705,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+const AccToBus={
+    value:"",
+    target:".ball",
+    time:4000,
+    anim:(val,h,w)=>{
+    ///depart: ( 39.7% , 54% )  W:1.4% ,H:2.812
+    gsap.fromTo(".ball",{height:"2.812%",width:"1.4%",borderRadius:"50%",x:w*0.282,y:h*0.923,opacity:"0"},{opacity:"1" ,duration:1});
+    gsap.fromTo(".ball",{x:w*0.282,y:h*0.923},{x:w*0.361 ,duration:1,delay:1});
+    gsap.to(".ball",{y:h*0.56 ,duration:1,delay:2});
+    gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+  },}
+  const AccToRUAL2={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.321,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.321},{x:w*0.262,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+
+  const AccToRUAL1={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.321,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.321},{x:w*0.106,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+const RegToRual2={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.44,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.106,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+  const AccToMDR={
+    value:"",
+    target:".box-data",
+    time:3000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".box-data",{x:w*0.321,opacity:"0"},{opacity:"1",duration:1})
+  gsap.fromTo(".box-data",{x:w*0.321},{x:w*0.497,duration:1,delay:1})
+  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+  },}
+  const fitToBr={
+    value:"",
+    target:".ball",
+    time:1000,
+    anim:(val,h,w)=>{
+    gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.045,x:w*0.442,y:h*0.8815,opacity:"0"},{opacity:"1" ,duration:1});
+    // gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.045,duration:1,delay:1});
+    // gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+  },}
+  const infitToBr={
+    value:"",
+    target:".ball",
+    time:1000,
+    anim:(val,h,w)=>{
+        // gsap.fromTo(".ball",{x:w*0.442,y:h*0.8815,opacity:"0",height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.045,duration:1,delay:1});
+        // gsap.fromTo(".ball",{x:w*0.442,y:h*0.8815,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
+        // gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.045,},{height:"2.812%",width:"1.4%",borderRadius:"50%",duration:1,delay:1});
+        gsap.to(".ball",{opacity:"0" ,duration:1});
+    },}
+    const infitToIr={
+        value:"",
+        target:".ball",
+        time:1000,
+        anim:(val,h,w)=>{
+            // gsap.fromTo(".ball",{x:w*0.442,y:h*0.8815,opacity:"0",height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.045,duration:1,delay:1});
+            // gsap.fromTo(".ball",{x:w*0.442,y:h*0.8815,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
+            // gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.045,},{height:"2.812%",width:"1.4%",borderRadius:"50%",duration:1,delay:1});
+            gsap.to(".ball",{opacity:"0" ,duration:1});
+        },}
+    const fitToIr={
+        value:"",
+        target:".ball",
+        time:1000,
+        anim:(val,h,w)=>{
+        gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.055,x:w*0.6,y:h*0.6495,opacity:"0"},{opacity:"1" ,duration:1});
+        // gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.055,duration:1,delay:1});
+        // gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+      },}
+const AluToAcc={
+    value:"",
+    target:".ball",
+    time:3000,
+    anim:(val,h,w)=>{
+    ///depart: ( 30.3% , 83.5% )  W:1.4% ,H:2.812
+    gsap.fromTo(".ball",{height:"2.812%",width:"1.4%",borderRadius:"50%",x:w*0.226,y:h*0.863,opacity:"0"},{opacity:"1" ,duration:1});
+    gsap.fromTo(".ball",{x:w*0.226,y:h*0.863},{y:h*0.877 ,duration:1,delay:1});
+    gsap.to(".ball",{opacity:"0" ,duration:1,delay:2});
+  },}
 const infitToMar={
     value:"",
     target:".ball",
@@ -1003,6 +1109,12 @@ class AddressingModes{
             });
             animations.push({
                 value:adresse,
+                target:ADRbusToDATABus.target,
+                time:ADRbusToDATABus.time,
+                anim:ADRbusToDATABus.anim,
+            });
+            animations.push({
+                value:adresse,
                 target:ADRToMAR.target,
                 time:ADRToMAR.time,
                 anim:ADRToMAR.anim,
@@ -1127,25 +1239,550 @@ class AddressingModes{
                 }
                 },
                 function baseval(adresse,animated,size,depl,animations,is_anim,target){
-                    adresse=adresse+BR.getvalue()+depl;
-                    memory.setRam(adresse);
+                    let adressenv=adresse+parseInt(BR.getvalue(),2)+depl;//no need for dep
+                    memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
+                        //animation:
+            //il faut ajouter d'abord deux shift du queue_____________
+            if(size==0){
+                animations.push({
+                    value:"",
+                    target:infitqueue6.target,
+                    time:infitqueue6.time,
+                    anim:infitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue5.target,
+                        time:infitqueue5.time,
+                        anim:infitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue6.target,
+                        time:fitqueue6.time,
+                        anim:fitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue4.target,
+                        time:infitqueue4.time,
+                        anim:infitqueue4.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue5.target,
+                        time:fitqueue5.time,
+                        anim:fitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue3.target,
+                        time:infitqueue3.time,
+                        anim:infitqueue3.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue4.target,
+                        time:fitqueue4.time,
+                        anim:fitqueue4.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue2.target,
+                        time:infitqueue2.time,
+                        anim:infitqueue2.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue3.target,
+                        time:fitqueue3.time,
+                        anim:fitqueue3.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue1.target,
+                        time:infitqueue1.time,
+                        anim:infitqueue1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue2.target,
+                        time:fitqueue2.time,
+                        anim:fitqueue2.anim,
+                    });
+            }else{
+                animations.push({
+                    value:"",
+                    target:infitqueue6_5.target,
+                    time:infitqueue6.time,
+                    anim:infitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue4_3.target,
+                        time:infitqueue5.time,
+                        anim:infitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue6_5.target,
+                        time:fitqueue6_5.time,
+                        anim:fitqueue6_5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue2_1.target,
+                        time:infitqueue2_1.time,
+                        anim:infitqueue2_1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue4_3.target,
+                        time:fitqueue4_3.time,
+                        anim:fitqueue4_3.anim,
+                    });
+            }
+            animations.push({
+                value:"",
+                target:queueExitToBus.target,
+                time:queueExitToBus.time,
+                anim:queueExitToBus.anim,
+            });
+            animations.push({
+                value:adresse,
+                target:queueExitToRual1.target,
+                time:queueExitToRual1.time,
+                anim:queueExitToRual1.anim,
+            });
+            animations.push({
+                value:"",
+                target:BusToRual1.target,
+                time:BusToRual1.time,
+                anim:BusToRual1.anim,
+            });
+            animations.push({
+                value:adresse,
+                target:fitToRual1.target,
+                time:fitToRual1.time,
+                anim:fitToRual1.anim,
+            });
+            animations.push({
+                value:parseInt(BR.getvalue(),2),
+                target:fitToBr.target,
+                time:fitToBr.time,
+                anim:fitToBr.anim,
+            });
+            animations.push({
+                value:parseInt(BR.getvalue(),2),
+                target:infitToBr.target,
+                time:infitToBr.time,
+                anim:infitToBr.anim,
+            });
+            animations.push({
+                value:parseInt(BR.getvalue(),2),
+                target:RegToRual2.target,
+                time:RegToRual2.time,
+                anim:RegToRual2.anim,
+            });
+            animations.push({
+                value:"",
+                target:BusToRual2.target,
+                time:BusToRual2.time,
+                anim:BusToRual2.anim,
+            });
+            animations.push({
+                value:parseInt(BR.getvalue(),2),
+                target:fitToRual2.target,
+                time:fitToRual2.time,
+                anim:fitToRual2.anim,
+            });
+            animations.push({
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            });
+            animations.push({
+                value:"",
+                target:AccToBus.target,
+                time:AccToBus.time,
+                anim:AccToBus.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:AccToADR.target,
+                time:AccToADR.time,
+                anim:AccToADR.anim,
+            });
+            animations.push({
+                value:"",
+                target:ADRbusToDATABus.target,
+                time:ADRbusToDATABus.time,
+                anim:ADRbusToDATABus.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:ADRToMAR.target,
+                time:ADRToMAR.time,
+                anim:ADRToMAR.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:fitToMar.target,
+                time:fitToMar.time,
+                anim:fitToMar.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:infitToMar.target,
+                time:infitToMar.time,
+                anim:infitToMar.anim,
+            });
+            //////reading from MC
+            animations.push({
+                value:byte1,
+                target:fitToMdr.target,
+                time:fitToMdr.time,
+                anim:fitToMdr.anim,
+            });
+            if(target==1){
+                animations.push({
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:MdrToRual1.target,
+                    time:MdrToRual1.time,
+                    anim:MdrToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                });
+            }else if(target==2){
+                animations.push({
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:MdrToRual1.target,
+                    time:MdrToRual1.time,
+                    anim:MdrToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual2.target,
+                    time:BusToRual2.time,
+                    anim:BusToRual2.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:fitToRual2.target,
+                    time:fitToRual2.time,
+                    anim:fitToRual2.anim,
+                });
+            }
+            ///////////////////////////////////////:
                     if(size==1){
-                        adresse=adresse+1;
-                        memory.setRam(adresse);
+                        adressenv=adressenv+1;
+                        memory.setRam(adressenv);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
                         return byte2+byte1///à revoir
                     }else{
                         return byte1;
                     }
+                    
                 },
                 function indexeval(adresse,animated,size,depl,animations,is_anim,target){
-                    adresse=adresse+IR.getvalue()+depl;
-                    memory.setRam(adresse);
+                    let adressenv=adresse+parseInt(IR.getvalue(),2)+depl;//no need for dep
+                    memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
+                        //animation:
+            //il faut ajouter d'abord deux shift du queue_____________
+            if(size==0){
+                animations.push({
+                    value:"",
+                    target:infitqueue6.target,
+                    time:infitqueue6.time,
+                    anim:infitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue5.target,
+                        time:infitqueue5.time,
+                        anim:infitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue6.target,
+                        time:fitqueue6.time,
+                        anim:fitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue4.target,
+                        time:infitqueue4.time,
+                        anim:infitqueue4.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue5.target,
+                        time:fitqueue5.time,
+                        anim:fitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue3.target,
+                        time:infitqueue3.time,
+                        anim:infitqueue3.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue4.target,
+                        time:fitqueue4.time,
+                        anim:fitqueue4.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue2.target,
+                        time:infitqueue2.time,
+                        anim:infitqueue2.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue3.target,
+                        time:fitqueue3.time,
+                        anim:fitqueue3.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue1.target,
+                        time:infitqueue1.time,
+                        anim:infitqueue1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue2.target,
+                        time:fitqueue2.time,
+                        anim:fitqueue2.anim,
+                    });
+            }else{
+                animations.push({
+                    value:"",
+                    target:infitqueue6_5.target,
+                    time:infitqueue6.time,
+                    anim:infitqueue6.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue4_3.target,
+                        time:infitqueue5.time,
+                        anim:infitqueue5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue6_5.target,
+                        time:fitqueue6_5.time,
+                        anim:fitqueue6_5.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:infitqueue2_1.target,
+                        time:infitqueue2_1.time,
+                        anim:infitqueue2_1.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:fitqueue4_3.target,
+                        time:fitqueue4_3.time,
+                        anim:fitqueue4_3.anim,
+                    });
+            }
+            animations.push({
+                value:"",
+                target:queueExitToBus.target,
+                time:queueExitToBus.time,
+                anim:queueExitToBus.anim,
+            });
+            animations.push({
+                value:adresse,
+                target:queueExitToRual1.target,
+                time:queueExitToRual1.time,
+                anim:queueExitToRual1.anim,
+            });
+            animations.push({
+                value:"",
+                target:BusToRual1.target,
+                time:BusToRual1.time,
+                anim:BusToRual1.anim,
+            });
+            animations.push({
+                value:adresse,
+                target:fitToRual1.target,
+                time:fitToRual1.time,
+                anim:fitToRual1.anim,
+            });
+            animations.push({
+                value:parseInt(IR.getvalue(),2),
+                target:fitToIr.target,
+                time:fitToIr.time,
+                anim:fitToIr.anim,
+            });
+            animations.push({
+                value:parseInt(IR.getvalue(),2),
+                target:infitToIr.target,
+                time:infitToIr.time,
+                anim:infitToIr.anim,
+            });
+            animations.push({
+                value:parseInt(IR.getvalue(),2),
+                target:RegToRual2.target,
+                time:RegToRual2.time,
+                anim:RegToRual2.anim,
+            });
+            animations.push({
+                value:"",
+                target:BusToRual2.target,
+                time:BusToRual2.time,
+                anim:BusToRual2.anim,
+            });
+            animations.push({
+                value:parseInt(IR.getvalue(),2),
+                target:fitToRual2.target,
+                time:fitToRual2.time,
+                anim:fitToRual2.anim,
+            });
+            animations.push({
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            });
+            animations.push({
+                value:"",
+                target:AccToBus.target,
+                time:AccToBus.time,
+                anim:AccToBus.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:AccToADR.target,
+                time:AccToADR.time,
+                anim:AccToADR.anim,
+            });
+            animations.push({
+                value:"",
+                target:ADRbusToDATABus.target,
+                time:ADRbusToDATABus.time,
+                anim:ADRbusToDATABus.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:ADRToMAR.target,
+                time:ADRToMAR.time,
+                anim:ADRToMAR.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:fitToMar.target,
+                time:fitToMar.time,
+                anim:fitToMar.anim,
+            });
+            animations.push({
+                value:adressenv,
+                target:infitToMar.target,
+                time:infitToMar.time,
+                anim:infitToMar.anim,
+            });
+            //////reading from MC
+            animations.push({
+                value:byte1,
+                target:fitToMdr.target,
+                time:fitToMdr.time,
+                anim:fitToMdr.anim,
+            });
+            if(target==1){
+                animations.push({
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:MdrToRual1.target,
+                    time:MdrToRual1.time,
+                    anim:MdrToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                });
+            }else if(target==2){
+                animations.push({
+                    value:"",
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:MdrToRual1.target,
+                    time:MdrToRual1.time,
+                    anim:MdrToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual2.target,
+                    time:BusToRual2.time,
+                    anim:BusToRual2.anim,
+                });
+                animations.push({
+                    value:byte1,
+                    target:fitToRual2.target,
+                    time:fitToRual2.time,
+                    anim:fitToRual2.anim,
+                });
+            }
+            ///////////////////////////////////////:
                     if(size==1){
                         adresse=adresse+1;
                         memory.setRam(adresse);
@@ -1157,7 +1794,7 @@ class AddressingModes{
                     }
                 },
                 function baseindexval(adresse,animated,size,depl,animations,is_anim,target){
-                    adresse=adresse+IR.getvalue()+depl+BR.getvalue();
+                    adresse=adresse+parseInt(IR.getvalue(),2)+depl+parseInt(BR.getvalue(),2);
                     memory.setRam(adresse);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());

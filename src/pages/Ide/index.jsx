@@ -7,7 +7,7 @@ import "./style.css"
 import { NavBar } from "../../components"
 
 import {EditorView} from "@codemirror/view"
-import { useState } from 'react';
+import { useState , useRef } from 'react';
 import MC from "../../Emulator/MC.js";
 import Sequenceur from "../../Emulator/Sequencer.js";
 import Queue from "../../Emulator/Queue.js";
@@ -20,6 +20,8 @@ import gsap from 'gsap';
 import "../../codemirror/lib/codemirror.css"
 import "../../codemirror/theme/material.css";
 import "../../codemirror/mode/myLang/assembly.js"
+/////import assembler//////////
+import { Assembler } from "../../assembler/Assembler";
 
 ////////////////animations declarations////////////////////////////////
 let animations=[];
@@ -42,6 +44,16 @@ let SR=new Register();
 let Alu1=new Alu();
 let Registers=[R1,R2,R3,R4,Alu1.Acc,BR,IR,SR];
 
+/////////////////////////////function needed in assembling
+function convertStrings(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j += 2) {
+      result.push(arr[i][j] + arr[i][j+1]);
+    }
+  }
+  return result;
+}
 
 ///////////////////////////////////the component/////////////////////////
 const Ide = ()=>{
@@ -53,7 +65,7 @@ const Ide = ()=>{
   let [reg,setreg]=useState(false);
   let [stk,setstk]=useState(false);//for showing stack
   ///////////////////////////////executions function////////////////////////////////////////
-const traitement= (codeArray)=>{
+const traitement= (codeArray,n)=>{
 // Registers[0].setvalue("0000000000000010");
 // Registers[1].setvalue("0000000000000011");
 
@@ -85,15 +97,17 @@ queue.fetchInstruction(animations,numtmp,0,Contextarray,0);
 
 //-----//
 let resulttmp="";
+for(let i=0;i<n;i++){
 sequenceur.getinstrbyte(animations,true,Contextarray);
 let instrobject={...sequenceur.decode(animations,Contextarray)};
 sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true,Contextarray);
-instrobject={...sequenceur.decode(animations,Contextarray)};
-sequenceur.execute(instrobject,1,animations);
-sequenceur.getinstrbyte(animations,true,Contextarray);
-instrobject={...sequenceur.decode(animations,Contextarray)};
-sequenceur.execute(instrobject,1,animations);
+}
+// sequenceur.getinstrbyte(animations,true,Contextarray);
+// instrobject={...sequenceur.decode(animations,Contextarray)};
+// sequenceur.execute(instrobject,1,animations);
+// sequenceur.getinstrbyte(animations,true,Contextarray);
+// instrobject={...sequenceur.decode(animations,Contextarray)};
+// sequenceur.execute(instrobject,1,animations);
 // console.log(` after first instruction :`);
 // resulttmp=resulttmp+` after first instruction :`;
 // memory.setRam(0);
@@ -320,6 +334,48 @@ setresult(resulttmp);
   });
   /////////////////////returning the component//////////////////
   const [code, setCode] = useState("");
+  ///////////////::
+  const codeMirrorRef = useRef(null); 
+  const handleStoreCode = () => {
+    const editor = codeMirrorRef.current.editor;
+    const code = editor.getValue(); // Get the current content of the editor
+
+    // Split the code into lines
+    const lines = code.split('\n');
+
+    // Create an array to store lines of code without comments
+    const codeArray = [];
+
+    // Create an array to store comments
+    const commentArray = [];
+
+    // Loop through each line to separate lines of code and comments
+    lines.forEach(line => {
+      // Use regular expression to match single-line comments
+      const singleLineComment = line.match(/\/\/.*$/gm);
+
+      if (singleLineComment) {
+        // If a single-line comment is found, store it in commentArray
+        commentArray.push(singleLineComment[0].trim());
+      }
+
+      // Use regular expression to remove comments from the line
+      const lineWithoutComment = line.replace(/\/\/.*$/gm, '').trim();
+
+      if (lineWithoutComment !== '') {
+        // If the line without comments is not empty, store it in codeArray
+        codeArray.push(lineWithoutComment);
+      }
+    });
+    return codeArray;
+    // console.log('Code without comments:', codeArray);
+    // console.log('Comments:', commentArray);
+  };
+  ///////////////////
+    // let input = ["MOV 10*,10","MOV R2,2","ADD R1,R2"]
+    // console.log(convertStrings(Assembler.assemblecode(input)));
+    // console.log(Assembler.assemblecode(input));
+
 return <> 
 {!simul && <NavBar/>}
 {/* <CodeMirror theme={aura} /> */}
@@ -327,7 +383,7 @@ return <>
   display:"flex"
 }}>
   
-<div className='codeContainer'>
+{/* <div className='codeContainer'>
 <CodeMirror
 
   value={code}
@@ -343,19 +399,53 @@ return <>
     setCode(value);
   }}
 />
+</div> */}
+<div className='codeContainer'>
+<CodeMirror
+
+  // theme={myTheme}
+
+  // width="500px"
+  value={code}
+  ref={codeMirrorRef}
+  // onBeforeChange={this.handleEditorChange}
+  options={{ 
+    mode: "8086",
+    theme: "material",
+    lineNumbers:true,
+    readOnly: false,
+  }}
+  onBeforeChange={(editor, data, value) => {
+    setCode(value);
+  }}
+/>
+{/* <button onClick={handleStoreCode} className="compileBtn">Compile</button> */}
+
+
 </div>
 {!done && <div className="codeContainer console">
   {/* <button className='ide-exec-button' onClick={()=>{traitement(["19","49","00","01"]) */}
-  <button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"])
-  setdone(true)
+  {/* <button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
+  <button className='ide-exec-button' onClick={()=>{
+    let input=convertStrings(Assembler.assemblecode(handleStoreCode()));
+    let n=handleStoreCode().length;
+    console.log(n)
+    console.log(input)
+    traitement(input,n)
+    setdone(true)
   }}>execute</button>
     <pre style={{color:"white"}}>{result}</pre>
     </div>
   }
 {done && <div className="codeContainer console">
   {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","49","00","01"]) */}
-  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"])
-  setdone(true)
+  {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
+  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{
+    let input=convertStrings(Assembler.assemblecode(handleStoreCode()));
+    let n=handleStoreCode().length;
+    console.log(input,n)
+    traitement(input)
+    setdone(true)
   }}>execute</button>
   <button className='ide-exec-button' onClick={()=>{setsimul(true)
   }}>simulate</button>

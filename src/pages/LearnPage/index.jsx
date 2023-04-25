@@ -1,5 +1,5 @@
 import React from "react";
-
+import LearnTitle from "../../assets/images/logos/LearnTitle.png"
 // import components
 import { NavBar, Title } from "../../components";
 import {Learn, Footer} from "../../containers";
@@ -9,9 +9,10 @@ function LearnPage(props) {
   return (
     <>
       <NavBar/>
-      <main id="learn-page-main">
+      {/* <main id="learn-page-main">
         <Title/>
-      </main>
+      </main> */}
+      <img src={LearnTitle} className="learnTitle" alt="" />
 
       <div className="globalContainerLearn">
         <Learn title={"Get Started"} link={"/learn"}/>

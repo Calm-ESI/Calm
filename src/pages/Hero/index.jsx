@@ -1,5 +1,6 @@
 import "./style.css";
-
+import logoHero from "../../assets/images/logos/logoHero.png"
+import Slogan from "../../assets/images/logos/Slogan.png"
 //import components
 import { NavBar, Title, HeroIde } from "../../components"
 import {Footer} from '../../containers'
@@ -17,9 +18,11 @@ const Hero = ()=>{
     return(
         <section className="slogan-container">
            
-            <p className="slogan">Slogan will be here</p>
+            <img alt="" src={Slogan} className="slogan"/>
             <div className="logo-container"> 
-                <div className="logo">our logo</div> 
+                <div className="logo">
+                  <img src={logoHero} className="logoHero" alt="" />
+                </div> 
                 <p className="slogan-description">calM will help you uderstand the basics of how the CPU works and also will go you an insight on more advanced topics with outstanding illustrations</p> 
             </div>
         </section>
@@ -99,9 +102,8 @@ const Hero = ()=>{
   }
 
     return <>
-
       <NavBar/>
-
+      
       <main id="get-started-container" style={{position: "relative", height: "10%"}}>
         <Title/>
 

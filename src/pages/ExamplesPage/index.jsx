@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import "./style.css"
+import questionMark from "../../assets/images/icons/question-signe-en-cercles.png"
 
 import {NavBar, Title} from "../../components"
 import {Footer} from "../../containers"
@@ -32,11 +33,11 @@ const ExamplesPage = () => {
   return (
     <>
         <NavBar></NavBar>
-        <Title></Title>
+        {/* <Title></Title> */}
 
         <section style={{marginTop: "8em", position: "relative", display: "flex", justifyContent: "center"}}>
             <div id="example-icon">
-                <img src="images/black_question.png" alt="?" width="50px" style={{marginRight: "10px"}}/>
+                <img src={questionMark} alt="?" width="50px" style={{marginRight: "10px"}}/>
                 <p>Examples</p>
             </div>
 

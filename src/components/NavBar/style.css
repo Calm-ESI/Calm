@@ -7,6 +7,10 @@
   box-shadow: 0 5px 15px rgba(rgb(2rgb(255, 255, 255)55, 255), rgb(255, 255, 255), rgb(255, 255, 255), 0.6);
   border-radius: 40px;
   margin: 1% 8%;
+  position: sticky;
+  top: 1%;
+  width: 75%;
+  z-index: 10;
 }
 
 .links{

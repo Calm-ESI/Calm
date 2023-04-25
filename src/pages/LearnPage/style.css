@@ -269,7 +269,7 @@ body {
   margin-bottom: 0;
 }
 .LearnSectionContainer {
-  margin-top: 15rem;
+  margin-top: 5rem;
   position: relative;
   display: grid;
   width: 80%;
@@ -327,12 +327,17 @@ body {
 
 .globalContainerLearn {
   width: 90%;
-  margin-top: 8rem;
-  margin-bottom: 16rem;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: 8rem;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+.learnTitle{
+  width: 40rem;
+  margin: 6rem 10rem 1rem 10rem;
+  padding: 0;
 }

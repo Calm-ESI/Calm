@@ -268,19 +268,19 @@ const Rual1ToBus={
     time:3000,
     anim:(val,h,w)=>{
     gsap.fromTo(".box-data",{x:w*0.44,opacity:"0"},{opacity:"1",duration:1})
-  gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.262,duration:1,delay:1})
-  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
-  },}
+    gsap.fromTo(".box-data",{x:w*0.44},{x:w*0.262,duration:1,delay:1})
+    gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    },}
 
-  const MdrToRual2={
+const MdrToRual2={
     value:"",
     target:".box-data",
     time:3000,
     anim:(val,h,w)=>{
     gsap.fromTo(".box-data",{x:w*0.497,opacity:"0"},{opacity:"1",duration:1})
-  gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.106,duration:1,delay:1})
-  gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
-  },}
+    gsap.fromTo(".box-data",{x:w*0.497},{x:w*0.106,duration:1,delay:1})
+    gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
+    },}
 
   const RegToRual2={
     value:"",
@@ -704,20 +704,19 @@ class InstructionADD{
         this.res=0;
         this.name="ADD";
         this.steps=[()=>{
-            // let res=this.value1+this.value2;
+            // this.res=this.value1+this.value2;
             // Registers[4].setvalue(res.toString(2));
             if(this.taille===0){
                 Alu1.Rual1.setright(TwosComplement(this.value1,8));
                 Alu1.Rual2.setleft(TwosComplement(this.value2,8));
                 Alu1.addBinary(8);
-                this.res=Alu1.Acc.getvalue();
+                
             }else{
                 Alu1.Rual1.setvalue(TwosComplement(this.value1,16));
                 Alu1.Rual2.setvalue(TwosComplement(this.value2,16));
                 Alu1.addBinary(16);
-                this.res=Alu1.Acc.getvalue();
             }
-            
+            return Alu1.Acc.getvalue();
         }
         ];
         this.buildanim=function(){
@@ -790,7 +789,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -804,7 +803,7 @@ class InstructionMOV00{
                         anim:fitToR1.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -818,7 +817,7 @@ class InstructionMOV00{
                         anim:fitToR1.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -844,7 +843,7 @@ class InstructionMOV00{
                         anim:fitToR1.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -858,7 +857,7 @@ class InstructionMOV00{
                         anim:fitToR1.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -872,7 +871,7 @@ class InstructionMOV00{
                         anim:fitToR1.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -917,7 +916,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -931,7 +930,7 @@ class InstructionMOV00{
                         anim:fitToR2.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -945,7 +944,7 @@ class InstructionMOV00{
                         anim:fitToR2.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -971,7 +970,7 @@ class InstructionMOV00{
                         anim:fitToR2.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -985,7 +984,7 @@ class InstructionMOV00{
                         anim:fitToR2.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -999,7 +998,7 @@ class InstructionMOV00{
                         anim:fitToR2.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -1014,7 +1013,7 @@ class InstructionMOV00{
                     },
                 ];
                 }
-            }else if (this.register1=="010") {
+            }else if (this.register1=="2") {
                 if(this.register2=="000"){
                     return[{
                         value:"value2",
@@ -1044,7 +1043,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -1058,7 +1057,7 @@ class InstructionMOV00{
                         anim:fitToR3.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -1072,7 +1071,7 @@ class InstructionMOV00{
                         anim:fitToR3.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -1098,7 +1097,7 @@ class InstructionMOV00{
                         anim:fitToR3.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -1112,7 +1111,7 @@ class InstructionMOV00{
                         anim:fitToR3.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -1126,7 +1125,7 @@ class InstructionMOV00{
                         anim:fitToR3.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -1141,7 +1140,7 @@ class InstructionMOV00{
                     },
                 ];
                 }
-            }else if (this.register1=="011") {
+            }else if (this.register1=="3") {
                 if(this.register2=="000"){
                     return[{
                         value:"value2",
@@ -1171,7 +1170,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -1185,7 +1184,7 @@ class InstructionMOV00{
                         anim:fitToR4.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -1199,7 +1198,7 @@ class InstructionMOV00{
                         anim:fitToR4.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -1225,7 +1224,7 @@ class InstructionMOV00{
                         anim:fitToR4.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -1239,7 +1238,7 @@ class InstructionMOV00{
                         anim:fitToR4.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -1253,7 +1252,7 @@ class InstructionMOV00{
                         anim:fitToR4.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -1268,7 +1267,7 @@ class InstructionMOV00{
                     },
                 ];
                 }
-            }else if (this.register1=="100") {
+            }else if (this.register1=="4") {
                 if(this.register2=="000"){
                     return[{
                         value:"value2",
@@ -1322,7 +1321,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -1348,7 +1347,7 @@ class InstructionMOV00{
                         anim:fitToAcc.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -1374,7 +1373,7 @@ class InstructionMOV00{
                         anim:fitToAcc.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -1388,7 +1387,7 @@ class InstructionMOV00{
                         anim:fitToAcc.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -1414,7 +1413,7 @@ class InstructionMOV00{
                         anim:fitToAcc.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -1440,7 +1439,7 @@ class InstructionMOV00{
                         anim:fitToAcc.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -1467,7 +1466,7 @@ class InstructionMOV00{
                     },
                 ];
                 }
-            }else if (this.register1=="101") {
+            }else if (this.register1=="5") {
                 if(this.register2=="000"){
                     return[{
                         value:"value2",
@@ -1497,7 +1496,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -1511,7 +1510,7 @@ class InstructionMOV00{
                         anim:fitToBr.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -1525,7 +1524,7 @@ class InstructionMOV00{
                         anim:fitToBr.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -1551,7 +1550,7 @@ class InstructionMOV00{
                         anim:fitToBr.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -1565,7 +1564,7 @@ class InstructionMOV00{
                         anim:fitToBr.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -1579,7 +1578,7 @@ class InstructionMOV00{
                         anim:fitToBr.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -1594,7 +1593,7 @@ class InstructionMOV00{
                     },
                 ];
                 }
-            }else if (this.register1=="110") {
+            }else if (this.register1=="6") {
                 if(this.register2=="000"){
                     return[{
                         value:"value2",
@@ -1624,7 +1623,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -1638,7 +1637,7 @@ class InstructionMOV00{
                         anim:fitToIdr.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -1652,7 +1651,7 @@ class InstructionMOV00{
                         anim:fitToIdr.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -1678,7 +1677,7 @@ class InstructionMOV00{
                         anim:fitToIdr.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -1692,7 +1691,7 @@ class InstructionMOV00{
                         anim:fitToIdr.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -1706,7 +1705,7 @@ class InstructionMOV00{
                         anim:fitToIdr.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -1721,7 +1720,7 @@ class InstructionMOV00{
                     },
                 ];
                 }
-            }else if (this.register1=="111") {
+            }else if (this.register1=="7") {
                 if(this.register2=="000"){
                     return[{
                         value:"value2",
@@ -1751,7 +1750,7 @@ class InstructionMOV00{
                     },
                 ];
                     
-                }else if (this.register2=="010") {
+                }else if (this.register2=="2") {
                     return[{
                         value:"value2",
                         target:infitToR3.target,
@@ -1765,7 +1764,7 @@ class InstructionMOV00{
                         anim:fitToSr.anim,
                     },
                 ];
-                }else if (this.register2=="011") {
+                }else if (this.register2=="3") {
                     return[{
                         value:"value2",
                         target:infitToR4.target,
@@ -1779,7 +1778,7 @@ class InstructionMOV00{
                         anim:fitToSr.anim,
                     },
                 ];
-                }else if (this.register2=="100") {
+                }else if (this.register2=="4") {
                     return[{
                         value:"value2",
                         target:infitToAcc.target,
@@ -1805,7 +1804,7 @@ class InstructionMOV00{
                         anim:fitToSr.anim,
                     },
                 ];
-                }else if (this.register2=="101") {
+                }else if (this.register2=="5") {
                     return[{
                         value:"value2",
                         target:infitToBr.target,
@@ -1819,7 +1818,7 @@ class InstructionMOV00{
                         anim:fitToSr.anim,
                     },
                 ];
-                }else if (this.register2=="110") {
+                }else if (this.register2=="6") {
                     return[{
                         value:"value2",
                         target:infitToIdr.target,
@@ -1833,7 +1832,7 @@ class InstructionMOV00{
                         anim:fitToSr.anim,
                     },
                 ];
-                }else if (this.register2=="111") {
+                }else if (this.register2=="7") {
                     return[{
                         value:"value2",
                         target:infitToSR.target,
@@ -1871,7 +1870,7 @@ class InstructionMOV01{
         }
         ];
         this.buildanim=function(){
-            if(this.register1=="000"){
+            if(this.register1=="0"){
                 if(this.isimmed===1){
                     return[
                     {
@@ -1907,7 +1906,7 @@ class InstructionMOV01{
                     anim:fitToR1.anim,
                 },
             ];}
-            }else if (this.register1=="001") {
+            }else if (this.register1=="1") {
                 if(this.isimmed===1){
                     return[
                     {
@@ -1944,7 +1943,7 @@ class InstructionMOV01{
                 },
             ];
         }
-            }else if (this.register1=="010") {
+            }else if (this.register1==2) {
                 if(this.isimmed===1){
                     return[
                     {
@@ -1980,7 +1979,7 @@ class InstructionMOV01{
                     anim:fitToR3.anim,
                 },
             ];}
-            }else if (this.register1=="011") {
+            }else if (this.register1=="3") {
                 if(this.isimmed===1){
                     return[
                     {
@@ -2016,7 +2015,7 @@ class InstructionMOV01{
                     anim:fitToR4.anim,
                 },
             ];}
-            }else if (this.register1=="100") {
+            }else if (this.register1=="4") {
                 if(this.isimmed===1){
                     return[
                     {
@@ -2064,7 +2063,7 @@ class InstructionMOV01{
                     anim:fitToAcc.anim,
                 },
             ];}
-            }else if (this.register1=="101") {
+            }else if (this.register1=="5") {
                 if(this.isimmed===1){
                     return[
                     {
@@ -2100,7 +2099,7 @@ class InstructionMOV01{
                     anim:fitToBr.anim,
                 },
             ];}
-            }else if (this.register1=="110") {
+            }else if (this.register1=="6") {
                 if(this.isimmed===1){
                     return[
                     {
@@ -2136,7 +2135,7 @@ class InstructionMOV01{
                     anim:fitToIdr.anim,
                 },
             ];}
-            }else if (this.register1=="111") {
+            }else if (this.register1=="7") {
                 if(this.isimmed===1){
                     return[
                     {
@@ -2262,7 +2261,7 @@ class InstructionMOV10{
                 ///animation of writing in MC/___________________________
             ];
                 
-            }else if (this.register1=="010") {
+            }else if (this.register1=="2") {
                 return[{
                     value:"value2",
                     target:infitToR3.target,
@@ -2295,7 +2294,7 @@ class InstructionMOV10{
                 }
                 ///animation of writing in MC/___________________________
             ];
-            }else if (this.register1=="011") {
+            }else if (this.register1=="3") {
                 return[{
                     value:"value2",
                     target:infitToR4.target,
@@ -2328,7 +2327,7 @@ class InstructionMOV10{
                 }
                 ///animation of writing in MC/___________________________
             ];
-            }else if (this.register1=="100") {
+            }else if (this.register1=="4") {
                 return[{
                     value:"value2",
                     target:infitToAcc.target,
@@ -2361,7 +2360,7 @@ class InstructionMOV10{
                 }
                 ///animation of writing in MC/___________________________
             ];
-            }else if (this.register1=="101") {
+            }else if (this.register1=="5") {
                 return[{
                     value:"value2",
                     target:infitToBr.target,
@@ -2394,7 +2393,7 @@ class InstructionMOV10{
                 }
                 ///animation of writing in MC/___________________________
             ];
-            }else if (this.register1=="110") {
+            }else if (this.register1=="6") {
                 return[{
                     value:"value2",
                     target:infitToIdr.target,
@@ -2427,7 +2426,7 @@ class InstructionMOV10{
                 }
                 ///animation of writing in MC/___________________________
             ];
-            }else if (this.register1=="111") {
+            }else if (this.register1=="7") {
                 return[{
                     value:"value2",
                     target:infitToSR.target,
