@@ -381,7 +381,7 @@ return <>
 {/* <CodeMirror theme={aura} /> */}
 {!simul &&<div style={{
   display:"flex"
-}}>
+}} className="ide_container">
   
 {/* <div className='codeContainer'>
 <CodeMirror
@@ -440,7 +440,7 @@ return <>
 {done && <div className="codeContainer console">
   {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","49","00","01"]) */}
   {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
-  <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{
+  <div style={{width:"35%",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{
     let input=convertStrings(Assembler.assemblecode(handleStoreCode()));
     let n=handleStoreCode().length;
     console.log(input,n)

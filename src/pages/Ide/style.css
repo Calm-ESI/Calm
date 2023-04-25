@@ -1,9 +1,8 @@
 .codeContainer{
-  width: 500px;
-  height: 420px;
+  width: 40%;
+  height: 430px;
   border-radius: 10px;
   overflow: hidden;
-  margin-left: 5em ;
   margin-top: 2em;
   text-align: left;
   font-size: 20px;
@@ -31,4 +30,9 @@
   background-color: #1BE985;
   border-radius: 10px;
   margin: 10px 10px;
+}
+.ide_container{
+  margin: auto;
+  width: 90%;
+  gap: 20%;
 }
