@@ -42,5 +42,8 @@ class MC {
     getData(){
         return this.data;
     }
+    getstack(){
+        return this.stack;
+    }
 }
 export default MC;

@@ -1,8 +1,11 @@
-import { Registers, memory, Alu1, IP } from "../pages/Ide";
+import { Registers, memory, Alu1, IP ,queue } from "../pages/Ide";
 import { TwosComplement } from "./ALU.js";
 import { gsap } from "gsap";
 // import { Register } from "./Register.js";
 ////////////////////////////////////////////////
+function Dec2bin(dec){
+    return ("00000000" + (parseInt(dec, 10)).toString(2)).substr(-8);
+}
 /////////////////animations to test////////////////////
 const IounitToBus={
     value:"",
@@ -2875,7 +2878,21 @@ class InstructionPUSH{
             memory.pushval();
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
 }
 
@@ -2910,12 +2927,23 @@ class InstructionBR{
         this.taille=0;
         this.stepsNum=1;
         this.name="BR";
-        this.steps=[()=>{
-            IP.setvalue(this.addresse1);
+        this.steps=[(animations)=>{
+            IP.setvalue(Dec2bin(this.addresse1));
+            // console.log(`this is ip ${IP.getvalue()}`)
             /////we need to clear the queue from old instruction 
+            queue.clear(animations);
+            queue.fetchInstruction(animations,0,1,[],0);
+            // console.log(`this is the queue ${queue.log()}`);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,1,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,2,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[];
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-import { InstructionADD,InstructionMOV00,InstructionMOV01,InstructionMOV10,InstructionMOV11,InstructionSUB,InstructionMUL,InstructionDIV } from "./Instruction.js";
+import { InstructionADD,InstructionMOV00,InstructionMOV01,InstructionMOV10,InstructionMOV11,InstructionSUB,InstructionMUL,InstructionDIV, InstructionPUSH, InstructionBR } from "./Instruction.js";
 
 function hash(key){
     if(key=="0000000"){
@@ -17,6 +17,10 @@ function hash(key){
         return 6;
     }else if(key=="0000011"){
         return 7;
+    }else if(key=="1010"){
+        return 8;
+    }else if(key=="0010010"){
+        return 9;
     }
     
 }
@@ -28,6 +32,8 @@ let MOV11inst=new InstructionMOV11();
 let SUBinst=new InstructionSUB();
 let MULinst=new InstructionMUL();
 let DIVinst=new InstructionDIV();
+let pushInst=new InstructionPUSH();
+let BRInst= new InstructionBR();
 let hashmap=[{
     key:"00",
     instrObject:ADDinst,
@@ -59,6 +65,14 @@ let hashmap=[{
 {
     key:"03",
     instrObject:DIVinst,
+},
+{
+    key:"a",
+    instrObject:pushInst,
+},
+{
+    key:"25",
+    instrObject:BRInst,
 },
 ];
 export {hash,hashmap};

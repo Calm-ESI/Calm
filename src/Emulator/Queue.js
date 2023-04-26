@@ -544,6 +544,25 @@ class Queue {
     instructionset(hexains){
         this.instructionBytes=hexains;//in hexa
     }
+    clear(animations){
+      this.instructionBytes=[];
+      animations.push({
+        value:"",
+        target:"",
+        time:300,
+        anim:()=>{
+          gsap.to(".queue6",{opacity:"0" ,duration:0.3});
+          gsap.to(".queue5",{opacity:"0" ,duration:0.3});
+          gsap.to(".queue4",{opacity:"0" ,duration:0.3});
+          gsap.to(".queue3",{opacity:"0" ,duration:0.3});
+          gsap.to(".queue2",{opacity:"0" ,duration:0.3});
+          gsap.to(".queue1",{opacity:"0" ,duration:0.3});
+        },
+    })
+    }
+    log(){
+      return this.instructionBytes;
+    }
     ////////////////
 }
 export default Queue;

@@ -491,6 +491,9 @@ const IpToAdr={
 function hex2bin(hex){
     return ("00000000" + (parseInt(hex, 16)).toString(2)).substr(-8);
 }
+function Dec2bin(dec){
+    return ("00000000" + (parseInt(dec, 10)).toString(2)).substr(-8);
+}
 
 function animateDecoderSequencer(animations,InsName){
     animations.push({
@@ -527,6 +530,7 @@ class Sequenceur{
         let Inshex=queue.shift();
         let Ins=hex2bin(Inshex);
         this.RI.setvalue(Ins);
+        console.log(`this is RI here${this.RI.getvalue()}`)
         //the animation for this instruction goes here
         /////those 2 animations must be at the same time___________________
         if(is_animated){
@@ -653,6 +657,12 @@ class Sequenceur{
         let key=instruction.substring(0,4);
         let index=0;
         let instrObject;
+        if(key=="1111"){
+            console.log("here we have stop")
+            return {
+                name:"stop",
+            };
+        }else{
         if(key>='0100'){
             let numreg=instruction.substring(4,7);
             let taille=instruction.charAt(7);
@@ -880,7 +890,6 @@ class Sequenceur{
                             addresse1 = addressingModes.modesAdr[parseInt(regMod1,2)](adresseop1,0,taille,depl1,animations,1,1);
                             value2 = addressingModes.modesVal[parseInt(regMod2,2)](adresseop2,0,taille,depl2,animations,1,0);
                         }
-                        
                         instrObject.value2=value2;
                         instrObject.addresse1=addresse1;
                     }
@@ -2115,12 +2124,12 @@ class Sequenceur{
                 
             }
         }
-        return instrObject;
+        return instrObject;}
     }
     execute(instrObject,is_animated,animations){
         let res;
         for (let i = 0; i < instrObject.stepsNum ; i++) {
-            res = instrObject.steps[i]();
+            res = instrObject.steps[i](animations);
         }
         console.log(instrObject);
         let animationSteps= instrObject.buildanim();
