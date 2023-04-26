@@ -332,8 +332,8 @@ body{background-color: #1B1F24;}
 }
 
 .emulation-container{
-  width: 18rem;
-  height: 18rem;
+  width: 20rem;
+  height: 20rem;
   grid-column: 1 / 2;
   justify-self: end;
 
@@ -355,6 +355,7 @@ body{background-color: #1B1F24;}
 
 .simul{
   color: white;
+  font-size: 2rem;
 }
 .simul-1{
  
@@ -385,8 +386,8 @@ body{background-color: #1B1F24;}
   font-weight: 500;
 }
 .simulation-container{
-  width: 18rem;
-  height: 18rem;
+  width: 20rem;
+  height: 20rem;
   grid-column: 3 / 4;
   justify-self: start;
   background-color: #24292E;
