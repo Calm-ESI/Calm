@@ -7,24 +7,25 @@ export class Lexer {
     // Check if the string contains any special characters
     if (/[^a-zA-Z0-9_]/.test(str)) {
       return false;
-    }
+    }else{
     
     // Check if the string begins with a number
     if (/^\d/.test(str)) {
       return false;
-    }
+    }else{
     
     // Check if the string is in the excluded list
     if (Assembler.excludedStrings.includes(str)) {
       return false;
-    }
-    
+    }else{    
     // If none of the above conditions are met, the string is valid
     return true;
+    }
+  }}
   }
     constructor(code,line) {
       //console.log(code.match(/([a-zA-Z0-9]+\d*(?:[a-zA-Z09]+)?|\*|,|\+)/g))
-      this.LexicalList = code.match(/([a-zA-Z0-9]+\d*(?:[a-zA-Z0-9]+)?|\*|,|\+,,|\~|,|\`|,|\!|,|\@|,|\#|,|\$|,|\%|,|\^|,|\&|,|\*|,|\(|,|\)|,|\-|,|\_|,|\=|,|\+|,|\[|,|\]|,|\{|,|\}|,|\;|,|\:|,|\'|,|\"|,|\,|,|\.|,|\<|,|\>|,|\?|,|\\|)/g).filter(function (t) {
+      this.LexicalList = code.match(/([a-zA-Z0-9]+\d*(?:[a-zA-Z0-9]+)?|\*|,|\+,,|\~|,|\`|,|\!|,|\@|,|\#|,|\$|,|\%|,|\^|,|\&|,|\*|,|\(|,|\)|,|\_|,|\=|,|\+|,|\[|,|\]|,|\{|,|\}|,|\;|,|\:|,|\'|,|\"|,|\,|,|\.|,|\<|,|\>|,|\?|,|\\|)/g).filter(function (t) {
         return t.length > 0;
       }).map(function (t) {
         if (isNaN(t)) {
