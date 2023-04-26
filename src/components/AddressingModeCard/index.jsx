@@ -1,10 +1,11 @@
 import React from "react";
+import "./style.css"
 const AdressingModeCard = ({modeName, modePicture}) => {
   return (
     <>
     <div className="AdressModeCard">
       <img src={modePicture} alt="modePicture" />
-      <p>{modeName}</p>
+      <p className="addressingModeTitle">{modeName}</p>
     </div>
     </>
   );

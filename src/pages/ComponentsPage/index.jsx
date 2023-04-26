@@ -13,6 +13,8 @@ import MarPic from "../../assets/images/calm/components/MarPic.svg"
 import MdrPic from "../../assets/images/calm/components/MdrPic.svg"
 import RegistersPic from "../../assets/images/calm/components/registersPic.svg"
 import sequencerPic from "../../assets/images/calm/components/sequencerPic.svg"
+import iruPic from "../../assets/images/calm/components/IRU.svg"
+
 
 const Components = () => {
   return (
@@ -47,7 +49,7 @@ const Components = () => {
           <p className="title">Command Unit</p>
           <ComponentsCard
             ComponentName={"Instruction Reception Unit"}
-            ComponentPicture={""}
+            ComponentPicture={iruPic}
           />
           <ComponentsCard ComponentName={"The Sequencer"} ComponentPicture={sequencerPic} />
         </div>
