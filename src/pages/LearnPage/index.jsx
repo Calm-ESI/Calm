@@ -25,6 +25,7 @@ function LearnPage(props) {
           </p>
 
         <Learn title={"Get Started"} link={"/learn"} text={"Embark on a learning journey with our beginner-friendly " +
+
             "course and uncover the inner workings of the calM machines."} img={getStartedImage1}/>
 
         <Learn title={"Adressing Modes"} link={"/learn/addressing-modes"} img={compassImage} text={"Discover how data is" +
@@ -35,6 +36,7 @@ function LearnPage(props) {
 
         <Learn title={"Examples"} img={examplesImage} text={"A collection of code examples to see how the calM machine " +
             "works in action."} link={"/examples"}/>
+
 
       </div>
       <Footer></Footer>

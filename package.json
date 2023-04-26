@@ -21,6 +21,7 @@
     "react-scripts": "5.0.1",
     "react-typewriter-effect": "^1.1.0",
     "requirejs": "^2.3.6",
+    "ua-parser-js": "^1.0.35",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

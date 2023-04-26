@@ -75,7 +75,7 @@ export class Lexer {
             case 'BI':
             case 'BIE':
             case 'BSE':
-            case 'BR':
+            case 'BRI':
               return {
                 type: 'INST1',
                 value: t
