@@ -9,7 +9,7 @@
 body {
   font-family: "Mona sans", sans-serif;
   background-color: var(--main-background-color);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
   color: #fff;
 }
@@ -32,7 +32,7 @@ body {
   align-items: center;
   padding: 0 1rem;
   background-color: var(--main-accent-color);
-  border-radius: 72px;
+  border-radius: 4.5rem;
   gap: 1rem;
   width: 75%;
   margin: 0;
@@ -95,7 +95,7 @@ body {
   height: 12.5rem;
 
   background: var(--adress-mode-color);
-  border-radius: 40px;
+  border-radius: 2.5rem;
 
   /* Inside auto layout */
 
@@ -145,7 +145,7 @@ body {
   width: 12.5rem;
   height: 12.5rem;
   background: var(--adress-mode-color);
-  border-radius: 40px;
+  border-radius: 2.5rem;
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
@@ -208,7 +208,7 @@ body {
   color: white;
   margin-top: 0;
   background-color: rgb(48, 54, 61);
-  border-radius: 25px;
+  border-radius: 1.5rem;
   width: 20rem;
   height: 3.5rem;
   text-align: center;
@@ -233,7 +233,7 @@ body {
   width: 12.5rem;
   height: 12.5rem;
   background: var(--adress-mode-color);
-  border-radius: 40px;
+  border-radius: 2.5rem;
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
@@ -252,9 +252,9 @@ body {
   transition: 0.3s;
   box-shadow: 0 25px 30px -20px var(--main-accent-color);
 }
-.LearnCard img {
-  width: 80%;
-  height: 80%;
+.LearnPicture {
+  width: 70%;
+  height: 70%;
 }
 .LearnCard:hover img {
   transition: 0.3s;
@@ -288,6 +288,13 @@ body {
   /*0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),*/
   /*0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);*/
 }
+
+.LearnContent{
+  text-align: left;
+  font-weight: 500;
+  font-size: 1.35rem;
+}
+
 .LearnTitle {
   position: absolute;
   font-size: 2.5rem;
@@ -308,7 +315,7 @@ body {
 .LearnButton{
   width: 12rem;
   height: 3rem;
-  border-radius: 27px;
+  border-radius: 1.68rem;
   font-style: normal;
   font-weight: 700;
   font-size: 2rem;

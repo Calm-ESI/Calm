@@ -8,6 +8,9 @@ import doubleArrowPic from "../../assets/images/calm/addressing-modes/double-rig
 import immediatePic from "../../assets/images/calm/addressing-modes/immediate.png";
 import indirectPic from "../../assets/images/calm/addressing-modes/indirect.png";
 import rightArrowPic from "../../assets/images/calm/addressing-modes/right-arrow.png";
+import rightIndexPic from "../../assets/images/calm/addressing-modes/pointing.png";
+import basedIndexedPic from "../../assets/images/calm/addressing-modes/basedIndexed.png";
+
 
 const AdressingModes = () => {
   return (
@@ -20,8 +23,8 @@ const AdressingModes = () => {
           <AddressingModeCard modeName={"Direct"} modePicture={directPic} />
           <AddressingModeCard modeName={"Indirect"} modePicture={indirectPic} />
           <AddressingModeCard modeName={"Based"} modePicture={basedOnPic} />
-          <AddressingModeCard modeName={"Indexed"} modePicture={""} />
-          <AddressingModeCard modeName={"Based Indexed"} modePicture={""} />
+          <AddressingModeCard modeName={"Indexed"} modePicture={rightIndexPic} />
+          <AddressingModeCard modeName={"Based Indexed"} modePicture={basedIndexedPic} />
           <AddressingModeCard
             modeName={"Shift on 8 bits"}
             modePicture={rightArrowPic}

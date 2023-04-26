@@ -1,10 +1,9 @@
 import React from "react";
-const LearnCard = ({ style }) => {
+const LearnCard = ({ style, img }) => {
   return (
     <>
       <div className="LearnCard" style={style}>
-        <img src="" alt="LearnPicture"  />
-        <p></p>
+        <img className="LearnPicture" src={img} alt="LearnPicture"  />
       </div>
     </>
   );
