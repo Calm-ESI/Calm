@@ -233,7 +233,7 @@ export const FuncInterface ={
 
  ,defadrmod : (listofparam,i) => {
     var sizeofpar;
-    if (listofparam[0].value > 255 || Assembler.reg1.includes(listofparam[0].value))
+    if (listofparam[0].value >= 255 || Assembler.reg1.includes(listofparam[0].value))
         {
             sizeofpar='1'
         }else{
@@ -353,7 +353,7 @@ export class Assembler{
     // List of strings to exclude
 
 
-    static reg1=['R1', 'R2', 'R3', 'R4', 'ACC', 'BR', 'IR', 'SR',]
+    static reg1=['R1', 'R2', 'R3', 'R4', 'ACC', 'BR', 'IR', 'SR']
     static reg2=['R1R', 'R2R', 'R3R', 'ACCR', 'R1L', 'R2L', 'R3L', 'ACCL']
 
     static excludedStrings = ['!', '"','\,', '#', '$', '%', '&', "'", '(', ')', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~','RET', 'PUSHA', 'POPA', 'NEG', 'NOT', 'SHL', 'SHR', 'READ', 'WRITE', 'PUSH', 'POP', 'ROR', 'ROL', 'CALL', 'BE', 'BNE', 'BS', 'BI', 'BIE', 'BSE', 'BR', 'NAND', 'CMP', 'MOV', 'ADD', 'SUB', 'MUL', 'DIV', 'AND', 'OR', 'XOR', 'NOR', 'R1', 'R2', 'R3', 'R4', 'ACC', 'BR', 'IR', 'SR', 'R1R', 'R2R', 'R3R', 'ACCR', 'R1L', 'R2L', 'R3L', 'ACCL'];
