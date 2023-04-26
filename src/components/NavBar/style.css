@@ -14,7 +14,7 @@
 }
 
 .links{
-  width: 60%;
+  width: 50%;
 }
 
 .links ul{
@@ -30,7 +30,7 @@
   display: block;
   font-size: 20px;
   font-weight: 900;
-  color: #000;
+  color: #24292E;
   font-family: 'Mona Sans';
 }
 
@@ -45,7 +45,7 @@
 }
 .a :hover::after{
   width: 100%;
-  background: #000; 
+  background:#24292E; 
 }
 
 .a li{

@@ -2,6 +2,7 @@
 import { aura, auraInit } from '@uiw/codemirror-theme-aura';*/
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "./style.css"
+import UAParser from 'ua-parser-js';
 
 // import components
 import { NavBar } from "../../components"
@@ -307,7 +308,10 @@ return <>
     traitement(input)
     setdone(true)
   }}>execute</button>
-  <button className='ide-exec-button' onClick={()=>{setsimul(true)
+  <button className='ide-exec-button' onClick={()=>{
+  const parser = new UAParser();
+  const result = parser.getResult();
+  result.device.type==='mobile'? alert('Simulation not availble for this type of devices') : setsimul(true) ;
   }}>simulate</button>
   <button className='ide-exec-button' onClick={()=>{setreg(true)
   setmemo(false)
