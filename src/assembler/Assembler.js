@@ -777,7 +777,7 @@ export class Assembler{
                         case 'BSE':
                             oppcode = '2F';
                             break;
-                        case 'BR':
+                        case 'BRI':
                             oppcode = '31';
                             break;
 
