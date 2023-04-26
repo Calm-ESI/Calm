@@ -92,13 +92,28 @@ export const FuncInterface ={
     
     decimalTobinByte:(decimalString,size)=>{
         let decimalNumber = parseInt(decimalString); // convert string to number
-        let binaryNumber = decimalNumber.toString(2); // convert number to binary string
-        while (binaryNumber.length < size) {
+        let binaryNumber;
+      
+        if (decimalNumber < 0) {
+          // Perform two's complement
+          decimalNumber = Math.abs(decimalNumber) - 1;
+          binaryNumber = decimalNumber.toString(2); // convert number to binary string
+          while (binaryNumber.length < size) {
             binaryNumber = '0' + binaryNumber;
+          }
+          binaryNumber = binaryNumber
+            .split('')
+            .map((bit) => (bit === '0' ? '1' : '0'))
+            .join(''); // invert bits
+        } else {
+          binaryNumber = decimalNumber.toString(2); // convert number to binary string
+          while (binaryNumber.length < size) {
+            binaryNumber = '0' + binaryNumber;
+          }
         }
-
+      
         return binaryNumber;
-    }
+      }
     ,
     decimalToHexByte:(decimalString)=>{
 
@@ -129,15 +144,27 @@ export const FuncInterface ={
       },
 
     decimalToHex : (decimalString,size)=>{
-        // Convert decimal to hexadecimal string
-        let hexString = parseInt(decimalString, 10).toString(16);
-        
-        // Pad the hexadecimal string with leading zeros to 4 bytes (8 characters)
-        while (hexString.length < size) {
-          hexString = '0' + hexString;
+        let decimalNumber = parseInt(decimalString, 10); // convert string to number
+        let hexString;
+      
+        if (decimalNumber < 0) {
+          // Perform two's complement
+          decimalNumber = Math.abs(decimalNumber) - 1;
+          hexString = decimalNumber.toString(16); // convert number to hexadecimal string
+          while (hexString.length < size) {
+            hexString = '0' + hexString;
+          }
+          hexString = hexString
+            .split('')
+            .map((digit) => (digit === '0' ? 'f' : (15 - parseInt(digit, 16)).toString(16)))
+            .join(''); // invert digits
+        } else {
+          hexString = decimalNumber.toString(16); // convert number to hexadecimal string
+          while (hexString.length < size) {
+            hexString = '0' + hexString;
+          }
         }
-        
-        // Return the padded hexadecimal string
+      
         return hexString;
       },
 
@@ -455,7 +482,7 @@ export class Assembler{
                                ind = '01';
                             regmod1 = FuncInterface.regmap(input[1].value);
                             regmod2 = FuncInterface.adrmap(input[2].adrmode,size);
-                            console.log(regmod2)
+                            //console.log(regmod2)
                                         
                             switch (regmod2) {
                                 case '000':

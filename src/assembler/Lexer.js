@@ -3,6 +3,7 @@ import { Errorcalm } from './Errorcalm.js';
 import { SyntaxicAnalysis } from './SyntaxicAnalysis.js';
 export class Lexer {
   static Errors = [];
+ 
   static isValidString(str) {
     // Check if the string contains any special characters
     if (/[^a-zA-Z0-9_]/.test(str)) {
@@ -25,9 +26,9 @@ export class Lexer {
   }
     constructor(code,line) {
       //console.log(code.match(/([a-zA-Z0-9]+\d*(?:[a-zA-Z09]+)?|\*|,|\+)/g))
-      this.LexicalList = code.match(/([a-zA-Z0-9]+\d*(?:[a-zA-Z0-9]+)?|\*|,|\+,,|\~|,|\`|,|\!|,|\@|,|\#|,|\$|,|\%|,|\^|,|\&|,|\*|,|\(|,|\)|,|\_|,|\=|,|\+|,|\[|,|\]|,|\{|,|\}|,|\;|,|\:|,|\'|,|\"|,|\,|,|\.|,|\<|,|\>|,|\?|,|\\|)/g).filter(function (t) {
+      this.LexicalList = code.match(/([a-zA-Z0-9]+\d*(?:[a-zA-Z0-9]+)?|\*|,|\+,,|\~|,|\`|,|\!|,|\@|,|\#|,|\$|,|\-|,|\%|,|\^|,|\&|,|\*|,|\(|,|\)|,|\_|,|\=|,|\+|,|\[|,|\]|,|\{|,|\}|,|\;|,|\:|,|\'|,|\"|,|\,|,|\.|,|\<|,|\>|,|\?|,|\\|)/g).filter(function (t) {
         return t.length > 0;
-      }).map(function (t) {
+      }).map((t,index)=> {
         if (isNaN(t)) {
           switch (t) {
             case 'R1':
@@ -97,6 +98,7 @@ export class Lexer {
             case '*':
             case ',':
             case '+':
+            case '-':
               return {
                 type: 'SPECIAL CHARACTER',
                 value: t
@@ -124,5 +126,22 @@ export class Lexer {
           };
         }
       });
+      let lexlist= this.LexicalList
+      lexlist.forEach((element,index,lexlist) => {
+        if (element.type =='NUMBER') {
+          if ( lexlist[index-1].value=='-' && lexlist[index-1].type=='SPECIAL CHARACTER'  ){
+            console.log( '-'+element.value )
+            lexlist.splice(index-1, 1);
+            lexlist[index-1]={
+              type: 'NUMBER'
+              ,value: `-${element.value}`
+            }
+        }
+      }
+        
+      });
+      this.LexicalList = lexlist;
+
     }
+
   }
