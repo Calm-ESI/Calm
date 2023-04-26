@@ -3,9 +3,9 @@
   align-items: center;
   gap: 25%;
   background-color: #1BE985;
-  padding: 0 50px; 
-  box-shadow: 0 5px 15px rgba(rgb(2rgb(255, 255, 255)55, 255), rgb(255, 255, 255), rgb(255, 255, 255), 0.6);
-  border-radius: 40px;
+  padding: 0 3.1rem;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
+  border-radius: 2.5rem;
   margin: 1% 8%;
   position: sticky;
   top: 1%;
@@ -31,7 +31,7 @@
   font-size: 20px;
   font-weight: 900;
   color: #000;
-  font-family: 'Mona Sans';
+  font-family: 'Mona Sans', system-ui;
 }
 
 .a :after{

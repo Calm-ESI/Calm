@@ -66,10 +66,7 @@ const Hero = () => {
                 <section className="learn-section">
                     <h1 className="learn">Learn</h1>
                     <p className="learn-description">
-                        Enhance your understanding of computer architecture and dive into the inner workings of the calM
-                        CPU through our extensive collection of courses and learning materials. Whether you are just
-                        starting out or have some experience in the field, our resources are designed to help you take
-                        your knowledge and skills to the next level.
+                        Our resources are designed to help you improve your knowledge and skills whether you are a beginner or experienced in the field.
                     </p>
                 </section>
 

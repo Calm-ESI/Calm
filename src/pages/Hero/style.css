@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-row-gap: 24px;
+  grid-row-gap: 0.5rem;
 }
 
 .get-started-button {
@@ -101,7 +101,7 @@
 .why-calm-section{
   width: 100%;
   height: fit-content;
-  margin: 128px 0;
+  margin: 8rem 0;
   
   display: flex;
   flex-direction: column;
@@ -116,10 +116,10 @@
   color: white;
   font-size: 70px;
   font-weight: 700; */
-  height: 200px;
-  width:600px;
+  height: 12.5rem;
+  width:37.5rem;
   position: relative;
-  top:80px;
+  top:5rem;
 }
 
 .why-calm-description{
@@ -129,7 +129,7 @@
 
   background-color: #24292E;
   color: white;
-  font-size: 30px;
+  font-size: 1.8rem;
   line-height: 40px;
   border: 4px solid white;
 }
@@ -139,13 +139,13 @@ body{background-color: #1B1F24;}
 .what-we-offer-section{
   width:100%;
   height: fit-content;
-  margin: 128px 0;
+  margin: 8rem 0;
   /* display: grid;
   grid-template-rows: 1fr 80%;
   grid-template-columns: 70% 1fr; */
   justify-items: center;
   align-items: center;
-  font-family: "Mona Sans";
+  font-family: "Mona Sans", system-ui;
   color: white;
   display: grid;
 }
@@ -248,7 +248,7 @@ body{background-color: #1B1F24;}
   align-items: center;
 
   /* background-color:#1B1F24; */
-  font-family: "Mona Sans";
+  font-family: "Mona Sans", system-ui;
 }
 .learn{
   text-align: center;
@@ -290,7 +290,7 @@ body{background-color: #1B1F24;}
 
   width: 18.75rem;
   height: 5rem;
-    margin-top: 3rem;
+  margin-top: 3rem;
   align-self: center;
   background-color: #1BE985;
   border-radius: 30px;
@@ -452,7 +452,7 @@ body{background-color: #1B1F24;}
 .discord-server-container{
   width: 90%;
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 3.75rem 1fr;
   grid-template-columns: 70% 30%;
   justify-items: center;
   grid-row-gap: 80px;
