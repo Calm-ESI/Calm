@@ -15,7 +15,8 @@ function LearnPage(props) {
       <img src={LearnTitle} className="learnTitle" alt="" />
 
       <div className="globalContainerLearn">
-        <Learn title={"Get Started"} link={"/learn"}/>
+        <Learn title={"Get Started"} link={"/learn"} text={"Embark on a learning journey with our beginner-friendly " +
+            "course and uncover the inner workings of the calM machines."}/>
         <Learn title={"Adressing Modes"} link={"/learn/addressing-modes"}/>
         <Learn title={"Components"} link={"learn/components"}/>
         <Learn title={"Examples"}/>
