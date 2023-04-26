@@ -778,8 +778,8 @@ export class Assembler{
                     assembledcode.push(Assembler.assemble(toassmb[index])) 
                 
                 }
+                //console.log("\nAssembled code: \n",assembledcode)
                 return assembledcode;
-                // console.log("\nAssembled code: \n",assembledcode)
                 // here put the return in case of success
                 
             }else{

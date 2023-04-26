@@ -211,7 +211,9 @@ export class SyntaxicAnalysis {
                                 Errorcalm.SyntaxicError.push(new Errorcalm("Wrong size or type of operands",null,i))
 
                             }else{
-                                this.Syntaxiclist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value,size:FuncInterface.defadrmod(list1,i).size},FuncInterface.defadrmod(list1,i),FuncInterface.defadrmod(list2,i)]);
+                                let asize =  FuncInterface.defadrmod(list2,i).size == 1 ? 1 : 0;
+                                //console.log(asize);
+                                this.Syntaxiclist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value,size:asize},FuncInterface.defadrmod(list1,i),FuncInterface.defadrmod(list2,i)]);
                             }
                             }}
 
