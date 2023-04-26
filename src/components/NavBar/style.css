@@ -6,10 +6,10 @@
   padding: 0 50px; 
   box-shadow: 0 5px 15px rgba(rgb(2rgb(255, 255, 255)55, 255), rgb(255, 255, 255), rgb(255, 255, 255), 0.6);
   border-radius: 40px;
-  margin: 1% 8%;
+  margin: 1% auto;
   position: sticky;
   top: 1%;
-  width: 75%;
+  width: 50%;
   z-index: 10;
 }
 
@@ -51,7 +51,7 @@
 .a li{
   display: inline-block;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 30px;
   transition: 1s;
 }
 .a li:hover{

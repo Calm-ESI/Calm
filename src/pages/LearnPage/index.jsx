@@ -19,7 +19,8 @@ function LearnPage(props) {
             "course and uncover the inner workings of the calM machines."}/>
         <Learn title={"Adressing Modes"} link={"/learn/addressing-modes"}/>
         <Learn title={"Components"} link={"learn/components"}/>
-        <Learn title={"Examples"}/>
+        <Learn title={"Examples"} link={"/examples"}/>
+
 
       </div>
       <Footer></Footer>
