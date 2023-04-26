@@ -10,8 +10,7 @@ const NavBar = () => {
        <a href="/">
         <img src={logo} alt="" style={{
             width:"9.3rem"
-        }} />
-        
+        }} /> </a>
 
         <div className="links">
             <ul>
