@@ -25,8 +25,10 @@ const Hero = () => {
                     <div className="logo">
                         <img src={logoHero} className="logoHero" alt=""/>
                     </div>
-                    <p className="slogan-description">calM will help you uderstand the basics of how the CPU works and
-                        also will go you an insight on more advanced topics with outstanding illustrations</p>
+                    <p className="slogan-description">calM is a CPU architecture learning machine designed for
+                        educational purposes, offering a simplified representation of fundamental CPU concepts to aid
+                        in understanding computer architecture.
+                    </p>
                 </div>
             </section>
         )
@@ -48,10 +50,14 @@ const Hero = () => {
         return (
             <section className="what-we-offer-section">
                 <img src={whatCalmOffers} alt="" className="what-we-offer"/>
-                <div style={{display: "flex", gap: "7rem"}}>
-                    <div className="whatWeOfferCard"></div>
-                    <div className="whatWeOfferCard"></div>
-                    <div className="whatWeOfferCard"></div>
+                <div className="what-we-offer-container" style={{display: "grid", gap: "7rem"}}>
+                    <p className="what-we-offer-description">
+                        Calm machine offers a simple ISA and assembly language. Our platform includes an emulator and
+                        simulator for program execution and visualization, along with courses and learning materials for computer architecture.
+                    </p>
+                    <div className="whatWeOfferCard">Learn</div>
+                    <div className="whatWeOfferCard">Emulate</div>
+                    <div className="whatWeOfferCard">Simulate</div>
                 </div>
                 {/* <div className="what-we-offer-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, ipsum voluptate? Rerum magnam dolorum quaerat, itaque odio aliquam repellendus.</div> */}
                 {/* <img  className='todolist' src={to_do_list} alt="to-do list"/> */}
@@ -66,11 +72,12 @@ const Hero = () => {
                 <section className="learn-section">
                     <h1 className="learn">Learn</h1>
                     <p className="learn-description">
-                        Our resources are designed to help you improve your knowledge and skills whether you are a beginner or experienced in the field.
+                        Our learning materials are designed to help you improve your knowledge and skills whether you are a
+                        beginner or experienced in the field.
                     </p>
                 </section>
 
-                <button className="learn-button">Press me!</button>
+                <button className="learn-button">Check Courses</button>
             </>
         )
     }
@@ -95,7 +102,7 @@ const Hero = () => {
     const Part6 = () => {
         return (
             <section className="keep-in-touch-section">
-                <h1 className="keep-in-touch"> Keep in touch :</h1>
+                <h1 className="keep-in-touch"> Keep in touch</h1>
                 <div className="discord-server-container">
                     <h2 className="discord-title">Discord Server</h2>
                     <div className="part6-3"><img src={discordIcon} alt="discord-logo" width={240}/></div>
@@ -143,7 +150,7 @@ const Hero = () => {
         <Part1></Part1>
         <Part3></Part3>
         <Part4></Part4>
-        {/*<Part5></Part5>*/}
+        <Part5></Part5>
         <Part6></Part6>
         <Part7></Part7>
 

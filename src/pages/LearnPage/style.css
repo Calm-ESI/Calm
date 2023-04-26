@@ -351,6 +351,7 @@ body {
 }
 .learnIntro{
   font-size: 1.35rem;
-  width: 60%;
+  width: 70%;
   text-align: left;
+  margin-top: 0;
 }
