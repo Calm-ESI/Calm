@@ -558,7 +558,7 @@ body {
 .part6-3:hover {
     transition: 0.3s;
     transform: scale(1.01);
-    filter: invert(10%) sepia(32%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
 }
 
 .part6-4 {
