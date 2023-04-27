@@ -1,5 +1,5 @@
 import LearnCard from "../../components/LearnCard";
-const Learn = ({ title, link, text, img }) => {
+const Learn = ({ title, link, text, img,download }) => {
   return (
     <div className="LearnSectionContainer">
       <p
@@ -13,7 +13,8 @@ const Learn = ({ title, link, text, img }) => {
           {text}
       </p>
       <div className="LearnButton" style={{gridColumn: "2 / 3", gridRow: " 4 / 5", justifySelf: "center"}}>
-        <a href={link} style={{textDecoration: "none", color: "black"}}>Discover</a> 
+        {  download==1? <a href={link} style={{textDecoration: "none", color: "black"}}>Download</a>  :<a href={link} style={{textDecoration: "none", color: "black"}}>Discover</a> 
+        }
         </div>
     </div>
   );

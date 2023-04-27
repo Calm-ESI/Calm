@@ -101,7 +101,7 @@
 .why-calm-section{
   width: 100%;
   height: fit-content;
-  margin: 8rem 0;
+  margin: 4rem 4rem;
   
   display: flex;
   flex-direction: column;
@@ -334,11 +334,10 @@ body{background-color: #1B1F24;}
 }
 
 .emulation-container{
-  width: 20rem;
-  height: 20rem;
+  width: 30rem;
+  height: 26rem;
   grid-column: 1 / 2;
   justify-self: end;
-
   border-width: 3rem;
   border-color: black;
   border-radius: 40px;
@@ -379,18 +378,17 @@ body{background-color: #1B1F24;}
 .emul-1{
   font-family: "JetBrains Mono", system-ui;
   color: white;
-  font-size: 1.8rem;
-
-  margin: 0;
+  font-size: 1.5rem;
+  margin: 0 1.1rem;
   padding: 0.5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-weight: 500;
+  font-weight: 300;
 }
 .simulation-container{
-  width: 20rem;
-  height: 20rem;
+  width: 30rem;
+  height: 26rem;
   grid-column: 3 / 4;
   justify-self: start;
   background-color: #24292E;
@@ -430,6 +428,17 @@ body{background-color: #1B1F24;}
   font-weight: 700;
   transition: transform 0.3s ease-in-out;
 }
+
+.no-underline {
+  text-decoration: none;
+  color: black;
+}
+.threeIcons {
+  height: 4rem;
+  width: 4rem;
+  color: #000;
+}
+
 .lets-code-button:hover{
   border: 1px solid black;
   transform: translatey(-0.5rem);
@@ -439,13 +448,12 @@ body{background-color: #1B1F24;}
   font-weight: 900;
   border: 1px solid black;
   transform: scale(1.1);
-
 }
 
 /* Keep in touch section */
 .keep-in-touch-section{
   padding: 0 5%;
-  margin: 2rem 0 8rem 0;
+  margin: 4rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -453,25 +461,23 @@ body{background-color: #1B1F24;}
 }
 
 .discord-server-container{
-  width: 90%;
+  width: 100%;
   display: grid;
-  grid-template-rows: 3.75rem 1fr;
-  grid-template-columns: 70% 30%;
+  grid-template-rows: 0rem 0fr;
+  grid-template-columns: 80% 0%;
   justify-items: center;
-  grid-row-gap: 80px;
-  grid-column-gap: 40px;
+  grid-row-gap: 5rem;
+  grid-column-gap:2,5rem;
 }
 
-.keep-in-touch{
-
-  margin-bottom: 5rem;
+.keep-in-touch {
+  margin: 2rem auto 0 auto;
+  text-align: center;
   font-family: 'Mona Sans';
   font-weight: 750;
   font-size: 62px;
   color: #ffffff;
-
   text-decoration: double;
-  scroll-behavior: auto;
 }
 
 .discord-title{
@@ -496,19 +502,18 @@ body{background-color: #1B1F24;}
 .part6-4{
   grid-row: 2 / 3;
   color: white;
-
   width: 40rem;
   margin: 0;
-  padding: 1rem;
-  border-radius: 20px;
+  padding: 0rem;
+  border-radius: 0px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-family: "Mona Sans", system-ui;
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   background-color: #24292E;
-  border: 4px solid #1BE985;
+  border: 1rem solid #24292E;
 }
 
 /* Collaboration Section */

@@ -11,7 +11,7 @@ import getstarted from "../../assets/images/decorations/GetStarted.svg";
 import cpu from "../../assets/images/icons/cpu-fill.svg";
 // import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 import {motion} from "framer-motion"
-
+import emulate from "../../assets/images/icons/emulate-icon.png"
 import to_do_list from '../../assets/images/decorations/to-do-list 2.png' ;
 import discordIcon from '../../assets/images/icons/discord-icon.png' ;
 
@@ -39,8 +39,11 @@ const Hero = () => {
 
             <section className="why-calm-section">
                 <img src={whyCalm} alt="" className="whycalm "/>
-                <div className="why-calm-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                    architecto similique, iure nihil vel illo, sed quidem voluptate odio voluptatem.
+                <div className="why-calm-description">This project was created by a team of six 2nd-year students from ESI-Alger as
+                 part of a class project. The objective was to develop a pedagogical machine with a simulation of code execution to
+                  teach computer architecture. Our team was one of four teams assigned to develop different projects for the class. 
+                  We successfully designed and developed the learning platform, which includes the calm machine, 
+                with its emulator and simulator to meet the pedagogical goals.
                 </div>
             </section>
         )
@@ -55,8 +58,12 @@ const Hero = () => {
                         Calm machine offers a simple ISA and assembly language. Our platform includes an emulator and
                         simulator for program execution and visualization, along with courses and learning materials for computer architecture.
                     </p>
-                    <div className="whatWeOfferCard">Learn</div>
-                    <div className="whatWeOfferCard">Emulate</div>
+                    <div className="whatWeOfferCard">
+                    </div>
+                    <div className="whatWeOfferCard"><img src={emulate} alt="description of image" className="threeIcons"></img>
+                    <br></br>
+                    Emulate / here text must be under the box Ma3reftch ndirha X) + please riglou icon kabrouha ma7btch/
+                    </div>
                     <div className="whatWeOfferCard">Simulate</div>
                 </div>
                 {/* <div className="what-we-offer-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, ipsum voluptate? Rerum magnam dolorum quaerat, itaque odio aliquam repellendus.</div> */}
@@ -72,12 +79,11 @@ const Hero = () => {
                 <section className="learn-section">
                     <h1 className="learn">Learn</h1>
                     <p className="learn-description">
-                        Our learning materials are designed to help you improve your knowledge and skills whether you are a
-                        beginner or experienced in the field.
+                        Our learning platform provides a variety of materials to help you understand computer architecture concepts more easily.
                     </p>
                 </section>
 
-                <button className="learn-button">Check Courses</button>
+                <button className="learn-button"> <a href="/Learn" className="no-underline">Start Studying</a></button>
             </>
         )
     }
@@ -85,16 +91,16 @@ const Hero = () => {
         return (
             <section className="emulation-simulation-section">
                 <div className="emulation-container">
-                    <h1 className="emul">Emulation</h1>
-                    <p className="emul-1">Write some calM code and emulate it's execution</p>
+                <h1 className="emul">Emulation</h1>
+                    <p className="emul-1">Our website provides an emulator where you can write and execute your CalM assembly code. You can check the results by inspecting various registers and central memory content.</p>
                 </div>
 
                 <div className="simulation-container">
-                    <h1 className="simul">Simulation</h1>
-                    <p className="simul-1">Give life to your code by animating it's execution</p>
+                    <h1 className="emul">Simulation</h1>
+                    <p className="-1">After executing your CalM assembly code, you can click "Simulate" to watch a captivating animation of your code coming to life within the CalM architecture.</p>
                 </div>
-
-                <button className="lets-code-button">Let's code</button>
+                
+                <button className="lets-code-button"><a href="/ide" className="no-underline">Let's code</a></button>
 
             </section>
         )
@@ -102,14 +108,12 @@ const Hero = () => {
     const Part6 = () => {
         return (
             <section className="keep-in-touch-section">
-                <h1 className="keep-in-touch"> Keep in touch</h1>
+                <h1 className="keep-in-touch"> Join the community</h1>
                 <div className="discord-server-container">
-                    <h2 className="discord-title">Discord Server</h2>
-                    <div className="part6-3"><img src={discordIcon} alt="discord-logo" width={240}/></div>
+                    {/*<h2 className="discord-title">Discord Server</h2>*/}
+                    <div className="part6-3"><img src={discordIcon} alt="discord-logo" width={120}/></div>
                     <div className="part6-4">
-                        Join our discord server to get in touch with the community and ask any questions you may have.
-                        calM-Bot is waiting for you!
-                    </div>
+                    Meet the Calm Team community on our Discord server to connect with like-minded individuals, ask questions, and share your ideas in a supportive and welcoming space.</div>
                 </div>
             </section>
         )
@@ -152,6 +156,7 @@ const Hero = () => {
         <Part4></Part4>
         <Part5></Part5>
         <Part6></Part6>
+        <Part2></Part2>
         <Part7></Part7>
 
     </>
