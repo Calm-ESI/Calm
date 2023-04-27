@@ -43,6 +43,24 @@ function TwosComplement(num,size) { //a is a string
     return a;
 }
 
+function BinToDec(a,size) { //a is a string 
+    if(a.charAt[0]==='1'){
+    let find1=false
+    for (let i = size-1; i >=0; i--) {
+        if(find1==true){
+            if (a[i]=='1') {
+                a=replaceAt(a,i,'0');
+            }else{
+                a=replaceAt(a,i,'1');
+            }
+        }
+        if (a[i]==1) {
+            find1=true;
+        }
+    } }
+    return parseInt(a,2);
+}
+
 
 //for strings to do str[index]=newChar "Which is not allowed in js "
 function replaceAt(str, index, newChar) {
@@ -472,8 +490,8 @@ class Alu{
          let result2;
          let result;
          let carry=0;
-         result1=this.RUAL1.substring(1,size);
-           result2=this.RUAL1.charAt(0);
+         result1=this.Rual1.getvalue().substring(1,size);
+           result2=this.Rual1.getvalue().charAt(0);
            result=result1+result2;
            carry=result2//FLAG Carry
            
@@ -491,8 +509,8 @@ class Alu{
          let result2;
          let result;
          let carry=0;
-         result1=this.RUAL1.substring(0,size-1);
-           result2=this.RUAL1.charAt(size-1);
+         result1=this.Rual1.getvalue().substring(0,size-1);
+           result2=this.Rual1.getvalue().charAt(size-1);
            result=result2+result1;
          carry=result2//FLAG Carry
          this.Acc.setvalue(result);
@@ -507,8 +525,8 @@ class Alu{
         let result1;
         let result;
         let carry=0;
-        result1=this.RUAL1.substring(1,size);
-        carry=this.Rual1.charAt(0);//FLAG Carry
+        result1=this.Rual1.getvalue().substring(1,size);
+        carry=this.Rual1.getvalue().charAt(0);//FLAG Carry
         result=result1+'0';
         
         this.Acc.setvalue(result);
@@ -523,7 +541,7 @@ class Alu{
         let result1;
         let result;
         let carry=0;
-        result1=this.RUAL1.substring(0,size-1);
+        result1=this.Rual1.getvalue().substring(0,size-1);
         result='0'+result1;
         carry='0';
         this.Acc.setvalue(result);
@@ -534,6 +552,47 @@ class Alu{
         this.Flags[3] = ((this.Acc.value.match(new RegExp(figure, "g")) || []).length %2).toString();//parity
         this.Flags[4]=this.Acc.getvalue()[size-1];//p/imp
     }
+    NOT(size){
+        let result="";
+        for (let i = 16-size; i < 16; i++) {
+            if(this.Rual1.charAt(i)==='0'){
+                result=result+'1';
+            }else{
+                result=result+'0'
+            }
+        }
+        if(size===16){
+            this.Acc.setvalue(result);
+        }else{
+            this.Acc.setright(result);
+        }
+        if (parseInt(this.Acc.getvalue())==0) {this.Flags[0]='1'}//zero
+        this.Flags[1]=this.Acc.getvalue()[0];//signe
+        let figure="1"
+        this.Flags[3] = ((this.Acc.value.match(new RegExp(figure, "g")) || []).length %2).toString();//parity
+        this.Flags[4]=this.Acc.getvalue()[size-1];//p/imp
+    }
+    NEG(size){
+        let num=0;
+        if(size===8){
+            num=BinToDec(this.Rual1.getright(),8);
+            num=-num;
+        }else if(size===16){
+            num=BinToDec(this.Rual1.getvalue(),16);
+            num=-num;
+        }
+        if(size===16){
+            this.Acc.setvalue(TwosComplement(num,16));
+        }else{
+            this.Acc.setright(TwosComplement(num,8));
+        }
+        if (parseInt(this.Acc.getvalue())==0) {this.Flags[0]='1'}//zero
+        this.Flags[1]=this.Acc.getvalue()[0];//signe
+        let figure="1"
+        this.Flags[3] = ((this.Acc.value.match(new RegExp(figure, "g")) || []).length %2).toString();//parity
+        this.Flags[4]=this.Acc.getvalue()[size-1];//p/imp
+    }
+
 }
  //let name="aymen";
  //console.log(fullzero(10,"aymen"));

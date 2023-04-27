@@ -2559,7 +2559,7 @@ class InstructionSUB{
                 Alu1.Rual2.setvalue(TwosComplement(this.value2,16));
                 Alu1.subBinary(16);
             }
-            
+            return Alu1.Acc.getvalue();
         }
         ];
         this.buildanim=function(){
@@ -2607,10 +2607,17 @@ class InstructionMUL{
                     Registers[3].setvalue(R4MUL);
                 }
             }
+            return Alu1.Acc.getvalue();
         }
         ];
         this.buildanim=function(){
             return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
                 value:"",
                 target:AluToAcc.target,
                 time:AluToAcc.time,
@@ -2653,10 +2660,17 @@ class InstructionDIV{
                 let R4div=Alu1.DivBinary(16);
                 Registers[3].setvalue(R4div);
             }
+            return Alu1.Acc.getvalue();
         }
         ];
         this.buildanim=function(){
             return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
                 value:"",
                 target:AluToAcc.target,
                 time:AluToAcc.time,
@@ -2696,10 +2710,17 @@ class InstructionAND{
                 Alu1.Rual2.setvalue(TwosComplement(this.value2,16));
                 Alu1.andBinary(16);
             }
+            return Alu1.Acc.getvalue();
         }
         ];
         this.buildanim=function(){
             return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
                 value:"",
                 target:AluToAcc.target,
                 time:AluToAcc.time,
@@ -2739,10 +2760,17 @@ class InstructionOR{
                 Alu1.Rual2.setvalue(TwosComplement(this.value2,16));
                 Alu1.orBinary(16);
             }
+            return Alu1.Acc.getvalue();
         }
         ];
         this.buildanim=function(){
             return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
                 value:"",
                 target:AluToAcc.target,
                 time:AluToAcc.time,
@@ -2783,10 +2811,17 @@ class InstructionXOR{
                 Alu1.Rual2.setvalue(TwosComplement(this.value2,16));
                 Alu1.xorBinary(16);
             }
+            return Alu1.Acc.getvalue();
         }
         ];
         this.buildanim=function(){
-            return [{
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
                 value:"",
                 target:AluToAcc.target,
                 time:AluToAcc.time,
@@ -2827,9 +2862,30 @@ class InstructionNOR{
                 Alu1.Rual2.setvalue(TwosComplement(this.value2,16));
                 Alu1.norBinary(16);
             }
+            return Alu1.Acc.getvalue();
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
 }
 
@@ -2856,6 +2912,7 @@ class InstructionNAND{
                 Alu1.Rual2.setvalue(TwosComplement(this.value2,16));
                 Alu1.nandBinary(16);
             }
+            return Alu1.Acc.getvalue();
         }
         ];
         this.animationSteps=[];
@@ -2958,14 +3015,26 @@ class InstructionBE{
         this.taille=0;
         this.stepsNum=1;
         this.name="BE";
-        this.steps=[()=>{
+        this.steps=[(animations)=>{
             if(Alu1.getFlags(0)==='1'){
-                IP.setvalue(this.addresse1);
+                IP.setvalue(Dec2bin(this.addresse1));
+            // console.log(`this is ip ${IP.getvalue()}`)
+            /////we need to clear the queue from old instruction 
+            queue.clear(animations);
+            queue.fetchInstruction(animations,0,1,[],0);
+            // console.log(`this is the queue ${queue.log()}`);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,1,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,2,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
             }
             /////we need to clear the queue from old instruction 
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[];
+        }
     }
 }
 
@@ -2980,14 +3049,26 @@ class InstructionBNE{
         this.taille=0;
         this.stepsNum=1;
         this.name="BNE";
-        this.steps=[()=>{
+        this.steps=[(animations)=>{
             if(Alu1.getFlags(0)==='0'){
-                IP.setvalue(this.addresse1);
+                IP.setvalue(Dec2bin(this.addresse1));
+            // console.log(`this is ip ${IP.getvalue()}`)
+            /////we need to clear the queue from old instruction 
+            queue.clear(animations);
+            queue.fetchInstruction(animations,0,1,[],0);
+            // console.log(`this is the queue ${queue.log()}`);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,1,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,2,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
             }
             /////we need to clear the queue from old instruction 
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[];
+        }
     }
 }
 
@@ -3002,14 +3083,26 @@ class InstructionBS{
         this.taille=0;
         this.stepsNum=1;
         this.name="BS";
-        this.steps=[()=>{
+        this.steps=[(animations)=>{
             if(Alu1.Acc.getvalue().charAt[0]==='0'){
-                IP.setvalue(this.addresse1);
+                IP.setvalue(Dec2bin(this.addresse1));
+            // console.log(`this is ip ${IP.getvalue()}`)
+            /////we need to clear the queue from old instruction 
+            queue.clear(animations);
+            queue.fetchInstruction(animations,0,1,[],0);
+            // console.log(`this is the queue ${queue.log()}`);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,1,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,2,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
             }
             /////we need to clear the queue from old instruction 
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[];
+        }
     }
 }
 
@@ -3024,14 +3117,26 @@ class InstructionBI{
         this.taille=0;
         this.stepsNum=1;
         this.name="BI";
-        this.steps=[()=>{
+        this.steps=[(animations)=>{
             if(Alu1.Acc.getvalue().charAt[0]==='1'){
-                IP.setvalue(this.addresse1);
+                IP.setvalue(Dec2bin(this.addresse1));
+            // console.log(`this is ip ${IP.getvalue()}`)
+            /////we need to clear the queue from old instruction 
+            queue.clear(animations);
+            queue.fetchInstruction(animations,0,1,[],0);
+            // console.log(`this is the queue ${queue.log()}`);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,1,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,2,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
             }
             /////we need to clear the queue from old instruction 
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[];
+        }
     }
 }
 
@@ -3046,14 +3151,26 @@ class InstructionBIE{
         this.taille=0;
         this.stepsNum=1;
         this.name="BIE";
-        this.steps=[()=>{
+        this.steps=[(animations)=>{
             if(Alu1.Acc.getvalue().charAt[0]==='1' | Alu1.getFlags(0)==='1' ){
-                IP.setvalue(this.addresse1);
+                IP.setvalue(Dec2bin(this.addresse1));
+            // console.log(`this is ip ${IP.getvalue()}`)
+            /////we need to clear the queue from old instruction 
+            queue.clear(animations);
+            queue.fetchInstruction(animations,0,1,[],0);
+            // console.log(`this is the queue ${queue.log()}`);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,1,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,2,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
             }
             /////we need to clear the queue from old instruction 
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[];
+        }
     }
 }
 
@@ -3068,17 +3185,322 @@ class InstructionBSE{
         this.taille=0;
         this.stepsNum=1;
         this.name="BSE";
-        this.steps=[()=>{
+        this.steps=[(animations)=>{
             if(Alu1.Acc.getvalue().charAt[0]==='0' | Alu1.getFlags(0)==='1' ){
-                IP.setvalue(this.addresse1);
+                IP.setvalue(Dec2bin(this.addresse1));
+            // console.log(`this is ip ${IP.getvalue()}`)
+            /////we need to clear the queue from old instruction 
+            queue.clear(animations);
+            queue.fetchInstruction(animations,0,1,[],0);
+            // console.log(`this is the queue ${queue.log()}`);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,1,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
+            queue.fetchInstruction(animations,2,1,[],0);
+            queue.fetchInstruction(animations,0,0,[],0);
             }
             /////we need to clear the queue from old instruction 
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[];
+        }    
     }
 }
 
+class InstructionSHL{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="SHL";
+        this.steps=[()=>{
+            // let res=this.value1+this.value2;
+            // Registers[4].setvalue(res.toString(2));
+            if(this.taille===0){
+                Alu1.Rual1.setright(TwosComplement(this.value1,8));
+                Alu1.SHL(8);
+            }else{
+                Alu1.Rual1.setvalue(TwosComplement(this.value1,16));
+                Alu1.SHL(16);
+            }
+            return Alu1.Acc.getvalue();
+        }
+        ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
+    }
+    
+}
+
+class InstructionSHR{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="SHR";
+        this.steps=[()=>{
+            // let res=this.value1+this.value2;
+            // Registers[4].setvalue(res.toString(2));
+            if(this.taille===0){
+                Alu1.Rual1.setright(TwosComplement(this.value1,8));
+                Alu1.SHR(8);
+            }else{
+                Alu1.Rual1.setvalue(TwosComplement(this.value1,16));
+                Alu1.SHR(16);
+            }
+            return Alu1.Acc.getvalue();
+        }
+        ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
+    }
+    
+}
+
+class InstructionROR{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="ROR";
+        this.steps=[()=>{
+            // let res=this.value1+this.value2;
+            // Registers[4].setvalue(res.toString(2));
+            if(this.taille===0){
+                Alu1.Rual1.setright(TwosComplement(this.value1,8));
+                Alu1.ROR(8);
+            }else{
+                Alu1.Rual1.setvalue(TwosComplement(this.value1,16));
+                Alu1.ROR(16);
+            }
+            return Alu1.Acc.getvalue();
+        }
+        ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
+    }
+    
+}
+
+class InstructionROL{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="ROL";
+        this.steps=[()=>{
+            // let res=this.value1+this.value2;
+            // Registers[4].setvalue(res.toString(2));
+            if(this.taille===0){
+                Alu1.Rual1.setright(TwosComplement(this.value1,8));
+                Alu1.ROL(8);
+            }else{
+                Alu1.Rual1.setvalue(TwosComplement(this.value1,16));
+                Alu1.ROL(16);
+            }
+            return Alu1.Acc.getvalue();
+        }
+        ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
+    }
+    
+}
+
+class InstructionNOT{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="NOT";
+        this.steps=[()=>{
+            // let res=this.value1+this.value2;
+            // Registers[4].setvalue(res.toString(2));
+            if(this.taille===0){
+                Alu1.Rual1.setright(TwosComplement(this.value1,8));
+                Alu1.NOT(8);
+            }else{
+                Alu1.Rual1.setvalue(TwosComplement(this.value1,16));
+                Alu1.NOT(16);
+            }
+            return Alu1.Acc.getvalue();
+        }
+        ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
+    }
+    
+}
+
+class InstructionNEG{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="NEG";
+        this.steps=[()=>{
+            // let res=this.value1+this.value2;
+            // Registers[4].setvalue(res.toString(2));
+            if(this.taille===0){
+                Alu1.Rual1.setright(TwosComplement(this.value1,8));
+                Alu1.NEG(8);
+            }else{
+                Alu1.Rual1.setvalue(TwosComplement(this.value1,16));
+                Alu1.NEG(16);
+            }
+            return Alu1.Acc.getvalue();
+        }
+        ];
+        this.buildanim=function(){
+            return[{
+                value:"",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
+    }
+    
+}
 
 
-export {InstructionADD,InstructionMOV00,InstructionMOV01,InstructionMOV10,InstructionMOV11,InstructionSUB,InstructionMUL,InstructionDIV,InstructionBSE,InstructionBIE,InstructionBI,InstructionBS,InstructionBNE,InstructionBE,InstructionBR,InstructionPOP,InstructionPUSH,InstructionAND,InstructionOR,InstructionNAND,InstructionNOR,InstructionXOR}
+export {InstructionADD,InstructionMOV00,InstructionMOV01,InstructionMOV10,InstructionMOV11,InstructionSUB,InstructionMUL,InstructionDIV,InstructionBSE,InstructionBIE,InstructionBI,InstructionBS,InstructionBNE,InstructionBE,InstructionBR,InstructionPOP,InstructionPUSH,InstructionAND,InstructionOR,InstructionNAND,InstructionNOR,InstructionXOR,InstructionNEG,InstructionNOT,InstructionROL,InstructionROR,InstructionSHL,InstructionSHR}
