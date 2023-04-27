@@ -77,7 +77,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
-  border: 2px solid ghostwhite;
+  border: 2px solid #1BE985;
   padding: 5em;
   border-radius: 40px;
   background-color: #24292e;
@@ -213,7 +213,7 @@ body {
   height: 3.5rem;
   text-align: center;
   line-height: 3.5rem;
-  border: 2px solid ghostwhite;
+  border: 2px solid #1BE985;
 }
 .globalContainer {
   display: flex;

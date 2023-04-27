@@ -30,9 +30,10 @@ function Footer() {
         <div id='social-media-container'>
           <h2 className="social-media-text">Follow us for updates</h2>
           <div id="social-media-icons-wrapper">
-            <img className="git-icon" src={githubIcon} alt='git-icon'/>
-            <img className="discord-icon" src={discordIcon} alt='discord-icon'/>
-            <img className="linkedin-icon" src={linkedinIcon} alt='linkedin-icon'/>
+            {/*TODO: add links*/}
+            <a href="https://github.com/Calm-ESI/Calm"><img className="git-icon" src={githubIcon} alt='git-icon'/></a>
+            <a href=""><img className="discord-icon" src={discordIcon} alt='discord-icon'/></a>
+            <a href=""><img className="linkedin-icon" src={linkedinIcon} alt='linkedin-icon'/></a>
           </div>
         </div>
       </footer>
