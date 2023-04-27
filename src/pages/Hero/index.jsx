@@ -3,6 +3,7 @@ import logoHero from "../../assets/images/logos/logoHero.png"
 import Slogan from "../../assets/images/logos/Slogan.png"
 import whyCalm from "../../assets/images/logos/whyCalm.png"
 import whatCalmOffers from "../../assets/images/logos/whatCalmOffers.png"
+import esiLogo from "../../assets/images/logos/esiLogo.png"
 //import components
 import {NavBar, Title, HeroIde} from "../../components"
 import {Footer} from '../../containers'
@@ -25,7 +26,8 @@ const Hero = () => {
                     <div className="logo">
                         <img src={logoHero} className="logoHero" alt=""/>
                     </div>
-                    <p className="slogan-description">calM is a CPU architecture learning machine designed for
+                    <p className="slogan-description">
+                        calM is a CPU architecture learning machine designed for
                         educational purposes, offering a simplified representation of fundamental CPU concepts to aid
                         in understanding computer architecture.
                     </p>
@@ -39,12 +41,17 @@ const Hero = () => {
 
             <section className="why-calm-section">
                 <img src={whyCalm} alt="" className="whycalm "/>
-                <div className="why-calm-description">This project was created by a team of six 2nd-year students from ESI-Alger as
-                 part of a class project. The objective was to develop a pedagogical machine with a simulation of code execution to
-                  teach computer architecture. Our team was one of four teams assigned to develop different projects for the class. 
-                  We successfully designed and developed the learning platform, which includes the calm machine, 
-                with its emulator and simulator to meet the pedagogical goals.
+                <div className="why-calm-container">
+                    <div className="why-calm-description">
+                        This project was created by a team of six 2nd-year students from ESI-Alger as
+                        part of a class project. The objective was to develop a pedagogical machine with a simulation of code execution to
+                        teach computer architecture. Our team was one of four teams assigned to develop different projects for the class.
+                        We successfully designed and developed the learning platform, which includes the calm machine,
+                        with its emulator and simulator to meet the pedagogical goals.
+                    </div>
+                    <img className="esi-logo" src={esiLogo} alt="esi logo"/>
                 </div>
+
             </section>
         )
     }
@@ -53,18 +60,23 @@ const Hero = () => {
         return (
             <section className="what-we-offer-section">
                 <img src={whatCalmOffers} alt="" className="what-we-offer"/>
-                <div className="what-we-offer-container" style={{display: "grid", gap: "7rem"}}>
+                <div className="what-we-offer-container">
                     <p className="what-we-offer-description">
                         Calm machine offers a simple ISA and assembly language. Our platform includes an emulator and
-                        simulator for program execution and visualization, along with courses and learning materials for computer architecture.
+                        simulator for program execution and visualization, along with courses and learning materials for
+                        computer architecture.
                     </p>
-                    <div className="whatWeOfferCard">
+                    <div className="cardsContainer">
+                        <div className="whatWeOfferCard">
+                        </div>
+                        <div className="whatWeOfferCard">
+                            <img src={emulate} alt="description of image" className="threeIcons"/>
+                            <h1 >Emulate</h1>
+                        </div>
+                        <div className="whatWeOfferCard">
+                            <h1>Simulate</h1>
+                        </div>
                     </div>
-                    <div className="whatWeOfferCard"><img src={emulate} alt="description of image" className="threeIcons"></img>
-                    <br></br>
-                    Emulate / here text must be under the box Ma3reftch ndirha X) + please riglou icon kabrouha ma7btch/
-                    </div>
-                    <div className="whatWeOfferCard">Simulate</div>
                 </div>
                 {/* <div className="what-we-offer-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, ipsum voluptate? Rerum magnam dolorum quaerat, itaque odio aliquam repellendus.</div> */}
                 {/* <img  className='todolist' src={to_do_list} alt="to-do list"/> */}
@@ -83,7 +95,15 @@ const Hero = () => {
                     </p>
                 </section>
 
-                <button className="learn-button"> <a href="/Learn" className="no-underline">Start Studying</a></button>
+                {/*<button className="learn-button"> <a href="/Learn" className="no-underline">Start Studying</a></button>*/}
+                <motion.div
+                    className="learn-button"
+                    whileHover={{scale: 1.1}}
+                    whileTap={{scale: 0.9}}
+                    transition={{type: "spring", stiffness: 400, damping: 17}}
+                >
+                    <a href="/Learn" className="no-underline">Start Studying</a>
+                </motion.div>
             </>
         )
     }
@@ -97,10 +117,18 @@ const Hero = () => {
 
                 <div className="simulation-container">
                     <h1 className="emul">Simulation</h1>
-                    <p className="-1">After executing your CalM assembly code, you can click "Simulate" to watch a captivating animation of your code coming to life within the CalM architecture.</p>
+                    <p className="emul-1">After executing your CalM assembly code, you can click "Simulate" to watch a captivating animation of your code coming to life within the CalM architecture.</p>
                 </div>
                 
-                <button className="lets-code-button"><a href="/ide" className="no-underline">Let's code</a></button>
+                {/*<button className="lets-code-button"><a href="/ide" className="no-underline">Let's code</a></button>*/}
+                <motion.div
+                    className="lets-code-button"
+                    whileHover={{scale: 1.1}}
+                    whileTap={{scale: 0.9}}
+                    transition={{type: "spring", stiffness: 400, damping: 17}}
+                >
+                    <a href="/ide" className="no-underline">Let's code</a>
+                </motion.div>
 
             </section>
         )
@@ -111,9 +139,11 @@ const Hero = () => {
                 <h1 className="keep-in-touch"> Join the community</h1>
                 <div className="discord-server-container">
                     {/*<h2 className="discord-title">Discord Server</h2>*/}
-                    <div className="part6-3"><img src={discordIcon} alt="discord-logo" width={120}/></div>
+                    <div className="part6-3"><img className="discord-image" src={discordIcon} alt="discord-logo" width={120}/></div>
                     <div className="part6-4">
-                    Meet the Calm Team community on our Discord server to connect with like-minded individuals, ask questions, and share your ideas in a supportive and welcoming space.</div>
+                    Meet the Calm Team community on our Discord server to connect with like-minded individuals, ask
+                        questions, and share your ideas in a supportive and welcoming space.
+                    </div>
                 </div>
             </section>
         )
@@ -150,6 +180,7 @@ const Hero = () => {
 
             <HeroIde/>
         </main>
+        {/*<img src={arrowGif} alt=""/>*/}
 
         <Part1></Part1>
         <Part3></Part3>

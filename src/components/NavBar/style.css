@@ -4,7 +4,9 @@
   gap: 25%;
   background-color: #1BE985;
   padding: 0 3.1rem;
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 5px 15px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+  0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+  0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
   border-radius: 2.5rem;
   margin: 1% auto;
 
