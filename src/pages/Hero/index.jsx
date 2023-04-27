@@ -68,6 +68,7 @@ const Hero = () => {
                     </p>
                     <div className="cardsContainer">
                         <div className="whatWeOfferCard">
+                            <h1>Ai assistant</h1>
                         </div>
                         <div className="whatWeOfferCard">
                             <img src={emulate} alt="description of image" className="threeIcons"/>
