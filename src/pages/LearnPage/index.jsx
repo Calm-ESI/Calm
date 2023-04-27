@@ -32,7 +32,7 @@ function LearnPage(props) {
         <Learn title={"Adressing Modes"} link={"/learn/addressing-modes"} img={compassImage} text={"Discover how data is" +
             " stored and retrieved from the memory and the different modes used to access information."}/>
 
-        <Learn title={"Components"} link={"learn/components"} img={componentsImage} text={"Get to know the different " +
+        <Learn title={"Architecture"} link={"learn/components"} img={componentsImage} text={"Get to know the different " +
             "parts that makes the calM machine and how they interact with each other."}/>
 
         <Learn title={"Examples"} img={examplesImage} text={"A collection of code examples we designed carefully to show you how the calM machine" +
