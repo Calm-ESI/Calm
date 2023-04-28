@@ -798,7 +798,7 @@ export class Assembler{
             var assembledcode = [];
             var toassmb = (output && output.toAssemble && output.toAssemble.Syntaxiclist) ? output.toAssemble.Syntaxiclist : "Syntaxiclist is undefined";
             
-            if ( Errorcalm.SyntaxicError.length ===0) {
+            if ( Errorcalm.SyntaxicError.length ===0 ) {
 
                 for (let index = 0; index < toassmb.length; index++) {
          
@@ -823,8 +823,9 @@ export class Assembler{
 
 
 
-// var input = ["LABEL le 1437","LABEL labe 4532",'ADD R1H,BR', "MOV BR*+IR+5,10", "ADD BR*+10,IR*+10","DIV 20*,2* ","BE 35",'POPA',"ROL R3",'NEG R1R']
+//var input = ["MOV 0,0"]
 
+//console.log("\nInput: \n", Assembler.assemblecode(input))
 
 /*
 let output = new Assembler(input) ;
