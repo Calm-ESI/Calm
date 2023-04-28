@@ -9,7 +9,7 @@ const NavBar = () => {
     <nav className="navbar">
        <a href="/">
         <img src={logo} alt="" style={{
-            width:"9.3rem"
+            width:"4rem"
         }} /> </a>
 
         <div className="links">

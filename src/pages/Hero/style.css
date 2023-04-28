@@ -265,8 +265,17 @@ body {
 
 .cardsContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 4rem;
+}
+
+.cardsSubContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
 }
 
 .todolist {
@@ -558,7 +567,7 @@ body {
 .part6-3:hover {
     transition: 0.3s;
     transform: scale(1.01);
-    filter: invert(10%) sepia(32%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
 }
 
 .part6-4 {
@@ -686,23 +695,35 @@ footer {
 }
 
 .git-icon {
-    width: 25px;
-    height: 25px;
+    width: 1.56rem;
+    height: 1.56rem;
+    transition: 0.3s;
+}
+.git-icon:hover {
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
 }
 
 .discord-icon {
-    width: 25px;
-    height: 25px;
+    width: 1.56rem;
+    height: 1.56rem;
+    transition: 0.3s;
+}
+.discord-icon:hover {
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
 }
 
 .linkedin-icon {
-    width: 25px;
-    height: 25px;
+    width: 1.56rem;
+    height: 1.56rem;
+    transition: 0.3s;
+}
+.linkedin-icon:hover {
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
 }
 
 .mail-icon {
-    width: 22px;
-    height: 22px;
+    width: 1.37rem;
+    height: 1.37rem;
 }
 
 .scroll-animation {
@@ -802,5 +823,6 @@ footer {
 }
 
 .logoHero {
-    width: 18.75rem;
+    width: 18rem;
+    margin: 2rem 2rem 2rem 2rem;
 }

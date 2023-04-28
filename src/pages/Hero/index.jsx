@@ -67,15 +67,22 @@ const Hero = () => {
                         computer architecture.
                     </p>
                     <div className="cardsContainer">
-                        <div className="whatWeOfferCard">
-                            <h1>Ai assistant</h1>
+                        <div className="cardsSubContainer">
+                            <div className="whatWeOfferCard">
+                                <h1>Learn</h1>
+                            </div>
+                            <div className="whatWeOfferCard">
+                                <img src={emulate} alt="description of image" className="threeIcons"/>
+                                <h1 >Emulate</h1>
+                            </div>
                         </div>
-                        <div className="whatWeOfferCard">
-                            <img src={emulate} alt="description of image" className="threeIcons"/>
-                            <h1 >Emulate</h1>
-                        </div>
-                        <div className="whatWeOfferCard">
-                            <h1>Simulate</h1>
+                        <div className="cardsSubContainer">
+                            <div className="whatWeOfferCard">
+                                <h1>Simulate</h1>
+                            </div>
+                            <div className="whatWeOfferCard">
+                                <h1>Ai assistant</h1>
+                            </div>
                         </div>
                     </div>
                 </div>
