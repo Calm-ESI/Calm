@@ -535,8 +535,7 @@ class Queue {
           // });
         }}else{
           
-
-          if(parseInt(marval,2)%2===0 & buildCTX===1){
+          if(parseInt(marval,2)%2===0 & buildCTX===1 & isNaN(marval)==false &  isNaN(mdrval)==false){
             marval=parseInt(marval,2).toString(16);
             Contextarray.push(marval);
             Contextarray.push(mdrval);
