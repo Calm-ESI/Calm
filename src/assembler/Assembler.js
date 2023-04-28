@@ -260,7 +260,7 @@ export const FuncInterface ={
 
  ,defadrmod : (listofparam,i) => {
     var sizeofpar;
-    if (listofparam[0].value >= 255 || Assembler.reg1.includes(listofparam[0].value))
+    if (listofparam[0].value > 255 || Assembler.reg1.includes(listofparam[0].value))
         {
             sizeofpar='1'
         }else{
@@ -277,7 +277,7 @@ export const FuncInterface ={
         
         case 2:
             //direct
-            if(  listofparam[0].type === 'REGISTER'   )
+            if(  listofparam[0].type === 'REGISTER' && listofparam[0].value !== 'BR' && listofparam[0].value !== 'IR'  )
             {
                 Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                 return {type:'ERROR',value:'Wrong number or type of parameters'}
@@ -285,9 +285,18 @@ export const FuncInterface ={
             if ( listofparam[1].value === '*' && (listofparam[0].type === 'NUMBER' || listofparam[0].type === 'TEXT') ) {
                 return {type:listofparam[0].type,value:listofparam[0].value,adrmode:1,size:sizeofpar} 
             }else{
+                if( listofparam[0].value === 'BR'){ 
+                    return {type:'NUMBER',value:'0',adrmode:5,size:sizeofpar}
+                }else{
+                    if (  listofparam[0].value === 'IR' )
+                    {
+                        return {type:'NUMBER',value:'0',adrmode:4,size:sizeofpar}
+
+                    }else{
                 Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                 return {type:'ERROR',value:'Wrong number or type of parameters'}
-            }}
+            }}}
+        }
             break;
         
         case 3:

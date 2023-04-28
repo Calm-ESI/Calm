@@ -194,7 +194,7 @@ export class SyntaxicAnalysis {
                             //console.log("list1",list1[0].type)
                             list2 = FuncInterface.addrmod(lexicalList[i].slice(1),i).list2 ;
          
-                            if(FuncInterface.defadrmod(list1,i).type=='NUMBER' && lexicalList[i][0].value == 'MOV' && FuncInterface.defadrmod(list1,i).adrmode==0 ) {
+                            if( FuncInterface.defadrmod(list1,i).type=='NUMBER' && lexicalList[i][0].value == 'MOV' && FuncInterface.defadrmod(list1,i).adrmode==0 ) {
                                 //console.log("here------------------------")
                                         this.Syntaxiclist.push(new Errorcalm("Number can't be first operand",null,i))
                                         Errorcalm.SyntaxicError.push(new Errorcalm("Number can't be first operand",null,i))
