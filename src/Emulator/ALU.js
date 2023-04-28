@@ -177,7 +177,7 @@ class Alu{
          } 
          if (parseInt(this.Acc.getvalue())==0) {this.Flags[0]='1'}//zero
          this.Flags[1]=this.Acc.getvalue()[0];//signe
-         //this.Flags[2]=carry.toString();//carry
+         this.Flags[2]='0';//carry
          let figure="1"
          this.Flags[3] = ((this.Acc.value.match(new RegExp(figure, "g")) || []).length %2).toString();//parity
          this.Flags[4]=this.Acc.getvalue()[size-1];//p/imp
@@ -555,7 +555,7 @@ class Alu{
     NOT(size){
         let result="";
         for (let i = 16-size; i < 16; i++) {
-            if(this.Rual1.charAt(i)==='0'){
+            if(this.Rual1.getvalue().charAt(i)==='0'){
                 result=result+'1';
             }else{
                 result=result+'0'

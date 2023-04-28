@@ -192,6 +192,14 @@ const infitToMar={
   // gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.032,height:h*0.14,duration:1,delay:1});
   gsap.to(".ball",{opacity:"0" ,duration:1});
 },}
+const MCanim={
+  value:"",
+  target:".MC",
+  time:2000,
+  anim:(val,h,w)=>{
+      gsap.fromTo(".MC",{opacity:"0"},{opacity:"1" ,duration:1});
+      gsap.fromTo(".MC",{opacity:"1"},{opacity:"0" ,duration:1,delay:1});
+  },}
 
 class Queue {
     constructor(instructionBytes) {
@@ -240,7 +248,12 @@ class Queue {
           time:infitToMar.time,
           anim:infitToMar.anim,
       });
-        ////animation of read from MC
+      animations.push({
+        value:"READ",
+        target:MCanim.target,
+        time:MCanim.time,
+        anim:MCanim.anim,
+    });
         animations.push({
             value:mdrval,
             target:fitToMdr.target,
@@ -525,7 +538,6 @@ class Queue {
 
           if(parseInt(marval,2)%2===0 & buildCTX===1){
             marval=parseInt(marval,2).toString(16);
-            mdrval=parseInt(mdrval,2).toString(16);
             Contextarray.push(marval);
             Contextarray.push(mdrval);
           }

@@ -643,51 +643,21 @@ const ADRToMAR={
 
   const addanim={
     value:"",
-    target:"",
-    time:1000,
+    target:".ALU",
+    time:2000,
     anim:(val,h,w)=>{
-        // Example JavaScript function to animate the word "ADD" with an ALU effect using GSAP
-    
-      // Create a container element for the word "ADD"
-      const wordContainer = document.createElement('div');
-      wordContainer.classList.add('word-container');
-      const arch = document.getElementsByClassName('arch-contain')
-      document.body.appendChild(wordContainer);
-    
-      // Set the word "ADD" as the text content of the container
-      wordContainer.textContent = 'ADD';
-    
-      // Apply styles to the word container
-      wordContainer.style.fontSize = '30px'; // Set font size to 48 pixels
-      wordContainer.style.color = '#1BE985'; // Set text color to blue
-      wordContainer.style.fontFamily="Mona Sans";
-      wordContainer.style.fontWeight="700";
-      wordContainer.style.position = 'absolute'; // Set position to absolute
-      wordContainer.style.top = '76.1%'; // Set top position to 50% for vertical centering
-      wordContainer.style.left = '13.5%'; // Set left position to 50% for horizontal centering
-    
-     
-    
-      const tl = gsap.timeline({ repeat:3 , yoyo: true });
-      tl.to(wordContainer, {
-        duration: 1.5, // Animation duration
-        // rotation: 10, // Rotate the word by 10 degrees
-        scale: 1.1, // Scale the word by 1.1
-        ease: 'power2.inOut', // Easing function for smooth animation
-      })
-        .to(wordContainer, {
-          duration: 1, // Animation duration
-          // rotation: -10, // Rotate the word by -10 degrees to the opposite direction
-          scale: 0.9, // Scale the word by 0.9 to the opposite direction
-          ease: 'power2.inOut', // Easing function for smooth animation
-        });
-    
-    
-    // Call the function to start the animation
-    
-    
-    
-      }}
+        gsap.fromTo(".ALU",{opacity:"0"},{opacity:"1" ,duration:1});
+        gsap.fromTo(".ALU",{opacity:"1"},{opacity:"0" ,duration:1,delay:1});
+    },}
+
+    const MCanim={
+        value:"",
+        target:".MC",
+        time:2000,
+        anim:(val,h,w)=>{
+            gsap.fromTo(".MC",{opacity:"0"},{opacity:"1" ,duration:1});
+            gsap.fromTo(".MC",{opacity:"1"},{opacity:"0" ,duration:1,delay:1});
+        },}
 
 ////////////////////////////////////////////////
 
@@ -724,7 +694,7 @@ class InstructionADD{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"ADD",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -2227,8 +2197,14 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
                 }
-                ///animation of writing in MC/___________________________
+                
             ];
             }else if (this.register1=="001") {
                 return[{
@@ -2260,8 +2236,13 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
-                }
-                ///animation of writing in MC/___________________________
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }            
             ];
                 
             }else if (this.register1=="2") {
@@ -2294,8 +2275,14 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
                 }
-                ///animation of writing in MC/___________________________
+                
             ];
             }else if (this.register1=="3") {
                 return[{
@@ -2327,8 +2314,14 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
                 }
-                ///animation of writing in MC/___________________________
+                
             ];
             }else if (this.register1=="4") {
                 return[{
@@ -2360,8 +2353,14 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
                 }
-                ///animation of writing in MC/___________________________
+                
             ];
             }else if (this.register1=="5") {
                 return[{
@@ -2393,8 +2392,13 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
                 }
-                ///animation of writing in MC/___________________________
             ];
             }else if (this.register1=="6") {
                 return[{
@@ -2426,8 +2430,13 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
                 }
-                ///animation of writing in MC/___________________________
             ];
             }else if (this.register1=="7") {
                 return[{
@@ -2459,8 +2468,13 @@ class InstructionMOV10{
                     target:fitToMdr.target,
                     time:fitToMdr.time,
                     anim:fitToMdr.anim,
+                },
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
                 }
-                ///animation of writing in MC/___________________________
             ];
             }
             
@@ -2518,8 +2532,12 @@ class InstructionMOV11{////the difference between them will be in the animation 
                     time:fitToMar.time,
                     anim:fitToMar.anim,
                 },
-                
-                ///animation of writing in MC/___________________________
+                {
+                    value:"WRITE",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
             ];}else{
                 return[
                     {
@@ -2528,6 +2546,12 @@ class InstructionMOV11{////the difference between them will be in the animation 
                         time:infitToMdr.time,
                         anim:infitToMdr.anim,
                     },
+                    {
+                        value:"WRITE",
+                        target:MCanim.target,
+                        time:MCanim.time,
+                        anim:MCanim.anim,
+                    }
                 ];///animation of writing in MC/___________________________
             }
         }
@@ -2564,6 +2588,12 @@ class InstructionSUB{
         ];
         this.buildanim=function(){
             return[{
+                value:"SUB",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
                 value:"",
                 target:AluToAcc.target,
                 time:AluToAcc.time,
@@ -2612,7 +2642,7 @@ class InstructionMUL{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"MUL",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -2665,7 +2695,7 @@ class InstructionDIV{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"DIV",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -2715,7 +2745,7 @@ class InstructionAND{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"AND",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -2765,7 +2795,7 @@ class InstructionOR{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"OR",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -2816,7 +2846,7 @@ class InstructionXOR{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"XOR",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -2867,7 +2897,7 @@ class InstructionNOR{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"NOR",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -2915,7 +2945,27 @@ class InstructionNAND{
             return Alu1.Acc.getvalue();
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            return[{
+                value:"NAND",
+                target:addanim.target,
+                time:addanim.time,
+                anim:addanim.anim,
+            },
+            {
+                value:"",
+                target:AluToAcc.target,
+                time:AluToAcc.time,
+                anim:AluToAcc.anim,
+            },
+            {
+                value:"res",
+                target:fitToAcc.target,
+                time:fitToAcc.time,
+                anim:fitToAcc.anim,
+            },
+        ];
+        }
     }
 }
 
@@ -2936,19 +2986,365 @@ class InstructionPUSH{
         }
         ];
         this.buildanim=function(){
-            return[{
-                value:"",
-                target:AluToAcc.target,
-                time:AluToAcc.time,
-                anim:AluToAcc.anim,
-            },
-            {
-                value:"res",
-                target:fitToAcc.target,
-                time:fitToAcc.time,
-                anim:fitToAcc.anim,
-            },
-        ];
+            if(this.register1=="000"){
+                return[{
+                    value:this.value1,
+                    target:fitToR1.target,
+                    time:fitToR1.time,
+                    anim:fitToR1.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR1.target,
+                    time:infitToR1.time,
+                    anim:infitToR1.anim,
+                },
+                {
+                    value:this.value1,
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }else if(this.register1=="001"){
+                return[{
+                    value:this.value1,
+                    target:fitToR2.target,
+                    time:fitToR2.time,
+                    anim:fitToR2.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR2.target,
+                    time:infitToR2.time,
+                    anim:infitToR2.anim,
+                },
+                {
+                    value:this.value1,
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }else if(this.register1=="010"){
+                return[{
+                    value:this.value1,
+                    target:fitToR3.target,
+                    time:fitToR3.time,
+                    anim:fitToR3.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR3.target,
+                    time:infitToR3.time,
+                    anim:infitToR3.anim,
+                },
+                {
+                    value:this.value1,
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }else if(this.register1=="011"){
+                return[{
+                    value:this.value1,
+                    target:fitToR4.target,
+                    time:fitToR4.time,
+                    anim:fitToR4.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR4.target,
+                    time:infitToR4.time,
+                    anim:infitToR4.anim,
+                },
+                {
+                    value:this.value1,
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }else if(this.register1=="100"){
+                return[{
+                    value:this.value1,
+                    target:fitToAcc.target,
+                    time:fitToAcc.time,
+                    anim:fitToAcc.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToAcc.target,
+                    time:infitToAcc.time,
+                    anim:infitToAcc.anim,
+                },
+                {
+                    value:this.value1,
+                    target:AccToBus.target,
+                    time:AccToBus.time,
+                    anim:AccToBus.anim,
+                },
+                {
+                    value:this.value1,
+                    target:AccToMDR.target,
+                    time:AccToMDR.time,
+                    anim:AccToMDR.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }else if(this.register1=="101"){
+                return[{
+                    value:this.value1,
+                    target:fitToBr.target,
+                    time:fitToBr.time,
+                    anim:fitToBr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToBr.target,
+                    time:infitToBr.time,
+                    anim:infitToBr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }else if(this.register1=="110"){
+                return[{
+                    value:this.value1,
+                    target:fitToIdr.target,
+                    time:fitToIdr.time,
+                    anim:fitToIdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToIdr.target,
+                    time:infitToIdr.time,
+                    anim:infitToIdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }else if(this.register1=="111"){
+                return[{
+                    value:this.value1,
+                    target:fitToSr.target,
+                    time:fitToSr.time,
+                    anim:fitToSr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToSR.target,
+                    time:infitToSR.time,
+                    anim:infitToSR.anim,
+                },
+                {
+                    value:this.value1,
+                    target:RegToMdr.target,
+                    time:RegToMdr.time,
+                    anim:RegToMdr.anim,
+                },
+                {
+                    value:"",
+                    target:BusToMdr.target,
+                    time:BusToMdr.time,
+                    anim:BusToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:"PUSH",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                }
+            ];
+            }
         }
     }
 }
@@ -2969,7 +3365,372 @@ class InstructionPOP{
             Registers[this.register1].setvalue(memory.getRim());//the operand of pop can only be a register
         }
         ];
-        this.animationSteps=[];
+        this.buildanim=function(){
+            if(this.register1=="000"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToR1.target,
+                    time:fitToR1.time,
+                    anim:fitToR1.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR1.target,
+                    time:infitToR1.time,
+                    anim:infitToR1.anim,
+                },
+            ];
+            }else if(this.register1=="001"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {//////animation pf pop in MC
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToR2.target,
+                    time:fitToR2.time,
+                    anim:fitToR2.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR2.target,
+                    time:infitToR2.time,
+                    anim:infitToR2.anim,
+                },
+                ];
+            }else if(this.register1=="010"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {//////animation pf pop in MC
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToR3.target,
+                    time:fitToR3.time,
+                    anim:fitToR3.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR3.target,
+                    time:infitToR3.time,
+                    anim:infitToR3.anim,
+                },
+            ];
+            }else if(this.register1=="011"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {//////animation pf pop in MC
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToR4.target,
+                    time:fitToR4.time,
+                    anim:fitToR4.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToR4.target,
+                    time:infitToR4.time,
+                    anim:infitToR4.anim,
+                },
+                //push animation
+            ];
+            }else if(this.register1=="100"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {//////animation pf pop in MC
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MDRToAcc.target,
+                    time:MDRToAcc.time,
+                    anim:MDRToAcc.anim,
+                },
+                {
+                    value:"",
+                    target:BusToAcc.target,
+                    time:BusToAcc.time,
+                    anim:BusToAcc.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToAcc.target,
+                    time:fitToAcc.time,
+                    anim:fitToAcc.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToAcc.target,
+                    time:infitToAcc.time,
+                    anim:infitToAcc.anim,
+                },
+                //push animation
+            ];
+            }else if(this.register1=="101"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {//////animation pf pop in MC
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToBr.target,
+                    time:fitToBr.time,
+                    anim:fitToBr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToBr.target,
+                    time:infitToBr.time,
+                    anim:infitToBr.anim,
+                },
+                //push animation
+            ];
+            }else if(this.register1=="110"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {//////animation of pop in MC
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToIdr.target,
+                    time:fitToIdr.time,
+                    anim:fitToIdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToIdr.target,
+                    time:infitToIdr.time,
+                    anim:infitToIdr.anim,
+                },
+                //push animation
+            ];
+            }else if(this.register1=="111"){
+                return[{
+                    value:"POP",
+                    target:MCanim.target,
+                    time:MCanim.time,
+                    anim:MCanim.anim,
+                },
+                {//////animation pf pop in MC
+                    value:this.value1,
+                    target:fitToMdr.target,
+                    time:fitToMdr.time,
+                    anim:fitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToMdr.target,
+                    time:infitToMdr.time,
+                    anim:infitToMdr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:MdrToBus.target,
+                    time:MdrToBus.time,
+                    anim:MdrToBus.anim,
+                },
+                {
+                    value:"",
+                    target:MdrToReg.target,
+                    time:MdrToReg.time,
+                    anim:MdrToReg.anim,
+                },
+                {
+                    value:this.value1,
+                    target:fitToSr.target,
+                    time:fitToSr.time,
+                    anim:fitToSr.anim,
+                },
+                {
+                    value:this.value1,
+                    target:infitToSR.target,
+                    time:infitToSR.time,
+                    anim:infitToSR.anim,
+                },
+                //push animation
+            ];
+            }
+        }
     }
 }
 
@@ -3016,6 +3777,7 @@ class InstructionBE{
         this.stepsNum=1;
         this.name="BE";
         this.steps=[(animations)=>{
+            
             if(Alu1.getFlags(0)==='1'){
                 IP.setvalue(Dec2bin(this.addresse1));
             // console.log(`this is ip ${IP.getvalue()}`)
@@ -3084,7 +3846,7 @@ class InstructionBS{
         this.stepsNum=1;
         this.name="BS";
         this.steps=[(animations)=>{
-            if(Alu1.Acc.getvalue().charAt[0]==='0'){
+            if(Alu1.Acc.getvalue().toString().charAt(0)=='0'){
                 IP.setvalue(Dec2bin(this.addresse1));
             // console.log(`this is ip ${IP.getvalue()}`)
             /////we need to clear the queue from old instruction 
@@ -3118,7 +3880,7 @@ class InstructionBI{
         this.stepsNum=1;
         this.name="BI";
         this.steps=[(animations)=>{
-            if(Alu1.Acc.getvalue().charAt[0]==='1'){
+            if(Alu1.Acc.getvalue().toString().charAt(0)==='1'){
                 IP.setvalue(Dec2bin(this.addresse1));
             // console.log(`this is ip ${IP.getvalue()}`)
             /////we need to clear the queue from old instruction 
@@ -3152,7 +3914,7 @@ class InstructionBIE{
         this.stepsNum=1;
         this.name="BIE";
         this.steps=[(animations)=>{
-            if(Alu1.Acc.getvalue().charAt[0]==='1' | Alu1.getFlags(0)==='1' ){
+            if(Alu1.Acc.getvalue().toString().charAt(0)==='1' | Alu1.getFlags(0)==='1' ){
                 IP.setvalue(Dec2bin(this.addresse1));
             // console.log(`this is ip ${IP.getvalue()}`)
             /////we need to clear the queue from old instruction 
@@ -3186,7 +3948,7 @@ class InstructionBSE{
         this.stepsNum=1;
         this.name="BSE";
         this.steps=[(animations)=>{
-            if(Alu1.Acc.getvalue().charAt[0]==='0' | Alu1.getFlags(0)==='1' ){
+            if(Alu1.Acc.getvalue().toString().charAt(0)==='0' | Alu1.getFlags(0)==='1' ){
                 IP.setvalue(Dec2bin(this.addresse1));
             // console.log(`this is ip ${IP.getvalue()}`)
             /////we need to clear the queue from old instruction 
@@ -3234,7 +3996,7 @@ class InstructionSHL{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"SHL",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -3283,7 +4045,7 @@ class InstructionSHR{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"SHR",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -3332,7 +4094,7 @@ class InstructionROR{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"ROR",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -3381,7 +4143,7 @@ class InstructionROL{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"ROL",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -3430,7 +4192,7 @@ class InstructionNOT{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"NOT",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -3479,7 +4241,7 @@ class InstructionNEG{
         ];
         this.buildanim=function(){
             return[{
-                value:"",
+                value:"NEG",
                 target:addanim.target,
                 time:addanim.time,
                 anim:addanim.anim,
@@ -3502,5 +4264,74 @@ class InstructionNEG{
     
 }
 
+class InstructionPUSHA{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="PUSHA";
+        this.steps=[()=>{
+            memory.setRim(Registers[0]);
+            memory.pushval();
+            memory.setRim(Registers[1]);
+            memory.pushval();
+            memory.setRim(Registers[2]);
+            memory.pushval();
+            memory.setRim(Registers[3]);
+            memory.pushval();
+            memory.setRim(Registers[4]);
+            memory.pushval();
+            memory.setRim(Registers[5]);
+            memory.pushval();
+            memory.setRim(Registers[6]);
+            memory.pushval();
+            memory.setRim(Registers[7]);
+            memory.pushval();
+        }
+        ];
+        this.buildanim=function(){
+            return [];
+        }
+    }
+}
 
-export {InstructionADD,InstructionMOV00,InstructionMOV01,InstructionMOV10,InstructionMOV11,InstructionSUB,InstructionMUL,InstructionDIV,InstructionBSE,InstructionBIE,InstructionBI,InstructionBS,InstructionBNE,InstructionBE,InstructionBR,InstructionPOP,InstructionPUSH,InstructionAND,InstructionOR,InstructionNAND,InstructionNOR,InstructionXOR,InstructionNEG,InstructionNOT,InstructionROL,InstructionROR,InstructionSHL,InstructionSHR}
+class InstructionPOPA{
+    constructor(){
+        this.value1=0;
+        this.value2=0;
+        this.addresse1=0;
+        this.register1=0;
+        this.addresse2=0;
+        this.register2=0;
+        this.taille=0;
+        this.stepsNum=1;
+        this.name="POPA";
+        this.steps=[()=>{
+            memory.popval();
+            Registers[7].setvalue(memory.getRim());
+            memory.popval();
+            Registers[6].setvalue(memory.getRim());
+            memory.popval();
+            Registers[5].setvalue(memory.getRim());
+            memory.popval();
+            Registers[4].setvalue(memory.getRim());
+            memory.popval();
+            Registers[3].setvalue(memory.getRim());
+            memory.popval();
+            Registers[2].setvalue(memory.getRim());
+            memory.popval();
+            Registers[1].setvalue(memory.getRim());
+            memory.popval();
+            Registers[0].setvalue(memory.getRim());
+        }
+        ];
+        this.buildanim=function(){}
+    }
+}
+
+export {InstructionADD,InstructionMOV00,InstructionMOV01,InstructionMOV10,InstructionMOV11,InstructionSUB,InstructionMUL,InstructionDIV,InstructionBSE,InstructionBIE,InstructionBI,InstructionBS,InstructionBNE,InstructionBE,InstructionBR,InstructionPOP,InstructionPUSH,InstructionAND,InstructionOR,InstructionNAND,InstructionNOR,InstructionXOR,InstructionNEG,InstructionNOT,InstructionROL,InstructionROR,InstructionSHL,InstructionSHR,InstructionPOPA,InstructionPUSHA}

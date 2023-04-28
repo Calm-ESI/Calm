@@ -485,6 +485,14 @@ const IpToAdr={
     anim:(val,h,w)=>{
         gsap.fromTo(".queue6",{opacity:"1"},{opacity:"0",duration:1});
   },}
+  const MCanim={
+    value:"",
+    target:".MC",
+    time:2000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".MC",{opacity:"0"},{opacity:"1" ,duration:1});
+        gsap.fromTo(".MC",{opacity:"1"},{opacity:"0" ,duration:1,delay:1});
+    },}
 
 
 
@@ -658,7 +666,30 @@ class Sequenceur{
         let index=0;
         let instrObject;
         if(key=="1111"){
-            console.log("here we have stop")
+            animations.push({
+                value:"STOP",
+                target:fitToDecode.target,
+                time:fitToDecode.time,
+                anim:fitToDecode.anim,
+            })
+            animations.push({
+                value:"STOP",
+                target:infitToDecode.target,
+                time:infitToDecode.time,
+                anim:infitToDecode.anim,
+            })
+            animations.push({
+                value:"",
+                target:DecoderToSequencer.target,
+                time:DecoderToSequencer.time,
+                anim:DecoderToSequencer.anim,
+            })
+            animations.push({
+                value:"STOP",
+                target:fitToSequencer.target,
+                time:fitToSequencer.time,
+                anim:fitToSequencer.anim,
+            })
             return {
                 name:"stop",
             };
@@ -702,6 +733,7 @@ class Sequenceur{
             instrObject.taille=taille;
             //}
             /////////////////////////////animations des registres vers RUAL1
+            if(key !== "1000" & key !== "1001" & key !== "1010" & key !== "1011"){
             if(numreg=='000'){
                 animations.push({
                     value:value,
@@ -959,7 +991,7 @@ class Sequenceur{
                     time:fitToRual1.time,
                     anim:fitToRual1.anim,
                 })
-            }
+            }}
         }else{
             if(key>='0010' & key<='0011'){
                 key=instruction.substring(0,7);
@@ -1103,13 +1135,13 @@ class Sequenceur{
                     }else if(key=='000110011'){
                         this.getinstrbyte(animations,false,Contextarray);
                         let adresseop1=this.RI.getvalue()
-                            this.getinstrbyte(animations,false,Contextarray);
-                            adresseop1=adresseop1+this.RI.getvalue()
+                        this.getinstrbyte(animations,false,Contextarray);
+                        adresseop1=adresseop1+this.RI.getvalue()
                         adresseop1=parseInt(adresseop1,2);//hexa to decimal
                         this.getinstrbyte(animations,false,Contextarray);
                         let adresseop2=this.RI.getvalue()
                         let valimm=parseInt(adresseop2,2);
-                        if(regMod2!="000"){
+                        if(regMod2!="000" | taille!='0'){
                         this.getinstrbyte(animations,false,Contextarray);
                         adresseop2=adresseop2+this.RI.getvalue()
                         }
@@ -1143,12 +1175,17 @@ class Sequenceur{
                         if(parseInt(regMod2,2)=="000"){
                             instrObject.isimmed=true;
                             addresse1 = addressingModes.modesAdr[parseInt(regMod1,2)](adresseop1,0,taille,depl1,animations,1,0);
-                            value2 = addressingModes.modesVal[parseInt(regMod2,2)](valimm,0,taille,depl2,animations,1,0);
+                            if(taille=='0'){
+                                value2 = addressingModes.modesVal[parseInt(regMod2,2)](valimm,0,taille,depl2,animations,1,0);
+                            }else if(taille=='1'){
+                                value2 = addressingModes.modesVal[parseInt(regMod2,2)](adresseop2,0,taille,depl2,animations,1,0);
+                            }
                         }else{
                             instrObject.isimmed=false;
                             addresse1 = addressingModes.modesAdr[parseInt(regMod1,2)](adresseop1,0,taille,depl1,animations,1,1);
                             value2 = addressingModes.modesVal[parseInt(regMod2,2)](adresseop2,0,taille,depl2,animations,1,0);
                         }
+                        console.log("from sequencer:::::::::"+addresse1+" "+value2)
                         instrObject.value2=value2;
                         instrObject.addresse1=addresse1;
                     }
@@ -2341,14 +2378,18 @@ class Sequenceur{
                         ///animation from the register to RUAL1
                     }else if(Ind=='11'){
                         this.getinstrbyte(animations,false,Contextarray);
-                        let adresse1=this.RI.getvalue()
-                        this.getinstrbyte(animations,false,Contextarray);
-                        adresse1=adresse1+this.RI.getvalue()
+                        let adresse1=this.RI.getvalue();
+                        let immval1=parseInt(adresse1,2);
+                        if(regMod1!="000" | taille!='0' ){
+                            this.getinstrbyte(animations,false,Contextarray);
+                            adresse1=adresse1+this.RI.getvalue()}
                         adresse1=parseInt(adresse1,2);//hexa to decimal
                         this.getinstrbyte(animations,false,Contextarray);
-                        let adresse2=this.RI.getvalue()
-                        this.getinstrbyte(animations,false,Contextarray);
-                        adresse2=adresse2+this.RI.getvalue()
+                        let adresse2=this.RI.getvalue();
+                        let immval2=parseInt(adresse2,2);
+                        if(regMod2!="000" | taille!='0'){
+                            this.getinstrbyte(animations,false,Contextarray);
+                            adresse2=adresse2+this.RI.getvalue()}
                         adresse2=parseInt(adresse2,2);//hexa to decimal
                         let depl1=0;
                         if(regMod1=='110'){
@@ -2374,8 +2415,23 @@ class Sequenceur{
                             depl2=depl2+this.RI.getvalue()
                             depl2=parseInt(depl2,2);//hexa to decimal
                         }
-                        let value1 = parseInt(addressingModes.modesVal[parseInt(regMod1,2)](adresse1,0,taille,depl1,animations,1,1),2);
-                        let value2 = parseInt(addressingModes.modesVal[parseInt(regMod2,2)](adresse2,0,taille,depl2,animations,1,2),2);
+                        let value1=0;
+                        let value2=0;
+                        if(regMod1=="000" & taille=='0'){
+                            value1 = addressingModes.modesVal[parseInt(regMod1,2)](immval1,0,taille,depl1,animations,1,1);
+                        }else if(regMod1=="000" & taille=='1'){
+                            value1 = addressingModes.modesVal[parseInt(regMod1,2)](adresse1,0,taille,depl1,animations,1,1);
+                        }else{
+                            value1 = parseInt(addressingModes.modesVal[parseInt(regMod1,2)](adresse1,0,taille,depl1,animations,1,1),2);
+                        }
+
+                        if(regMod2=="000" & taille=='0'){
+                            value2 = addressingModes.modesVal[parseInt(regMod2,2)](immval2,0,taille,depl2,animations,1,2);    
+                        }else if(regMod2=="000" & taille=='1'){
+                            value2 = addressingModes.modesVal[parseInt(regMod2,2)](adresse2,0,taille,depl2,animations,1,2);    
+                        }else{
+                            value2 = parseInt(addressingModes.modesVal[parseInt(regMod2,2)](adresse2,0,taille,depl2,animations,1,2),2);
+                        }
                         instrObject.value1=value1;
                         instrObject.value2=value2;
                     }
