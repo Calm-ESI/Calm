@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
 //import pages
-import { AddressingModesPage, Arch, ComponentsPage, ExamplesPage, Hero, Ide, LearnPage } from './pages';
+import { AddressingModesPage, Arch, ComponentsPage, DatabaseEditor, ExamplesPage, Hero, Ide, LearnPage } from './pages';
 
 //import images
 import asteriks from "./assets/images/decorations/asteriskgray.png"
@@ -33,6 +33,7 @@ function App() {
           <Route exact path="/" element={<Hero/>}/>
           <Route exact path="/ide" element={<Ide/>}/>
           <Route exact path="/archi" element={<Arch/>}/>
+          <Route exact path="/database-editor" element={<DatabaseEditor/>}/>
           <Route exact path="/examples" element={<ExamplesPage/>}/>
           <Route exact path="/learn" element={<LearnPage/>}/>
           <Route exact path="/learn/addressing-modes" element={<AddressingModesPage/>}/>
