@@ -8,7 +8,6 @@ import Modal from "../Modal";
 
 const AdressingModeCard = ({modesDescription}) => {
     const [open, setOpen] = useState(false);
-    const{modeName, modePicture, description} = modesDescription;
     const openModal = () => {
         setOpen(true);
     }
@@ -17,8 +16,7 @@ const AdressingModeCard = ({modesDescription}) => {
     }
     return (
         <>
-            <AdressingModeListing modesDescription={modesDescription} modePicture={modePicture} description={description}
-            modeName={modeName} open={openModal}/>
+            <AdressingModeListing modesDescription={modesDescription}  open={openModal}/>
             <AnimatePresence>
             {open && (<Overlay close={closeModal}>
                 <Modal modesDescription={modesDescription}/>

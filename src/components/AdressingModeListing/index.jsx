@@ -1,17 +1,10 @@
 import React from "react";
-import {AnimatePresence, motion} from "framer-motion";
-import {useState} from "react";
+import {motion} from "framer-motion";
 import "./style.css"
 
 const AdressingModeListing = ({modesDescription, open}) => {
-    const [isOpen, setIsOpen] = useState(false);
     const {modeName, modePicture, description} = modesDescription;
-    const openModel = () => {
-        setIsOpen(true);
-    }
-    const closeModel = () => {
-        setIsOpen(false);
-    }
+
     return (
         <>
             <motion.div whileHover={{scale: 1.1}}

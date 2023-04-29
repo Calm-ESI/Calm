@@ -68,21 +68,40 @@ const Hero = () => {
                     </p>
                     <div className="cardsContainer">
                         <div className="cardsSubContainer">
-                            <div className="whatWeOfferCard">
+                            <motion.div
+                                whileHover={{scale: 1.1}}
+                                whileTap={{scale: 0.9}}
+                                transition={{type: "spring", stiffness: 400, damping: 17}}
+                                layout
+                                className="whatWeOfferCard">
                                 <h1>Learn</h1>
-                            </div>
-                            <div className="whatWeOfferCard">
+                            </motion.div>
+                            <motion.div whileHover={{scale: 1.1}}
+                                        whileTap={{scale: 0.9}}
+                                        transition={{type: "spring", stiffness: 400, damping: 17}}
+                                        layout
+                                className="whatWeOfferCard">
                                 <img src={emulate} alt="description of image" className="threeIcons"/>
                                 <h1 >Emulate</h1>
-                            </div>
+                            </motion.div>
                         </div>
                         <div className="cardsSubContainer">
-                            <div className="whatWeOfferCard">
+                            <motion.div
+                                whileHover={{scale: 1.1}}
+                                whileTap={{scale: 0.9}}
+                                transition={{type: "spring", stiffness: 400, damping: 17}}
+                                layout
+                                className="whatWeOfferCard">
                                 <h1>Simulate</h1>
-                            </div>
-                            <div className="whatWeOfferCard">
+                            </motion.div>
+                            <motion.div
+                                whileHover={{scale: 1.1}}
+                                whileTap={{scale: 0.9}}
+                                transition={{type: "spring", stiffness: 400, damping: 17}}
+                                layout
+                                className="whatWeOfferCard">
                                 <h1>Ai assistant</h1>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
@@ -99,7 +118,8 @@ const Hero = () => {
                 <section className="learn-section">
                     <h1 className="learn">Learn</h1>
                     <p className="learn-description">
-                        Our learning platform provides a variety of materials to help you understand computer architecture concepts more easily.
+                        Our learning platform provides a variety of materials to help you understand computer
+                        architecture concepts more easily.
                     </p>
                 </section>
 
@@ -110,7 +130,7 @@ const Hero = () => {
                     whileTap={{scale: 0.9}}
                     transition={{type: "spring", stiffness: 400, damping: 17}}
                 >
-                    <a href="/Learn" className="no-underline">Start Studying</a>
+                    <motion.a layout href="/Learn" className="no-underline">Start Studying</motion.a>
                 </motion.div>
             </>
         )
@@ -135,7 +155,7 @@ const Hero = () => {
                     whileTap={{scale: 0.9}}
                     transition={{type: "spring", stiffness: 400, damping: 17}}
                 >
-                    <a href="/ide" className="no-underline">Let's code</a>
+                    <motion.a layout href="/ide" className="no-underline">Let's code</motion.a>
                 </motion.div>
 
             </section>
