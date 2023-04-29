@@ -53,7 +53,7 @@ export const FuncInterface ={
             case 'BR':
                 reg = '101';
                 break;
-            case 'IR':
+            case 'IDR':
                 reg = '110';
                 break;
             case 'SR':
@@ -296,7 +296,7 @@ while (hexString.length < size) {
         
         case 2:
             //direct
-            if(  listofparam[0].type === 'REGISTER' && listofparam[0].value !== 'BR' && listofparam[0].value !== 'IR'  )
+            if(  listofparam[0].type === 'REGISTER' && listofparam[0].value !== 'BR' && listofparam[0].value !== 'IDR'  )
             {
                 Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                 return {type:'ERROR',value:'Wrong number or type of parameters'}
@@ -307,7 +307,7 @@ while (hexString.length < size) {
                 if( listofparam[0].value === 'BR'){ 
                     return {type:'NUMBER',value:'0',adrmode:5,size:sizeofpar}
                 }else{
-                    if (  listofparam[0].value === 'IR' )
+                    if (  listofparam[0].value === 'IDR' )
                     {
                         return {type:'NUMBER',value:'0',adrmode:4,size:sizeofpar}
 
@@ -357,7 +357,7 @@ while (hexString.length < size) {
                                 {
                                         return {type:'NUMBER',value:listofparam[3].value,adrmode:5,size:sizeofpar}
                                 }else{
-                                    if (listofparam[0].value === 'IR' && listofparam[3].value !=='IR')
+                                    if (listofparam[0].value === 'IDR' && listofparam[3].value !=='IDR')
                                     {
                                         return {type:'NUMBER',value:listofparam[3].value,adrmode:4,size:sizeofpar}
                                     }else{
@@ -381,7 +381,7 @@ while (hexString.length < size) {
         
             case 6:
                 // based indexed
-                if ( (listofparam[0].value =='IR' || listofparam[0].value =='BR') && listofparam[1].value === '*' && listofparam[2].value === '+' && (listofparam[3].value === 'BR' || listofparam[3].value === 'IR') && listofparam[4].value === '+' && listofparam[5].type === 'NUMBER' && listofparam[3].value !== listofparam[0].value)  {
+                if ( (listofparam[0].value =='IDR' || listofparam[0].value =='BR') && listofparam[1].value === '*' && listofparam[2].value === '+' && (listofparam[3].value === 'BR' || listofparam[3].value === 'IDR') && listofparam[4].value === '+' && listofparam[5].type === 'NUMBER' && listofparam[3].value !== listofparam[0].value)  {
                     return {type:'NUMBER',value:listofparam[5].value,adrmode:6,size:sizeofpar}
                 }else{                
                    
@@ -408,10 +408,10 @@ export class Assembler{
     // List of strings to exclude
 
 
-    static reg1=['R1', 'R2', 'R3', 'R4', 'ACC', 'BR', 'IR', 'SR']
+    static reg1=['R1', 'R2', 'R3', 'R4', 'ACC', 'BR', 'IDR', 'SR']
     static reg2=['R1R', 'R2R', 'R3R', 'ACCR', 'R1L', 'R2L', 'R3L', 'ACCL']
 
-    static excludedStrings = ['!', '"','\,', '#', '$', '%', '&', "'", '(', ')', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~','RET', 'PUSHA', 'POPA', 'NEG', 'NOT', 'SHL', 'SHR', 'READ', 'WRITE', 'PUSH', 'POP', 'ROR', 'ROL', 'CALL', 'BE', 'BNE', 'BS', 'BI', 'BIE', 'BSE', 'BR', 'NAND', 'CMP', 'MOV', 'ADD', 'SUB', 'MUL', 'DIV', 'AND', 'OR', 'XOR', 'NOR', 'R1', 'R2', 'R3', 'R4', 'ACC', 'BR', 'IR', 'SR', 'R1R', 'R2R', 'R3R', 'ACCR', 'R1L', 'R2L', 'R3L', 'ACCL'];
+    static excludedStrings = ['!', '"','\,', '#', '$', '%', '&', "'", '(', ')', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~','RET', 'PUSHA', 'POPA', 'NEG', 'NOT', 'SHL', 'SHR', 'READ', 'WRITE', 'PUSH', 'POP', 'ROR', 'ROL', 'CALL', 'BE', 'BNE', 'BS', 'BI', 'BIE', 'BSE', 'BR', 'NAND', 'CMP', 'MOV', 'ADD', 'SUB', 'MUL', 'DIV', 'AND', 'OR', 'XOR', 'NOR', 'R1', 'R2', 'R3', 'R4', 'ACC', 'BR', 'IDR', 'SR', 'R1R', 'R2R', 'R3R', 'ACCR', 'R1L', 'R2L', 'R3L', 'ACCL'];
                       
 
     constructor(input){
@@ -533,7 +533,7 @@ export class Assembler{
                                 case '011':
                                 case '100':
                                 case '101':
-                                    dep2 = FuncInterface.decimalTobinByte(input[2].value,16);
+                                    op2 = FuncInterface.decimalTobinByte(input[2].value,16);
                                 break;
 
                                 default:
@@ -573,7 +573,7 @@ export class Assembler{
                                 case '011':
                                 case '100':
                                 case '101':
-                                    dep1 = FuncInterface.decimalTobinByte(input[1].value,16);
+                                    op1 = FuncInterface.decimalTobinByte(input[1].value,16);
                                 break;
 
                                 default:
@@ -616,14 +616,12 @@ export class Assembler{
                                 case '011':
                                 case '100':
                                 case '101':
-                                    dep1 = FuncInterface.decimalTobinByte(input[1].value,16);
+                                    op1 = FuncInterface.decimalTobinByte(input[1].value,16);
                                     break;
                                 default:
                                     op1='error';
                                     dep1='error';
                                     break;
-                            
-                                
                             }
                             
                             switch (regmod2) {
@@ -651,7 +649,7 @@ export class Assembler{
                                 case '011':
                                 case '100':
                                 case '101':
-                                    dep2 = FuncInterface.decimalTobinByte(input[2].value,16);
+                                    op2 = FuncInterface.decimalTobinByte(input[2].value,16);
                                 break;
                                 
                                 default:
@@ -759,7 +757,7 @@ export class Assembler{
                                     reg = '101';
                                     size = '1';
                                     break;
-                                case 'IR':
+                                case 'IDR':
                                     reg = '110';
                                     size = '1';
                                     break;

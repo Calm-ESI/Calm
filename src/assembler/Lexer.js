@@ -37,7 +37,7 @@ export class Lexer {
             case 'R4':
             case 'ACC':
             case 'BR':
-            case 'IR':
+            case 'IDR':
             case 'SR':
             case 'R1R':
             case 'R2R':
