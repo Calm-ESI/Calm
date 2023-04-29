@@ -583,7 +583,7 @@ export class Assembler{
                                 case '010':
                                     op1 = FuncInterface.decimalTobinByte(input[1].value,16);
 
-                                    // opcode = opcode.slice(0, -1) + '1';
+                                    // opcode = opcode.slice(0, -1) + '1';;
                                     break;
                                 case '110':
                                     dep1 = FuncInterface.decimalTobinByte(input[1].depl, input[1].depl > 255 ? 16 : 8 );
