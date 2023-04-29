@@ -29,7 +29,8 @@
     background-color: rgb(48, 54, 61);
     border-radius: 1.5rem;
     width: 20rem;
-    height: 3.5rem;
+    /*height: 3.5rem;*/
+    padding: 1rem;
     text-align: center;
     line-height: 3.5rem;
     border: 2px solid #1BE985;
@@ -39,5 +40,9 @@
     font-weight: 500;
     justify-content: center;
     text-align: center;
+}
+.modal img {
+    width: 40%;
+    height: 40%;
 }
 

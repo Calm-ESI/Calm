@@ -29,8 +29,9 @@
     margin-top: 0;
     background-color: rgb(48, 54, 61);
     border-radius: 1.5rem;
-    width: 20rem;
-    height: 3.5rem;
+    /*width: 20rem;*/
+    /*height: 3.5rem;*/
+    padding:1rem;
     text-align: center;
     line-height: 3.5rem;
     border: 2px solid #1BE985;

@@ -4,17 +4,22 @@ import Slogan from "../../assets/images/logos/Slogan.png"
 import whyCalm from "../../assets/images/logos/whyCalm.png"
 import whatCalmOffers from "../../assets/images/logos/whatCalmOffers.png"
 import esiLogo from "../../assets/images/logos/esiLogo.png"
+import learnBrain from "../../assets/images/decorations/brain.png"
+import simulationImage from "../../assets/images/decorations/animation.png"
+import emulate from "../../assets/images/decorations/coding.png"
+import to_do_list from '../../assets/images/decorations/to-do-list 2.png' ;
+import discordIcon from '../../assets/images/icons/discord-icon.png' ;
+import getstarted from "../../assets/images/decorations/GetStarted.svg";
+import cpu from "../../assets/images/icons/cpu-fill.svg";
+import aiChat from "../../assets/images/decorations/aiChat.png";
+
 //import components
 import {NavBar, Title, HeroIde} from "../../components"
 import {Footer} from '../../containers'
-
-import getstarted from "../../assets/images/decorations/GetStarted.svg";
-import cpu from "../../assets/images/icons/cpu-fill.svg";
-// import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 import {motion} from "framer-motion"
-import emulate from "../../assets/images/icons/emulate-icon.png"
-import to_do_list from '../../assets/images/decorations/to-do-list 2.png' ;
-import discordIcon from '../../assets/images/icons/discord-icon.png' ;
+// import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
+
+
 
 const Hero = () => {
     const Part1 = () => {
@@ -45,7 +50,7 @@ const Hero = () => {
                     <div className="why-calm-description">
                         This project was created by a team of six 2nd-year students from ESI-Alger as
                         part of a class project. The objective was to develop a pedagogical machine with a simulation of code execution to
-                        teach computer architecture. Our team was one of four teams assigned to develop different projects for the class.
+                        teach computer architecture. We were a team of four teams assigned to develop different projects for the class.
                         We successfully designed and developed the learning platform, which includes the calm machine,
                         with its emulator and simulator to meet the pedagogical goals.
                     </div>
@@ -74,6 +79,7 @@ const Hero = () => {
                                 transition={{type: "spring", stiffness: 400, damping: 17}}
                                 layout
                                 className="whatWeOfferCard">
+                                <img src={learnBrain} alt="description of image" className="threeIcons"/>
                                 <h1>Learn</h1>
                             </motion.div>
                             <motion.div whileHover={{scale: 1.1}}
@@ -92,6 +98,7 @@ const Hero = () => {
                                 transition={{type: "spring", stiffness: 400, damping: 17}}
                                 layout
                                 className="whatWeOfferCard">
+                                <img src={simulationImage} alt="description of image" className="threeIcons"/>
                                 <h1>Simulate</h1>
                             </motion.div>
                             <motion.div
@@ -100,6 +107,7 @@ const Hero = () => {
                                 transition={{type: "spring", stiffness: 400, damping: 17}}
                                 layout
                                 className="whatWeOfferCard">
+                                <img src={aiChat} alt="description of image" className="threeIcons"/>
                                 <h1>Ai assistant</h1>
                             </motion.div>
                         </div>
