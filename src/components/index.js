@@ -1,4 +1,5 @@
 export { default as AddressingModeCard} from './AddressingModeCard';
+export { default as AuthForm} from './AuthForm';
 export { default as ComponentsCard} from './ComponentsCard';
 export { default as HeroIde} from './HeroIde';
 export { default as LearnCard} from './LearnCard';
