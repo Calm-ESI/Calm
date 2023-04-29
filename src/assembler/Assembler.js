@@ -168,18 +168,37 @@ export const FuncInterface ={
         return hexString;
       },
 
-      binaryToHex: (binaryString,size)=>{
-        // Convert decimal to hexadecimal string
-        let hexString = parseInt(binaryString, 2).toString(16);
+ binaryToHex( binaryString,size){
+
+    // Split the binary string into chunks of 8 characters (1 byte)
+const byteChunks = binaryString.match(/.{1,8}/g);
+
+// Convert each byte chunk to its corresponding hex value
+const hexChunks = byteChunks.map(chunk => {
+  const decimalValue = parseInt(chunk, 2);
+  return decimalValue.toString(16).padStart(2, '0');
+});
+
+// Combine the hex chunks into a single string
+const hexString = hexChunks.join('');
+while (hexString.length < size) {
+           hexString = '0' + hexString;
+     }
+    return hexString;
+ },
+
+    //   binaryToHex: (binaryString,size)=>{
+    //     // Convert decimal to hexadecimal string
+    //     console.log("____________________________"+binaryString+" "+size)
+    //     let hexString = parseInt(binaryString, 2).toString(16);
+    //     // Pad the hexadecimal string with leading zeros to 4 bytes (8 characters)
+    //     while (hexString.length < size) {
+    //       hexString = '0' + hexString;
+    //     }
         
-        // Pad the hexadecimal string with leading zeros to 4 bytes (8 characters)
-        while (hexString.length < size) {
-          hexString = '0' + hexString;
-        }
-        
-        // Return the padded hexadecimal string
-        return hexString;
-      },
+    //     // Return the padded hexadecimal string
+    //     return hexString;
+    //   },
 
     Label_To_Num : (labelname,linenumber)=>{
         var labelobj = false ;
@@ -621,11 +640,14 @@ export class Assembler{
                                 case '110':      
                                     dep2 = FuncInterface.decimalTobinByte(input[2].depl, input[2].depl > 255 ? 16 : 8 );
                                     op2 = FuncInterface.decimalTobinByte(input[2].value,16);
+                                    console.log("dep2 here size 0-----------",dep2)
 
                                 break;                      
                                 case '111':
                                     dep2 = FuncInterface.decimalTobinByte(input[2].depl , input[2].depl > 255 ? 16 : 8 );
                                     op2 = FuncInterface.decimalTobinByte(input[2].value, 16 );
+                                    console.log("dep2 here size 2",FuncInterface.binaryToHex(dep2,4))
+
                                 case '011':
                                 case '100':
                                 case '101':
@@ -648,6 +670,8 @@ export class Assembler{
                             //console.log(dep1)
                             //console.log(FuncInterface.binaryToHex(dep1,4))
                             //console.log(FuncInterface.binaryToHex(code,code.length/4))
+                            console.log("code here",code)
+                            console.log("code here",FuncInterface.binaryToHex(code,code.length/4))
                             return FuncInterface.binaryToHex(code,code.length/4)
                             break;
 
