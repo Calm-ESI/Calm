@@ -14,12 +14,12 @@ export class Lexer {
     if (/^\d/.test(str)) {
       return false;
     }else{
-    
     // Check if the string is in the excluded list
     if (Assembler.excludedStrings.includes(str)) {
       return false;
     }else{    
-    // If none of the above conditions are met, the string is valid
+    // If none of the above conditions are met, the string is valid ;
+    //console.log("valid string")
     return true;
     }
   }}
