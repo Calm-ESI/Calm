@@ -3,7 +3,7 @@ import {Errorcalm} from './Errorcalm.js'
 import {SyntaxicAnalysis} from './SyntaxicAnalysis.js'
 export const FuncInterface ={
 
-    adrmap : (txt,size)=>{
+    adrmap : (txt,size,dep)=>{
         var adr='';
         switch(txt){
             case 0:
@@ -16,7 +16,7 @@ export const FuncInterface ={
                 adr = '010';
                 break;
             case 3:
-                adr = `11${size}`;
+                adr = `11${ dep }`;
                 //or
                 break;
             case 4:
@@ -168,18 +168,37 @@ export const FuncInterface ={
         return hexString;
       },
 
-      binaryToHex: (binaryString,size)=>{
-        // Convert decimal to hexadecimal string
-        let hexString = parseInt(binaryString, 2).toString(16);
+ binaryToHex( binaryString,size){
+
+    // Split the binary string into chunks of 8 characters (1 byte)
+const byteChunks = binaryString.match(/.{1,8}/g);
+
+// Convert each byte chunk to its corresponding hex value
+const hexChunks = byteChunks.map(chunk => {
+  const decimalValue = parseInt(chunk, 2);
+  return decimalValue.toString(16).padStart(2, '0');
+});
+
+// Combine the hex chunks into a single string
+const hexString = hexChunks.join('');
+while (hexString.length < size) {
+           hexString = '0' + hexString;
+     }
+    return hexString;
+ },
+
+    //   binaryToHex: (binaryString,size)=>{
+    //     // Convert decimal to hexadecimal string
+    //     console.log("____________________________"+binaryString+" "+size)
+    //     let hexString = parseInt(binaryString, 2).toString(16);
+    //     // Pad the hexadecimal string with leading zeros to 4 bytes (8 characters)
+    //     while (hexString.length < size) {
+    //       hexString = '0' + hexString;
+    //     }
         
-        // Pad the hexadecimal string with leading zeros to 4 bytes (8 characters)
-        while (hexString.length < size) {
-          hexString = '0' + hexString;
-        }
-        
-        // Return the padded hexadecimal string
-        return hexString;
-      },
+    //     // Return the padded hexadecimal string
+    //     return hexString;
+    //   },
 
     Label_To_Num : (labelname,linenumber)=>{
         var labelobj = false ;
@@ -260,7 +279,7 @@ export const FuncInterface ={
 
  ,defadrmod : (listofparam,i) => {
     var sizeofpar;
-    if (listofparam[0].value > 255 || Assembler.reg1.includes(listofparam[0].value))
+    if (listofparam[0].value > 255 || Assembler.reg1.includes(listofparam[0].value) )
         {
             sizeofpar='1'
         }else{
@@ -323,7 +342,7 @@ export const FuncInterface ={
                             case 'NUMBER':
                                 if (listofparam[3].value <= Assembler.MAXNUM)
                                 {
-                                return {type:listofparam[0].type,value:listofparam[0].value,adrmode:3,depl:listofparam[3].value,size:sizeofpar}
+                                return {type:listofparam[0].type,value:listofparam[0].value,adrmode:3,depl:listofparam[3].value,size:0}
 
                                 }else{
 
@@ -490,7 +509,7 @@ export class Assembler{
                         case 'REGISTER,NUMBER':
                                ind = '01';
                             regmod1 = FuncInterface.regmap(input[1].value);
-                            regmod2 = FuncInterface.adrmap(input[2].adrmode,size);
+                            regmod2 = FuncInterface.adrmap(input[2].adrmode,size, typeof input[2].depl =='undefined' ? 0 : input[2].depl>255 ? '1' :'0' );
                             //console.log(regmod2)
                                         
                             switch (regmod2) {
@@ -504,13 +523,12 @@ export class Assembler{
                                     // opcode = opcode.slice(0, -1) + '1';
                                     break;                      
                                 case '110': 
-                                dep2 = FuncInterface.decimalTobinByte(input[2].depl,8);
-                                op2 = FuncInterface.decimalTobinByte(input[2].value,8);
-                            break;
-                                case '111':
-
-                                dep2 = FuncInterface.decimalTobinByte(input[2].depl ,16);
+                                dep2 = FuncInterface.decimalTobinByte(input[2].depl, input[2].depl > 255 ? 16 : 8 );
                                 op2 = FuncInterface.decimalTobinByte(input[2].value,16);
+                                break;
+                                case '111':
+                                    dep2 = FuncInterface.decimalTobinByte(input[2].depl , input[2].depl > 255 ? 16 : 8 );
+                                    op2 = FuncInterface.decimalTobinByte(input[2].value,16);
                                 break;
                                 case '011':
                                 case '100':
@@ -531,7 +549,7 @@ export class Assembler{
 
                         case 'NUMBER,REGISTER':
                             ind = '10';
-                            regmod1 = FuncInterface.adrmap(input[1].adrmode,size);
+                            regmod1 = FuncInterface.adrmap(input[1].adrmode,size, typeof input[1].depl =='undefined' ? 0 : input[1].depl>255 ? '1' :'0');
                             regmod2 = FuncInterface.regmap(input[2].value);
                                         
                             switch (regmod1) {
@@ -545,11 +563,11 @@ export class Assembler{
                                     // opcode = opcode.slice(0, -1) + '1';
                                     break;                      
                                 case '110':  
-                                dep1 = FuncInterface.decimalTobinByte(input[1].depl,8);
-                                op1 = FuncInterface.decimalTobinByte(input[1].value,8);
+                                dep1 = FuncInterface.decimalTobinByte(input[1].depl, input[1].depl > 255 ? 16 : 8 );
+                                op1 = FuncInterface.decimalTobinByte(input[1].value,16);
                                                                 break;
                                 case '111':
-                                    dep1 = FuncInterface.decimalTobinByte(input[1].depl,16);
+                                    dep1 = FuncInterface.decimalTobinByte(input[1].depl, input[1].depl > 255 ? 16 : 8 );
                                     op1 = FuncInterface.decimalTobinByte(input[1].value,16);
                                 break;
                                 case '011':
@@ -572,9 +590,8 @@ export class Assembler{
 
                         case 'NUMBER,NUMBER':
                             ind = '11';
-                            regmod1 = FuncInterface.adrmap(input[1].adrmode,size);
-                            regmod2 = FuncInterface.adrmap(input[2].adrmode,size);
-                            console.log("reg1,2",regmod1,regmod2)
+                            regmod1 = FuncInterface.adrmap(input[1].adrmode,size, typeof input[1].depl =='undefined' ? 0 : input[1].depl>255 ? '1' :'0');
+                            regmod2 = FuncInterface.adrmap(input[2].adrmode,size, typeof input[2].depl =='undefined' ? 0 : input[2].depl>255 ? '1' :'0' );
                                         
                             switch (regmod1) {
                                 case '000':
@@ -585,15 +602,17 @@ export class Assembler{
                                 case '010':
                                     op1 = FuncInterface.decimalTobinByte(input[1].value,16);
 
-                                    // opcode = opcode.slice(0, -1) + '1';
+                                    // opcode = opcode.slice(0, -1) + '1';;
                                     break;
                                 case '110':
-                                    dep1 = FuncInterface.decimalTobinByte(input[1].depl,8);
-                                    op1 = FuncInterface.decimalTobinByte(input[1].value,8);
+                                    dep1 = FuncInterface.decimalTobinByte(input[1].depl, input[1].depl > 255 ? 16 : 8 );
+                                    op1 = FuncInterface.decimalTobinByte(input[1].value,16);
                                 break;
                                 case '111':
-                                    dep1 = FuncInterface.decimalTobinByte(input[1].depl,16);
+                                    dep1 = FuncInterface.decimalTobinByte(input[1].depl, input[1].depl > 255 ? 16 : 8  );
                                     op1 = FuncInterface.decimalTobinByte(input[1].value,16);
+                                    console.log("dep1 here",FuncInterface.binaryToHex(dep1,4))
+                                    break;
                                 case '011':
                                 case '100':
                                 case '101':
@@ -619,13 +638,16 @@ export class Assembler{
                                     // opcode = opcode.slice(0, -1) + '1';
                                     break;            
                                 case '110':      
-                                    dep2 = FuncInterface.decimalTobinByte(input[2].depl,8);
-                                    op2 = FuncInterface.decimalTobinByte(input[2].value,8);
+                                    dep2 = FuncInterface.decimalTobinByte(input[2].depl, input[2].depl > 255 ? 16 : 8 );
+                                    op2 = FuncInterface.decimalTobinByte(input[2].value,16);
+                                    console.log("dep2 here size 0-----------",dep2)
 
                                 break;                      
                                 case '111':
-                                    dep2 = FuncInterface.decimalTobinByte(input[2].depl ,16);
-                                    op2 = FuncInterface.decimalTobinByte(input[2].value,16);
+                                    dep2 = FuncInterface.decimalTobinByte(input[2].depl , input[2].depl > 255 ? 16 : 8 );
+                                    op2 = FuncInterface.decimalTobinByte(input[2].value, 16 );
+                                    console.log("dep2 here size 2",FuncInterface.binaryToHex(dep2,4))
+
                                 case '011':
                                 case '100':
                                 case '101':
@@ -640,9 +662,16 @@ export class Assembler{
                             }
 
                             code = opcode  + ind + regmod1 + regmod2 ;
-                            code= code + op1 + dep1;
-                            code= code + op2 + dep2;
+                            code= code + op1 + op2;
+                            code= code + dep1 + dep2;
+
                             //return {codehex:FuncInterface.binaryToHex(code,code.length/4),codebin:code};
+                            //console.log(code)
+                            //console.log(dep1)
+                            //console.log(FuncInterface.binaryToHex(dep1,4))
+                            //console.log(FuncInterface.binaryToHex(code,code.length/4))
+                            console.log("code here",code)
+                            console.log("code here",FuncInterface.binaryToHex(code,code.length/4))
                             return FuncInterface.binaryToHex(code,code.length/4)
                             break;
 

@@ -1,4 +1,5 @@
 .App {
+  /*TODO:Fix the width for the emulate page*/
   display: flex;
   flex-direction: column;
   justify-content: center;

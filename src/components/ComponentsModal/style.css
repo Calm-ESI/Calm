@@ -1,0 +1,44 @@
+.componentsModal{
+    height: 30rem;
+    width: 50rem;
+
+    position: relative;
+    background-color: #24292E;
+    display: flex;
+    flex-direction: column;
+
+    background: var(--adress-mode-color);
+    border-radius: 2.5rem;
+
+    /* Inside auto layout */
+
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+    0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+    0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    border: 1px solid black;
+}
+.componentsTitle-modal{
+
+    font-size: 2rem;
+    font-weight: 850;
+    color: white;
+    margin-top: 0;
+    background-color: rgb(48, 54, 61);
+    border-radius: 1.5rem;
+    width: 20rem;
+    height: 3.5rem;
+    text-align: center;
+    line-height: 3.5rem;
+    border: 2px solid #1BE985;
+}
+.components-description{
+    font-size: 1.3rem;
+    font-weight: 500;
+    justify-content: center;
+    text-align: center;
+}
+

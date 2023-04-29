@@ -196,7 +196,7 @@ body {
     0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
     0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
     padding: 1em;
-    transition: transform 0.3s ease-in-out;
+    /*transition: transform 0.3s ease-in-out;*/
     border: 1px solid black;
 }
 
@@ -207,8 +207,8 @@ body {
     /*transform: scale(1.1);*/
     /*transition: 0.5s;*/
     border: 1px solid black;
-    transform: translatey(-0.5rem);
-    transition: 0.3s;
+    /*transform: translatey(-0.5rem);*/
+    /*transition: 0.3s;*/
     box-shadow: 0 25px 30px -20px var(--main-accent-color);
 }
 
