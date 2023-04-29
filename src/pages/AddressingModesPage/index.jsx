@@ -1,5 +1,5 @@
 //import components
-import { NavBar, AddressingModeCard } from "../../components";
+import {NavBar, AddressingModeCard} from "../../components";
 
 //import images
 import basedOnPic from "../../assets/images/calm/addressing-modes/based.png";
@@ -10,32 +10,50 @@ import indirectPic from "../../assets/images/calm/addressing-modes/indirect.png"
 import rightArrowPic from "../../assets/images/calm/addressing-modes/right-arrow.png";
 import rightIndexPic from "../../assets/images/calm/addressing-modes/pointing.png";
 import basedIndexedPic from "../../assets/images/calm/addressing-modes/basedIndexed.png";
+import {properties} from "../../Constants/modesDescription";
 
 
 const AdressingModes = () => {
-  return (
-    <>
-      <NavBar/>
-      <div className="globalContainer">
-        <div className="AdressModeCardsContainer">
-          <p className="title">Adressing Modes</p>
-          <AddressingModeCard modeName={"Immediate"} modePicture={immediatePic} />
-          <AddressingModeCard modeName={"Direct"} modePicture={directPic} />
-          <AddressingModeCard modeName={"Indirect"} modePicture={indirectPic} />
-          <AddressingModeCard modeName={"Based"} modePicture={basedOnPic} />
-          <AddressingModeCard modeName={"Indexed"} modePicture={rightIndexPic} />
-          <AddressingModeCard modeName={"Based Indexed"} modePicture={basedIndexedPic} />
-          <AddressingModeCard
-            modeName={"Shift on 8 bits"}
-            modePicture={rightArrowPic}
-          />
-          <AddressingModeCard
-            modeName={"Shift on 16 bits"}
-            modePicture={doubleArrowPic}
-          />
-        </div>
-      </div>
-    </>
-  );
+    // TODO: fix the description props passing
+    return (
+        <>
+            <NavBar/>
+            <div className="globalContainer">
+                <div className="AdressModeCardsContainer">
+                    <p className="title">Adressing Modes</p>
+                {/*    <AddressingModeCard modeName={"Immediate"} modePicture={immediatePic}*/}
+                {/*                        description={"Getting the information " +*/}
+                {/*                            "immediately from the instruction code after decoding it, so the operand  would be in the second part of " +*/}
+                {/*                            "the instruction (depending if where in the general format or the reduced format) to be used in the " +*/}
+                {/*                            "execution with no memory access and that’s why it’s called immediate."}/>*/}
+                {/*    <AddressingModeCard modeName={"Direct"} modePicture={directPic}*/}
+                {/*                        description={"Getting the information directly from it’s memory address that is " +*/}
+                {/*                            "provided by the instruction, so here we’ll have to do one memory access to " +*/}
+                {/*                            "retrieve the information."}/>*/}
+                {/*    <AddressingModeCard modeName={"Indirect"} modePicture={indirectPic} description={"Getting the " +*/}
+                {/*        "information directly from it’s memory address that is provided by the instruction, so here " +*/}
+                {/*        "we’ll have to do one memory access to retrieve the information."}/>*/}
+                {/*    <AddressingModeCard modeName={"Based"} modePicture={basedOnPic} description={"Getting the " +*/}
+                {/*        "information based on the address stored in the base register, so we’ll have to do some " +*/}
+                {/*        "calculation by adding the value that we have in the instruction to the address found in the " +*/}
+                {/*        "base register to get the physical address of the data, it is used mostly to retrieve data from " +*/}
+                {/*        "arrays based on the first element of the array and it requires 1 memory access."}/>*/}
+                {/*    <AddressingModeCard modeName={"Indexed"} modePicture={rightIndexPic}/>*/}
+                {/*    <AddressingModeCard modeName={"Based Indexed"} modePicture={basedIndexedPic}/>*/}
+                {/*    <AddressingModeCard*/}
+                {/*        modeName={"Shift on 8 bits"}*/}
+                {/*        modePicture={rightArrowPic}*/}
+                {/*    />*/}
+                {/*    <AddressingModeCard*/}
+                {/*        modeName={"Shift on 16 bits"}*/}
+                {/*        modePicture={doubleArrowPic}*/}
+                {/*    />*/}
+                    {properties.map( (item) => (
+                        <AddressingModeCard modesDescription={item} key={item.id}/>)
+                    )}
+                </div>
+            </div>
+        </>
+    );
 };
 export default AdressingModes;

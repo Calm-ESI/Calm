@@ -79,7 +79,7 @@ body {
   margin-bottom: 5rem;
   border: 2px solid #1BE985;
   padding: 5em;
-  border-radius: 40px;
+  border-radius: 2.5rem;
   background-color: #24292e;
   box-shadow: 0 0 0 0.5px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
   0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
@@ -109,6 +109,7 @@ body {
   transition: transform 0.3s ease-in-out;
   border: 1px solid black;
 }
+
 .AdressModeCard:hover {
   /*background-color: var(--main-accent-color);*/
   /*color: var(--main-background-color);*/
