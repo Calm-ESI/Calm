@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 function Dec2bin(dec){
     return ("00000000" + (parseInt(dec, 10)).toString(2)).substr(-8);
 }
+
 /////////////////animations to test////////////////////
 const IounitToBus={
     value:"",
@@ -728,7 +729,7 @@ class InstructionMOV00{
         this.stepsNum=1;
         this.name="MOV-RR";
         this.steps=[()=>{
-            Registers[this.register1].setvalue(this.value2.toString(2));
+            Registers[this.register1].setvalue(TwosComplement(this.value2,16));
         }
         ];
         this.buildanim=function(){
@@ -1839,7 +1840,7 @@ class InstructionMOV01{
         this.isimmed=0;
         this.name="MOV-RM";
         this.steps=[()=>{
-            Registers[this.register1].setvalue(this.value2.toString(2));
+            Registers[this.register1].setvalue(TwosComplement(this.value2,16));
         }
         ];
         this.buildanim=function(){
@@ -2147,7 +2148,6 @@ class InstructionMOV01{
             }}
         }
     }
-    
 }
 class InstructionMOV10{
     constructor(){
@@ -2161,9 +2161,22 @@ class InstructionMOV10{
         this.stepsNum=1;
         this.name="MOV-MR";
         this.steps=[()=>{
+            if(this.taille==1){
+                let hexval=this.value2.toString(16);
+                while(hexval.length<4){
+                    hexval='0'+hexval;
+                }
+                memory.setRim(hexval.substring(0,2));
+                memory.setRam( TwosComplement(this.addresse1+1,16));
+                memory.write();
+                memory.setRim(hexval.substring(2,4));
+                memory.setRam( TwosComplement(this.addresse1,16));
+                memory.write();
+            }else{
             memory.setRim(this.value2.toString(16));
-            memory.setRam(this.addresse1);
+            memory.setRam(TwosComplement(this.addresse1,16));
             memory.write();
+            }
         }
         ];
         this.buildanim=function(){
@@ -2495,9 +2508,22 @@ class InstructionMOV11{////the difference between them will be in the animation 
         this.isimmed=true;
         this.name="MOV-MM";
         this.steps=[()=>{
+            if(this.taille==1){
+                let hexval=this.value2.toString(16);
+                while(hexval.length<4){
+                    hexval='0'+hexval;
+                }
+                memory.setRim(hexval.substring(0,2));
+                memory.setRam(TwosComplement(this.addresse1+1,16));
+                memory.write();
+                memory.setRim(hexval.substring(2,4));
+                memory.setRam(TwosComplement(this.addresse1,16));
+                memory.write();
+            }else{
             memory.setRim(this.value2.toString(16));
-            memory.setRam(this.addresse1);
+            memory.setRam(TwosComplement(this.addresse1,16));
             memory.write();
+            }
         }
         ];
         this.buildanim=function(){

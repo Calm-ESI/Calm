@@ -4,6 +4,37 @@ import Alu from "./ALU";
 function hex2bin(hex){
     return ("00000000" + (parseInt(hex, 16)).toString(2)).substr(-8);
 }
+function replaceAt(str, index, newChar) {
+    function replacer(origChar, strIndex) {
+        if (strIndex === index)
+            return newChar;
+        else
+            return origChar;
+    }
+    return str.replace(/./g, replacer);
+}
+function TwosComplement(num,size) { //a is a string 
+    let a=num.toString(2);
+    let len=a.length
+    for (let i = 0; i < size-len; i++) {
+        a='0'+a;
+    }
+    if(num<0){
+    let find1=false
+    for (let i = a.length; i >=0; i--) {
+        if(find1==true){
+            if (a[i]=='1') {
+                a=replaceAt(a,i,'0');
+            }else{
+                a=replaceAt(a,i,'1');
+            }
+        }
+        if (a[i]==1) {
+            find1=true;
+        }
+    } }
+    return a;
+}
 const addanim={
     value:"",
     target:".ALU",
@@ -727,7 +758,8 @@ class AddressingModes{
                 return adresse;
             },//correspend au mode immediat
             function directVal(adresse,animated,size,depl,animations,is_anim,target){//the animation is missing//adresse is in decimal
-            memory.setRam(adresse);
+                adresse=TwosComplement(adresse,16)///______________
+                memory.setRam(adresse);
             memory.read(0);
             let byte1=hex2bin(memory.getRim());
             //animation:
@@ -872,7 +904,7 @@ class AddressingModes{
             
             ///////
             if(size==1){
-                adresse=adresse+1;
+                adresse=TwosComplement(parseInt(adresse,2)+1,16);
                 memory.setRam(adresse);
                 memory.read(0);
                 let byte2=hex2bin(memory.getRim());
@@ -946,7 +978,7 @@ class AddressingModes{
                         anim:fitToRual2.anim,
                     });
                 }
-                return byte2+byte1///à revoir
+                return parseInt(byte2+byte1,2);
             }else{
                 animations.push({
                     value:byte1,
@@ -1017,19 +1049,21 @@ class AddressingModes{
                         anim:fitToRual2.anim,
                     });
                 }
-                return byte1;//valur returned is in hexa 
+                return parseInt(byte1,2);//valur returned is in hexa 
             }
             },
             function indirectVal(adresse,animated,size,depl,animations,is_anim,target){
+                adresse=TwosComplement(adresse,16);///replace tostring with twoscompliement
                 memory.setRam(adresse);
                 memory.read(0);
                 let adr=parseInt(memory.getRim(), 16);//////maybe we nedd to read here cause the @ is on 2bytes
+                adr=TwosComplement(adr,16);
                 memory.setRam(adr);
                 memory.read(0);
                 let byte1=hex2bin(memory.getRim());
                 let byte2;
                 if(size==1){
-                    adresse=adresse+1;
+                    adresse=TwosComplement(parseInt(adresse,2)+1,16);
                     memory.setRam(adresse);
                     memory.read(0);
                     byte2=hex2bin(memory.getRim());
@@ -1283,18 +1317,18 @@ class AddressingModes{
                 });
             }
                 if(size==1){
-                    return byte2+byte1///à revoir
+                    return parseInt(byte2+byte1,2);///à revoir
                 }else{
-                    return byte1;
+                    return parseInt(byte1,2);
                 }
                 },
                 function baseval(adresse,animated,size,depl,animations,is_anim,target){
                     let adressenv=adresse+parseInt(BR.getvalue(),2)+depl;//no need for dep
+                    adressenv=TwosComplement(adressenv,16);
                     memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                         //animation:
-            //il faut ajouter d'abord deux shift du queue_____________
             if(size==0){
                 animations.push({
                     value:"",
@@ -1561,18 +1595,19 @@ class AddressingModes{
             }
             ///////////////////////////////////////:
                     if(size==1){
-                        adressenv=adressenv+1;
+                        adressenv=TwosComplement(parseInt(adressenv,2)+1,16);
                         memory.setRam(adressenv);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2)///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                     
                 },
                 function indexeval(adresse,animated,size,depl,animations,is_anim,target){
                     let adressenv=adresse+parseInt(IR.getvalue(),2)+depl;//no need for dep
+                    adressenv=TwosComplement(adressenv,16);
                     memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
@@ -1844,58 +1879,61 @@ class AddressingModes{
             }
             ///////////////////////////////////////:
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2);///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 },
                 function baseindexval(adresse,animated,size,depl,animations,is_anim,target){
                     let adressenv=adresse+parseInt(IR.getvalue(),2)+depl+parseInt(BR.getvalue(),2);
+                    adressenv=TwosComplement(adressenv,16);
                     memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2);///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 },
                 function depl8val(adresse,animated,size,depl,animations,is_anim,target){
                     adresse=adresse+depl;
+                    adresse=TwosComplement(adresse,16);
                     memory.setRam(adresse);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2)///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 },
                 function depl16val(adresse,animated,size,depl,animations,is_anim,target){
                     adresse=adresse+depl;
+                    adresse=TwosComplement(adresse,16);
                     memory.setRam(adresse);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2);///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 }
         ]
@@ -2064,7 +2102,7 @@ class AddressingModes{
                 return adresse;
             },
             function indirectAdr(adresse,animated,size,depl,animations,is_anim,target){///add
-                adresse=adresse;
+                adresse=TwosComplement(adresse,16);
                 memory.setRam(adresse);
                 memory.read(0);
                 //animation:

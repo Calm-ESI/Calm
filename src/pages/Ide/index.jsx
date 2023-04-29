@@ -15,7 +15,7 @@ import Queue from "../../Emulator/Queue.js";
 import AddressingModes from "../../Emulator/Adressing.js";
 import { generalPurposeRegister } from "../../Emulator/Register.js";
 import { Register } from "../../Emulator/Register.js";
-import Alu from "../../Emulator/ALU.js";
+import Alu, { TwosComplement } from "../../Emulator/ALU.js";
 import Arch from '../Arch/index.jsx';
 import gsap from 'gsap';
 import "../../codemirror/lib/codemirror.css"
@@ -71,7 +71,7 @@ const traitement= (codeArray)=>{
 // Registers[1].setvalue("0000000000000011");
 
 for(let i=0;i<50;i++){//initializing first 50 bytes in memory to 0 (data memory)
-memory.setRam(i);
+memory.setRam(TwosComplement(i,8));
 memory.setRim("00000000");
 memory.write();
 }
@@ -289,6 +289,7 @@ return <>
   {/* <button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
   <button className='ide-exec-button' onClick={()=>{
     let input=convertStrings(Assembler.assemblecode(handleStoreCode()));///nzid ll input "11"
+    // let input=["18","f0","00","0a","05","05"];
     input.push("ff");
     // let n=handleStoreCode().length;
     console.log(input)
@@ -303,6 +304,7 @@ return <>
   {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
   <div style={{width:"35%",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{
     let input=convertStrings(Assembler.assemblecode(handleStoreCode()));
+    // let input=["18","f0","00","0a","00","05","05"];
     input.push("ff");
     console.log(input)
     traitement(input)
