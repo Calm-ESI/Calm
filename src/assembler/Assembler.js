@@ -323,7 +323,7 @@ export const FuncInterface ={
                             case 'NUMBER':
                                 if (listofparam[3].value <= Assembler.MAXNUM)
                                 {
-                                return {type:listofparam[0].type,value:listofparam[0].value,adrmode:3,depl:listofparam[3].value,size:sizeofpar}
+                                return {type:listofparam[0].type,value:listofparam[0].value,adrmode:3,depl:listofparam[3].value,size:0}
 
                                 }else{
 
