@@ -39,7 +39,9 @@
     font-size: 1.3rem;
     font-weight: 500;
     justify-content: center;
-    text-align: center;
+    text-align: left;
+    padding: 1rem;
+    text-indent: 2rem;
 }
 .modal img {
     width: 40%;

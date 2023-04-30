@@ -7,6 +7,8 @@ import { AddressingModesPage, Arch, ComponentsPage, ExamplesPage, Hero, Ide, Lea
 //import images
 import asteriks from "./assets/images/decorations/asteriskgray.png"
 import asteriks2 from "./assets/images/decorations/asteriskgray.png"
+import ExercicesPage from "./pages/ExercicesPage";
+import Level1 from "./components/Exercices/Level1/level1";
 
 function App() {
   return (
@@ -40,6 +42,9 @@ function App() {
           <Route exact path="/register" element={<Register/>}/>
           <Route exact path="/login" element={<Login/>}/>
           <Route path='*' element={<NotFound />}/>
+          <Route exact path="/learn/Exercices" element={<ExercicesPage/>}/>
+          <Route exact path="/learn/Exercices/Level1" element={<Level1/>}/>
+
         </Routes>
         
       </div>

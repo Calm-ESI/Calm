@@ -5,7 +5,7 @@
   overflow: hidden;
   margin-top: 2em;
   text-align: left;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
   
 .console{
@@ -28,8 +28,8 @@
   height:2em;
   width: 5em;
   background-color: #1BE985;
-  border-radius: 10px;
-  margin: 10px 10px;
+  border-radius: 0.625rem;
+  margin: 0.625rem 0.625rem;
 }
 .ide_container{
   margin: auto;
