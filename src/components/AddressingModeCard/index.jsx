@@ -2,6 +2,7 @@ import React from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import {useState} from "react";
 import "./style.css"
+
 import AdressingModeListing from "../AdressingModeListing";
 import Overlay from "../Overlay";
 import Modal from "../Modal";

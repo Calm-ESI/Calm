@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
 //import pages
-import { AddressingModesPage, Arch, ComponentsPage, ExamplesPage, Hero, Ide, LearnPage } from './pages';
+import { AddressingModesPage, Arch, ComponentsPage, ExamplesPage, Hero, Ide, LearnPage, Login, NotFound, Register } from './pages';
 
 //import images
 import asteriks from "./assets/images/decorations/asteriskgray.png"
@@ -37,6 +37,9 @@ function App() {
           <Route exact path="/learn" element={<LearnPage/>}/>
           <Route exact path="/learn/addressing-modes" element={<AddressingModesPage/>}/>
           <Route exact path="/learn/components" element={<ComponentsPage/>}/>
+          <Route exact path="/register" element={<Register/>}/>
+          <Route exact path="/login" element={<Login/>}/>
+          <Route path='*' element={<NotFound />}/>
         </Routes>
         
       </div>
