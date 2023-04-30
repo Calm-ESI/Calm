@@ -1,11 +1,11 @@
 .App {
+  /*TODO:Fix the width for the emulate page*/
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  width:fit-content;
   text-align: center;
   height: fit-content;
-  
   background-color: #1B1F24;
   
 }

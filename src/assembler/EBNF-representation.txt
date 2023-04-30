@@ -4,12 +4,38 @@ expression ::= ( INST1 ( REG[*] | NUM ) ) | ( INST2 (REG[*] | NUM) [{ + REGIND[*
 INST0 ::= RET, PUSHA, POPA
 INST1 ::= NEG, NOT, SHL, SHR, READ, WRITE, PUSH, POP, ROR, ROL, CALL, BE, BNE, BS, BI, BIE, BSE, BR 
 INST2 ::= NAND, CMP, MOV, ADD, SUB, MUL, DIV, AND, OR, XOR, NOR
-REG ::= R1 | R2 | R3 | R4 | ACC | BR | IR | SR | R1R | R2R | R3R | ACCR | R1L | R2L | R3L | ACCL
-REGIND ::= BR | IR 
+REG ::= R1 | R2 | R3 | R4 | ACC | BR | IDR | SR | R1R | R2R | R3R | ACCR | R1L | R2L | R3L | ACCL
+REGIND ::= BR | IDR 
 NUM ::= 0 | ((1-9){[0-9]})
 
+18 f8
+0002
+
+0100
+
+02
+
+00011000 :18
+11:ind
+111:dep 2octet
+000:im
+--------------------
+0000 0000 0000 0010 : 2
+
+0000 0001 0000 0000 : 256
+0000 0010 : 2
+
+0000 0001 0000 0000
 
 
+
+18f8
+
+0002
+
+0100
+
+02
 --codeop:--
 
 NEG
@@ -49,3 +75,20 @@ BSE
 0010111
 BR
 0011000
+
+
+18f6000300010100
+
+
+00011000: 18
+
+1111 0110 f6
+
+0000 0000 
+0000 0011 ------0003
+
+0000 0000 0000 0001--------0001
+
+0000 0001 01
+
+0000 0001 00

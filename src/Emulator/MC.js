@@ -27,11 +27,11 @@ class MC {
         this.rim=this.code[parseInt(this.ram,2)]
     }
     else{
-        this.rim=this.data[this.ram]
+        this.rim=this.data[parseInt(this.ram,2)]
     }
     }
     write(){
-        this.data[this.ram]=this.rim;
+        this.data[parseInt(this.ram,2)]=this.rim;
     }
     popval(){
     this.rim=this.stack.pop();

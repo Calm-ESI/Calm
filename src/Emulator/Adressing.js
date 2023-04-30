@@ -4,6 +4,45 @@ import Alu from "./ALU";
 function hex2bin(hex){
     return ("00000000" + (parseInt(hex, 16)).toString(2)).substr(-8);
 }
+function replaceAt(str, index, newChar) {
+    function replacer(origChar, strIndex) {
+        if (strIndex === index)
+            return newChar;
+        else
+            return origChar;
+    }
+    return str.replace(/./g, replacer);
+}
+function TwosComplement(num,size) { //a is a string 
+    let a=num.toString(2);
+    let len=a.length
+    for (let i = 0; i < size-len; i++) {
+        a='0'+a;
+    }
+    if(num<0){
+    let find1=false
+    for (let i = a.length; i >=0; i--) {
+        if(find1==true){
+            if (a[i]=='1') {
+                a=replaceAt(a,i,'0');
+            }else{
+                a=replaceAt(a,i,'1');
+            }
+        }
+        if (a[i]==1) {
+            find1=true;
+        }
+    } }
+    return a;
+}
+const addanim={
+    value:"",
+    target:".ALU",
+    time:2000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".ALU",{opacity:"0"},{opacity:"1" ,duration:1});
+        gsap.fromTo(".ALU",{opacity:"1"},{opacity:"0" ,duration:1,delay:1});
+    },}
 const AccToADR={
     value:"",
     target:".box-data",
@@ -478,6 +517,33 @@ const ADRToMAR={
         gsap.fromTo(".queue2",{opacity:"0"},{opacity:"1",duration:1});
         gsap.fromTo(".queue1",{opacity:"0"},{opacity:"1",duration:1});
   },}
+  const MCanim={
+    value:"",
+    target:".MC",
+    time:2000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".MC",{opacity:"0"},{opacity:"1" ,duration:1});
+        gsap.fromTo(".MC",{opacity:"1"},{opacity:"0" ,duration:1,delay:1});
+    },}
+    const fitToIdr={
+        value:"",
+        target:".ball",
+        time:1000,
+        anim:(val,h,w)=>{
+        gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.045,x:w*0.442,y:h*0.8277,opacity:"0"},{opacity:"1" ,duration:1});
+        // gsap.fromTo(".ball",{height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.045,duration:1,delay:1});
+        // gsap.to(".ball",{opacity:"0" ,duration:1,delay:3});
+      },}
+      const infitToIdr={
+        value:"",
+        target:".ball",
+        time:1000,
+        anim:(val,h,w)=>{
+            // gsap.fromTo(".ball",{x:w*0.442,y:h*0.8277,opacity:"0",height:"2.812%",width:"1.4%"},{borderRadius:"10px",width:w*0.1,height:h*0.045,duration:1,delay:1});
+            // gsap.fromTo(".ball",{x:w*0.442,y:h*0.8277,opacity:"0"},{opacity:"1" ,duration:1,delay:1});
+            // gsap.fromTo(".ball",{borderRadius:"10px",width:w*0.1,height:h*0.045,},{height:"2.812%",width:"1.4%",borderRadius:"50%",duration:1,delay:1});
+            gsap.to(".ball",{opacity:"0" ,duration:1});
+        },}
 
 class AddressingModes{
     constructor(){
@@ -692,7 +758,8 @@ class AddressingModes{
                 return adresse;
             },//correspend au mode immediat
             function directVal(adresse,animated,size,depl,animations,is_anim,target){//the animation is missing//adresse is in decimal
-            memory.setRam(adresse);
+                adresse=TwosComplement(adresse,16)///______________
+                memory.setRam(adresse);
             memory.read(0);
             let byte1=hex2bin(memory.getRim());
             //animation:
@@ -827,12 +894,17 @@ class AddressingModes{
                 time:fitToMar.time,
                 anim:fitToMar.anim,
             });
-            ////read animation
+            animations.push({
+                value:"READ",
+                target:MCanim.target,
+                time:MCanim.time,
+                anim:MCanim.anim,
+            });
             
             
             ///////
             if(size==1){
-                adresse=adresse+1;
+                adresse=TwosComplement(parseInt(adresse,2)+1,16);
                 memory.setRam(adresse);
                 memory.read(0);
                 let byte2=hex2bin(memory.getRim());
@@ -906,7 +978,7 @@ class AddressingModes{
                         anim:fitToRual2.anim,
                     });
                 }
-                return byte2+byte1///à revoir
+                return parseInt(byte2+byte1,2);
             }else{
                 animations.push({
                     value:byte1,
@@ -977,19 +1049,21 @@ class AddressingModes{
                         anim:fitToRual2.anim,
                     });
                 }
-                return byte1;//valur returned is in hexa 
+                return parseInt(byte1,2);//valur returned is in hexa 
             }
             },
             function indirectVal(adresse,animated,size,depl,animations,is_anim,target){
+                adresse=TwosComplement(adresse,16);///replace tostring with twoscompliement
                 memory.setRam(adresse);
                 memory.read(0);
                 let adr=parseInt(memory.getRim(), 16);//////maybe we nedd to read here cause the @ is on 2bytes
+                adr=TwosComplement(adr,16);
                 memory.setRam(adr);
                 memory.read(0);
                 let byte1=hex2bin(memory.getRim());
                 let byte2;
                 if(size==1){
-                    adresse=adresse+1;
+                    adresse=TwosComplement(parseInt(adresse,2)+1,16);
                     memory.setRam(adresse);
                     memory.read(0);
                     byte2=hex2bin(memory.getRim());
@@ -1125,7 +1199,12 @@ class AddressingModes{
                 time:fitToMar.time,
                 anim:fitToMar.anim,
             });
-            ////read animation
+            animations.push({
+                value:"READ",
+                target:MCanim.target,
+                time:MCanim.time,
+                anim:MCanim.anim,
+            });
             animations.push({
                 value:adr,
                 target:fitToMdr.target,
@@ -1162,7 +1241,12 @@ class AddressingModes{
                 time:fitToMar.time,
                 anim:fitToMar.anim,
             });
-            ////read animation
+            animations.push({
+                value:"READ",
+                target:MCanim.target,
+                time:MCanim.time,
+                anim:MCanim.anim,
+            });
             animations.push({
                 value:size==1?byte2+byte1:byte1,
                 target:fitToMdr.target,
@@ -1233,18 +1317,18 @@ class AddressingModes{
                 });
             }
                 if(size==1){
-                    return byte2+byte1///à revoir
+                    return parseInt(byte2+byte1,2);///à revoir
                 }else{
-                    return byte1;
+                    return parseInt(byte1,2);
                 }
                 },
                 function baseval(adresse,animated,size,depl,animations,is_anim,target){
                     let adressenv=adresse+parseInt(BR.getvalue(),2)+depl;//no need for dep
+                    adressenv=TwosComplement(adressenv,16);
                     memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                         //animation:
-            //il faut ajouter d'abord deux shift du queue_____________
             if(size==0){
                 animations.push({
                     value:"",
@@ -1446,7 +1530,12 @@ class AddressingModes{
                 time:infitToMar.time,
                 anim:infitToMar.anim,
             });
-            //////reading from MC
+            animations.push({
+                value:"READ",
+                target:MCanim.target,
+                time:MCanim.time,
+                anim:MCanim.anim,
+            });
             animations.push({
                 value:byte1,
                 target:fitToMdr.target,
@@ -1506,18 +1595,19 @@ class AddressingModes{
             }
             ///////////////////////////////////////:
                     if(size==1){
-                        adressenv=adressenv+1;
+                        adressenv=TwosComplement(parseInt(adressenv,2)+1,16);
                         memory.setRam(adressenv);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2)///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                     
                 },
                 function indexeval(adresse,animated,size,depl,animations,is_anim,target){
                     let adressenv=adresse+parseInt(IR.getvalue(),2)+depl;//no need for dep
+                    adressenv=TwosComplement(adressenv,16);
                     memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
@@ -1648,15 +1738,15 @@ class AddressingModes{
             });
             animations.push({
                 value:parseInt(IR.getvalue(),2),
-                target:fitToIr.target,
-                time:fitToIr.time,
-                anim:fitToIr.anim,
+                target:fitToIdr.target,
+                time:fitToIdr.time,
+                anim:fitToIdr.anim,
             });
             animations.push({
                 value:parseInt(IR.getvalue(),2),
-                target:infitToIr.target,
-                time:infitToIr.time,
-                anim:infitToIr.anim,
+                target:infitToIdr.target,
+                time:infitToIdr.time,
+                anim:infitToIdr.anim,
             });
             animations.push({
                 value:parseInt(IR.getvalue(),2),
@@ -1724,7 +1814,12 @@ class AddressingModes{
                 time:infitToMar.time,
                 anim:infitToMar.anim,
             });
-            //////reading from MC
+            animations.push({
+                value:"READ",
+                target:MCanim.target,
+                time:MCanim.time,
+                anim:MCanim.anim,
+            });
             animations.push({
                 value:byte1,
                 target:fitToMdr.target,
@@ -1784,58 +1879,61 @@ class AddressingModes{
             }
             ///////////////////////////////////////:
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2);///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 },
                 function baseindexval(adresse,animated,size,depl,animations,is_anim,target){
-                    adresse=adresse+parseInt(IR.getvalue(),2)+depl+parseInt(BR.getvalue(),2);
-                    memory.setRam(adresse);
+                    let adressenv=adresse+parseInt(IR.getvalue(),2)+depl+parseInt(BR.getvalue(),2);
+                    adressenv=TwosComplement(adressenv,16);
+                    memory.setRam(adressenv);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2);///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 },
                 function depl8val(adresse,animated,size,depl,animations,is_anim,target){
                     adresse=adresse+depl;
+                    adresse=TwosComplement(adresse,16);
                     memory.setRam(adresse);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2)///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 },
                 function depl16val(adresse,animated,size,depl,animations,is_anim,target){
                     adresse=adresse+depl;
+                    adresse=TwosComplement(adresse,16);
                     memory.setRam(adresse);
                     memory.read(0);
                     let byte1=hex2bin(memory.getRim());
                     if(size==1){
-                        adresse=adresse+1;
+                        adresse=TwosComplement(parseInt(adresse,2)+1,16);
                         memory.setRam(adresse);
                         memory.read(0);
                         let byte2=hex2bin(memory.getRim());
-                        return byte2+byte1///à revoir
+                        return parseInt(byte2+byte1,2);///à revoir
                     }else{
-                        return byte1;
+                        return parseInt(byte1,2);
                     }
                 }
         ]
@@ -2004,7 +2102,7 @@ class AddressingModes{
                 return adresse;
             },
             function indirectAdr(adresse,animated,size,depl,animations,is_anim,target){///add
-                adresse=adresse;
+                adresse=TwosComplement(adresse,16);
                 memory.setRam(adresse);
                 memory.read(0);
                 //animation:
@@ -2206,13 +2304,235 @@ class AddressingModes{
                 return parseInt(memory.getRim(), 16);
             },
             function baseAdr(adresse,animated,size,depl,animations,is_anim,target){
-                return adresse+BR.getvalue()+depl;
+                animations.push({
+                    value:"",
+                    nom:"queueExitToBus",
+                    target:queueExitToBus.target,
+                    time:queueExitToBus.time,
+                    anim:queueExitToBus.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:queueExitToRual1.target,
+                    time:queueExitToRual1.time,
+                    anim:queueExitToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToBr.target,
+                    time:fitToBr.time,
+                    anim:fitToBr.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:infitToBr.target,
+                    time:infitToBr.time,
+                    anim:infitToBr.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:RegToRual2.target,
+                    time:RegToRual2.time,
+                    anim:RegToRual2.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual2.target,
+                    time:BusToRual2.time,
+                    anim:BusToRual2.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToRual2.target,
+                    time:fitToRual2.time,
+                    anim:fitToRual2.anim,
+                });
+                animations.push({
+                    value:"ADD",
+                    target:addanim.target,
+                    time:addanim.time,
+                    anim:addanim.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:AluToAcc.target,
+                    time:AluToAcc.time,
+                    anim:AluToAcc.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToAcc.target,
+                    time:fitToAcc.time,
+                    anim:fitToAcc.anim,
+                });
+                if(target==0){
+                    animations.push({
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:AccToADR.target,
+                        time:AccToADR.time,
+                        anim:AccToADR.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:ADRbusToDATABus.target,
+                        time:ADRbusToDATABus.time,
+                        anim:ADRbusToDATABus.anim,
+                    });
+                    animations.push({
+                        value:adresse,
+                        target:ADRToMAR.target,
+                        time:ADRToMAR.time,
+                        anim:ADRToMAR.anim,
+                    });
+                    animations.push({
+                        value:adresse,
+                        target:fitToMar.target,
+                        time:fitToMar.time,
+                        anim:fitToMar.anim,
+                    });
+                    animations.push({
+                        value:adresse,
+                        target:infitToMar.target,
+                        time:infitToMar.time,
+                        anim:infitToMar.anim,
+                    });
+                }
+                return adresse+parseInt(BR.getvalue(),2)+depl;
             },
             function indexeAdr(adresse,animated,size,depl,animations,is_anim,target){
-                return adresse+IR.getvalue()+depl;
+                animations.push({
+                    value:"",
+                    nom:"queueExitToBus",
+                    target:queueExitToBus.target,
+                    time:queueExitToBus.time,
+                    anim:queueExitToBus.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:queueExitToRual1.target,
+                    time:queueExitToRual1.time,
+                    anim:queueExitToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToIdr.target,
+                    time:fitToIdr.time,
+                    anim:fitToIdr.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:infitToIdr.target,
+                    time:infitToIdr.time,
+                    anim:infitToIdr.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:RegToRual2.target,
+                    time:RegToRual2.time,
+                    anim:RegToRual2.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:BusToRual2.target,
+                    time:BusToRual2.time,
+                    anim:BusToRual2.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToRual2.target,
+                    time:fitToRual2.time,
+                    anim:fitToRual2.anim,
+                });
+                animations.push({
+                    value:"ADD",
+                    target:addanim.target,
+                    time:addanim.time,
+                    anim:addanim.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:AluToAcc.target,
+                    time:AluToAcc.time,
+                    anim:AluToAcc.anim,
+                });
+                animations.push({
+                    value:"",
+                    target:fitToAcc.target,
+                    time:fitToAcc.time,
+                    anim:fitToAcc.anim,
+                });
+                if(target==0){
+                    animations.push({
+                        value:"",
+                        target:AccToBus.target,
+                        time:AccToBus.time,
+                        anim:AccToBus.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:AccToADR.target,
+                        time:AccToADR.time,
+                        anim:AccToADR.anim,
+                    });
+                    animations.push({
+                        value:"",
+                        target:ADRbusToDATABus.target,
+                        time:ADRbusToDATABus.time,
+                        anim:ADRbusToDATABus.anim,
+                    });
+                    animations.push({
+                        value:adresse,
+                        target:ADRToMAR.target,
+                        time:ADRToMAR.time,
+                        anim:ADRToMAR.anim,
+                    });
+                    animations.push({
+                        value:adresse,
+                        target:fitToMar.target,
+                        time:fitToMar.time,
+                        anim:fitToMar.anim,
+                    });
+                    animations.push({
+                        value:adresse,
+                        target:infitToMar.target,
+                        time:infitToMar.time,
+                        anim:infitToMar.anim,
+                    });
+                }
+                return adresse+parseInt(IR.getvalue(),2)+depl;
             },
             function baseindexeAdr(adresse,animated,size,depl,animations,is_anim,target){
-                return adresse+IR.getvalue()+BR.getvalue()+depl;
+                return adresse+parseInt(IR.getvalue(),2)+parseInt(BR.getvalue(),2)+depl;
             },
             function depl8Adr(adresse,animated,size,depl,animations,is_anim,target){
                 return adresse+depl;
@@ -2222,7 +2542,5 @@ class AddressingModes{
             }
         ]
     }
-    
-
 }
 export default AddressingModes;

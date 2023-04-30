@@ -9,14 +9,14 @@ const NavBar = () => {
     <nav className="navbar">
        <a href="/">
         <img src={logo} alt="" style={{
-            width:"9.3rem"
+            width:"4rem"
         }} /> </a>
 
         <div className="links">
             <ul>
-                <Link className='a'to="/">  <li>Home</li> </Link>
-                <Link className='a'to="/learn">  <li>Learn</li></Link>
-                <Link className='a'to="/ide">  <li>Emulate</li></Link>
+                <Link className='a'to="/"><li>Home</li> </Link>
+                <Link className='a'to="/learn"><li>Learn</li></Link>
+                <Link className='a'to="/ide"><li>Emulate</li></Link>
             </ul>
         </div> 
     </nav>);

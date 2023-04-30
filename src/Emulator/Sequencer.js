@@ -485,6 +485,14 @@ const IpToAdr={
     anim:(val,h,w)=>{
         gsap.fromTo(".queue6",{opacity:"1"},{opacity:"0",duration:1});
   },}
+  const MCanim={
+    value:"",
+    target:".MC",
+    time:2000,
+    anim:(val,h,w)=>{
+        gsap.fromTo(".MC",{opacity:"0"},{opacity:"1" ,duration:1});
+        gsap.fromTo(".MC",{opacity:"1"},{opacity:"0" ,duration:1,delay:1});
+    },}
 
 
 
@@ -658,7 +666,30 @@ class Sequenceur{
         let index=0;
         let instrObject;
         if(key=="1111"){
-            console.log("here we have stop")
+            animations.push({
+                value:"STOP",
+                target:fitToDecode.target,
+                time:fitToDecode.time,
+                anim:fitToDecode.anim,
+            })
+            animations.push({
+                value:"STOP",
+                target:infitToDecode.target,
+                time:infitToDecode.time,
+                anim:infitToDecode.anim,
+            })
+            animations.push({
+                value:"",
+                target:DecoderToSequencer.target,
+                time:DecoderToSequencer.time,
+                anim:DecoderToSequencer.anim,
+            })
+            animations.push({
+                value:"STOP",
+                target:fitToSequencer.target,
+                time:fitToSequencer.time,
+                anim:fitToSequencer.anim,
+            })
             return {
                 name:"stop",
             };
@@ -701,6 +732,266 @@ class Sequenceur{
             instrObject.value1=value;
             instrObject.taille=taille;
             //}
+            /////////////////////////////animations des registres vers RUAL1
+            if(key !== "1000" & key !== "1001" & key !== "1010" & key !== "1011"){
+            if(numreg=='000'){
+                animations.push({
+                    value:value,
+                    target:fitToR1.target,
+                    time:fitToR1.time,
+                    anim:fitToR1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToR1.target,
+                    time:infitToR1.time,
+                    anim:infitToR1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:RegToRual1.target,
+                    time:RegToRual1.time,
+                    anim:RegToRual1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }else if(numreg=='001'){
+                animations.push({
+                    value:value,
+                    target:fitToR2.target,
+                    time:fitToR2.time,
+                    anim:fitToR2.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToR2.target,
+                    time:infitToR2.time,
+                    anim:infitToR2.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:RegToRual1.target,
+                    time:RegToRual1.time,
+                    anim:RegToRual1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }
+            else if(numreg=='010'){
+                animations.push({
+                    value:value,
+                    target:fitToR3.target,
+                    time:fitToR3.time,
+                    anim:fitToR3.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToR3.target,
+                    time:infitToR3.time,
+                    anim:infitToR3.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:RegToRual1.target,
+                    time:RegToRual1.time,
+                    anim:RegToRual1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }else if(numreg=='011'){
+                animations.push({
+                    value:value,
+                    target:fitToR4.target,
+                    time:fitToR4.time,
+                    anim:fitToR4.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToR4.target,
+                    time:infitToR4.time,
+                    anim:infitToR4.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:RegToRual1.target,
+                    time:RegToRual1.time,
+                    anim:RegToRual1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }
+            else if(numreg=='100'){
+                animations.push({
+                    value:value,
+                    target:fitToAcc.target,
+                    time:fitToAcc.time,
+                    anim:fitToAcc.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToAcc.target,
+                    time:infitToAcc.time,
+                    anim:infitToAcc.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:AccToBus.target,
+                    time:AccToBus.time,
+                    anim:AccToBus.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:AccToRUAL1.target,
+                    time:AccToRUAL1.time,
+                    anim:AccToRUAL1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }else if(numreg=='101'){
+                animations.push({
+                    value:value,
+                    target:fitToBr.target,
+                    time:fitToBr.time,
+                    anim:fitToBr.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToBr.target,
+                    time:infitToBr.time,
+                    anim:infitToBr.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:RegToRual1.target,
+                    time:RegToRual1.time,
+                    anim:RegToRual1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }
+            else if(numreg=='110'){
+                animations.push({
+                    value:value,
+                    target:fitToIdr.target,
+                    time:fitToIdr.time,
+                    anim:fitToIdr.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToIdr.target,
+                    time:infitToIdr.time,
+                    anim:infitToIdr.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:RegToRual1.target,
+                    time:RegToRual1.time,
+                    anim:RegToRual1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }else if(numreg=='111'){
+                animations.push({
+                    value:value,
+                    target:fitToSr.target,
+                    time:fitToSr.time,
+                    anim:fitToSr.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:infitToSR.target,
+                    time:infitToSR.time,
+                    anim:infitToSR.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:RegToRual1.target,
+                    time:RegToRual1.time,
+                    anim:RegToRual1.anim,
+                })
+                animations.push({
+                    value:"",
+                    target:BusToRual1.target,
+                    time:BusToRual1.time,
+                    anim:BusToRual1.anim,
+                })
+                animations.push({
+                    value:value,
+                    target:fitToRual1.target,
+                    time:fitToRual1.time,
+                    anim:fitToRual1.anim,
+                })
+            }}
         }else{
             if(key>='0010' & key<='0011'){
                 key=instruction.substring(0,7);
@@ -770,11 +1061,12 @@ class Sequenceur{
                         adresse=parseInt(adresse,2);//hexa to decimal
                         let depl=0;
                         if(regMod2=='110'){
-                            depl=this.getinstrbyte(animations,false,Contextarray);
+                            this.getinstrbyte(animations,false,Contextarray);
+                            depl=this.RI.getvalue()
                             depl=parseInt(depl,2);
                         }else if(regMod2=='111'){
                             this.getinstrbyte(animations,false,Contextarray);
-                            let depl=this.RI.getvalue()
+                            depl=this.RI.getvalue()
                             this.getinstrbyte(animations,false,Contextarray);
                             depl=depl+this.RI.getvalue()
                             depl=parseInt(depl,2);//hexa to decimal
@@ -797,7 +1089,7 @@ class Sequenceur{
                         let adresse=this.RI.getvalue()
                         this.getinstrbyte(animations,false,Contextarray);
                         adresse=adresse+this.RI.getvalue()
-                        adresse=parseInt(adresse,2);//hexa to decimal
+                        adresse=parseInt(adresse,2);
                         let value2=0;
                         if(taille=='1'){
                             value2 = parseInt(Registers[parseInt(regMod2, 2)].getvalue(),2);
@@ -844,17 +1136,17 @@ class Sequenceur{
                     }else if(key=='000110011'){
                         this.getinstrbyte(animations,false,Contextarray);
                         let adresseop1=this.RI.getvalue()
-                            this.getinstrbyte(animations,false,Contextarray);
-                            adresseop1=adresseop1+this.RI.getvalue()
-                        adresseop1=parseInt(adresseop1,2);//hexa to decimal
                         this.getinstrbyte(animations,false,Contextarray);
-                        let adresseop2=this.RI.getvalue()
+                        adresseop1=adresseop1+this.RI.getvalue()
+                        adresseop1=parseInt(adresseop1,2);
+                        this.getinstrbyte(animations,false,Contextarray);
+                        let adresseop2=this.RI.getvalue();
                         let valimm=parseInt(adresseop2,2);
-                        if(regMod2!="000"){
+                        if(regMod2!="000" | taille!='0'){
                         this.getinstrbyte(animations,false,Contextarray);
                         adresseop2=adresseop2+this.RI.getvalue()
                         }
-                        adresseop2=parseInt(adresseop2,2);//hexa to decimal
+                        adresseop2=parseInt(adresseop2,2);
                         let depl1=0;
                         if(regMod1=='110'){
                             this.getinstrbyte(animations,false,Contextarray);
@@ -884,7 +1176,11 @@ class Sequenceur{
                         if(parseInt(regMod2,2)=="000"){
                             instrObject.isimmed=true;
                             addresse1 = addressingModes.modesAdr[parseInt(regMod1,2)](adresseop1,0,taille,depl1,animations,1,0);
-                            value2 = addressingModes.modesVal[parseInt(regMod2,2)](valimm,0,taille,depl2,animations,1,0);
+                            if(taille=='0'){
+                                value2 = addressingModes.modesVal[parseInt(regMod2,2)](valimm,0,taille,depl2,animations,1,0);
+                            }else if(taille=='1'){
+                                value2 = addressingModes.modesVal[parseInt(regMod2,2)](adresseop2,0,taille,depl2,animations,1,0);
+                            }
                         }else{
                             instrObject.isimmed=false;
                             addresse1 = addressingModes.modesAdr[parseInt(regMod1,2)](adresseop1,0,taille,depl1,animations,1,1);
@@ -2082,14 +2378,18 @@ class Sequenceur{
                         ///animation from the register to RUAL1
                     }else if(Ind=='11'){
                         this.getinstrbyte(animations,false,Contextarray);
-                        let adresse1=this.RI.getvalue()
-                        this.getinstrbyte(animations,false,Contextarray);
-                        adresse1=adresse1+this.RI.getvalue()
+                        let adresse1=this.RI.getvalue();
+                        let immval1=parseInt(adresse1,2);
+                        if(regMod1!="000" | taille!='0' ){
+                            this.getinstrbyte(animations,false,Contextarray);
+                            adresse1=adresse1+this.RI.getvalue()}
                         adresse1=parseInt(adresse1,2);//hexa to decimal
                         this.getinstrbyte(animations,false,Contextarray);
-                        let adresse2=this.RI.getvalue()
-                        this.getinstrbyte(animations,false,Contextarray);
-                        adresse2=adresse2+this.RI.getvalue()
+                        let adresse2=this.RI.getvalue();
+                        let immval2=parseInt(adresse2,2);
+                        if(regMod2!="000" | taille!='0'){
+                            this.getinstrbyte(animations,false,Contextarray);
+                            adresse2=adresse2+this.RI.getvalue()}
                         adresse2=parseInt(adresse2,2);//hexa to decimal
                         let depl1=0;
                         if(regMod1=='110'){
@@ -2115,8 +2415,23 @@ class Sequenceur{
                             depl2=depl2+this.RI.getvalue()
                             depl2=parseInt(depl2,2);//hexa to decimal
                         }
-                        let value1 = parseInt(addressingModes.modesVal[parseInt(regMod1,2)](adresse1,0,taille,depl1,animations,1,1),2);
-                        let value2 = parseInt(addressingModes.modesVal[parseInt(regMod2,2)](adresse2,0,taille,depl2,animations,1,2),2);
+                        let value1=0;
+                        let value2=0;
+                        if(regMod1=="000" & taille=='0'){
+                            value1 = addressingModes.modesVal[parseInt(regMod1,2)](immval1,0,taille,depl1,animations,1,1);
+                        }else if(regMod1=="000" & taille=='1'){
+                            value1 = addressingModes.modesVal[parseInt(regMod1,2)](adresse1,0,taille,depl1,animations,1,1);
+                        }else{
+                            value1 =addressingModes.modesVal[parseInt(regMod1,2)](adresse1,0,taille,depl1,animations,1,1);
+                        }
+
+                        if(regMod2=="000" & taille=='0'){
+                            value2 = addressingModes.modesVal[parseInt(regMod2,2)](immval2,0,taille,depl2,animations,1,2);    
+                        }else if(regMod2=="000" & taille=='1'){
+                            value2 = addressingModes.modesVal[parseInt(regMod2,2)](adresse2,0,taille,depl2,animations,1,2);    
+                        }else{
+                            value2 = addressingModes.modesVal[parseInt(regMod2,2)](adresse2,0,taille,depl2,animations,1,2);
+                        }
                         instrObject.value1=value1;
                         instrObject.value2=value2;
                     }

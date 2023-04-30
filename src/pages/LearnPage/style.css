@@ -77,9 +77,9 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
-  border: 2px solid ghostwhite;
+  border: 2px solid #1BE985;
   padding: 5em;
-  border-radius: 40px;
+  border-radius: 2.5rem;
   background-color: #24292e;
   box-shadow: 0 0 0 0.5px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
   0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
@@ -109,6 +109,7 @@ body {
   transition: transform 0.3s ease-in-out;
   border: 1px solid black;
 }
+
 .AdressModeCard:hover {
   /*background-color: var(--main-accent-color);*/
   /*color: var(--main-background-color);*/
@@ -192,7 +193,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
-  border: 2px solid ghostwhite;
+  border: 2px solid #1BE985;
   padding: 5em;
   border-radius: 40px;
   background-color: #24292e;
@@ -213,7 +214,7 @@ body {
   height: 3.5rem;
   text-align: center;
   line-height: 3.5rem;
-  border: 2px solid ghostwhite;
+  border: 2px solid #1BE985;
 }
 .globalContainer {
   display: flex;
@@ -241,15 +242,15 @@ body {
   0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
   0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
   padding: 1em;
-  transition: transform 0.3s ease-in-out;
+  /*transition: transform 0.3s ease-in-out;*/
   border: 1px solid black;
 }
 .LearnCard:hover {
   /*background-color: var(--main-accent-color);*/
   /*color: var(--main-background-color);*/
   border: 1px solid black;
-  transform: translatey(-0.5rem);
-  transition: 0.3s;
+  /*transform: translatey(-0.5rem);*/
+  /*transition: 0.3s;*/
   box-shadow: 0 25px 30px -20px var(--main-accent-color);
 }
 .LearnPicture {
@@ -289,11 +290,6 @@ body {
   /*0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);*/
 }
 
-.LearnContent{
-  text-align: left;
-  font-weight: 500;
-  font-size: 1.35rem;
-}
 
 .LearnTitle {
   position: absolute;
@@ -312,25 +308,6 @@ body {
   /*-webkit-text-stroke: 1px white;*/
 }
 
-.LearnButton{
-  width: 12rem;
-  height: 3rem;
-  border-radius: 1.68rem;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 2rem;
-  text-align: center;
-  font-family: "Mona sans", sans-serif;
-  color: #000000;
-  transition: transform 0.3s ease-in-out;
-  background: var(--main-accent-color);
-}
-.LearnButton:hover{
-  border: 2px solid black;
-  transform: translatey(-0.5rem);
-  transition: 0.3s;
-  box-shadow: 0 25px 30px -20px var(--main-accent-color);
-}
 
 .globalContainerLearn {
   width: 90%;
@@ -354,4 +331,5 @@ body {
   width: 70%;
   text-align: left;
   margin-top: 0;
+  font-weight: 700;
 }

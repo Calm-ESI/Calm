@@ -129,7 +129,7 @@ export class SyntaxicAnalysis {
                             break;
                             
                             case 'REGISTER' :
-                                    this.Syntaxiclist.push(new Errorcalm("INSTruction cannot have register as operand",null,i))
+                                    this.Syntaxiclist.push(new Errorcalm("Instruction cannot have register as operand",null,i))
                                break;
                             
                             case 'TEXT' :
@@ -148,10 +148,10 @@ export class SyntaxicAnalysis {
                                     
                                         case 5:
                                             // indirect
-                                            if (lexicalList[i][2].value == '*' && lexicalList[i][3].value == '+' && lexicalList[i][4].type == 'NUMBER') {
+                                            if (lexicalList[i][2].value == '*' && lexicalList[i][3].value == '+' && lexicalList[i][4].type == 'NUMBER' && (0 < lexicalList[i][4].value) && ( Assembler.MAXNUM > lexicalList[i][4].value) ) {
                                                 this.Syntaxiclist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value, adrmode:3 },{type:FuncInterface.Label_To_Num(firstparam.value,i).type, value:FuncInterface.Label_To_Num(firstparam.value,i).value},{type:lexicalList[i][4].type, value:lexicalList[i][4].value}]);
                                             }else{
-                                                this.Syntaxiclist.push(new Errorcalm("Wrong expression",null,i))
+                                                this.Syntaxiclist.push(new Errorcalm("Wrong expression or wrong size of number",null,i))
                                             }
                                         
                                         break;
@@ -162,8 +162,6 @@ export class SyntaxicAnalysis {
                                     }
 
                                     
-                                    
-
                                 
                             }
                         
@@ -196,7 +194,7 @@ export class SyntaxicAnalysis {
                             //console.log("list1",list1[0].type)
                             list2 = FuncInterface.addrmod(lexicalList[i].slice(1),i).list2 ;
          
-                            if(lexicalList[i][1].type=='NUMBER' && lexicalList[i][0].value == 'MOV' && lexicalList[i][1].adrmode==0 ) {
+                            if( FuncInterface.defadrmod(list1,i).type=='NUMBER' && lexicalList[i][0].value == 'MOV' && FuncInterface.defadrmod(list1,i).adrmode==0 ) {
                                 //console.log("here------------------------")
                                         this.Syntaxiclist.push(new Errorcalm("Number can't be first operand",null,i))
                                         Errorcalm.SyntaxicError.push(new Errorcalm("Number can't be first operand",null,i))
@@ -266,7 +264,7 @@ export class SyntaxicAnalysis {
 
     
 
-    // Label instformat LABEL num check this num if it is valid
+    // Label instformat LABEL num check this num if it is valid.;
 
 }
 
