@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
     "react-typewriter-effect": "^1.1.0",
     "requirejs": "^2.3.6",
     "ua-parser-js": "^1.0.35",

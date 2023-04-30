@@ -1,0 +1,307 @@
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("src/assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("src/assets/font/Mona-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("src/assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("src/assets/font/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+body{
+  overflow-x: hidden;
+  
+ 
+}
+
+.level2{
+background-color: #1B1F24;
+
+
+}
+body{
+  background-color: #1b1f24;
+}
+.container{
+  margin: 5px;
+}
+
+
+
+.question1{
+  font-size: xx-large;   
+  color: white;
+  font-family:'JetBrains Mono';
+  padding-left: 28%;
+
+  
+}
+.ABC1{
+  /* position: relative; */
+  /* margin-top: 50% ; */
+  background-color: #1B1F24;
+  
+  width: 700px;
+  height: 180px;
+  margin: 5% auto 0 auto;
+  border-radius: 20px;
+ margin-top: 30px;
+}
+.ABC2{
+  /* position: relative; */
+  /* margin-top: 50% ; */
+  background-color: #4E4E4E;
+  
+  width: 700px;
+  height: 470px;
+  margin: 5% auto 0 auto;
+  border-radius: 20px;
+ margin-top: 30px;
+}
+.Q1{
+  font-size: 50px;   
+  color: white;
+  font-family:'JetBrains Mono';
+  width: 90%;
+  margin-left: 25%;
+
+}
+.R1{
+ font-size: 30px;
+ font-weight: 300;
+  color: white;
+  font-family:'JetBrains Mono';
+  width: 70%;
+margin-left: 30%;
+
+}
+.R10{
+  font-size: 30px;
+  font-weight: 300;
+   color: white;
+   font-family:'JetBrains Mono';
+   width: 80%;
+ margin-left: 20%;
+ 
+ }
+.ABC{
+  color: black;
+  width: 350px;
+  font-family:'JetBrains Mono'; 
+  /* position: relative;
+  left: 25%; */
+  margin:4.5% auto 0 auto;
+
+  
+ 
+
+
+}
+
+/*.SUBMIT{
+  width: 150px;
+  height: 60px;
+  background-color: #1BE985;
+  font-family:'JetBrains Mono'; 
+  color: black;
+  border-radius: 35px;
+margin: auto;
+text-align: center;
+
+}
+.font-submit{
+  font-weight: 800;
+  margin-top: 20%;
+}
+.SUBMIT:hover{
+  background-color: aliceblue;
+}*/
+.submit-btn {
+  position: absolute;
+  margin: auto;
+  left: 45%;
+  font-weight: bold;
+  background-color: #1BE985;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  text-align: center;
+  
+  
+  font-size: 16px;
+ margin: auto;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+.submit-btn:hover {
+  background-color: #15bb6b;
+}
+.textInputWrapper {
+  position: relative;
+  font-family:'JetBrains Mono';
+
+  width: 250px;
+  margin: 12px 5px;
+  --accent-color: #a3e583;
+  margin:4.5% auto 0 auto;
+  
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 109.5%;
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.textInputWrapper .textInput {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+  max-height: 36px;
+  background-color: #252525;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  color: #e8e8e8;
+  font-size: 25px;
+
+  font-weight: 500;
+  padding: 12px;
+  width: 100%;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  outline: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  background-color: #353535;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+  opacity: 0;
+}
+
+.inputbox {
+  position: relative;
+  width: 12.25rem;
+}
+
+.inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputbox span {
+  position: absolute;
+  left: 0;
+  padding: 20px 10px 10px;
+  font-size: 1em;
+  color: #8f8f8f;
+  letter-spacing: 00.05em;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.inputbox input:valid ~span,
+.inputbox input:focus ~span {
+  color: #45f3ff;
+  transform: translateX(-10px) translateY(-34px);
+  font-size: 0.75em;
+}
+
+.inputbox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #45f3ff;
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.inputbox input:valid ~i,
+.inputbox input:focus ~i {
+  height: 44px;
+}

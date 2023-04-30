@@ -1,0 +1,139 @@
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+body{
+  overflow-x: hidden;
+  
+ 
+}
+
+.level1{
+background-color: #1B1F24;
+
+
+}
+body{
+  background-color: #1b1f24;
+}
+.container{
+  margin: 5px;
+}
+
+
+
+.question1{
+  font-size: xx-large;   
+  color: white;
+  font-family:'JetBrains Mono';
+  padding-left: 28%;
+
+  
+}
+.ABC1{
+  /* position: relative; */
+  /* margin-top: 50% ; */
+  background-color: #4E4E4E;
+  
+  width: 700px;
+  height: 300px;
+  margin: 5% auto 0 auto;
+  border-radius: 20px;
+ margin-top: 30px;
+}
+.ABC2{
+  /* position: relative; */
+  /* margin-top: 50% ; */
+  background-color: #4E4E4E;
+  
+  width: 700px;
+  height: 470px;
+  margin: 5% auto 0 auto;
+  border-radius: 20px;
+ margin-top: 30px;
+}
+.Q1{
+  font-size: xx-large;   
+  color: white;
+  font-family:'JetBrains Mono';
+  width: 90%;
+  margin-left: 10%;
+
+}
+.R1{
+ font-size: 30px;
+ font-weight: 300;
+  color: white;
+  font-family:'JetBrains Mono';
+  width: 70%;
+margin-left: 30%;
+
+}
+.R10{
+  font-size: 30px;
+  font-weight: 300;
+   color: white;
+   font-family:'JetBrains Mono';
+   width: 80%;
+ margin-left: 20%;
+ 
+ }
+.ABC{
+  color: black;
+  width: 350px;
+  font-family:'JetBrains Mono'; 
+  margin:3% auto 0 auto;
+
+  
+ 
+
+
+}
+/*.SUBMIT{
+  width: 150px;
+  height: 60px;
+  background-color: #1BE985;
+  font-family:'JetBrains Mono'; 
+  color: black;
+  border-radius: 35px;
+margin: auto;
+text-align: center;
+
+}
+.font-submit{
+  font-weight: 800;
+  margin-top: 20%;
+}
+.SUBMIT:hover{
+  background-color: aliceblue;
+}*/
+.submit-btn {
+  position: absolute;
+  margin: auto;
+  left: 45%;
+  font-weight: bold;
+  background-color: #1BE985;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  text-align: center;
+  
+  
+  font-size: 16px;
+ margin: auto;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+.submit-btn:hover {
+  background-color: #15bb6b;
+}

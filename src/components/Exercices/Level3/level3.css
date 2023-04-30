@@ -1,0 +1,129 @@
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("src/assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("src/assets/font/Mona-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("src/assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("src/assets/font/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+body{
+  overflow-x: hidden;
+  
+ 
+}
+
+.level3{
+background-color: #1B1F24;
+
+
+}
+body{
+  background-color: #1b1f24;
+}
+.container{
+  margin:0.38rem ;
+}
+
+
+
+.question1{
+  font-size: xx-large;   
+  color: white;
+  font-family:'JetBrains Mono';
+  padding-left: 28%;
+
+  
+}
+.ABC1{
+  /* position: relative; */
+  /* margin-top: 50% ; */
+  background-color: #4E4E4E;
+  
+  width: 43.75rem;
+  height: 18.75rem;
+  margin: 5% auto 0 auto;
+  border-radius: 1.25rem;
+ margin-top: 1.875rem;
+}
+.ABC2{
+  /* position: relative; */
+  /* margin-top: 50% ; */
+  background-color: #4E4E4E;
+  
+  width: 43.75rem;
+  height: 29.375rem;
+  margin: 5% auto 0 auto;
+  border-radius: 20px;
+ margin-top: 1.875px;
+}
+.Q1{
+  font-size: 3.125rem;   
+  color: white;
+  font-family:'JetBrains Mono';
+  width: 90%;
+  margin-left: 25%;
+
+}
+.R1{
+ font-size: 1.875rem;
+ font-weight: 300;
+  color: white;
+  font-family:'JetBrains Mono';
+  width: 70%;
+margin-left: 30%;
+
+}
+
+.ABC{
+  color: black;
+  width: 21.875rem;
+  font-family:'JetBrains Mono'; 
+  
+  margin:4.5% auto 0 auto;
+
+  
+ 
+
+
+}
+
+
+.submit-btn {
+  position: absolute;
+  margin: auto;
+  left: 45%;
+  font-weight: bold;
+  background-color: #1BE985;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  
+  
+  font-size: 1rem;
+ margin: auto;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+.submit-btn:hover {
+  background-color: #15bb6b;
+}

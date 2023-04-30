@@ -19,7 +19,8 @@ const NavBar = () => {
                 <Link className='a'to="/ide"><li>Emulate</li></Link>
             </ul>
         </div> 
-    </nav>);
+    </nav>
+    );
     }
 
 export default NavBar;
