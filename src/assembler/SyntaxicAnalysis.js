@@ -264,7 +264,7 @@ export class SyntaxicAnalysis {
 
     
 
-    // Label instformat LABEL num check this num if it is valid.
+    // Label instformat LABEL num check this num if it is valid.;
 
 }
 
