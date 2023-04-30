@@ -7,8 +7,8 @@ const AdressingModes = () => {
   const [addressingModesInfos, setAddressingModesInfos] = useState([]);
   
   useEffect(()=>{
-    // const URL = process.env.REACT_APP_API_URL+"/documentation/addressing-modes/all";
-    const URL = "https://calm-backend.onrender.com/documentation/addressing-modes/all";
+    const URL = process.env.REACT_APP_API_URL+"/documentation/addressing-modes/all";
+    // const URL = "https://calm-backend.onrender.com/documentation/addressing-modes/all";
     
     
     axios.get(URL)
