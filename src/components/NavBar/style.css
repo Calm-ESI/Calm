@@ -1,6 +1,7 @@
 .navbar{
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 25%;
   background-color: #1BE985;
   padding: 0 3.1rem;
@@ -31,7 +32,7 @@
   list-style: none;
   position: relative;
   display: block;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 900;
   color: #24292E;
   font-family: 'Mona Sans', system-ui;
@@ -55,7 +56,7 @@
 .a li{
   display: inline-block;
   font-weight: 900;
-  font-size: 30px;
+  font-size: 1.875rem;
   transition: 1s;
 }
 .a li:hover{

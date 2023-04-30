@@ -1,0 +1,22 @@
+.LearnButton{
+    width: 12rem;
+    height: 3rem;
+    border-radius: 1.875rem;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    font-family: "Mona sans", sans-serif;
+    color: #000000;
+    background: var(--main-accent-color);
+}
+.LearnButton:hover{
+    border: 2px solid black;
+    /*transform: translatey(-0.5rem);*/
+    box-shadow: 0 25px 30px -20px var(--main-accent-color);
+}
+.LearnContent{
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.35rem;
+}

@@ -290,11 +290,6 @@ body {
   /*0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);*/
 }
 
-.LearnContent{
-  text-align: left;
-  font-weight: 500;
-  font-size: 1.35rem;
-}
 
 .LearnTitle {
   position: absolute;
@@ -313,25 +308,6 @@ body {
   /*-webkit-text-stroke: 1px white;*/
 }
 
-.LearnButton{
-  width: 12rem;
-  height: 3rem;
-  border-radius: 1.68rem;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 2rem;
-  text-align: center;
-  font-family: "Mona sans", sans-serif;
-  color: #000000;
-  transition: transform 0.3s ease-in-out;
-  background: var(--main-accent-color);
-}
-.LearnButton:hover{
-  border: 2px solid black;
-  transform: translatey(-0.5rem);
-  transition: 0.3s;
-  box-shadow: 0 25px 30px -20px var(--main-accent-color);
-}
 
 .globalContainerLearn {
   width: 90%;
@@ -355,4 +331,5 @@ body {
   width: 70%;
   text-align: left;
   margin-top: 0;
+  font-weight: 700;
 }

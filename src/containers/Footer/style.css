@@ -1,0 +1,126 @@
+.thanks-collaboration-section {
+    width: 100%;
+    margin-top: 8rem;
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #1B1F24;
+}
+
+.ceour-vert {
+    width: 1.375rem;
+    height: 1.375rem;
+
+}
+
+.part7-2 {
+    font-size: medium;
+    font-family: "JetBrains Mono";
+    color: #707378;
+}
+
+.part7-3 {
+
+    font-size: medium;
+    font-family: "JetBrains Mono";
+    color: #707378;
+}
+
+.email-us-button {
+    width: 12em;
+    height: 3.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1BE985;
+    border-radius: 2.5rem;
+    border: none;
+    font-weight: 400;
+    font-family: 'JetBrains Mono', system-ui;
+    color: #000000;
+}
+
+.email-us-button:hover {
+    border: 1px solid black;
+    transform: translatey(-0.5rem);
+    transition: 0.3s;
+    box-shadow: 0 25px 30px -20px var(--main-accent-color);
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+
+.email-us-text {
+    margin: 0;
+    font-size: medium;
+    color: white;
+    font-family: 'Mona Sans', system-ui;
+}
+
+.part7-7 {
+    font-family: 'JetBrains Mono';
+    color: #707378;
+    font-size: medium;
+}
+
+#email-us-container {
+    margin-left: 8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#social-media-container {
+    margin-right: 8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#social-media-icons-wrapper {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social-media-text {
+    font-family: 'JetBrains Mono', system-ui;
+    color: #707378;
+    font-size: medium;
+}
+
+.git-icon {
+    width: 1.56rem;
+    height: 1.56rem;
+    transition: 0.3s;
+}
+.git-icon:hover {
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
+}
+
+.discord-icon {
+    width: 1.56rem;
+    height: 1.56rem;
+    transition: 0.3s;
+}
+.discord-icon:hover {
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
+}
+
+.linkedin-icon {
+    width: 1.56rem;
+    height: 1.56rem;
+    transition: 0.3s;
+}
+.linkedin-icon:hover {
+    filter: invert(10%) sepia(22%) saturate(2127%) hue-rotate(90deg) brightness(200%) contrast(100%);
+}
+
+.mail-icon {
+    width: 1.37rem;
+    height: 1.37rem;
+}

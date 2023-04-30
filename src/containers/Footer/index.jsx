@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 //import icons
 import discordIcon from '../../assets/images/icons/discord-icon.png' ;
@@ -14,7 +15,9 @@ function Footer() {
         <h2 className="part7-2">
           Thanks for everyone who contributed to this project <img className="ceour-vert" src={heart} alt="court-vert"/>
         </h2>
-        <h2 className="part7-3">You can always contribute from <a href="https://github.com/Calm-ESI" target="_blank" rel="noopener noreferrer"> here</a></h2>
+        <h2 className="part7-3">You can always contribute from
+          <a href="https://github.com/Calm-ESI" target="_blank" rel="noopener noreferrer" className=""> here</a>
+        </h2>
 
       </section>
 
