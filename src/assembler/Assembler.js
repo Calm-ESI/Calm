@@ -279,8 +279,17 @@ while (hexString.length < size) {
 
  ,defadrmod : (listofparam,i) => {
     var sizeofpar;
+
+        if ( listofparam[0].value >  Assembler.MAXNUM ){
+            //errooor
+            
+            Errorcalm.SyntaxicError.push(new Errorcalm("Wrong range of number",null,i));
+            return {type:'ERROR',value:'Wrong range of number'}
+
+        }else{
+
     if (listofparam[0].value > 255 || Assembler.reg1.includes(listofparam[0].value) )
-        {
+        { 
             sizeofpar='1'
         }else{
             sizeofpar='0'
@@ -290,8 +299,17 @@ while (hexString.length < size) {
         case 1:
             //immediat
             //set the size used---------------------------------------------------------------------------!!!!!!!
+            
+            if ( listofparam[0].value >  32.767 || listofparam[0].value <  -32.767 ){
+                //errooor
+                
+                Errorcalm.SyntaxicError.push(new Errorcalm("Wrong range of number",null,i));
+                return {type:'ERROR',value:'Wrong range of number'}
+    
+            }else{
+            
             return {type:listofparam[0].type,value:listofparam[0].value,adrmode:0,size:sizeofpar} 
-
+            }
             break;
         
         case 2:
@@ -395,10 +413,10 @@ while (hexString.length < size) {
             return {type:'ERROR',value:'Wrong number or type of parameters'}
     }
 
-
-
     }
+
 }
+    }
 
 
 export class Assembler{

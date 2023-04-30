@@ -129,7 +129,7 @@ export class SyntaxicAnalysis {
                             break;
                             
                             case 'REGISTER' :
-                                    this.Syntaxiclist.push(new Errorcalm("INSTruction cannot have register as operand",null,i))
+                                    this.Syntaxiclist.push(new Errorcalm("Instruction cannot have register as operand",null,i))
                                break;
                             
                             case 'TEXT' :
@@ -148,10 +148,10 @@ export class SyntaxicAnalysis {
                                     
                                         case 5:
                                             // indirect
-                                            if (lexicalList[i][2].value == '*' && lexicalList[i][3].value == '+' && lexicalList[i][4].type == 'NUMBER') {
+                                            if (lexicalList[i][2].value == '*' && lexicalList[i][3].value == '+' && lexicalList[i][4].type == 'NUMBER' && (0 < lexicalList[i][4].value) && ( Assembler.MAXNUM > lexicalList[i][4].value) ) {
                                                 this.Syntaxiclist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value, adrmode:3 },{type:FuncInterface.Label_To_Num(firstparam.value,i).type, value:FuncInterface.Label_To_Num(firstparam.value,i).value},{type:lexicalList[i][4].type, value:lexicalList[i][4].value}]);
                                             }else{
-                                                this.Syntaxiclist.push(new Errorcalm("Wrong expression",null,i))
+                                                this.Syntaxiclist.push(new Errorcalm("Wrong expression or wrong size of number",null,i))
                                             }
                                         
                                         break;
