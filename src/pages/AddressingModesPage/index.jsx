@@ -3,7 +3,6 @@ import { NavBar, AddressingModeCard } from "../../components";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import {NavBar, AddressingModeCard} from "../../components";
 
 //import images
 import basedOnPic from "../../assets/images/calm/addressing-modes/based.png";
@@ -77,7 +76,7 @@ const AdressingModes = () => {
     }
   ]
   */
-
+/*
   return (
     <>
       <NavBar/>
