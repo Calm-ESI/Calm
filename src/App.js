@@ -44,7 +44,6 @@ function App() {
           <Route path='*' element={<NotFound />}/>
           <Route exact path="/learn/Exercices" element={<ExercicesPage/>}/>
           <Route exact path="/learn/Exercices/Level1" element={<Level1/>}/>
-
         </Routes>
         
       </div>
