@@ -1,5 +1,5 @@
 import React from 'react';
-// import './style.css';
+import './docStyle.css';
 import {motion} from "framer-motion";
 
 const HelpDoc = () => {
@@ -85,7 +85,7 @@ avoid.
                         className="c3 c1">multiplying the value by -1&rdquo;</span></li>
                     <li className="c9 li-bullet-0"><span className="c1 c4">NOT </span><span
                         className="c1 c14">:</span><span
-                        className="c3 c1">is used to perform a bitwise logical NOT operation on the operand ,itinverts all the bits of the operand, so that each 0 becomes a 1 and each 1 becomes a 0.</span>
+                        className="c3 c1">is used to perform a bitwise logical NOT operation on the operand ,it inverts all the bits of the operand, so that each 0 becomes a 1 and each 1 becomes a 0.</span>
                     </li>
                     <li className="c9 li-bullet-0"><span className="c1 c4">SHL:</span><span className="c3 c1">This instruction is used to shift the bits of a register or a memory location to the left by a specified number of bits, with the bits shifted out on the left side discarded and 0&#39;s added on the right side.</span>
                     </li>

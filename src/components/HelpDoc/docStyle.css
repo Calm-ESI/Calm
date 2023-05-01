@@ -1,5 +1,3 @@
-@import url('https://themes.googleusercontent.com/fonts/css?kit=OPeqXG-QxW3ZD8BtmPikfA');
-
 .lst-kix_ahbjqie9egez-8 > li:before {
     content: "-  "
 }
@@ -693,94 +691,94 @@ table td, table th {
     text-align: left
 }
 
-li {
-    color: #fff;
-    font-size: 11pt;
-    font-family: "Mona sans"
-}
+/*li {*/
+/*    color: #fff;*/
+/*    font-size: 11pt;*/
+/*    font-family: "Mona sans"*/
+/*}*/
 
-p {
-    margin: 0;
-    color: #fff;
-    font-size: 11pt;
-    font-family: "Mona sans"
-}
+/*p {*/
+/*    margin: 0;*/
+/*    color: #fff;*/
+/*    font-size: 11pt;*/
+/*    font-family: "Mona sans"*/
+/*}*/
 
-h1 {
-    padding-top: 20pt;
-    color: #fff;
-    font-size: 20pt;
-    padding-bottom: 6pt;
-    font-family: "Mona sans";
-    line-height: 1.15;
-    page-break-after: avoid;
-    orphans: 2;
-    widows: 2;
-    text-align: left
-}
+/*h1 {*/
+/*    padding-top: 20pt;*/
+/*    color: #fff;*/
+/*    font-size: 20pt;*/
+/*    padding-bottom: 6pt;*/
+/*    font-family: "Mona sans";*/
+/*    line-height: 1.15;*/
+/*    page-break-after: avoid;*/
+/*    orphans: 2;*/
+/*    widows: 2;*/
+/*    text-align: left*/
+/*}*/
 
-h2 {
-    padding-top: 18pt;
-    color: #fff;
-    font-size: 16pt;
-    padding-bottom: 6pt;
-    font-family: "Mona sans";
-    line-height: 1.15;
-    page-break-after: avoid;
-    orphans: 2;
-    widows: 2;
-    text-align: left
-}
+/*h2 {*/
+/*    padding-top: 18pt;*/
+/*    color: #fff;*/
+/*    font-size: 16pt;*/
+/*    padding-bottom: 6pt;*/
+/*    font-family: "Mona sans";*/
+/*    line-height: 1.15;*/
+/*    page-break-after: avoid;*/
+/*    orphans: 2;*/
+/*    widows: 2;*/
+/*    text-align: left*/
+/*}*/
 
-h3 {
-    padding-top: 16pt;
-    color: #fff;
-    font-size: 14pt;
-    padding-bottom: 4pt;
-    font-family: "Mona sans";
-    line-height: 1.15;
-    page-break-after: avoid;
-    orphans: 2;
-    widows: 2;
-    text-align: left
-}
+/*h3 {*/
+/*    padding-top: 16pt;*/
+/*    color: #fff;*/
+/*    font-size: 14pt;*/
+/*    padding-bottom: 4pt;*/
+/*    font-family: "Mona sans";*/
+/*    line-height: 1.15;*/
+/*    page-break-after: avoid;*/
+/*    orphans: 2;*/
+/*    widows: 2;*/
+/*    text-align: left*/
+/*}*/
 
-h4 {
-    padding-top: 14pt;
-    color: #fff;
-    font-size: 12pt;
-    padding-bottom: 4pt;
-    font-family: "Mona sans";
-    line-height: 1.15;
-    page-break-after: avoid;
-    orphans: 2;
-    widows: 2;
-    text-align: left
-}
+/*h4 {*/
+/*    padding-top: 14pt;*/
+/*    color: #fff;*/
+/*    font-size: 12pt;*/
+/*    padding-bottom: 4pt;*/
+/*    font-family: "Mona sans";*/
+/*    line-height: 1.15;*/
+/*    page-break-after: avoid;*/
+/*    orphans: 2;*/
+/*    widows: 2;*/
+/*    text-align: left*/
+/*}*/
 
-h5 {
-    padding-top: 12pt;
-    color: #fff;
-    font-size: 11pt;
-    padding-bottom: 4pt;
-    font-family: "Mona sans";
-    line-height: 1.15;
-    page-break-after: avoid;
-    orphans: 2;
-    widows: 2;
-    text-align: left
-}
+/*h5 {*/
+/*    padding-top: 12pt;*/
+/*    color: #fff;*/
+/*    font-size: 11pt;*/
+/*    padding-bottom: 4pt;*/
+/*    font-family: "Mona sans";*/
+/*    line-height: 1.15;*/
+/*    page-break-after: avoid;*/
+/*    orphans: 2;*/
+/*    widows: 2;*/
+/*    text-align: left*/
+/*}*/
 
-h6 {
-    padding-top: 12pt;
-    color: #fff;
-    font-size: 11pt;
-    padding-bottom: 4pt;
-    font-family: "Mona sans";
-    line-height: 1.15;
-    page-break-after: avoid;
-    font-style: italic;
-    orphans: 2;
-    widows: 2;
-    text-align: left
-}
+/*h6 {*/
+/*    padding-top: 12pt;*/
+/*    color: #fff;*/
+/*    font-size: 11pt;*/
+/*    padding-bottom: 4pt;*/
+/*    font-family: "Mona sans";*/
+/*    line-height: 1.15;*/
+/*    page-break-after: avoid;*/
+/*    font-style: italic;*/
+/*    orphans: 2;*/
+/*    widows: 2;*/
+/*    text-align: left*/
+/*}*/
