@@ -534,13 +534,15 @@ class Queue {
           //   anim:fitqueue1.anim,
           // });
         }}else{
-          
-          if(parseInt(marval,2)%2===0 & buildCTX===1 & isNaN(marval)==false &  isNaN(mdrval)==false){
+          // console.log("befor condition:::::::::"+marval+" "+mdrval+" "+parseInt(marval,2)%2+" "+buildCTX+" "+isNaN(marval)+" "+isNaN(mdrval))
+          if(parseInt(marval,2)%2===0 & buildCTX===1 & !marval.toString().includes("NaN") & !marval.toString().includes("undefined") & !mdrval.toString().includes("NaN") & !mdrval.toString().includes("undefined") ){
             marval=parseInt(marval,2).toString(16);
+            // console.log("after condition:::::::::"+marval+mdrval)
             Contextarray.push(marval);
             Contextarray.push(mdrval);
           }
-        }
+          // isNaN(marval)==false &  (isNaN(mdrval)==false | mdrval.toString().includes("a") | mdrval.toString().includes("b") | mdrval.toString().includes("c") | mdrval.toString().includes("d") | mdrval.toString().includes("e") | mdrval.toString().includes("f"))
+      }
     }
     push(value) {
     this.instructionBytes.push(value);

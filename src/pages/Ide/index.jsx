@@ -23,7 +23,7 @@ import "../../codemirror/theme/material.css";
 import "../../codemirror/mode/myLang/assembly.js"
 /////import assembler//////////
 import { Assembler } from "../../assembler/Assembler";
-
+import {HexaToCode} from "../../HexaToCode/HexaToCode"
 ////////////////animations declarations////////////////////////////////
 let animations=[];
 ////////////////context declarations///////////////////////////////////
@@ -236,6 +236,18 @@ while(instrobject.name!=="stop"){
     // let input = ["MOV 10*,10","MOV R2,2","ADD R1,R2"]
     // console.log(convertStrings(Assembler.assemblecode(input)));
     // console.log(Assembler.assemblecode(input));
+    const Hexagen= (codeArray,hexaArray) => {
+      // Join array elements with newline character
+      let code=[];
+     for (let index = 0; index < codeArray.length; index++) {
+       code[index]=hexaArray[index]+"  //"+codeArray[index]   
+     }    
+      code = code.join('\n');
+     // const editor = codeMirrorRef.current.editor; // Get CodeMirror editor instance from ref
+     // editor.setValue(code); // Set the value of the editor to the joined code array
+     return code;
+   };
+
 
 return <> 
 {!simul && <NavBar/>}
@@ -261,7 +273,22 @@ return <>
   }}
 />
 </div> */}
-<div className='codeContainer'>
+<div className='codeContainer' id="cont">
+<button onClick={()=>{
+    const editor = codeMirrorRef.current.editor;
+    editor.setValue('');
+    editor.setValue(Hexagen(handleStoreCode(),Assembler.assemblecode(handleStoreCode())));
+  }} className="convert-btn">To Hexa </button>
+  <button onClick={()=>{
+    const editor = codeMirrorRef.current.editor;
+    editor.setValue('');
+    let code="";
+    for (let m = 0; m < handleStoreCode().length; m++) {
+      // code=code+HexaToCode(Assembler.assemblecode(handleStoreCode())[m])+"\n";
+      code=code+HexaToCode(handleStoreCode()[m])+"\n";
+    }
+    editor.setValue(code);
+  }} className="convert-btn">To code </button>
 <CodeMirror
 
   // theme={myTheme}
@@ -285,11 +312,9 @@ return <>
 
 </div>
 {!done && <div className="codeContainer console">
-  {/* <button className='ide-exec-button' onClick={()=>{traitement(["19","49","00","01"]) */}
-  {/* <button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
   <button className='ide-exec-button' onClick={()=>{
-    let input=convertStrings(Assembler.assemblecode(handleStoreCode()));///nzid ll input "11"
-    // let input=["18","f0","00","0a","05","05"];
+    let inputouter=Assembler.assemblecode(handleStoreCode())
+    let input=convertStrings(inputouter);
     input.push("ff");
     // let n=handleStoreCode().length;
     console.log(input)
@@ -300,12 +325,11 @@ return <>
     </div>
   }
 {done && <div className="codeContainer console">
-  {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","49","00","01"]) */}
-  {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
   <div style={{width:"35%",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{
-    let input=convertStrings(Assembler.assemblecode(handleStoreCode()));
-    // let input=["18","f0","00","0a","00","05","05"];
+    let inputouter=Assembler.assemblecode(handleStoreCode())
+    let input=convertStrings(inputouter);
     input.push("ff");
+    // let n=handleStoreCode().length;
     console.log(input)
     traitement(input)
     setdone(true)

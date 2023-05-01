@@ -14,7 +14,7 @@
 body{
   overflow-x: hidden;
   
- 
+
 }
 
 .level1{
@@ -35,39 +35,42 @@ body{
     font-size: xx-large;
     color: white;
     font-family:'JetBrains Mono';
-    padding-left: 28%;
 
 
 }
 .ABC1{
     /* position: relative; */
     /* margin-top: 50% ; */
-    background-color: #4E4E4E;
+    background-color: #24292e;
 
     width: 43.75rem;
     height: 18.75rem;
     margin: 5% auto 0 auto;
     border-radius: 20px;
     margin-top: 30px;
+    border: 2px solid #15bb6b;
 }
-.ABC2{
+.ABC11{
     /* position: relative; */
     /* margin-top: 50% ; */
-    background-color: #4E4E4E;
+    background-color: #24292e;
 
     width: 43.75rem;
     height: 29.375rem;
     margin: 5% auto 0 auto;
     border-radius: 20px;
     margin-top: 1.875rem;
+    border: 2px solid #15bb6b;
 }
 .Q1{
     font-size: xx-large;
     color: white;
     font-family:'JetBrains Mono';
     width: 90%;
-    margin-left: 10%;
-
+    margin:auto;
+}
+.liexercices{
+  text-align: left;
 }
 .R1{
     font-size: 1.875rem;

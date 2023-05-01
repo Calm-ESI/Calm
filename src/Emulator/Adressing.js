@@ -205,7 +205,7 @@ let queueExitToRual1={
     time:3000,
     anim:(val,h,w)=>{
         gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
-        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.143,duration:1,delay:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.106,duration:1,delay:1})
         gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
     }
 }
@@ -216,7 +216,7 @@ let queueExitToRual2={
     time:3000,
     anim:(val,h,w)=>{
         gsap.fromTo(".box-data",{x:w*0.68,opacity:"0"},{opacity:"1",duration:1})
-        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.299,duration:1,delay:1})
+        gsap.fromTo(".box-data",{x:w*0.68},{x:w*0.262,duration:1,delay:1})
         gsap.to(".box-data",{opacity:"0" ,duration:1,delay:2});
     }
 }
@@ -709,7 +709,7 @@ class AddressingModes{
                         anim:BusToRual1.anim,
                     });
                     animations.push({
-                        value:"",
+                        value:adresse,
                         target:fitToRual1.target,
                         time:fitToRual1.time,
                         anim:fitToRual1.anim,
@@ -735,7 +735,7 @@ class AddressingModes{
                         anim:BusToRual2.anim,
                     });
                     animations.push({
-                        value:"",
+                        value:adresse,
                         target:fitToRual2.target,
                         time:fitToRual2.time,
                         anim:fitToRual2.anim,

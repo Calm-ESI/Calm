@@ -1,13 +1,13 @@
 
 @font-face {
   font-family: "Mona Sans";
-  src: url("font/Mona-Sans.woff2") format("woff2 supports variations"), url("font/Mona-Sans.woff2") format("woff2-variations");
+  src: url("../../../assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("../../../assets/font/Mona-Sans.woff2") format("woff2-variations");
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("font/JetBrainsMono-Regular.woff2") format("woff2"), url("font/JetBrainsMono-Bold.woff2") format("woff2");
+  src: url("../../../assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("../../../assets/font/JetBrainsMono-Bold.woff2") format("woff2");
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
@@ -32,9 +32,12 @@ body{
 
 .level4{
 background-color: #1B1F24;
-
-
 }
+.questions{
+  margin: auto;
+  width: 60%;
+}
+
 body{
   background-color: #1b1f24;
 }
@@ -44,45 +47,47 @@ body{
 
 
 
-.question1{
+.question4{
   font-size: xx-large;   
   color: white;
   font-family:'JetBrains Mono';
-  padding-left: 28%;
 
   
 }
-.ABC1{
+.ABC4{
   /* position: relative; */
   /* margin-top: 50% ; */
-  background-color: #4E4E4E;
+  background-color: #24292e;
   
   width: 44.063rem;
   height: 37.5rem;
   margin: 5% auto 0 auto;
   border-radius: 20px;
  margin-top: 1.875rem;
+ border: 2px solid #15bb6b;
 }
-.ABC2{
+.ABC4{
   /* position: relative; */
   /* margin-top: 50% ; */
-  background-color: #4E4E4E;
+  background-color: #24292e;
   
   width: 43.75rem;
   height: 29.375rem;
   margin: 5% auto 0 auto;
   border-radius: 20px;
  margin-top: 1.875rem;
+ border: 2px solid #15bb6b;
 }
-.Q1{
+.Q4{
   font-size: 27px;   
   color: white;
   font-family:'JetBrains Mono';
   width: 90%;
-  margin-left: 30%;
+  margin:auto;
+  text-align: left;
 
 }
-.R1{
+.R4{
  font-size: 30px;
  font-weight: 300;
   color: white;
@@ -94,7 +99,7 @@ margin-left: 30%;
 
  
  
-.ABC{
+.ABC_4{
   color: black;
   width: 18.75em;
   font-family:'JetBrains Mono'; 

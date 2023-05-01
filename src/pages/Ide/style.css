@@ -1,3 +1,17 @@
+.convert-btn{
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  background-color: #263238;
+  color: white;
+  font-family: 'JetBrains Mono';
+}
+
+#cont{
+  height: 400px;
+  background-color: #263238;
+}
+
 .codeContainer{
   width: 50vw;
   height: 25rem;
