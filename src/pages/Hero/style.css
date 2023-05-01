@@ -691,7 +691,7 @@ footer {
 
 }
 
-/* Appliquer l'animation au texte lorsqu'il entre dans la vue */
+/* Appliquer l'animation au texte lorsqu'il entre dans la vue  */
 .part3-2 {
     opacity: 1;
     animation: slideup 6s infinite;
