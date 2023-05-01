@@ -1,9 +1,10 @@
 import React from "react";
 import {motion} from "framer-motion";
 import "./style.css"
+import questionMark from "../../assets/images/decorations/questionMArk.png"
 
-const AdressingModeListing = ({modesDescription, open}) => {
-    const {modeName, modePicture, description} = modesDescription;
+const HelpButton = ({helpDescription, open}) => {
+    const {title, description} = helpDescription;
 
     return (
         <>
@@ -11,14 +12,13 @@ const AdressingModeListing = ({modesDescription, open}) => {
                         whileTap={{scale: 0.9}}
                         transition={{type: "spring", stiffness: 400, damping: 17}}
                         layout
-                        onClick={open} className="AdressModeListing">
+                        onClick={open} className="helpButton">
 
-                <img src={modePicture} alt="modePicture"/>
-                <motion.p layout="position" >{modeName}</motion.p>
+                    <img src={questionMark} alt="modePicture"/>
 
 
             </motion.div>
         </>
     );
 }
-export default AdressingModeListing
+export default HelpButton

@@ -1,0 +1,107 @@
+.helpPannel{
+    height: 30rem;
+    width: 95%;
+
+    flex-grow: 1;
+    flex-basis: auto;
+    flex-shrink: 0;
+
+    position: relative;
+    background-color: #24292E;
+    display: grid;
+    grid-template-rows: 20% 1fr;
+    grid-template-columns: 1fr;
+    /*flex-direction: column;*/
+
+    background: var(--adress-mode-color);
+    border-radius: 1rem;
+
+    /* Inside auto layout */
+
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+    0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+    0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+    padding: 1rem 1rem 1rem 1rem;
+    border: 1px solid black;
+}
+
+.sidePannel-header{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    /*flex-direction: row;*/
+    align-items: center;
+    justify-content: space-between;
+    justify-self: center;
+    width: 100%;
+}
+
+.title-helpPannel{
+
+    font-size: 2rem;
+    font-weight: 850;
+    color: white;
+    margin-top: 0;
+    background-color: rgb(48, 54, 61);
+    border-radius: 1.5rem;
+    width: auto;
+    /*height: 3.5rem;*/
+    padding: 0.5rem;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    line-height: 3.5rem;
+    border: 2px solid #1BE985;
+    min-height: min-content;
+}
+
+.desciptionContainer{
+    padding: 0.5rem;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+.help-description{
+    font-size: 1.3rem;
+    font-weight: 500;
+    justify-content: center;
+    text-align: left;
+    padding: 1rem;
+
+}
+
+.closeWrapper{
+    top: 1%;
+    right: 1%;
+    position: fixed;
+    cursor:pointer;
+    background-color: transparent;
+    border:unset;
+    padding:0;
+
+}
+
+.closeIcon {
+    width: 2.5rem;
+    height:2.5rem;
+}
+.closeWrapper:hover img {
+    transition: 0.3s;
+    transform: scale(1.01);
+    filter: invert(20%) sepia(32%) saturate(2127%) hue-rotate(90deg) brightness(100%) contrast(100%);
+}
+
+/*@media only screen {*/
+/*    .closeWrapper{*/
+/*        right: -1.25rem;*/
+/*        top:-1.875rem;*/
+/*    }*/
+/*    .closeIcon{*/
+/*        width: 2.1rem;*/
+/*        height: 2.1rem;*/
+/*    }*/
+/*    */
+/*}*/

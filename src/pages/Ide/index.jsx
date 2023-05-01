@@ -23,6 +23,8 @@ import "../../codemirror/theme/material.css";
 import "../../codemirror/mode/myLang/assembly.js"
 /////import assembler//////////
 import { Assembler } from "../../assembler/Assembler";
+import HelpSection from "../../components/HelpSection";
+import {helpDescription} from "../../Constants/HelpDescription";
 import {HexaToCode} from "../../HexaToCode/HexaToCode"
 ////////////////animations declarations////////////////////////////////
 let animations=[];
@@ -423,6 +425,7 @@ return <>
 </div>}
 
 {simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers} theCTX={Contextarray}/>}
+  <HelpSection helpDescription={helpDescription}/>
 </>
 }
 export default Ide;
