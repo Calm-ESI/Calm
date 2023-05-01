@@ -2,13 +2,24 @@ import './App.css';
 import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
 //import pages
-import { AddressingModesPage, Arch, ComponentsPage, ExamplesPage, Hero, Ide, LearnPage, Login, NotFound, Register } from './pages';
+import { AddressingModesPage, Arch, ComponentsPage, ExamplesPage, Hero, Ide, LearnPage, Login, NotFound, Profile, Register } from './pages';
 
 //import images
 import asteriks from "./assets/images/decorations/asteriskgray.png"
 import asteriks2 from "./assets/images/decorations/asteriskgray.png"
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  
+  useEffect( ()=>{
+    const loggedInUser = localStorage.getItem('user');
+    
+    if(loggedInUser){
+      setCurrentUser(JSON.parse(loggedInUser));
+    }
+  }, [])
+
   return (
     <Router>
       <div className="App">
@@ -37,8 +48,9 @@ function App() {
           <Route exact path="/learn" element={<LearnPage/>}/>
           <Route exact path="/learn/addressing-modes" element={<AddressingModesPage/>}/>
           <Route exact path="/learn/components" element={<ComponentsPage/>}/>
-          <Route exact path="/register" element={<Register/>}/>
-          <Route exact path="/login" element={<Login/>}/>
+          <Route exact path="/register" element={<Register updateCurrentUser={setCurrentUser}/>}/>
+          <Route exact path="/login" element={<Login updateCurrentUser={setCurrentUser}/>}/>
+          <Route exact path="/profile" element={<Profile currentUser={currentUser} updateCurrentUser={setCurrentUser}/>}/>
           <Route path='*' element={<NotFound />}/>
         </Routes>
         

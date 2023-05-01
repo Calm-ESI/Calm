@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./style.css"
 
-const AuthForm = ({currentRoute, redirectRoute}) => {
+const AuthForm = ({currentRoute, redirectRoute, updateCurrentUser}) => {
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navitage = useNavigate();
@@ -17,13 +18,30 @@ const AuthForm = ({currentRoute, redirectRoute}) => {
     }
 
     const handleSubmit = (e) => {
+        //prevent the form from reloading the page
         e.preventDefault();
+
+        //get the form error div
         const formError = document.getElementById('form-error')
+
+        //setup the request
         const URL = process.env.REACT_APP_API_URL + currentRoute;
-console.log(URL)
+        
         axios.post(URL, {email, password})
-        .then(()=>{navitage('/learn')})
-        .catch(err => {formError.innerText = err.response.data.message})
+        .then((res)=>{
+            //set the curernt user in case of success
+            updateCurrentUser(res.data.data);
+
+            //save the user in local storage
+            localStorage.setItem('user', JSON.stringify(res.data.data));
+
+            //redirect to the learn page (or any page that comes afterwards)
+            navitage('/learn');
+        })
+        .catch(err => {
+            //show the error in the front
+            formError.innerText = err.response.data.message;
+        })
     }
 
     return (

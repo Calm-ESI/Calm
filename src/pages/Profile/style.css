@@ -1,0 +1,21 @@
+.profile-container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: flex-start;
+    /* align-items: center; */
+}
+
+.profile-title {
+    align-self: center;
+}
+
+.program-container {
+    width: 50%;
+    height: fit-content;
+    align-self: center;
+    background-color: #263238;
+    margin-bottom: 2rem;
+}

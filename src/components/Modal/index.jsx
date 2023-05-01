@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
 import {motion} from "framer-motion";
-const Modal = ({modesDescription, close}) => {
-    const {modeName, modePicture, description} = modesDescription;
+const Modal = ({modeName, description}) => {
+    
     const variants = {open: {
             opacity: 1,
             transition: { staggerChildren: 0.5, delayChildren: 0.2 },

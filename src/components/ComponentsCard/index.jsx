@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import ComponentsListing from "../ComponentsListing";
 import {AnimatePresence} from "framer-motion";
 import Overlay from "../Overlay";
-import Modal from "../Modal";
 import ComponentsModal from "../ComponentsModal";
-const ComponentsCard = ({ componentInfo, imageWidth }) => {
+
+const ComponentsCard = ({ componentInfo }) => {
     const [open, setOpen] = useState(false);
     const openModal = () => {
         setOpen(true);
@@ -14,18 +14,13 @@ const ComponentsCard = ({ componentInfo, imageWidth }) => {
     }
   return (
     <>
-        <ComponentsListing componentInfo={componentInfo} open={openModal}/>
+        <ComponentsListing name={componentInfo.name} imagepath={componentInfo.imagepath} imageHeight={componentInfo.imageHeight} open={openModal}/>
         <AnimatePresence>
             {open && (<Overlay close={closeModal}>
-                    <ComponentsModal componentInfo={componentInfo}/>
+                    <ComponentsModal ComponentName={componentInfo.name} componentDescription={componentInfo.description}/>
                 </Overlay>
             )}
         </AnimatePresence>
-
-      {/*<div className="ComponentsCard">*/}
-      {/*  <img src={ComponentPicture} alt="componentPicture" style={{height: imageHeight + '%'}} />*/}
-      {/*  <p>{ComponentName}</p>*/}
-      {/*</div>*/}
     </>
   );
 }
