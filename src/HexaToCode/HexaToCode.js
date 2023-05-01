@@ -23,7 +23,7 @@ function hexToBin(hexString) {
     }
     return str.replace(/./g, replacer);
   }
-  
+  //:;
   function TwosComplement2(a) { //a is a string 
     if(a[0]==='1'){
     let find1=false
