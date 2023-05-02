@@ -3,7 +3,7 @@ import { aura, auraInit } from '@uiw/codemirror-theme-aura';*/
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "./style.css"
 import UAParser from 'ua-parser-js';
-
+import Toggle from 'react-styled-toggle';
 // import components
 import { NavBar } from "../../components"
 
@@ -72,6 +72,8 @@ const Ide = ()=>{
   let [memo,setmemo]=useState(false);
   let [reg,setreg]=useState(false);
   let [stk,setstk]=useState(false);//for showing stack
+  let [isHexa,setIsHexa]=useState(false);
+  let [iscode,setIsCode]=useState(true);
   ///////////////////////////////executions function////////////////////////////////////////
 const traitement= (codeArray)=>{
 // Registers[0].setvalue("0000000000000010");
@@ -176,7 +178,7 @@ while(instrobject.name!=="stop"){
       fontWeight: 400,
     },
   })
-
+  let [checktest,setChecktest]=useState(false);
   /////////////////////returning the component//////////////////
   let tablec=[];
   memory.getData().forEach((element,index) => {
@@ -281,12 +283,17 @@ return <>
 />
 </div> */}
 <div className='codeContainer' id="cont">
-<button onClick={()=>{
+<div style={{display:"flex",gap:"10rem",padding:"0.5rem 0",}}>
+{iscode && <button onClick={()=>{
     const editor = codeMirrorRef.current.editor;
     editor.setValue('');
     editor.setValue(Hexagen(handleStoreCode(),Assembler.assemblecode(handleStoreCode())));
-  }} className="convert-btn">To Hexa </button>
-  <button onClick={()=>{
+    setChecktest(!checktest);
+    setIsCode(false);
+        setIsHexa(true);
+  }} className="convert-btn">To Hexa </button>}
+  
+  {isHexa && <button onClick={()=>{
     const editor = codeMirrorRef.current.editor;
     editor.setValue('');
     let code="";
@@ -295,7 +302,28 @@ return <>
       code=code+HexaToCode(handleStoreCode()[m])+"\n";
     }
     editor.setValue(code);
-  }} className="convert-btn">To code </button>
+    setChecktest(!checktest);
+    setIsCode(true);
+    setIsHexa(false);
+  }} className="convert-btn">To code </button>}
+  
+  {/* <p style={{display:"inline",margin:"0 -2px",fontSize:"10px"}}>code</p> */}
+  <div className="togglebutton" style={{position: "relative",top:"0.3rem"}}>
+  <Toggle labelRight="hexa" labelLeft="code" backgroundColorChecked="#1BE985" backgroundColorUnchecked="#263238" checked={checktest} onChange={()=>{
+      if(iscode){
+        setIsCode(false);
+        setIsHexa(true);
+        setChecktest(!checktest);
+      }else{
+        setIsCode(true);
+        setIsHexa(false);
+        setChecktest(!checktest);
+      }
+    }
+  } />
+  </div>
+  {/* <p style={{display:"inline",margin:"0 -2px",fontSize:"10px"}}>Hexa</p> */}
+  </div>
 <CodeMirror
 
   // theme={myTheme}
@@ -320,7 +348,12 @@ return <>
 </div>
 {!done && <div className="codeContainer console">
   <button className='ide-exec-button' onClick={()=>{
-    let inputouter=Assembler.assemblecode(handleStoreCode())
+    let inputouter=[];
+    if(iscode){
+      inputouter=Assembler.assemblecode(handleStoreCode())
+    }else{
+      inputouter=handleStoreCode();
+    }
     let input=convertStrings(inputouter);
     input.push("ff");
     if(Errorcalm.errorr==0){
@@ -423,9 +456,9 @@ return <>
     </div>
   }
 </div>}
-
+{!simul && <HelpSection helpDescription={helpDescription}/>}
 {simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers} theCTX={Contextarray}/>}
-<HelpSection helpDescription={helpDescription}/>
+
 </>
 }
 export default Ide;

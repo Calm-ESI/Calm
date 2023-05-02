@@ -653,7 +653,7 @@ MC.forEach((element,index) => {
         left:"48.7%",
         opacity:"0",
         color:"#1BE988",
-        fontSize:"32px",
+        fontSize:"25px",
         fontWeight:"800"
     }}>{MCVal}</div>
     <img src={queuearrow} className="queuearrow" alt="" style={{
