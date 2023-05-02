@@ -89,7 +89,7 @@ export class SyntaxicAnalysis {
                         //|        Must have only one other param: it must be valid                  .               |
                         //|        or one param and other special chars: they must be valid  also  .                 |
                         //|        That other special char is used for addressing modes mainly    .                  |
-                        //|------------------------------------------------------------------------------------------
+                        //|-----------------------------------------------------------------------------------------.
                         const functINST1 = ()=> {
                             var firstparam = lexicalList[i][1]
                             if (['NEG','NOT', 'SHL', 'SHR', 'READ', 'WRITE', 'PUSH', 'POP', 'ROR', 'ROL'].includes( lexicalList[i][0].value )) {
