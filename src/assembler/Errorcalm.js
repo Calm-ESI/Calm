@@ -40,8 +40,9 @@ export class Errorcalm{
             return ''
         }else{
             numerr ==1 ? theError="\nThere is 1 error in your code:\n" : theError=`\nThere are ${numerr} errors in your code cannot assemble:\n`;
-        Errorcalm.LexicalError.length == 0 ? theError+="  Syntaxic Errors:\n"+"  "+Errorcalm.SyntaxicError[0].message+"\n the line : "+Errorcalm.SyntaxicError[0].linenum : theError+="Lexical Errors \n"+"  "+Errorcalm.LexicalError[0].message+"\n the line :"+Errorcalm.SyntaxicError[0].linenum;
-        this.errorr=1
+        Errorcalm.LexicalError.length == 0 ? theError+="  Syntaxic Errors:\n"+"  "+Errorcalm.SyntaxicError[0].message+"\n the line : "+Errorcalm.SyntaxicError[0].linenum : theError+="Lexical Errors \n"+"  "+Errorcalm.LexicalError[0].message+"\n the line :"+Errorcalm.LexicalError[0].line;
+        Errorcalm.errorr=1;
+        console.log(this.SyntaxicError);
         return theError;}
     }
     static addtoSyntaxicError(errs){

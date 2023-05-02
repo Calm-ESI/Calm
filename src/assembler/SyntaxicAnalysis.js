@@ -185,6 +185,8 @@ export class SyntaxicAnalysis {
                         if (nocomma)  
                         {
                             this.Syntaxiclist.push(new Errorcalm("Comma missing",null,i))
+                            Errorcalm.SyntaxicError.push(new Errorcalm("Comma missing",null,i))
+
                         }
                         else{
                             // check also for first operand based ind and second indexed or based or opposite 
