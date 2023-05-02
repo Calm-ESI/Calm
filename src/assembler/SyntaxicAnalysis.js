@@ -87,8 +87,8 @@ export class SyntaxicAnalysis {
                         // ONE params instructions: INST1 ::=  NEG, NOT, SHL, SHR, READ, WRITE, PUSH, POP, ROR, ROL, CALL, BE, BNE, BS, BI, BIE, BSE, BR
                         //|                                                                                         |
                         //|        Must have only one other param: it must be valid                                 |
-                        //|        or one param and other special chars: they must be valid  also                   |
-                        //|        That other special char is used for addressing modes mainly                      |
+                        //|        or one param and other special chars: they must be valid  also  .                 |
+                        //|        That other special char is used for addressing modes mainly    .                  |
                         //|------------------------------------------------------------------------------------------
                         const functINST1 = ()=> {
                             var firstparam = lexicalList[i][1]
@@ -185,6 +185,8 @@ export class SyntaxicAnalysis {
                         if (nocomma)  
                         {
                             this.Syntaxiclist.push(new Errorcalm("Comma missing",null,i))
+                            Errorcalm.SyntaxicError.push(new Errorcalm("Comma missing",null,i))
+
                         }
                         else{
                             // check also for first operand based ind and second indexed or based or opposite 

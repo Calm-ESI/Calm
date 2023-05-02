@@ -26,6 +26,7 @@ import { Assembler } from "../../assembler/Assembler";
 import HelpSection from "../../components/HelpSection";
 import {helpDescription} from "../../Constants/HelpDescription";
 import {HexaToCode} from "../../HexaToCode/HexaToCode"
+import { Errorcalm } from "../../assembler/Errorcalm";
 ////////////////animations declarations////////////////////////////////
 let animations=[];
 ////////////////context declarations///////////////////////////////////
@@ -322,12 +323,14 @@ return <>
     let inputouter=Assembler.assemblecode(handleStoreCode())
     let input=convertStrings(inputouter);
     input.push("ff");
+    if(Errorcalm.errorr==0){
     // let n=handleStoreCode().length;
     console.log(input)
     traitement(input)
-    setdone(true)
+    setdone(true)}
+    setresult(Errorcalm.printError());
   }}>execute</button>
-    <pre style={{color:"white"}}>{result}</pre>
+    <pre style={{color:"red"}}>{result}</pre>
     </div>
   }
 
