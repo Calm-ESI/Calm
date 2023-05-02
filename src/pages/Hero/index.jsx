@@ -17,6 +17,7 @@ import aiChat from "../../assets/images/decorations/aiChat.png";
 import {NavBar, Title, HeroIde} from "../../components"
 import {Footer} from '../../containers'
 import {motion} from "framer-motion"
+import Bot from "../../components/ChatBot";
 // import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
 
@@ -240,7 +241,7 @@ const Hero = () => {
         <Part6></Part6>
         <Part2></Part2>
         <Part7></Part7>
-
+        <Bot/>
     </>
 }
 export default Hero;
