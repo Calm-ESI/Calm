@@ -511,11 +511,13 @@ ul.lst-kix_1g7b4xl19o4s-0 {
 
 ol {
     margin: 0;
-    padding: 0
+    padding: 0;
+    font-family: "Mona sans", system-ui;
 }
 
 table td, table th {
-    padding: 0
+    padding: 0;
+    font-family: "Mona sans", system-ui;
 }
 
 .c9 {
@@ -526,7 +528,8 @@ table td, table th {
     line-height: 1.15;
     orphans: 2;
     widows: 2;
-    text-align: left
+    text-align: left;
+    font-family: "Mona sans", system-ui;
 }
 
 .c5 {
@@ -537,7 +540,8 @@ table td, table th {
     orphans: 2;
     widows: 2;
     text-align: left;
-    height: 11pt
+    height: 11pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c10 {
@@ -547,7 +551,8 @@ table td, table th {
     orphans: 2;
     widows: 2;
     text-align: left;
-    height: 11pt
+    height: 11pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c0 {
@@ -557,7 +562,8 @@ table td, table th {
     line-height: 1.15;
     orphans: 2;
     widows: 2;
-    text-align: left
+    text-align: left;
+    font-family: "Mona sans", system-ui;
 }
 
 .c8 {
@@ -567,7 +573,8 @@ table td, table th {
     page-break-after: avoid;
     orphans: 2;
     widows: 2;
-    text-align: left
+    text-align: left;
+    font-family: "Mona sans", system-ui;
 }
 
 .c2 {
@@ -575,7 +582,7 @@ table td, table th {
     font-weight: 400;
     text-decoration: none;
     vertical-align: baseline;
-    font-family: "Mona sans";
+    font-family: "Mona sans", system-ui;
     font-style: normal
 }
 
@@ -585,14 +592,15 @@ table td, table th {
     line-height: 1.15;
     orphans: 2;
     widows: 2;
-    text-align: left
+    text-align: left;
+    font-family: "Mona sans", system-ui;
 }
 
 .c6 {
     color: #fff;
     text-decoration: none;
     vertical-align: baseline;
-    font-family: "Mona sans";
+    font-family: "Mona sans", system-ui;
     font-style: normal
 }
 
@@ -600,69 +608,82 @@ table td, table th {
     color: #fff;
     text-decoration: none;
     vertical-align: baseline;
-    font-style: normal
+    font-style: normal;
+    font-family: "Mona sans", system-ui;
 }
 
 .c21 {
     text-decoration-skip-ink: none;
-    -webkit-text-decoration-skip: none;
+    --webkit-text-decoration-skip: none;
     font-style: italic;
-    text-decoration: underline
+    text-decoration: underline;
+    font-family: "Mona sans", system-ui;
 }
 
 .c3 {
-    font-family: "Roboto";
+    font-family: "Mona sans", system-ui;
     font-weight: 400
 }
 
 .c7 {
     padding: 0;
-    margin: 0
+    margin: 0;
+    font-family: "Mona sans", system-ui;
 }
 
 .c18 {
     max-width: 468pt;
-    padding: 72pt 72pt 72pt 72pt
+    padding: 72pt 72pt 72pt 72pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c17 {
     margin-left: 108pt;
-    padding-left: 0pt
+    padding-left: 0pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c1 {
-    font-size: 12pt
+    font-size: 12pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c15 {
-    margin-left: 72pt
+    margin-left: 72pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c20 {
-    padding-left: 0pt
+    padding-left: 0pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c22 {
-    font-style: italic
+    font-style: italic;
+    font-family: "Mona sans", system-ui;
 }
 
 .c16 {
-    font-size: 20pt
+    font-size: 20pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c14 {
 }
 
 .c19 {
-    margin-left: 36pt
+    margin-left: 36pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c11 {
-    text-indent: 36pt
+    text-indent: 36pt;
+    font-family: "Mona sans", system-ui;
 }
 
 .c4 {
-    font-weight: 700
+    font-weight: 700;
+    font-family: "Mona sans", system-ui;
 }
 
 .title {
@@ -670,7 +691,7 @@ table td, table th {
     color: #fff;
     font-size: 26pt;
     padding-bottom: 3pt;
-    font-family: "Mona sans";
+    font-family: "Mona sans", system-ui;
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
@@ -683,7 +704,7 @@ table td, table th {
     color: #666666;
     font-size: 15pt;
     padding-bottom: 16pt;
-    font-family: "Mona sans";
+    font-family: "Mona sans", system-ui;
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
