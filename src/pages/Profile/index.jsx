@@ -25,6 +25,19 @@ const Profile = ({currentUser, updateCurrentUser}) => {
         },
     ]
 
+    const handlePasswordResetRequest = (e) => {
+        const URL = process.env.REACT_APP_API_URL + `/reset-password/request/${currentUser.id}`;
+
+        axios.post(URL)
+        .then(response =>{
+            navigate('/reset-password/email-sent');
+        })
+        .catch(error =>{
+            console.log(error);
+            alert("Request failed, please try again.");
+        })
+    }
+
     const logout = () => {
         const URL = process.env.REACT_APP_API_URL + '/logout';
         axios.post(URL)
@@ -61,10 +74,16 @@ const Profile = ({currentUser, updateCurrentUser}) => {
                                 <div className="code-container">{program.content}</div>
                             </div>
                         )}
-                        <button>Reset Password</button>
-                        <button onClick={logout}>Logout</button>
+
+                        <div className='buttons-container'>
+                            <button className='profile-button' onClick={handlePasswordResetRequest}>Reset Password</button>
+                            <button className='profile-button' onClick={logout}>Logout</button>
+                            {/* <button onClick={test}>Test</button> */}
+
+                        </div>
                     </>
                 }
+                
                 
             </div>
         </>
