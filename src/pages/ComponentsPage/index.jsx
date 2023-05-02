@@ -1,5 +1,6 @@
 //import components
 import {AddressingModeCard, ComponentsCard, NavBar} from "../../components/"
+import './style.css';
 
 //import images
 import AluPic from "../../assets/images/calm/components/AluPic.svg"
@@ -14,11 +15,13 @@ import MdrPic from "../../assets/images/calm/components/MdrPic.svg"
 import RegistersPic from "../../assets/images/calm/components/registersPic.svg"
 import sequencerPic from "../../assets/images/calm/components/sequencerPic.svg"
 import iruPic from "../../assets/images/calm/components/IRU.svg"
+import calmArchi from "../../assets/images/calm/calmArchitecture.svg"
 import {CUnit} from "../../Constants/componentsDescription";
 import {PUnit} from "../../Constants/componentsDescription";
 import {MUnit} from "../../Constants/componentsDescription";
 import {IOUnit} from "../../Constants/componentsDescription";
 import ComponentsListing from "../../components/ComponentsListing";
+import React from "react";
 
 
 const Components = () => {
@@ -26,28 +29,12 @@ const Components = () => {
     <>
       <NavBar/>
       <div className="globalContainer">
+        <div className="imageContainer">
+            <p className="title">calM Architecture</p>
+          <img src={calmArchi} alt="calm Architecture Picture" className="calmArchi"/>
+        </div>
         <div className="UnitsContainer">
           <p className="title">Memory Unit</p>
-          {/*<ComponentsCard ComponentName={"Instruction Pointer"} ComponentPicture={IPImage} />*/}
-          {/*<ComponentsCard*/}
-          {/*  ComponentName={"Central Memory"}*/}
-          {/*  ComponentPicture={CmPic}*/}
-          {/*  imageHeight={"65"}*/}
-          {/*/>*/}
-          {/*<ComponentsCard*/}
-          {/*  ComponentName={"Memory Adress Register"}*/}
-          {/*  ComponentPicture={MarPic}*/}
-          {/*  imageHeight={"60"}*/}
-          {/*/>*/}
-          {/*<ComponentsCard*/}
-          {/*  ComponentName={"Memory Data Register"}*/}
-          {/*  ComponentPicture={MdrPic}*/}
-          {/*/>*/}
-          {/*<ComponentsCard*/}
-          {/*  ComponentName={"Data & address buses"}*/}
-          {/*  ComponentPicture={BusPic}*/}
-          {/*  imageHeight={"90"}*/}
-          {/*/>*/}
           {MUnit.map( (item) => (
               <ComponentsCard componentInfo={item} key={item.id}/>)
           )}
@@ -55,11 +42,7 @@ const Components = () => {
 
         <div className="UnitsContainer">
           <p className="title">Command Unit</p>
-          {/*<ComponentsCard*/}
-          {/*  ComponentName={"Instruction Reception Unit"}*/}
-          {/*  ComponentPicture={iruPic}*/}
-          {/*/>*/}
-          {/*<ComponentsCard ComponentName={"The Sequencer"} ComponentPicture={sequencerPic} />*/}
+
           {CUnit.map( (item) => (
               <ComponentsCard componentInfo={item} key={item.id}/>)
           )}
