@@ -106,7 +106,7 @@ const Hero = () => {
                                     layout
                                     className="whatWeOfferCard">
                                     <img src={simulationImage} alt="description of image" className="threeIcons"/>
-                                    <h1>Simulate</h1>
+                                    <h1>Animate</h1>
                                 </motion.div>
                             </a>
                         <a href="/ide" className="whatWeOfferLink">
@@ -165,8 +165,8 @@ const Hero = () => {
                 </div>
 
                 <div className="simulation-container">
-                    <h1 className="emul">Simulation</h1>
-                    <p className="emul-1">After executing your CalM assembly code, you can click "Simulate" to watch a
+                    <h1 className="emul">Animation</h1>
+                    <p className="emul-1">After executing your CalM assembly code, you can click "Animate" to watch a
                         captivating animation of your code coming to life within the CalM architecture.</p>
                 </div>
 
