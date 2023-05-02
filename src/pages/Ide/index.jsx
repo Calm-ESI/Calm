@@ -47,9 +47,13 @@ let SR=new Register();
 let Alu1=new Alu();
 let Registers=[R1,R2,R3,R4,Alu1.Acc,BR,IR,SR];
 
+const handleRefresh = () => {
+  window.location.reload();
+};
+
 /////////////////////////////function needed in assembling
 function convertStrings(arr) {
-  const result = [];
+  const result = [] ;
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j += 2) {
       result.push(arr[i][j] + arr[i][j+1]);
@@ -97,7 +101,7 @@ queue.fetchInstruction(animations,numtmp,0,Contextarray,0);
 
 
 
-
+console.log(queue.getinstwithoutshift())
 //-----//
 let resulttmp="";
 let instrobject={};
@@ -326,16 +330,9 @@ return <>
     <pre style={{color:"white"}}>{result}</pre>
     </div>
   }
+
 {done && <div className="codeContainer console">
-  <div style={{width:"35%",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{
-    let inputouter=Assembler.assemblecode(handleStoreCode())
-    let input=convertStrings(inputouter);
-    input.push("ff");
-    // let n=handleStoreCode().length;
-    console.log(input)
-    traitement(input)
-    setdone(true)
-  }}>execute</button>
+  <div style={{width:"35%",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={handleRefresh}>re-write</button>
   <button className='ide-exec-button' onClick={()=>{
   const parser = new UAParser();
   const result = parser.getResult();
@@ -425,7 +422,7 @@ return <>
 </div>}
 
 {simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers} theCTX={Contextarray}/>}
-  <HelpSection helpDescription={helpDescription}/>
+<HelpSection helpDescription={helpDescription}/>
 </>
 }
 export default Ide;

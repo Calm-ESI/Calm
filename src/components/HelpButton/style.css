@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 2.5rem;
     height: 2.5rem;
-
+    position: fixed;
     background: var(--main-accent-color);
     border-radius: 10rem;
 
