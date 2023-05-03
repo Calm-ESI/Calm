@@ -730,8 +730,8 @@ MC.forEach((element,index) => {
             <h2 className="contentTableText">MC</h2>
             <div className="contentTableDivMC">
                 <div className="MChead">
-                    <p style={{padding:"0 40px",margin:"10px 0"}}>adresse</p>
-                    <p style={{margin:"10px 0"}}>content</p>
+                    <p >adresse</p>
+                    <p >content</p>
                 </div>
             <table className="contentTableMC">
                 <tbody>

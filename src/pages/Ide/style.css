@@ -4,7 +4,7 @@
   border-radius: 5px;
   background-color: #263238;
   color: white;
-  font-family: 'JetBrains Mono';
+  font-family: 'JetBrains Mono', monospace;
 }
 .dxTOMC {
   border: 2px solid white;
@@ -35,7 +35,7 @@
   transform: translateX(17px) !important;
 } */
 #cont{
-  height: 400px;
+  height: 25rem;
   background-color: #263238;
 }
 
@@ -67,13 +67,18 @@
 
 .ide-exec-button{
   height:2em;
-  width: 5em;
+  width: 5rem;
   background-color: #1BE985;
   border-radius: 0.625rem;
   margin: 0.625rem 0.625rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0 0.25rem 0 0.25rem;
 }
 .ide_container{
   margin: auto;
   width: 90%;
   gap: 20%;
+}
+.aregide{
+  width: 3rem;
 }

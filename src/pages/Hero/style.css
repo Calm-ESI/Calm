@@ -20,6 +20,14 @@
     grid-template-rows: repeat(4, 1fr);
     grid-row-gap: 0.5rem;
 }
+.greenArrow{
+    width: 40%;
+    height: 40%;
+    grid-column: 3 / 5; /* place the element in the 3rd and 4th columns */
+    grid-row: 4;
+    justify-self: center;
+    align-self: end;
+}
 
 
 .get-started-button {
