@@ -1,7 +1,10 @@
 export { default as AddressingModeCard} from './AddressingModeCard';
 export { default as AuthForm} from './AuthForm';
 export { default as ComponentsCard} from './ComponentsCard';
+export { default as HelpSection} from './HelpSection';
 export { default as HeroIde} from './HeroIde';
 export { default as LearnCard} from './LearnCard';
 export { default as NavBar} from './NavBar';
+export { default as ProgramContainer} from './ProgramContainer';
+export { default as SaveCodeButton} from './SaveCodeButton';
 export { default as Title} from './Title';

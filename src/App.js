@@ -48,7 +48,7 @@ function App() {
         
         <Routes>
           <Route exact path="/" element={<Hero/>}/>
-          <Route exact path="/ide" element={<Ide/>}/>
+          <Route exact path="/ide" element={<Ide currentUser={currentUser}/>}/>
           <Route exact path="/archi" element={<Arch/>}/>
           <Route exact path="/examples" element={<ExamplesPage/>}/>
           <Route exact path="/learn" element={<LearnPage/>}/>

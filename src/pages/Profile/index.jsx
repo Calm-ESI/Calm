@@ -1,29 +1,30 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Link, redirect } from "react-router-dom";
 import { NavBar } from '../../components'
 import './style.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { ProgramContainer } from '../../components';
 
 const Profile = ({currentUser, updateCurrentUser}) => {
     const navigate = useNavigate();
-    // const username = "User1";
-    // const email = "email@gmail.com";
-    // const score = 200;
-    const programs = [
-        {
-            name: "program1",
-            content: "code for program1",
-        },
-        {
-            name: "program2",
-            content: "code for program2",
-        },
-        {
-            name: "program3",
-            content: "code for program3",
-        },
-    ]
+    const [programs, setPrograms] = useState(null);
+    
+    useEffect( () => {
+        if(currentUser === null) return;
+        
+        const URL = process.env.REACT_APP_API_URL + `/user/${currentUser.id}/code/all`;
+
+        axios.get(URL)
+        .then((response) => {
+            console.log(response.data.data);
+            setPrograms(response.data.data);
+        })
+        .catch((error) => {
+            console.error(error);
+            alert("Failed to load programs... Please try again");
+        });
+    }, [currentUser]);
 
     const handlePasswordResetRequest = (e) => {
         const URL = process.env.REACT_APP_API_URL + `/reset-password/request/${currentUser.id}`;
@@ -52,6 +53,10 @@ const Profile = ({currentUser, updateCurrentUser}) => {
         })
     }
 
+    const removeProgram = (targetProgram) => {
+        setPrograms(programs.filter(program => program.id !== targetProgram.id))
+    }
+
     return (
         <>
             <NavBar />
@@ -68,18 +73,22 @@ const Profile = ({currentUser, updateCurrentUser}) => {
                         <p>Email: {currentUser.email}</p>
                         <p>Score: {currentUser.score}</p>
                         <p>Saved programs:</p>
-                        {programs.length === 0 ? null : programs.map(program => 
-                            <div key={program.name} className="program-container">
-                                <h3>{program.name}</h3>
-                                <div className="code-container">{program.content}</div>
-                            </div>
-                        )}
+                        {programs === null 
+                            ? <p>Loading programs...</p>
+                            : programs.length === 0 
+                                ? 
+                                    <p>No programs saved for this profile!</p>
+                                : 
+                                    programs.slice(0).reverse().map( program => 
+                                        <ProgramContainer program={program} removeProgram={removeProgram} userId={currentUser.id}/>
+                                    )
+                            
+                        }
+                        
 
                         <div className='buttons-container'>
                             <button className='profile-button' onClick={handlePasswordResetRequest}>Reset Password</button>
                             <button className='profile-button' onClick={logout}>Logout</button>
-                            {/* <button onClick={test}>Test</button> */}
-
                         </div>
                     </>
                 }

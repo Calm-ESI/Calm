@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ChatBot, { Loading } from 'react-simple-chatbot';
 import axios from 'axios';
 import { ThemeProvider } from 'styled-components';
-import "./index.css"
+import "./style.css"
  import profile from '../../assets/images/icons/profilebot.png'
 
 const DBPedia = ({ steps, triggerNextStep }) => {
@@ -29,6 +29,7 @@ const DBPedia = ({ steps, triggerNextStep }) => {
       })
       .catch(error => {
         console.error(error);
+        setResult("Server error: Unable to connect to the bot....\n\n please try again in a while or report to admins")
       });
   }, [search]);
   
