@@ -368,12 +368,12 @@ return <>
   }
 
 {done && <div className="codeContainer console">
-  <div style={{width:"35%",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={handleRefresh}>re-write</button>
+  <div style={{width:"35%",position:"fixed",backgroundColor:"black", borderRadius: "0.6rem"}}><button className='ide-exec-button' onClick={handleRefresh}>re-write</button>
   <button className='ide-exec-button' onClick={()=>{
   const parser = new UAParser();
   const result = parser.getResult();
   result.device.type==='mobile'? alert('Simulation not availble for this type of devices') : setsimul(true) ;
-  }}>simulate</button>
+  }}>animate</button>
   <button className='ide-exec-button' onClick={()=>{setreg(true)
   setmemo(false)
   setstk(false)
@@ -427,7 +427,7 @@ return <>
                     <div className="aregC"><p style={{margin:"6px"}}>{Registers[4].getvalue()}</p></div>
                 </div>
             </div> }
-            {memo && <table className="contentTableMCIde">
+            {memo && <table className="contentTableMCIde" style={{fontFamily: "JetBrains Mono"}}>
                 <tbody>
                 <tr>
                     <td style={{color:"#1BE985"}}>

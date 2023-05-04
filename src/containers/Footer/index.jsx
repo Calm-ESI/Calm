@@ -24,10 +24,12 @@ function Footer() {
       <footer >
         <div id="email-us-container">
           <h2 className="part7-7">You can reach us out anytime</h2>
-          <button className="email-us-button">
+          <a href="mailto:calmesiproject@gmail.com" style={{textDecoration:"none"}}>
+            <button className="email-us-button">
             <h1 className="email-us-text">Email us</h1>
             <img className="mail-icon" src={emailIcon} alt='mail-icon'/>
           </button>
+          </a>
         </div>
 
         <div id='social-media-container'>
@@ -35,7 +37,7 @@ function Footer() {
           <div id="social-media-icons-wrapper">
             {/*TODO: add links*/}
             <a href="https://github.com/Calm-ESI/Calm"><img className="git-icon" src={githubIcon} alt='git-icon'/></a>
-            <a href=""><img className="discord-icon" src={discordIcon} alt='discord-icon'/></a>
+            <a href="https://discord.gg/DNTfnHQFDm"><img className="discord-icon" src={discordIcon} alt='discord-icon'/></a>
             <a href=""><img className="linkedin-icon" src={linkedinIcon} alt='linkedin-icon'/></a>
           </div>
         </div>

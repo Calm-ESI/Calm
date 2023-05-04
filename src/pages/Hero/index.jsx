@@ -12,6 +12,7 @@ import discordIcon from '../../assets/images/icons/discord-icon.png' ;
 import getstarted from "../../assets/images/decorations/GetStarted.svg";
 import cpu from "../../assets/images/icons/cpu-fill.svg";
 import aiChat from "../../assets/images/decorations/aiChat.png";
+import arrowGif from "../../assets/images/decorations/greenArrow.gif";
 
 //import components
 import {NavBar, Title, HeroIde} from "../../components"
@@ -231,9 +232,9 @@ const Hero = () => {
             </motion.div>
 
             <HeroIde/>
-        </main>
-        {/*<img src={arrowGif} alt=""/>*/}
 
+        </main>
+        {/*<img src={arrowGif} alt="Green Arrows" className="greenArrow"/>*/}
         <Part1></Part1>
         <Part3></Part3>
         <Part4></Part4>

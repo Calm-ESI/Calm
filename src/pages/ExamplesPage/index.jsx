@@ -4,6 +4,7 @@ import questionMark from "../../assets/images/icons/question-signe-en-cercles.pn
 
 import {NavBar, Title} from "../../components"
 import {Footer} from "../../containers"
+import { motion } from 'framer-motion'
 
 const ExamplesPage = () => {
     
@@ -35,7 +36,7 @@ const ExamplesPage = () => {
         <NavBar></NavBar>
         {/* <Title></Title> */}
 
-        <section style={{marginTop: "8em", position: "relative", display: "flex", justifyContent: "center"}}>
+        <section style={{marginTop: "3em", position: "relative", display: "flex", justifyContent: "center"}}>
             <div id="example-icon">
                 <img src={questionMark} alt="?" width="50px" style={{marginRight: "10px"}}/>
                 <p>Examples</p>
@@ -44,35 +45,55 @@ const ExamplesPage = () => {
             <div id="examplesBloc">
                 <div class="examples">
                     <p>Manipulating Arrays</p>
-                    <div class="execButton">
+                    <motion.div
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 400, damping: 17}}
+                        class="execButton">
                         Execute
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div class="examples">
                     <p>Manipulating Linked Lists</p>
-                    <div class="execButton">
+                    <motion.div
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 400, damping: 17}}
+                        class="execButton">
                         Execute
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div class="examples">
                     <p>Manipulating Binary Search Tree</p>
-                    <div class="execButton">
+                    <motion.div
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 400, damping: 17}}
+                        class="execButton">
                         Execute
-                    </div>
+                    </motion.div>
                 </div>
                 <div class="examples">
                     <p>Example 4</p>
-                    <div class="execButton">
+                    <motion.div
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 400, damping: 17}}
+                        class="execButton">
                         Execute
-                    </div>
+                    </motion.div>
                 </div>
                 <div class="examples">
                     <p>Example 5</p>
-                    <div class="execButton">
+                    <motion.div
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 400, damping: 17}}
+                        class="execButton">
                         Execute
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
