@@ -22,7 +22,7 @@ const DBPedia = ({ steps, triggerNextStep }) => {
   `);
 
   useEffect(() => {
-    axios.post('http://localhost:5000/api/chatbot', { input_text: search })
+    axios.post(process.env.REACT_APP_CHATBOT_API, { input_text: search })
       .then(response => {
         setResult(response.data.response);
         setLoading(false);
