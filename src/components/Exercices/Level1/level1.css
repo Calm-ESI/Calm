@@ -14,7 +14,7 @@
 body{
   overflow-x: hidden;
   
- 
+
 }
 
 .level1{
@@ -23,78 +23,81 @@ background-color: #1B1F24;
 
 }
 body{
-  background-color: #1b1f24;
+    background-color: #1b1f24;
 }
 .container{
-  margin: 5px;
+    margin: 5px;
 }
 
 
 
 .question1{
-  font-size: xx-large;   
-  color: white;
-  font-family:'JetBrains Mono';
-  padding-left: 28%;
+    font-size: xx-large;
+    color: white;
+    font-family:'JetBrains Mono';
 
-  
+
 }
 .ABC1{
-  /* position: relative; */
-  /* margin-top: 50% ; */
-  background-color: #4E4E4E;
-  
-  width: 700px;
-  height: 300px;
-  margin: 5% auto 0 auto;
-  border-radius: 20px;
- margin-top: 30px;
+    /* position: relative; */
+    /* margin-top: 50% ; */
+    background-color: #24292e;
+
+    width: 43.75rem;
+    height: 18.75rem;
+    margin: 5% auto 0 auto;
+    border-radius: 20px;
+    margin-top: 30px;
+    border: 2px solid #15bb6b;
 }
-.ABC2{
-  /* position: relative; */
-  /* margin-top: 50% ; */
-  background-color: #4E4E4E;
-  
-  width: 700px;
-  height: 470px;
-  margin: 5% auto 0 auto;
-  border-radius: 20px;
- margin-top: 30px;
+.ABC11{
+    /* position: relative; */
+    /* margin-top: 50% ; */
+    background-color: #24292e;
+
+    width: 43.75rem;
+    height: 29.375rem;
+    margin: 5% auto 0 auto;
+    border-radius: 20px;
+    margin-top: 1.875rem;
+    border: 2px solid #15bb6b;
 }
 .Q1{
-  font-size: xx-large;   
-  color: white;
-  font-family:'JetBrains Mono';
-  width: 90%;
-  margin-left: 10%;
-
+    font-size: xx-large;
+    color: white;
+    font-family:'JetBrains Mono';
+    width: 90%;
+    margin:auto;
+}
+.liexercices{
+  text-align: left;
 }
 .R1{
- font-size: 30px;
- font-weight: 300;
-  color: white;
-  font-family:'JetBrains Mono';
-  width: 70%;
-margin-left: 30%;
+    font-size: 1.875rem;
+    font-weight: 300;
+    color: white;
+    font-family:'JetBrains Mono';
+    width: 70%;
+    margin-left: 30%;
 
 }
 .R10{
-  font-size: 30px;
-  font-weight: 300;
-   color: white;
-   font-family:'JetBrains Mono';
-   width: 80%;
- margin-left: 20%;
- 
- }
-.ABC{
-  color: black;
-  width: 350px;
-  font-family:'JetBrains Mono'; 
-  margin:3% auto 0 auto;
+    font-size: 1.875rem;
+    font-weight: 300;
+    color: white;
+    font-family:'JetBrains Mono';
+    width: 80%;
+    margin-left: 20%;
 
-  
- 
+}
+.ABC{
+    color: black;
+    width: 21.875rem;
+    font-family:'JetBrains Mono';
+    margin:3% auto 0 auto;
+
+
+
 
 
 }
@@ -102,7 +105,7 @@ margin-left: 30%;
   width: 150px;
   height: 60px;
   background-color: #1BE985;
-  font-family:'JetBrains Mono'; 
+  font-family:'JetBrains Mono';
   color: black;
   border-radius: 35px;
 margin: auto;
@@ -117,23 +120,20 @@ text-align: center;
   background-color: aliceblue;
 }*/
 .submit-btn {
-  position: absolute;
-  margin: auto;
-  left: 45%;
-  font-weight: bold;
-  background-color: #1BE985;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  text-align: center;
-  
-  
-  font-size: 16px;
- margin: auto;
-  cursor: pointer;
-  border-radius: 4px;
+    position: absolute;
+    margin: auto;
+    left: 45%;
+    font-weight: bold;
+    background-color: #1BE985;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
 
 }
 .submit-btn:hover {
-  background-color: #15bb6b;
+    background-color: #15bb6b;
 }

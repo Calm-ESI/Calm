@@ -1,4 +1,6 @@
-import './App.css';
+import { Footer } from '../../../containers';
+import NavBar from '../../NavBar';
+import './level4.css';
 
 
 
@@ -55,21 +57,21 @@ ADD R1,R2*/
     
     return(
      <>
-     <div className='container'>
+     <div className='container4'>
      <ul>
-     <h1 className='question1'> -Question {props.num}:</h1>
+     <h1 className='question4'> -Question {props.num}:</h1>
      </ul>    
-     <div className='ABC1'>
-      
-      <h1 className='Q1'> {props.instr1}</h1>
-      <h1 className='Q1'> {props.instr2}</h1>
-      <h1 className='Q1'> {props.instr3}</h1>
-      <h1 className='Q1'> {props.instr4}</h1>
-      <h1 className='Q1'> {props.instr5}</h1>
-      <h1 className='Q1'> {props.instr6}</h1>
-      <h1 className='Q1'> {props.instr7}</h1>
-      <h1 className='Q1'> {props.instr8}</h1>
-     
+     <div className='ABC4'>
+      <div className='questions'> 
+      <h1 className='Q4'> {props.instr1}</h1>
+      <h1 className='Q4'> {props.instr2}</h1>
+      <h1 className='Q4'> {props.instr3}</h1>
+      <h1 className='Q4'> {props.instr4}</h1>
+      <h1 className='Q4'> {props.instr5}</h1>
+      <h1 className='Q4'> {props.instr6}</h1>
+      <h1 className='Q4'> {props.instr7}</h1>
+      <h1 className='Q4'> {props.instr8}</h1>
+      </div>
       
   <label className='lab'> R1   
 <input type="text" name="text" className="input" />
@@ -118,20 +120,13 @@ ADD R1,R2*/
       };
   return (
     <div className="level4">
-      
+      <NavBar/>
       <Questionsswiper/>
-      
-
-    
-
-
-     <div className='button'>
-     <button className="submit-btn">Submit</button>
-     </div>
-      </div>
-    
-    
-    
+    <div className='button'>
+    <button className="submit-btn">Submit</button>
+    </div>
+    <Footer></Footer>
+    </div>
   );
 }
 

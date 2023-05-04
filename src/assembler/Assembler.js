@@ -300,7 +300,7 @@ while (hexString.length < size) {
             //immediat
             //set the size used---------------------------------------------------------------------------!!!!!!!
             
-            if ( listofparam[0].value >  32.767 || listofparam[0].value <  -32.767 ){
+            if ( listofparam[0].value >  32767 || listofparam[0].value <  -32767 ){
                 //errooor
                 
                 Errorcalm.SyntaxicError.push(new Errorcalm("Wrong range of number",null,i));

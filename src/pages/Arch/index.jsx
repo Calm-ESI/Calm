@@ -272,7 +272,7 @@ MC.forEach((element,index) => {
 });
     ///////////////to add delay/////
     let thecontext=[...props.theCTX];
-    
+    console.log("the context : "+thecontext)
     let tmpctx=0;
     let done=0;
     const animate=(i,animation,h,w,dl,chaine)=>{
@@ -653,7 +653,7 @@ MC.forEach((element,index) => {
         left:"48.7%",
         opacity:"0",
         color:"#1BE988",
-        fontSize:"32px",
+        fontSize:"25px",
         fontWeight:"800"
     }}>{MCVal}</div>
     <img src={queuearrow} className="queuearrow" alt="" style={{
@@ -730,8 +730,8 @@ MC.forEach((element,index) => {
             <h2 className="contentTableText">MC</h2>
             <div className="contentTableDivMC">
                 <div className="MChead">
-                    <p style={{padding:"0 40px",margin:"10px 0"}}>adresse</p>
-                    <p style={{margin:"10px 0"}}>content</p>
+                    <p >adresse</p>
+                    <p >content</p>
                 </div>
             <table className="contentTableMC">
                 <tbody>

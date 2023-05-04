@@ -8,6 +8,9 @@ import {ComponentsCard, NavBar} from "../../components/"
 // import {MUnit} from "../../Constants/componentsDescription";
 // import {IOUnit} from "../../Constants/componentsDescription";
 import axios from "axios";
+import './style.css';
+
+import React from "react";
 
 
 const Components = () => {
@@ -35,6 +38,7 @@ const Components = () => {
       console.log(err)
     })
   }, [])
+  
   return (
     <>
       <NavBar/>
@@ -49,7 +53,6 @@ const Components = () => {
             </div>
           )
         }
-
       </div>
     
     </>

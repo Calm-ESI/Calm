@@ -39,15 +39,25 @@ export const properties =[
     },
     {
         id:5,
+        modeName: "Indexed",
+        modePicture: rightIndexPic,
+        description:"Getting the " +
+            "information based on the address stored in the base register, so we’ll have to do some " +
+            "calculation by adding the value that we have in the instruction to the address found in the " +
+            "index register to get the physical address of the data, it is used mostly to retrieve data from " +
+            "arrays based on the first element of the array and it requires 1 memory access."
+    },
+    {
+        id:6,
         modeName: "Based Indexed",
         description:"hello"
     },
-    {  id:6,
+    {  id:7,
         modeName:"Shift on 8 bits",
         description:"hello"
     },
     {
-        id:7,
+        id:8,
         modeName:"Shift on 16 bits",
         description:"hello"
     }

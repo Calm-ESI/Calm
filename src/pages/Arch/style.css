@@ -33,12 +33,13 @@
 
 .contentTableDivFlags{
     height:2rem;
-    width:17rem;
+    width:18rem;
     background-color: #212529;
     margin: auto;
     border-radius: 20px;
     border: 2px solid #1BE985;
     display: flex;
+    padding: 0.4rem;
 }
 
 .contentTableText{
@@ -47,9 +48,17 @@
     margin: 2%;
 }
 
+.returnBtn{
+    border-radius: 0.6rem;
+    background-color: #1BE985;
+    font-family: "JetBrains Mono", system-ui;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+}
 
 .contentTableMC{
-    width:15rem;
+    width:17rem;
     margin: auto;
     border-radius: 20px;
     background-color: #212529;
@@ -59,7 +68,10 @@
     font-family: 'JetBrains Mono', monospace;
     margin-top: 1rem;
     /*overflow-y: auto; */
-}   
+}
+.contentTableMC td  {
+    font-family: 'JetBrains Mono', monospace;
+}
   
 .contentTableDiv::-webkit-scrollbar {
     width:5px;
@@ -90,7 +102,7 @@
 
 .MChead{
       display:flex;
-      gap:0.5rem;
+      gap:3.2rem;
       position:absolute;
       background:#212529;
       width:85%;
@@ -99,6 +111,7 @@
       color: #ffffff;
       font-family: 'JetBrains Mono', monospace;
       border-bottom: 2px solid #1BE985;
+    justify-content: center;
 }
 
 .aflag{
@@ -124,6 +137,7 @@
     color: white;
     font-family: 'JetBrains Mono', monospace;
     margin: 1rem;
+    width: 3rem;
 }
 
 .aregC{
@@ -136,6 +150,8 @@
     font-size: 15px;
     color: white;
     font-family: 'JetBrains Mono', monospace;
+    padding: 0.2rem;
+    justify-content: center;
 }
 
 .aregister{

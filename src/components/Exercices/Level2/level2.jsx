@@ -1,3 +1,5 @@
+import { Footer } from '../../../containers';
+import NavBar from '../../NavBar';
 import './level2.css';
 
 
@@ -63,12 +65,13 @@ function Level2() {
 
     return(
      <>
-    <div className='container'>
+     
+    <div className='containe2'>
      <ul>
-     <h1 className='question1'> Question {props.num}</h1>
+     <h1 className='question2'> Question {props.num}</h1>
      </ul>  
-     <div className='ABC1'>
-      <h1 className='Q1'>{props.qst}</h1>
+     <div className='ABC2'>
+      <h1 className='Q2'>{props.qst}</h1>
       
       
       <div className="textInputWrapper" >
@@ -92,11 +95,11 @@ function Level2() {
 
     return(
      <>
-     <div className='container'>
-     <h1 className='question1'> Question 2</h1>
+     <div className='container2'>
+     <h1 className='question2'> Question 2</h1>
         
-     <div className='ABC1'>
-      <h1 className='Q1'>Add R3,*R4</h1>
+     <div className='ABC2'>
+      <h1 className='Q2'>Add R3,*R4</h1>
       
       
       <div className="textInputWrapper" >
@@ -120,11 +123,11 @@ function Level2() {
 
     return(
      <>
-     <div className='container'>
-     <h1 className='question1'> Question 3</h1>
+     <div className='container2'>
+     <h1 className='question2'> Question 3</h1>
         
-     <div className='ABC1'>
-      <h1 className='Q1'>Sub RI ,20</h1>
+     <div className='ABC2'>
+      <h1 className='Q2'>Sub RI ,20</h1>
       
       
       <div className="textInputWrapper" >
@@ -149,11 +152,11 @@ function Level2() {
 
     return(
      <>
-     <div className='container'>
-     <h1 className='question1'> Question 4</h1>
+     <div className='container2'>
+     <h1 className='question2'> Question 4</h1>
         
-     <div className='ABC1'>
-      <h1 className='Q1'>Nand BR, SR</h1>
+     <div className='ABC2'>
+      <h1 className='Q2'>Nand BR, SR</h1>
       
       
       <div className="textInputWrapper" >
@@ -178,11 +181,11 @@ function Level2() {
 
     return(
      <>
-     <div className='container'>
-     <h1 className='question1'> Question 5</h1>
+     <div className='container2'>
+     <h1 className='question2'> Question 5</h1>
         
-     <div className='ABC1'>
-      <h1 className='Q1'>XOR IR</h1>
+     <div className='ABC2'>
+      <h1 className='Q2'>XOR IR</h1>
       
       
       <div className="textInputWrapper" >
@@ -206,11 +209,11 @@ function Level2() {
 
     return(
      <>
-     <div className='container'>
-     <h1 className='question1'> Question 6</h1>
+     <div className='container2'>
+     <h1 className='question2'> Question 6</h1>
         
-     <div className='ABC1'>
-      <h1 className='Q1'>Mov ACC ,*20</h1>
+     <div className='ABC2'>
+      <h1 className='Q2'>Mov ACC ,*20</h1>
       
       
       <div className="textInputWrapper" >
@@ -249,6 +252,7 @@ function Level2() {
 
   return (
     <div className="level2">
+      <NavBar/>
           <Questionsswiper/>
    
 
@@ -258,6 +262,8 @@ function Level2() {
 
 
      <button className="submit-btn">Submit</button>
+     <Footer></Footer>
+
       </div>
     
     

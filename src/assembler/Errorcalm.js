@@ -7,7 +7,7 @@ export class Errorcalm{
 
     static LexicalError = [];
     static SyntaxicError = [];
-
+    static errorr=0;
     constructor(message,type,linenum){
         this.message = message;
         this.type = type;
@@ -34,10 +34,16 @@ export class Errorcalm{
             }
     }
     static printError(){
+        let theError;
         const numerr = Errorcalm.LexicalError.length + Errorcalm.SyntaxicError.length;
-        numerr ==1 ? console.log("\nThere is 1 error in your code:\n") : console.log(`\nThere are ${numerr} errors in your code cannot assemble:\n`);
-        Errorcalm.LexicalError.length == 0 ? console.log("Syntaxic Errors:\n",Errorcalm.SyntaxicError) : console.log("Lexical Errors \n",Errorcalm.LexicalError);
-
+        if(numerr ==0){
+            return ''
+        }else{
+            numerr ==1 ? theError="\nThere is 1 error in your code:\n" : theError=`\nThere are ${numerr} errors in your code cannot assemble:\n`;
+        Errorcalm.LexicalError.length == 0 ? theError+="  Syntaxic Errors:\n"+"  "+Errorcalm.SyntaxicError[0].message+"\n the line : "+Errorcalm.SyntaxicError[0].linenum : theError+="Lexical Errors \n"+"  "+Errorcalm.LexicalError[0].message+"\n the line :"+Errorcalm.LexicalError[0].line;
+        Errorcalm.errorr=1;
+        console.log(this.SyntaxicError);
+        return theError;}
     }
     static addtoSyntaxicError(errs){
         Errorcalm.SyntaxicError= errs.concat(Errorcalm.SyntaxicError);    }

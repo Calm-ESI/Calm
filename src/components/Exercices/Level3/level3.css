@@ -1,13 +1,13 @@
 
 @font-face {
   font-family: "Mona Sans";
-  src: url("src/assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("src/assets/font/Mona-Sans.woff2") format("woff2-variations");
+  src: url("../../../assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("../../../assets/font/Mona-Sans.woff2") format("woff2-variations");
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("src/assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("src/assets/font/JetBrainsMono-Bold.woff2") format("woff2");
+  src: url("../../../assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("../../../assets/font/JetBrainsMono-Bold.woff2") format("woff2");
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
@@ -38,61 +38,64 @@ background-color: #1B1F24;
 body{
   background-color: #1b1f24;
 }
-.container{
+.container3{
   margin:0.38rem ;
 }
 
 
 
-.question1{
+.question3{
   font-size: xx-large;   
   color: white;
   font-family:'JetBrains Mono';
-  padding-left: 28%;
+  
 
   
 }
-.ABC1{
+.ABC3{
   /* position: relative; */
   /* margin-top: 50% ; */
-  background-color: #4E4E4E;
+  background-color: #24292e;
   
   width: 43.75rem;
   height: 18.75rem;
   margin: 5% auto 0 auto;
   border-radius: 1.25rem;
  margin-top: 1.875rem;
+ border: 2px solid #15bb6b;
 }
-.ABC2{
+.ABC3{
   /* position: relative; */
   /* margin-top: 50% ; */
-  background-color: #4E4E4E;
+  background-color: #24292e;
   
   width: 43.75rem;
-  height: 29.375rem;
+  height: 17rem;
   margin: 5% auto 0 auto;
   border-radius: 20px;
  margin-top: 1.875px;
+ border: 2px solid #15bb6b;
 }
-.Q1{
+.Q3{
   font-size: 3.125rem;   
   color: white;
   font-family:'JetBrains Mono';
   width: 90%;
-  margin-left: 25%;
+  margin:auto;
 
 }
-.R1{
+.R3{
  font-size: 1.875rem;
  font-weight: 300;
   color: white;
   font-family:'JetBrains Mono';
   width: 70%;
-margin-left: 30%;
+  text-align: left;
+  margin: auto;
 
 }
 
-.ABC{
+.ABC_3{
   color: black;
   width: 21.875rem;
   font-family:'JetBrains Mono'; 

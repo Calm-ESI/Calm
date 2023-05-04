@@ -1,3 +1,5 @@
+import { Footer } from '../../../containers';
+import NavBar from '../../NavBar';
 import './level3.css';
 
 
@@ -63,17 +65,17 @@ function Level3() {
 
     return(
      <>
-    <div className='container'>
-     <h1 className='question1'> Question {props.num}</h1>
+    <div className='container3'>
+     <h1 className='question3'> Question {props.num}</h1>
         
-     <div className='ABC1'>
-      <h1 className='Q1'>{props.qst}</h1>
-      <div className='R1'>
+     <div className='ABC3'>
+      <h1 className='Q3'>{props.qst}</h1>
+      <div className='R3'>
       <li>1- Faux</li>
         <li>2- Vrai</li>
         </div>
       
-     <Select options={options1} className='ABC' />
+     <Select options={options1} className='ABC_3' />
         
        
 
@@ -114,10 +116,11 @@ function Level3() {
 
   return (
     <div className="level3">
-      
-       <Questionsswiper/>
+      <NavBar/>
+      <Questionsswiper/>
       <button className="submit-btn">Submit</button>
-     </div>
+      <Footer></Footer>
+      </div>
     
     
     

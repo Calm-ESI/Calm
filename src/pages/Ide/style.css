@@ -1,3 +1,44 @@
+.convert-btn{
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  background-color: #263238;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+}
+.dxTOMC {
+  border: 2px solid white;
+}
+.dqCNfl {
+  color: rgb(255 250 250) !important;
+  font-size: 14px !important;
+  font-family: "Mona sans" !important;
+  padding: 0px 10px !important;
+  font-weight: 800 !important;
+}
+/* .hBbmLh {
+  width: 140px !important;
+  display: inline-block !important;
+  margin: 0 1rem;
+}
+
+.ermrOj{
+  height: 1rem;
+    width: 2rem;
+}
+.ermrOj::before{
+  height: 14px !important;
+    width: 14px !important;
+    left: -1px !important;
+}
+.rgrFR:checked + span::before {
+  transform: translateX(17px) !important;
+} */
+#cont{
+  height: 25rem;
+  background-color: #263238;
+}
+
 .codeContainer{
   width: 50vw;
   height: 25rem;
@@ -5,7 +46,7 @@
   overflow: hidden;
   margin-top: 2em;
   text-align: left;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
   
 .console{
@@ -26,13 +67,22 @@
 
 .ide-exec-button{
   height:2em;
-  width: 5em;
+  width: 5rem;
   background-color: #1BE985;
-  border-radius: 10px;
-  margin: 10px 10px;
+  border-radius: 0.625rem;
+  margin: 0.625rem 0.625rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0 0.25rem 0 0.25rem;
 }
 .ide_container{
   margin: auto;
   width: 90%;
   gap: 20%;
+}
+
+.ktfEWP {
+  border : 2px solid gray !important;
+}
+.aregide{
+  width: 3rem;
 }

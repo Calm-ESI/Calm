@@ -94,9 +94,9 @@ function Level1() {
                     <div className='ABC1'>
                         <h1 className='Q1'> {props.qst}</h1>
                         <div className='R1'>
-                            <li>{props.R1}</li>
-                            <li>{props.R2}</li>
-                            <li>{props.R3}</li>
+                            <li className='liexercices' >{props.R1}</li>
+                            <li className='liexercices'>{props.R2}</li>
+                            <li className='liexercices'>{props.R3}</li>
                         </div>
 
                         <Select options={options} className='ABC'/>
@@ -119,12 +119,12 @@ function Level1() {
                 <div className='container'>
                     <h1 className='question1'> Question 10</h1>
 
-                    <div className='ABC2'>
+                    <div className='ABC11'>
                         <h1 className='Q1'>Qu'est-ce qu'un pointeur en langage d'assemblage ?</h1>
                         <div className='R10'>
-                            <li>1-Un type de variable qui stocke des entiers</li>
-                            <li>2- Une adresse mémoire qui pointe vers une autre adresse mémoire</li>
-                            <li>3- Un périphérique d'entrée/sortie</li>
+                            <li className='liexercices'>1-Un type de variable qui stocke des entiers</li>
+                            <li className='liexercices'>2- Une adresse mémoire qui pointe vers une autre adresse mémoire</li>
+                            <li className='liexercices'>3- Un périphérique d'entrée/sortie</li>
                         </div>
 
                         <Select options={options} className='ABC'/>

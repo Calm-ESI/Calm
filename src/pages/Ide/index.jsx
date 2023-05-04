@@ -3,7 +3,7 @@ import { aura, auraInit } from '@uiw/codemirror-theme-aura';*/
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "./style.css"
 import UAParser from 'ua-parser-js';
-
+import Toggle from 'react-styled-toggle';
 // import components
 import { NavBar } from "../../components"
 
@@ -23,7 +23,10 @@ import "../../codemirror/theme/material.css";
 import "../../codemirror/mode/myLang/assembly.js"
 /////import assembler//////////
 import { Assembler } from "../../assembler/Assembler";
-
+import HelpSection from "../../components/HelpSection";
+import {helpDescription} from "../../Constants/HelpDescription";
+import {HexaToCode} from "../../HexaToCode/HexaToCode"
+import { Errorcalm } from "../../assembler/Errorcalm";
 ////////////////animations declarations////////////////////////////////
 let animations=[];
 ////////////////context declarations///////////////////////////////////
@@ -45,9 +48,13 @@ let SR=new Register();
 let Alu1=new Alu();
 let Registers=[R1,R2,R3,R4,Alu1.Acc,BR,IR,SR];
 
+const handleRefresh = () => {
+  window.location.reload();
+};
+
 /////////////////////////////function needed in assembling
 function convertStrings(arr) {
-  const result = [];
+  const result = [] ;
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j += 2) {
       result.push(arr[i][j] + arr[i][j+1]);
@@ -65,6 +72,8 @@ const Ide = ()=>{
   let [memo,setmemo]=useState(false);
   let [reg,setreg]=useState(false);
   let [stk,setstk]=useState(false);//for showing stack
+  let [isHexa,setIsHexa]=useState(false);
+  let [iscode,setIsCode]=useState(true);
   ///////////////////////////////executions function////////////////////////////////////////
 const traitement= (codeArray)=>{
 // Registers[0].setvalue("0000000000000010");
@@ -95,7 +104,7 @@ queue.fetchInstruction(animations,numtmp,0,Contextarray,0);
 
 
 
-
+console.log(queue.getinstwithoutshift())
 //-----//
 let resulttmp="";
 let instrobject={};
@@ -169,7 +178,7 @@ while(instrobject.name!=="stop"){
       fontWeight: 400,
     },
   })
-
+  let [checktest,setChecktest]=useState(false);
   /////////////////////returning the component//////////////////
   let tablec=[];
   memory.getData().forEach((element,index) => {
@@ -236,6 +245,18 @@ while(instrobject.name!=="stop"){
     // let input = ["MOV 10*,10","MOV R2,2","ADD R1,R2"]
     // console.log(convertStrings(Assembler.assemblecode(input)));
     // console.log(Assembler.assemblecode(input));
+    const Hexagen= (codeArray,hexaArray) => {
+      // Join array elements with newline character
+      let code=[];
+     for (let index = 0; index < codeArray.length; index++) {
+       code[index]=hexaArray[index]+"  //"+codeArray[index]   
+     }    
+      code = code.join('\n');
+     // const editor = codeMirrorRef.current.editor; // Get CodeMirror editor instance from ref
+     // editor.setValue(code); // Set the value of the editor to the joined code array
+     return code;
+   };
+
 
 return <> 
 {!simul && <NavBar/>}
@@ -261,7 +282,48 @@ return <>
   }}
 />
 </div> */}
-<div className='codeContainer'>
+<div className='codeContainer' id="cont">
+<div style={{display:"flex",gap:"10rem",padding:"0.5rem 0",}}>
+{iscode && <button onClick={()=>{
+    const editor = codeMirrorRef.current.editor;
+    editor.setValue('');
+    editor.setValue(Hexagen(handleStoreCode(),Assembler.assemblecode(handleStoreCode())));
+    setChecktest(!checktest);
+    setIsCode(false);
+        setIsHexa(true);
+  }} className="convert-btn">To Hexa </button>}
+  
+  {isHexa && <button onClick={()=>{
+    const editor = codeMirrorRef.current.editor;
+    editor.setValue('');
+    let code="";
+    for (let m = 0; m < handleStoreCode().length; m++) {
+      // code=code+HexaToCode(Assembler.assemblecode(handleStoreCode())[m])+"\n";
+      code=code+HexaToCode(handleStoreCode()[m])+"\n";
+    }
+    editor.setValue(code);
+    setChecktest(!checktest);
+    setIsCode(true);
+    setIsHexa(false);
+  }} className="convert-btn">To code </button>}
+  
+  {/* <p style={{display:"inline",margin:"0 -2px",fontSize:"10px"}}>code</p> */}
+  <div className="togglebutton" style={{position: "relative",top:"0.3rem"}}>
+  <Toggle labelRight="hexa" labelLeft="code" backgroundColorChecked="#1BE985" backgroundColorUnchecked="#263238" checked={checktest} onChange={()=>{
+      if(iscode){
+        setIsCode(false);
+        setIsHexa(true);
+        setChecktest(!checktest);
+      }else{
+        setIsCode(true);
+        setIsHexa(false);
+        setChecktest(!checktest);
+      }
+    }
+  } />
+  </div>
+  {/* <p style={{display:"inline",margin:"0 -2px",fontSize:"10px"}}>Hexa</p> */}
+  </div>
 <CodeMirror
 
   // theme={myTheme}
@@ -285,36 +347,33 @@ return <>
 
 </div>
 {!done && <div className="codeContainer console">
-  {/* <button className='ide-exec-button' onClick={()=>{traitement(["19","49","00","01"]) */}
-  {/* <button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
   <button className='ide-exec-button' onClick={()=>{
-    let input=convertStrings(Assembler.assemblecode(handleStoreCode()));///nzid ll input "11"
-    // let input=["18","f0","00","0a","05","05"];
+    let inputouter=[];
+    if(iscode){
+      inputouter=Assembler.assemblecode(handleStoreCode())
+    }else{
+      inputouter=handleStoreCode();
+    }
+    let input=convertStrings(inputouter);
     input.push("ff");
+    if(Errorcalm.errorr==0){
     // let n=handleStoreCode().length;
     console.log(input)
     traitement(input)
-    setdone(true)
+    setdone(true)}
+    setresult(Errorcalm.printError());
   }}>execute</button>
-    <pre style={{color:"white"}}>{result}</pre>
+    <pre style={{color:"red"}}>{result}</pre>
     </div>
   }
+
 {done && <div className="codeContainer console">
-  {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","49","00","01"]) */}
-  {/* <div style={{width:"500px",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{traitement(["19","C8","00","00","00","01","19","41","00","00","01","88","00","00"]) */}
-  <div style={{width:"35%",position:"fixed",backgroundColor:"black"}}><button className='ide-exec-button' onClick={()=>{
-    let input=convertStrings(Assembler.assemblecode(handleStoreCode()));
-    // let input=["18","f0","00","0a","00","05","05"];
-    input.push("ff");
-    console.log(input)
-    traitement(input)
-    setdone(true)
-  }}>execute</button>
+  <div style={{width:"35%",position:"fixed",backgroundColor:"black", borderRadius: "0.6rem"}}><button className='ide-exec-button' onClick={handleRefresh}>re-write</button>
   <button className='ide-exec-button' onClick={()=>{
   const parser = new UAParser();
   const result = parser.getResult();
   result.device.type==='mobile'? alert('Simulation not availble for this type of devices') : setsimul(true) ;
-  }}>simulate</button>
+  }}>animate</button>
   <button className='ide-exec-button' onClick={()=>{setreg(true)
   setmemo(false)
   setstk(false)
@@ -368,7 +427,7 @@ return <>
                     <div className="aregC"><p style={{margin:"6px"}}>{Registers[4].getvalue()}</p></div>
                 </div>
             </div> }
-            {memo && <table className="contentTableMCIde">
+            {memo && <table className="contentTableMCIde" style={{fontFamily: "JetBrains Mono"}}>
                 <tbody>
                 <tr>
                     <td style={{color:"#1BE985"}}>
@@ -397,8 +456,9 @@ return <>
     </div>
   }
 </div>}
-
+{!simul && <HelpSection helpDescription={helpDescription}/>}
 {simul && <Arch anim={animations} mem={memory} flags={Alu1.getAllFlags()} reg={Registers} theCTX={Contextarray}/>}
+
 </>
 }
 export default Ide;

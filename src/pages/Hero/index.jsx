@@ -12,11 +12,13 @@ import discordIcon from '../../assets/images/icons/discord-icon.png' ;
 import getstarted from "../../assets/images/decorations/GetStarted.svg";
 import cpu from "../../assets/images/icons/cpu-fill.svg";
 import aiChat from "../../assets/images/decorations/aiChat.png";
+import arrowGif from "../../assets/images/decorations/greenArrow.gif";
 
 //import components
 import {NavBar, Title, HeroIde} from "../../components"
 import {Footer} from '../../containers'
 import {motion} from "framer-motion"
+import Bot from "../../components/ChatBot";
 // import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
 
@@ -106,7 +108,7 @@ const Hero = () => {
                                     layout
                                     className="whatWeOfferCard">
                                     <img src={simulationImage} alt="description of image" className="threeIcons"/>
-                                    <h1>Simulate</h1>
+                                    <h1>Animate</h1>
                                 </motion.div>
                             </a>
                         <a href="/ide" className="whatWeOfferLink">
@@ -165,8 +167,8 @@ const Hero = () => {
                 </div>
 
                 <div className="simulation-container">
-                    <h1 className="emul">Simulation</h1>
-                    <p className="emul-1">After executing your CalM assembly code, you can click "Simulate" to watch a
+                    <h1 className="emul">Animation</h1>
+                    <p className="emul-1">After executing your CalM assembly code, you can click "Animate" to watch a
                         captivating animation of your code coming to life within the CalM architecture.</p>
                 </div>
 
@@ -230,9 +232,9 @@ const Hero = () => {
             </motion.div>
 
             <HeroIde/>
-        </main>
-        {/*<img src={arrowGif} alt=""/>*/}
 
+        </main>
+        {/*<img src={arrowGif} alt="Green Arrows" className="greenArrow"/>*/}
         <Part1></Part1>
         <Part3></Part3>
         <Part4></Part4>
@@ -240,7 +242,7 @@ const Hero = () => {
         <Part6></Part6>
         <Part2></Part2>
         <Part7></Part7>
-
+        <Bot/>
     </>
 }
 export default Hero;

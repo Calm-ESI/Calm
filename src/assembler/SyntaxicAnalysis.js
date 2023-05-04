@@ -85,15 +85,15 @@ export class SyntaxicAnalysis {
 
                       case 'INST1':
                         // ONE params instructions: INST1 ::=  NEG, NOT, SHL, SHR, READ, WRITE, PUSH, POP, ROR, ROL, CALL, BE, BNE, BS, BI, BIE, BSE, BR
-                        //|                                                                                         |
-                        //|        Must have only one other param: it must be valid                                 |
-                        //|        or one param and other special chars: they must be valid  also                   |
-                        //|        That other special char is used for addressing modes mainly                      |
-                        //|------------------------------------------------------------------------------------------
+                        //|                                                                          .               |
+                        //|        Must have only one other param: it must be valid                  .               |
+                        //|        or one param and other special chars: they must be valid  also  .                 |
+                        //|        That other special char is used for addressing modes mainly    .                  |
+                        //|-----------------------------------------------------------------------------------------.
                         const functINST1 = ()=> {
                             var firstparam = lexicalList[i][1]
                             if (['NEG','NOT', 'SHL', 'SHR', 'READ', 'WRITE', 'PUSH', 'POP', 'ROR', 'ROL'].includes( lexicalList[i][0].value )) {
-                                //read or write from or to register only
+                                //read or write from or to register only..
                                 // Labels are not allowed
                                 if (firstparam.type == 'REGISTER'  && lexicalList[i].length == 2) {
                                     this.Syntaxiclist.push([{  type:lexicalList[i][0].type, value: lexicalList[i][0].value, adrmode:0  },lexicalList[i][1]]);
@@ -185,6 +185,8 @@ export class SyntaxicAnalysis {
                         if (nocomma)  
                         {
                             this.Syntaxiclist.push(new Errorcalm("Comma missing",null,i))
+                            Errorcalm.SyntaxicError.push(new Errorcalm("Comma missing",null,i))
+
                         }
                         else{
                             // check also for first operand based ind and second indexed or based or opposite 
@@ -253,7 +255,7 @@ export class SyntaxicAnalysis {
     //|        Must have only one other param: it must be valid                                 |
     //|        or one param and other special chars: they must be valid  also                   |
     //|        That other special char is used for addressing modes mainly                      |
-    //|------------------------------------------------------------------------------------------
+    //|-------------------------------------------------------------------------------------------
 
     
     // TWO params instructions: NAND, CMP, MOV, ADD, SUB, MUL, DIV, AND, OR, XOR, NOR

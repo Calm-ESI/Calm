@@ -9,6 +9,12 @@ import asteriks from "./assets/images/decorations/asteriskgray.png"
 import asteriks2 from "./assets/images/decorations/asteriskgray.png"
 import { useEffect, useState } from 'react';
 
+import ExercicesPage from "./pages/ExercicesPage";
+import Level1 from "./components/Exercices/Level1/level1";
+import Level2 from './components/Exercices/Level2/level2';
+import Level3 from './components/Exercices/Level3/level3';
+import Level4 from './components/Exercices/Level4/level4';
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   
@@ -56,6 +62,11 @@ function App() {
           <Route exact path="/reset-password/:token" element={<ResetPasswordPage/>}/>
           <Route exact path="/profile" element={<Profile currentUser={currentUser} updateCurrentUser={setCurrentUser}/>}/>
           <Route path='*' element={<NotFound />}/>
+          <Route exact path="/learn/Exercices" element={<ExercicesPage/>}/>
+          <Route exact path="/learn/Exercices/Level1" element={<Level1/>}/>
+          <Route exact path="/learn/Exercices/Level2" element={<Level2/>}/>
+          <Route exact path="/learn/Exercices/Level3" element={<Level3/>}/>
+          <Route exact path="/learn/Exercices/Level4" element={<Level4/>}/>
         </Routes>
         
       </div>

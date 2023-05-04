@@ -132,7 +132,7 @@ export class Lexer {
           if ( lexlist[index-1].value=='-' && lexlist[index-1].type=='SPECIAL CHARACTER'  ){
             console.log( '-'+element.value )
             lexlist.splice(index-1, 1);
-            if( parseInt('-'+element.value,10) < -32.768){
+            if( parseInt('-'+element.value,10) < -32768){
               Lexer.Errors.push(new Errorcalm("Number out of range", "LEXER", line)) ; //change this 0 to the line number
               Errorcalm.set_LexicalError(new Errorcalm("Number out of range", "LEXER", line));
             }else{
