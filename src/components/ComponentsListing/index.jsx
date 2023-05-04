@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import {motion} from "framer-motion";
 import "./style.css"
-const ComponentsListing = ({ componentInfo,open, imageWidth }) => {
-    const{ComponentName, ComponentPicture, imageHeight, componentDescription} = componentInfo;
+const ComponentsListing = ({ name, imagepath, imageHeight, open }) => {
+    console.log(imagepath)
 
     return (
         <>
@@ -11,8 +11,8 @@ const ComponentsListing = ({ componentInfo,open, imageWidth }) => {
                         transition={{type: "spring", stiffness: 400, damping: 17}}
                         layout
                         onClick={open} className="ComponentsListing">
-                <img src={ComponentPicture} alt="componentPicture" style={{height: imageHeight + '%'}} />
-                <motion.p>{ComponentName}</motion.p>
+                <img src={`${imagepath}`} alt="componentPicture" style={{height: imageHeight + '%'}} />
+                <motion.p>{name}</motion.p>
             </motion.div>
         </>
     );

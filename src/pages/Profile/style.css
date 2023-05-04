@@ -1,0 +1,57 @@
+.profile-container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: flex-start;
+    /* align-items: center; */
+}
+
+.profile-title {
+    align-self: center;
+}
+
+.program-container {
+    width: 50%;
+    height: fit-content;
+    align-self: center;
+    background-color: #263238;
+    margin-bottom: 2rem;
+}
+
+.buttons-container {
+    align-self: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.profile-button {
+    width: fit-content;
+    appearance: none;
+    background-color: #15c871;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 2rem;
+    min-height: 60px;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.profile-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.profile-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}

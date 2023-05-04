@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./style.css"
 
-const AuthForm = ({currentRoute, redirectRoute}) => {
+const AuthForm = ({currentRoute, redirectRoute, updateCurrentUser}) => {
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navitage = useNavigate();
@@ -17,13 +18,51 @@ const AuthForm = ({currentRoute, redirectRoute}) => {
     }
 
     const handleSubmit = (e) => {
+        //prevent the form from reloading the page
         e.preventDefault();
+        console.log(document.querySelector('.auth-button').disabled);
+        document.querySelector('.auth-button').disabled = true;
+        //get the form error div
         const formError = document.getElementById('form-error')
+
+        //setup the request
         const URL = process.env.REACT_APP_API_URL + currentRoute;
-console.log(URL)
+        
         axios.post(URL, {email, password})
-        .then(()=>{navitage('/learn')})
-        .catch(err => {formError.innerText = err.response.data.message})
+        .then((res)=>{
+            const user = res.data.data;
+
+            if(currentRoute === '/register'){
+                //if the user just registered
+                navitage('/check-email');
+                return;
+            }
+            console.log(user)
+
+            if(currentRoute === '/login' && !user.confirmed){
+                formError.innerText = "Confirm your email first!"
+                return;
+            }
+
+            //set the curernt user in case of success
+            updateCurrentUser(user);
+
+            //save the user in local storage
+            localStorage.setItem('user', JSON.stringify(user));
+
+            //redirect to the learn page (or any page that comes afterwards)
+            navitage('/learn')
+        })
+        .catch(err => {
+            //show the error in the front
+            console.log(err)
+            if(!err.response.data.message){
+                formError.innerText = "Unknown Server error";
+            }
+            formError.innerText = err.response.data.message;
+        }).finally(()=>{
+            document.querySelector('.auth-button').disabled = false;
+        })
     }
 
     return (
@@ -42,6 +81,14 @@ console.log(URL)
             <button className='auth-link-button' onClick={()=>{return navitage(redirectRoute)}}>
                 {currentRoute === '/login' ? "Don't have an account? Register" : "Already have an account? Login"}
             </button>
+            {
+                currentRoute === '/login'
+                ?
+                    <button className='auth-link-button' onClick={()=>{return navitage('/password-forgot')}}>
+                        Forgot password?
+                    </button>
+                : null
+            }
         </div>
     )
 }

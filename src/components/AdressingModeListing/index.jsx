@@ -2,9 +2,9 @@ import React from "react";
 import {motion} from "framer-motion";
 import "./style.css"
 
-const AdressingModeListing = ({modesDescription, open}) => {
-    const {modeName, modePicture, description} = modesDescription;
+const AdressingModeListing = ({name, imagePath, open}) => {
 
+    console.log(imagePath);
     return (
         <>
             <motion.div whileHover={{scale: 1.1}}
@@ -13,8 +13,8 @@ const AdressingModeListing = ({modesDescription, open}) => {
                         layout
                         onClick={open} className="AdressModeListing">
 
-                <img src={modePicture} alt="modePicture"/>
-                <motion.p layout="position" >{modeName}</motion.p>
+                <img src={`${imagePath}`} alt="modePicture"/>
+                <motion.p layout="position" className="addressingModeTitle">{name}</motion.p>
 
 
             </motion.div>

@@ -46,6 +46,11 @@
     font-size: 1rem;
 }
 
+.auth-button:disabled{
+    background-color: #ddd;
+    cursor: default;
+}
+
 .auth-link-button{
     margin-top: 2rem;
     background: none;

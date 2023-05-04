@@ -1,8 +1,7 @@
 import React from 'react';
 import './style.css';
 import {motion} from "framer-motion";
-const ComponentsModal = ({componentInfo, close}) => {
-    const{ComponentName, ComponentPicture, imageHeight, componentDescription} = componentInfo;
+const ComponentsModal = ({ComponentName, componentDescription}) => {
     const variants = {open: {
             opacity: 1,
             transition: { staggerChildren: 0.5, delayChildren: 0.2 },
