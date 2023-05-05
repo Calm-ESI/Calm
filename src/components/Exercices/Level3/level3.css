@@ -1,132 +1,162 @@
+@font-face {
+    font-family: "Mona Sans";
+    src: url("../../../assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("../../../assets/font/Mona-Sans.woff2") format("woff2-variations");
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+}
 
 @font-face {
-  font-family: "Mona Sans";
-  src: url("../../../assets/font/Mona-Sans.woff2") format("woff2 supports variations"), url("../../../assets/font/Mona-Sans.woff2") format("woff2-variations");
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
+    font-family: "JetBrains Mono";
+    src: url("../../../assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("../../../assets/font/JetBrainsMono-Bold.woff2") format("woff2");
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
 }
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("../../../assets/font/JetBrainsMono-Regular.woff2") format("woff2"), url("../../../assets/font/JetBrainsMono-Bold.woff2") format("woff2");
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
+
 @keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 
-body{
-  overflow-x: hidden;
-  
- 
-}
-
-.level3{
-background-color: #1B1F24;
+body {
+    overflow-x: hidden;
 
 
 }
-body{
-  background-color: #1b1f24;
-}
-.container3{
-  margin:0.38rem ;
-}
 
+.level3 {
+    background-color: #1B1F24;
 
-
-.question3{
-  font-size: xx-large;   
-  color: white;
-  font-family:'JetBrains Mono';
-  
-
-  
-}
-.ABC3{
-  /* position: relative; */
-  /* margin-top: 50% ; */
-  background-color: #24292e;
-  
-  width: 43.75rem;
-  height: 18.75rem;
-  margin: 5% auto 0 auto;
-  border-radius: 1.25rem;
- margin-top: 1.875rem;
- border: 2px solid #15bb6b;
-}
-.ABC3{
-  /* position: relative; */
-  /* margin-top: 50% ; */
-  background-color: #24292e;
-  
-  width: 43.75rem;
-  height: 17rem;
-  margin: 5% auto 0 auto;
-  border-radius: 20px;
- margin-top: 1.875px;
- border: 2px solid #15bb6b;
-}
-.Q3{
-  font-size: 3.125rem;   
-  color: white;
-  font-family:'JetBrains Mono';
-  width: 90%;
-  margin:auto;
-
-}
-.R3{
- font-size: 1.875rem;
- font-weight: 300;
-  color: white;
-  font-family:'JetBrains Mono';
-  width: 70%;
-  text-align: left;
-  margin: auto;
 
 }
 
-.ABC_3{
-  color: black;
-  width: 21.875rem;
-  font-family:'JetBrains Mono'; 
-  
-  margin:4.5% auto 0 auto;
+body {
+    background-color: #1b1f24;
+}
 
-  
- 
+.container3 {
+    margin: 0.38rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.question3 {
+
+    font-family:'JetBrains Mono', monospace;
+    position: relative;
+    font-size: 2rem;
+    font-weight: 850;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    top: 1.9rem;
+    background-color: rgb(48, 54, 61);
+    border-radius: 1.5rem;
+    width: 20rem;
+    height: 3.5rem;
+    text-align: center;
+    line-height: 3.5rem;
+    border: 2px solid #1BE985;
+
+
+}
+
+.ABC3 {
+    /* position: relative; */
+    /* margin-top: 50% ; */
+    background-color: #24292e;
+
+    width: 43.75rem;
+    height: 18.75rem;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid #1BE985;
+    padding: 5em;
+    border-radius: 2.5rem;
+    background-color: #24292e;
+    box-shadow: 0 0 0 0.5px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+    0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+    0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+
+}
+
+.ABC3 {
+    /* position: relative; */
+    /* margin-top: 50% ; */
+    background-color: #24292e;
+
+    width: 43.75rem;
+    height: 17rem;
+    margin: 5% auto 0 auto;
+    border-radius: 20px;
+    margin-top: 1.875px;
+    border: 2px solid #15bb6b;
+}
+
+.Q3 {
+    font-size: 3.125rem;
+    color: white;
+    font-family: 'JetBrains Mono';
+    width: 90%;
+    margin: auto;
+
+}
+
+.R3 {
+    font-size: 1.875rem;
+    font-weight: 300;
+    color: white;
+    font-family: 'JetBrains Mono';
+    width: 70%;
+    text-align: left;
+    margin: auto;
+
+}
+
+.ABC_3 {
+    color: black;
+    width: 21.875rem;
+    font-family: 'JetBrains Mono';
+
+    margin: 4.5% auto 0 auto;
 
 
 }
 
 
 .submit-btn {
-  position: absolute;
-  margin: auto;
-  left: 45%;
-  font-weight: bold;
-  background-color: #1BE985;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  text-align: center;
-  
-  
-  font-size: 1rem;
- margin: auto;
-  cursor: pointer;
-  border-radius: 4px;
+    position: absolute;
+    margin: auto;
+    left: 45%;
+    font-weight: bold;
+    background-color: #1BE985;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+
+
+    font-size: 1rem;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 4px;
 
 }
+
 .submit-btn:hover {
-  background-color: #15bb6b;
+    background-color: #15bb6b;
 }

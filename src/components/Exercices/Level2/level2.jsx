@@ -1,274 +1,245 @@
-import { Footer } from '../../../containers';
+import {Footer} from '../../../containers';
 import NavBar from '../../NavBar';
 import './level2.css';
-
 
 
 import Select from "react-select";
 
 
 function Level2() {
- 
 
-  const questions=[
 
-    {
-    num :'1',
-    qst:'Mov BR ,5',
- 
-    
-    },
-    {
-      num :'2',
-      qst:"Add R3,*R4 ",
-    
-      },{
-        num :'3',
-        qst:"XORR SR ",
-       
-        
+    const questions = [
+
+        {
+            num: '1',
+            qst: 'MOV BR ,5',
+
+
         },
         {
-          num:"4",
-          qst:"NOR IR",
-          
+            num: '2',
+            qst: "ADD R3,*R4 ",
+
+        }, {
+            num: '3',
+            qst: "XOR SR ",
+
+
         },
         {
-          num:"5",
-          qst:"-Nand BR, SR",
-        
+            num: "4",
+            qst: "NOR IR",
+
         },
         {
-          num:"6",
-          qst:"Sub RI ,20",
-          
+            num: "5",
+            qst: "NAND BR, SR",
+
         },
         {
-          num:"7",
-          qst:"Mov R2,BR*+10",
-          
+            num: "6",
+            qst: "SUB RI ,20",
+
         },
         {
-          num:"8",
-          qst:"Nand BR",
-        
+            num: "7",
+            qst: "MOV R2,BR*+10",
+
         },
         {
-          num:"9",
-          qst:"Write *20,40",
+            num: "8",
+            qst: "NAND BR",
+
+        },
+        {
+            num: "9",
+            qst: "WRITE *20,40",
 
         }
-        
+
     ]
 
-  function Question1(props){
+    function Question1(props) {
 
-    return(
-     <>
-     
-    <div className='containe2'>
-     <ul>
-     <h1 className='question2'> Question {props.num}</h1>
-     </ul>  
-     <div className='ABC2'>
-      <h1 className='Q2'>{props.qst}</h1>
-      
-      
-      <div className="textInputWrapper" >
-            <input placeholder="Type Here" type="text" className="textInput" />
-     </div>
+        return (
+            <>
 
-        
-       
+                <div className='container2'>
+                    <p className='question2'> Question {props.num}</p>
 
-     </div>
-     </div>
-
-     
-     
-     </>
+                    <div className='ABC2'>
+                        <h1 className='Q2'>{props.qst}</h1>
 
 
-    )
-  }
-  const Question2=()=>{
-
-    return(
-     <>
-     <div className='container2'>
-     <h1 className='question2'> Question 2</h1>
-        
-     <div className='ABC2'>
-      <h1 className='Q2'>Add R3,*R4</h1>
-      
-      
-      <div className="textInputWrapper" >
-            <input placeholder="Type Here" type="text" className="textInput" />
-     </div>
-
-        
-       
-
-     </div>
-     </div>
-
-     
-     
-     </>
+                        <div className="textInputWrapper">
+                            <input placeholder="Type Here" type="text" className="textInput"/>
+                        </div>
 
 
-    )
-  }
-  const Question3=()=>{
-
-    return(
-     <>
-     <div className='container2'>
-     <h1 className='question2'> Question 3</h1>
-        
-     <div className='ABC2'>
-      <h1 className='Q2'>Sub RI ,20</h1>
-      
-      
-      <div className="textInputWrapper" >
-            <input placeholder="Type Here" type="text" className="textInput" />
-     </div>
-
-        
-       
-
-     </div>
-     </div>
+                    </div>
+                </div>
 
 
-     
-     
-     </>
+            </>
 
 
-    )
-  }
-  const Question4=()=>{
+        )
+    }
 
-    return(
-     <>
-     <div className='container2'>
-     <h1 className='question2'> Question 4</h1>
-        
-     <div className='ABC2'>
-      <h1 className='Q2'>Nand BR, SR</h1>
-      
-      
-      <div className="textInputWrapper" >
-            <input placeholder="Type Here" type="text" className="textInput" />
-     </div>
+    const Question2 = () => {
 
-        
-       
+        return (
+            <>
+                <div className='container2'>
+                    <h1 className='question2'>Question 2</h1>
 
-     </div>
-     </div>
+                    <div className='ABC2'>
+                        <h1 className='Q2'>Add R3,*R4</h1>
 
 
-     
-     
-     </>
+                        <div className="textInputWrapper">
+                            <input placeholder="Type Here" type="text" className="textInput"/>
+                        </div>
 
 
-    )
-  }
-  const Question5=()=>{
-
-    return(
-     <>
-     <div className='container2'>
-     <h1 className='question2'> Question 5</h1>
-        
-     <div className='ABC2'>
-      <h1 className='Q2'>XOR IR</h1>
-      
-      
-      <div className="textInputWrapper" >
-            <input placeholder="Type Here" type="text" className="textInput" />
-     </div>
-
-        
-       
-
-     </div>
-     </div>
-
-     
-     
-     </>
+                    </div>
+                </div>
 
 
-    )
-  }
-  const Question6=()=>{
-
-    return(
-     <>
-     <div className='container2'>
-     <h1 className='question2'> Question 6</h1>
-        
-     <div className='ABC2'>
-      <h1 className='Q2'>Mov ACC ,*20</h1>
-      
-      
-      <div className="textInputWrapper" >
-            <input placeholder="Type Here" type="text" className="textInput" />
-     </div>
-
-        
-       
-
-     </div>
-     </div>
-
-     
-     
-     </>
+            </>
 
 
-    )
-  }
+        )
+    }
+    const Question3 = () => {
 
-  const Questionsswiper = () => {
-    const datacamp = questions.map((data)=> {
+        return (
+            <>
+                <div className='container2'>
+                    <h1 className='question2'> Question 3</h1>
+
+                    <div className='ABC2'>
+                        <h1 className='Q2'>Sub RI ,20</h1>
+
+
+                        <div className="textInputWrapper">
+                            <input placeholder="Type Here" type="text" className="textInput"/>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </>
+
+
+        )
+    }
+    const Question4 = () => {
+
+        return (
+            <>
+                <div className='container2'>
+                    <h1 className='question2'> Question 4</h1>
+
+                    <div className='ABC2'>
+                        <h1 className='Q2'>Nand BR, SR</h1>
+
+
+                        <div className="textInputWrapper">
+                            <input placeholder="Type Here" type="text" className="textInput"/>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </>
+
+
+        )
+    }
+    const Question5 = () => {
+
+        return (
+            <>
+                <div className='container2'>
+                    <h1 className='question2'> Question 5</h1>
+
+                    <div className='ABC2'>
+                        <h1 className='Q2'>XOR IR</h1>
+
+
+                        <div className="textInputWrapper">
+                            <input placeholder="Type Here" type="text" className="textInput"/>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </>
+
+
+        )
+    }
+    const Question6 = () => {
+
+        return (
+            <>
+                <div className='container2'>
+                    <h1 className='question2'> Question 6</h1>
+
+                    <div className='ABC2'>
+                        <h1 className='Q2'>MOV ACC ,*20</h1>
+
+
+                        <div className="textInputWrapper">
+                            <input placeholder="Type Here" type="text" className="textInput"/>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </>
+
+
+        )
+    }
+
+    const Questionsswiper = () => {
+        const datacamp = questions.map((data) => {
+            return (
+                <Question1 num={data.num} qst={data.qst}/>
+            )
+
+        })
+
+        return (
+            <div>{datacamp}</div>
+
+        );
+
+
+    };
+
     return (
-      <Question1  num={data.num}  qst={data.qst}/>
-    )
-    
-    }) 
-    
-    return (
-      <div>{datacamp}</div>
-      
+        <div className="level2">
+            <NavBar/>
+            <Questionsswiper/>
+            <button className="submit-btn">Submit</button>
+            <Footer></Footer>
+
+        </div>
+
+
     );
-    
-    
-      };
-
-  return (
-    <div className="level2">
-      <NavBar/>
-          <Questionsswiper/>
-   
-
-
-    
-
-
-
-     <button className="submit-btn">Submit</button>
-     <Footer></Footer>
-
-      </div>
-    
-    
-    
-  );
 }
 
 export default Level2;

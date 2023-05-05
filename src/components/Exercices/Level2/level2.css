@@ -24,27 +24,40 @@
 }
 
 
-body{
-  overflow-x: hidden;
-}
+
 
 .level2{
 background-color: #1B1F24;
 }
 
-body{
-  background-color: #1b1f24;
-}
+
 .container2{
   margin: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
 
 .question2{
-  font-size: xx-large;   
+
   color: white;
-  font-family:'JetBrains Mono';
+  font-family:'JetBrains Mono', monospace;
+  position: relative;
+  font-size: 2rem;
+  font-weight: 850;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  top: 1.9rem;
+  background-color: rgb(48, 54, 61);
+  border-radius: 1.5rem;
+  width: 20rem;
+  height: 3.5rem;
+  text-align: center;
+  line-height: 3.5rem;
+  border: 2px solid #1BE985;
   
 
   
@@ -56,22 +69,25 @@ body{
   
   width: 700px;
   height: 180px;
-  margin: 5% auto 0 auto;
-  border-radius: 20px;
- margin-top: 30px;
- border: 2px solid #15bb6b;
-}
-.ABC2{
-  /* position: relative; */
-  /* margin-top: 50% ; */
+
+
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid #1BE985;
+  padding: 5em;
+  border-radius: 2.5rem;
   background-color: #24292e;
-  
-  width: 700px;
-  margin: 5% auto 0 auto;
-  border-radius: 20px;
- margin-top: 30px;
- border: 2px solid #15bb6b;
+  box-shadow: 0 0 0 0.5px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+  0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+  0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+
+
 }
+
 .Q2{
   font-size: 50px;   
   color: white;
@@ -98,18 +114,7 @@ margin-left: 30%;
  margin-left: 20%;
  
  }
-.ABC2{
-  color: black;
-  font-family:'JetBrains Mono'; 
-  /* position: relative;
-  left: 25%; */
-  margin:4.5% auto 0 auto;
 
-  
- 
-
-
-}
 
 /*.SUBMIT{
   width: 150px;
@@ -130,19 +135,15 @@ text-align: center;
   background-color: aliceblue;
 }*/
 .submit-btn {
-  position: absolute;
-  margin: auto;
-  left: 45%;
+  margin: 2rem 0 0 0;
   font-weight: bold;
   background-color: #1BE985;
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 1rem;
   text-align: center;
   
   
-  font-size: 16px;
- margin: auto;
   cursor: pointer;
   border-radius: 4px;
 

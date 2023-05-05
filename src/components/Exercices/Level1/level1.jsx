@@ -15,68 +15,68 @@ const questions = [
 
     {
         num: '1',
-        qst: 'Combien dunités connectée à bus de données :',
-        R1: '4 unités',
-        R2: '5 unités',
-        R3: '6 unités',
+        qst: 'How many units are connected to the data bus: ',
+        R1: '4 units',
+        R2: '5 units',
+        R3: '6 units',
 
     },
     {
         num: '2',
-        qst: "modes d'adressage quin'existe pas dans la machine CalM:",
-        R1: '1- Basé',
-        R2: '2- indexé indirect',
-        R3: '3- Basé indexé',
+        qst: "Addressing modes that doesn't exist in the calM: ",
+        R1: '1- Based',
+        R2: '2- indexed indirect',
+        R3: '3- Based indexed',
 
     }, {
         num: '3',
-        qst: "Les formes d'instructions:",
-        R1: '1- Forme réduite',
-        R2: '2- Forme générale ',
-        R3: '3- Aucune',
+        qst: "Instruction formats: ",
+        R1: '1- Reduced Format',
+        R2: '2- General Format ',
+        R3: '3- Neither of the two',
 
     },
     {
         num: "4",
-        qst: "Nombre de bits dans registre flag:",
-        R1: '1- 6bits',
+        qst: "How many bits are there in the flag register: ",
+        R1: '1- 6 bits',
         R2: '2- 7 bits',
         R3: '3- 8 bits',
     },
     {
         num: "5",
-        qst: "Nombre d'octets dans les registres:",
-        R1: '1- Un octet',
-        R2: '2- Deux octets',
-        R3: '3- Trois octets',
+        qst: "How many bytes ares there in the general purpose registers:",
+        R1: '1- One byte',
+        R2: '2- Two Bytes',
+        R3: '3- Three Bytes',
     },
     {
         num: "6",
-        qst: "Qu'elles sont les composants n'appartient pas a Unit Memory:",
+        qst: "What are the component that doesn't belong to the memory unit:",
         R1: "1-IP",
         R2: "2-CM",
         R3: "3-MDR/MAR",
     },
     {
         num: "7",
-        qst: "Toutes les instructions sont     sur 8 bits",
-        R1: "Oui",
-        R2: "seulement sur16 bits ",
-        R3: "Aucune des deux",
+        qst: "All of the instructions are on 8 bits: ",
+        R1: "Yes",
+        R2: "No, all of them are on 16 bits ",
+        R3: "Neither of the two",
     },
     {
         num: "8",
-        qst: "Nombre de bits dans registre flag:",
-        R1: "1-6 registres",
-        R2: "2-7 registres",
-        R3: "3-8 registres",
+        qst: "How many bits are there in the flag register: ",
+        R1: '1- 6 bits',
+        R2: '2- 7 bits',
+        R3: '3- 8 bits',
     },
     {
         num: "9",
-        qst: "La mémoire cache est plus grande que la mémoire centrale :",
-        R1: "1- oui est plus grande",
-        R2: "2- Non est plus petite",
-        R3: "3- Sont egals",
+        qst: "The cache memory is bigger than the central memory :",
+        R1: "1- Yes, it's bigger",
+        R2: "2- No, it's smaller",
+        R3: "3- They're equal",
     }
 
 ]
@@ -92,7 +92,7 @@ function Level1() {
                     <h1 className='question1'> Question {props.num}</h1>
 
                     <div className='ABC1'>
-                        <h1 className='Q1'> {props.qst}</h1>
+                        <p className='Q1'> {props.qst}</p>
                         <div className='R1'>
                             <li className='liexercices' >{props.R1}</li>
                             <li className='liexercices'>{props.R2}</li>
@@ -119,12 +119,12 @@ function Level1() {
                 <div className='container'>
                     <h1 className='question1'> Question 10</h1>
 
-                    <div className='ABC11'>
-                        <h1 className='Q1'>Qu'est-ce qu'un pointeur en langage d'assemblage ?</h1>
+                    <div className='ABC1'>
+                        <h1 className='Q1'>What are pointers in assembly</h1>
                         <div className='R10'>
-                            <li className='liexercices'>1-Un type de variable qui stocke des entiers</li>
-                            <li className='liexercices'>2- Une adresse mémoire qui pointe vers une autre adresse mémoire</li>
-                            <li className='liexercices'>3- Un périphérique d'entrée/sortie</li>
+                            <li className='liexercices'>1- Variable type that stores integers</li>
+                            <li className='liexercices'>2- Memory address that stores another memory address</li>
+                            <li className='liexercices'>3- An I/O peripheral</li>
                         </div>
 
                         <Select options={options} className='ABC'/>
@@ -141,14 +141,14 @@ function Level1() {
     }
 
     const options = [
-        {value: 1, label: " la réponse N°:1"},
-        {value: 2, label: "la réponse N°:2"},
-        {value: 3, label: "la réponse N°:3"},
+        {value: 1, label: "Answer N°:1"},
+        {value: 2, label: "Answer N°:2"},
+        {value: 3, label: "Answer N°:3"},
 
     ];
     const options1 = [
-        {value: 0, label: " faux"},
-        {value: 1, label: "Vrai"},
+        {value: 0, label: "False"},
+        {value: 1, label: "True"},
 
 
     ];

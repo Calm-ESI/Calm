@@ -1,6 +1,7 @@
 //import components
 import { useEffect, useState } from "react";
 import {ComponentsCard, NavBar} from "../../components/"
+import calmArchi from "../../assets/images/calm/calmArchitecture.svg"
 
 import axios from "axios";
 import './style.css';
@@ -38,6 +39,10 @@ const Components = () => {
     <>
       <NavBar/>
       <div className="globalContainer">
+        <div className="imageContainer">
+          <p className="title">calM Architecture</p>
+          <img src={calmArchi} alt="calm Architecture Picture" className="calmArchi"/>
+        </div>
         {
           Object.keys(categories).map(categoryName => 
             <div className="UnitsContainer">

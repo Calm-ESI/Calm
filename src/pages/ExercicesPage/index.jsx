@@ -24,7 +24,6 @@ function ExercicesPage(props) {
                     This exercises are ranked by level so you can test yourself according to what you have learned and to the
                     difficulty of the exercises.
                 </p>
-
                 <Learn title={"Level 1"} link={"/learn/Exercices/level1"} text={"Embark on a learning journey with our beginner-friendly " +
                     "course and uncover the inner workings of the calM machines."} img={starImage}/>
 

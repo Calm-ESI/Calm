@@ -189,8 +189,11 @@ const Hero = () => {
                 <h1 className="keep-in-touch"> Join the community</h1>
                 <div className="discord-server-container">
                     {/*<h2 className="discord-title">Discord Server</h2>*/}
-                    <div className="part6-3"><img className="discord-image" src={discordIcon} alt="discord-logo"
-                                                  width={120}/></div>
+                    <div className="part6-3">
+                        <a href="https://discord.gg/DNTfnHQFDm">
+                            <img className="discord-image" src={discordIcon} alt="discord-logo" width={120}/>
+                        </a>
+                    </div>
                     <div className="part6-4">
                         Meet the Calm Team community on our Discord server to connect with like-minded individuals, ask
                         questions, and share your ideas in a supportive and welcoming space.

@@ -13,48 +13,48 @@ function Level3() {
 
     {
     num :'1',
-    qst:'-Add R4,R5,1',
+    qst:'ADD R4,R5,1',
  
     
     },
     {
       num :'2',
-      qst:"-Mov R1,10",
+      qst:"MOV R1,10",
     
       },{
         num :'3',
-        qst:"-XORR SR ",
+        qst:"XORR SR ",
        
         
         },
         {
           num:"4",
-          qst:"-Not 20*",
+          qst:"NOT 20*",
           
         },
         {
           num:"5",
-          qst:"-Nand BR, SR",
+          qst:"NAND BR, SR",
         
         },
         {
           num:"6",
-          qst:"-Sub RI ,20",
+          qst:"SUB RI ,20",
           
         },
         {
           num:"7",
-          qst:"-Mov R2,BR*+10",
+          qst:"MOV R2,BR*+10",
           
         },
         {
           num:"8",
-          qst:"-Nand BR, SR",
+          qst:"NAND BR, SR",
         
         },
         {
           num:"9",
-          qst:"-XOR IR",
+          qst:"XOR IR",
 
         }
         
@@ -71,8 +71,8 @@ function Level3() {
      <div className='ABC3'>
       <h1 className='Q3'>{props.qst}</h1>
       <div className='R3'>
-      <li>1- Faux</li>
-        <li>2- Vrai</li>
+      <li>1- False</li>
+        <li>2- True</li>
         </div>
       
      <Select options={options1} className='ABC_3' />
@@ -93,8 +93,8 @@ function Level3() {
  
 
   const options1 = [
-    { value: 0, label: " faux" },
-    { value: 1, label: "Vrai" },
+    { value: 0, label: " False" },
+    { value: 1, label: "True" },
    
     
   ];
