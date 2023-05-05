@@ -80,7 +80,7 @@ const Profile = ({currentUser, updateCurrentUser}) => {
                                     <p>No programs saved for this profile!</p>
                                 : 
                                     programs.slice(0).reverse().map( program => 
-                                        <ProgramContainer program={program} removeProgram={removeProgram} userId={currentUser.id}/>
+                                        <ProgramContainer key={program.id} program={program} removeProgram={removeProgram} userId={currentUser.id}/>
                                     )
                             
                         }

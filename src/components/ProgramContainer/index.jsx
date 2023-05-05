@@ -32,7 +32,7 @@ const ProgramContainer = ({userId, program, removeProgram}) => {
             <img src="" alt="edit button" onClick={handleEditProgram} />
             <h3>{program.name}</h3>
             <div className="code-container">
-                {program.content.split(/\n/).map( line => 
+                {program.content.split(/\n/).map( (line, index) => 
                     <p>{line}</p>    
                 )}
             </div>
