@@ -20,6 +20,7 @@ import {motion} from "framer-motion"
 import Bot from "../../components/ChatBot";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
 
@@ -221,6 +222,7 @@ const Hero = () => {
     useEffect(()=>{
         window.addEventListener("scroll", handleScroll);
     })
+    let navigate = useNavigate();
     return < >
         <NavBar/>
 
@@ -232,6 +234,9 @@ const Hero = () => {
                 whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 transition={{type: "spring", stiffness: 400, damping: 17}}
+                onClick={()=>{
+                    navigate('/ide');
+                }}
             >
                 <img alt="" src={getstarted} style={{
                     margin: "1.2em 1em 0 0",
