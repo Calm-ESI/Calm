@@ -18,7 +18,7 @@ import {NavBar, Title, HeroIde} from "../../components"
 import {Footer} from '../../containers'
 import {motion} from "framer-motion"
 import Bot from "../../components/ChatBot";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 // import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
@@ -213,9 +213,13 @@ const Hero = () => {
             </>
         )
     }
+    let [arrow , setArrow]=useState(true);
     let myref=useRef(null);
+    function handleScroll(){
+        setArrow(false)
+    }
     useEffect(()=>{
-        window.addEventListener("scroll", ()=>{myref.current.style.opacity=0;});
+        window.addEventListener("scroll", handleScroll);
     })
     return < >
         <NavBar/>
@@ -244,7 +248,7 @@ const Hero = () => {
         </main>
         {/*<img src={arrowGif} alt="Green Arrows" className="greenArrow"/>*/}
         <Part1></Part1>
-        <img src={greenArrow} alt="" className="greenArrow" ref={myref} ></img>
+        {arrow && <img src={greenArrow} alt="" className="greenArrow" ref={myref} ></img>}
         <Part3></Part3>
         <Part4></Part4>
         <Part5></Part5>
