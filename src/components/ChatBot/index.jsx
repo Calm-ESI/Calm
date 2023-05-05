@@ -16,7 +16,7 @@ const DBPedia = ({ steps, triggerNextStep }) => {
   const search = steps.search.value;
 
   useEffect(() => {
-    axios.post(process.env.REACT_APP_CHATBOT_API, { input_text: search })
+    axios.post(process.env.REACT_APP_CHATBOT_API+'/api/chatbot', { input_text: search })
     .then(response => {
       setResult(response.data.response);
       setLoading(false);
