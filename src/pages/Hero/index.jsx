@@ -31,7 +31,7 @@ const Hero = () => {
                 <img alt="" src={Slogan} className="slogan"/>
                 <div className="logo-container">
                     <div className="logo">
-                        <img src={logoHero} className="logoHero" alt=""/>
+                        <img src={logoHero} className="logoHero" alt="calM logo"/>
                     </div>
                     <p className="slogan-description">
                         calM is a CPU architecture learning machine designed for
