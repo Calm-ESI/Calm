@@ -121,7 +121,7 @@ const Bot = () => {
             steps={[
               {
                 id: '1',
-                message: 'How Can Ii help you about Calm?',
+                message: 'How Can I help you about Calm?',
                 trigger: 'search',
               },
               {
