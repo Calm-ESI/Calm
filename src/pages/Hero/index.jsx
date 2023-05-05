@@ -11,12 +11,15 @@ import discordIcon from '../../assets/images/icons/discord-icon.png' ;
 import getstarted from "../../assets/images/decorations/GetStarted.svg";
 import cpu from "../../assets/images/icons/cpu-fill.svg";
 import aiChat from "../../assets/images/decorations/aiChat.png";
-
+import greenArrow from "../../assets/images/decorations/greenArrow.gif"
+import LearnWithCalm from "../../assets/images/logos/LearnWithCalm.png"
 //import components
 import {NavBar, Title, HeroIde} from "../../components"
 import {Footer} from '../../containers'
 import {motion} from "framer-motion"
 import Bot from "../../components/ChatBot";
+import { useRef } from "react";
+import { useEffect } from "react";
 // import { BrowserRouter as Router,Route, Routes  } from 'react-router-dom';
 
 
@@ -134,7 +137,8 @@ const Hero = () => {
         return (
             <>
                 <section className="learn-section">
-                    <h1 className="learn">Learn</h1>
+                    {/* <h1 className="learn">Learn</h1> */}
+                    <img src={LearnWithCalm} alt="" className="learn" />
                     <p className="learn-description">
                         Our learning platform provides a variety of materials to help you understand computer
                         architecture concepts more easily.
@@ -206,8 +210,11 @@ const Hero = () => {
             </>
         )
     }
-
-    return <>
+    let myref=useRef(null);
+    useEffect(()=>{
+        window.addEventListener("scroll", ()=>{myref.current.style.opacity=0;});
+    })
+    return < >
         <NavBar/>
 
         <main id="get-started-container" style={{position: "relative", height: "10%"}}>
@@ -234,6 +241,7 @@ const Hero = () => {
         </main>
         {/*<img src={arrowGif} alt="Green Arrows" className="greenArrow"/>*/}
         <Part1></Part1>
+        <img src={greenArrow} alt="" className="greenArrow" ref={myref} ></img>
         <Part3></Part3>
         <Part4></Part4>
         <Part5></Part5>

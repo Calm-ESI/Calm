@@ -320,10 +320,14 @@ body {
 }
 
 .learn {
-    text-align: center;
-    color: white;
-    font-size: 3.4rem;
-    margin-bottom: 0;
+   text-align: center;
+   color: white;
+   font-size: 3.4rem;
+   margin-bottom: 0;
+   width: 600px;
+   height: 200px;
+   position: relative;
+   top: 9rem;
 }
 
 .learn-description {
@@ -714,4 +718,12 @@ footer {
 .logoHero {
     width: 18rem;
     margin: 2rem 2rem 2rem 2rem;
+}
+
+.greenArrow{
+    position: absolute;
+    bottom:1rem;
+    left:50%;
+    width:70px;
+    height: 70px;
 }
