@@ -11,78 +11,94 @@ import flagsPic from "../assets/images/calm/components/flagsPic.svg"
 import IOBufferPic from "../assets/images/calm/components/IOBuffer.svg"
 import IOControllerPic from "../assets/images/calm/components/IOController.svg"
 
+
 export const MUnit = [
     {
         ComponentName:"Instruction Pointer",
-        ComponentPicture:IPImage,
+        ComponentPicture:"../assets/images/calm/components/IP.svg",
         componentDescription:"Hello",
-
+        category: "Memory Unit",
     },
     {
         ComponentName:"Central Memory",
-        ComponentPicture:CmPic,
+        ComponentPicture:"../assets/images/calm/components/CmPic.svg",
         imageHeight: 65,
         componentDescription:"Hello",
+        category: "Memory Unit",
 
     },
     {
         ComponentName:"Memory Address Register",
-        ComponentPicture:MarPic,
+        ComponentPicture:"../assets/images/calm/components/MarPic.svg",
         imageHeight: 60,
         componentDescription:"Hello",
+        category: "Memory Unit",
     },
     {
         ComponentName:"Memory Data Register",
-        ComponentPicture:MdrPic,
+        ComponentPicture:"../assets/images/calm/components/MdrPic.svg",
         componentDescription:"Hello",
+        category: "Memory Unit",
     },
     {
         ComponentName:"Data & address buses",
-        ComponentPicture:BusPic,
+        ComponentPicture:"../assets/images/calm/components/busPic.svg",
         imageHeight: 90,
         componentDescription:"Hello",
+        category: "Memory Unit",
     }
 ];
 export const CUnit = [
     {
         ComponentName:"Instruction Reception Unit",
-        ComponentPicture:iruPic,
+        ComponentPicture:"../assets/images/calm/components/IRU.svg",
         componentDescription:"Hello",
+        category: "Command Unit",
+        
     },
     {
         ComponentName:"Sequencer",
-        ComponentPicture:sequencerPic,
+        ComponentPicture:"../assets/images/calm/components/sequencerPic.svg",
         componentDescription:"Hello",
+        category: "Command Unit",
     }
 ];
 export const PUnit = [
     {
         ComponentName:"ALU",
-        ComponentPicture:AluPic,
+        ComponentPicture:"../assets/images/calm/components/AluPic.svg",
         componentDescription:"Hello",
+        category: "Processing Unit",
     },
     {
         ComponentName:"Registers",
-        ComponentPicture:RegistersPic,
+        ComponentPicture:"../assets/images/calm/components/registersPic.svg",
         componentDescription:"Hello",
+        category: "Processing Unit",
     },
     {
         ComponentName:"Flag Register",
-        ComponentPicture:flagsPic,
+        ComponentPicture:"../assets/images/calm/components/flagsPic.svg",
         componentDescription:"Hello",
+        category: "Processing Unit",
     }
 ];
 export const IOUnit = [
     {
         ComponentName:"Buffer",
-        ComponentPicture:IOBufferPic,
+        ComponentPicture:"../assets/images/calm/components/IOBuffer.svg",
         imageHeight: 60,
         componentDescription:"Hello",
+        category: "I/O Unit",
     },
     {
         ComponentName:"IO Controller",
-        ComponentPicture:IOControllerPic,
+        ComponentPicture: "../assets/images/calm/components/IOController.svg",
         imageHeight: 60,
         componentDescription:"Hello",
+        category: "I/O Unit",
     }
 ];
+
+
+
