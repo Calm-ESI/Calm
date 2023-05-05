@@ -2,11 +2,6 @@
 import { useEffect, useState } from "react";
 import {ComponentsCard, NavBar} from "../../components/"
 
-//import images
-// import {CUnit} from "../../Constants/componentsDescription";
-// import {PUnit} from "../../Constants/componentsDescription";
-// import {MUnit} from "../../Constants/componentsDescription";
-// import {IOUnit} from "../../Constants/componentsDescription";
 import axios from "axios";
 import './style.css';
 

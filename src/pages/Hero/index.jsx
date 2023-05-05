@@ -7,12 +7,10 @@ import esiLogo from "../../assets/images/logos/esiLogo.png"
 import learnBrain from "../../assets/images/decorations/brain.png"
 import simulationImage from "../../assets/images/decorations/animation.png"
 import emulate from "../../assets/images/decorations/coding.png"
-import to_do_list from '../../assets/images/decorations/to-do-list 2.png' ;
 import discordIcon from '../../assets/images/icons/discord-icon.png' ;
 import getstarted from "../../assets/images/decorations/GetStarted.svg";
 import cpu from "../../assets/images/icons/cpu-fill.svg";
 import aiChat from "../../assets/images/decorations/aiChat.png";
-import arrowGif from "../../assets/images/decorations/greenArrow.gif";
 
 //import components
 import {NavBar, Title, HeroIde} from "../../components"
@@ -83,7 +81,7 @@ const Hero = () => {
                                     transition={{type: "spring", stiffness: 400, damping: 17}}
                                     layout
                                     className="whatWeOfferCard">
-                                    <img src={learnBrain} alt="description of image" className="threeIcons"/>
+                                    <img src={learnBrain} alt="Learn" className="threeIcons"/>
                                     <h1>Learn</h1>
                                 </motion.div>
                             </a>
@@ -94,7 +92,7 @@ const Hero = () => {
                                     transition={{type: "spring", stiffness: 400, damping: 17}}
                                     layout
                                     className="whatWeOfferCard">
-                                    <img src={emulate} alt="description of image" className="threeIcons"/>
+                                    <img src={emulate} alt="Emulate" className="threeIcons"/>
                                     <h1>Emulate</h1>
                                 </motion.div>
                             </a>
@@ -107,7 +105,7 @@ const Hero = () => {
                                     transition={{type: "spring", stiffness: 400, damping: 17}}
                                     layout
                                     className="whatWeOfferCard">
-                                    <img src={simulationImage} alt="description of image" className="threeIcons"/>
+                                    <img src={simulationImage} alt="Simulate" className="threeIcons"/>
                                     <h1>Animate</h1>
                                 </motion.div>
                             </a>
@@ -118,7 +116,7 @@ const Hero = () => {
                                 transition={{type: "spring", stiffness: 400, damping: 17}}
                                 layout
                                 className="whatWeOfferCard">
-                                <img src={aiChat} alt="description of image" className="threeIcons"/>
+                                <img src={aiChat} alt="Ai Assistant" className="threeIcons"/>
                                 <h1>Ai assistant</h1>
                             </motion.div>
                         </a>

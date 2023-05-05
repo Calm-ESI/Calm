@@ -1,6 +1,5 @@
 import React from 'react';
 import './docStyle.css';
-import {motion} from "framer-motion";
 
 const HelpDoc = () => {
     return (

@@ -7,7 +7,7 @@ import star4Image from "../../assets/images/calm/exerciceImages/4-stars.png"
 
 
 // import components
-import { NavBar, Title } from "../../components";
+import { NavBar } from "../../components";
 import {Learn, Footer} from "../../containers";
 import "./style.css";
 function ExercicesPage(props) {

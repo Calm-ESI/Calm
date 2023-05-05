@@ -9,7 +9,7 @@ import exoimage from "../../assets/images/calm/learnImages/exo-icon.png"
 
 
 // import components
-import { NavBar, Title } from "../../components";
+import { NavBar } from "../../components";
 import {Learn, Footer} from "../../containers";
 import "./style.css";
 
@@ -17,9 +17,6 @@ function LearnPage(props) {
   return (
     <>
       <NavBar/>
-      {/* <main id="learn-page-main">
-        <Title/>
-      </main> */}
       <img src={LearnTitle} className="learnTitle" alt="" />
 
       <div className="globalContainerLearn">

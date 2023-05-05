@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "./style.css"
 import questionMark from "../../assets/images/icons/question-signe-en-cercles.png"
 
-import {NavBar, Title} from "../../components"
+import {NavBar} from "../../components"
 import {Footer} from "../../containers"
 import { motion } from 'framer-motion'
 

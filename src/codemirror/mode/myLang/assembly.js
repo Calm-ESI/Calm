@@ -17,7 +17,6 @@ import  CodeMirror from 'codemirror'
       var keywords = ["mov", "add", "sub", "mul", "div", "jmp", "call", "ret", "push", "pop", "label"];
       var registers = ["r1", "r2", "r3", "r4", "idr", "br", "sr", "acc", "r1l", "r1h", "r2l", "r2h", "r3l", "r3h", "accl", "acch"];
 
-      var myOperators = [ "@", "*"];
       var number = /-?(?:0x[0-9a-f]+|\d+)/i;
       function tokenBase(stream, state) {
         var ch = stream.next();

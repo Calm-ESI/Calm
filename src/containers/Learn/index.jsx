@@ -19,7 +19,7 @@ const Learn = ({ title, link, text, img,download }) => {
           whileTap={{scale: 0.9}}
           transition={{type: "spring", stiffness: 400, damping: 17}}
           className="LearnButton" style={{gridColumn: "2 / 3", gridRow: " 4 / 5", justifySelf: "center"}}>
-        {  download==1? <a href={link} style={{textDecoration: "none", color: "black"}}>Download</a>  :<a href={link} style={{textDecoration: "none", color: "black"}}>Discover</a> 
+        {  download ===1 ? <a href={link} style={{textDecoration: "none", color: "black"}}>Download</a>  :<a href={link} style={{textDecoration: "none", color: "black"}}>Discover</a> 
         }
         </motion.div>
     </div>

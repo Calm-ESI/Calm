@@ -3,8 +3,7 @@ import {motion} from "framer-motion";
 import "./style.css"
 import questionMark from "../../assets/images/decorations/questionMArk.png"
 
-const HelpButton = ({helpDescription, open}) => {
-    const {title, description} = helpDescription;
+const HelpButton = ({open}) => {
 
     return (
         <>
