@@ -10,6 +10,7 @@ import star4Image from "../../assets/images/calm/exerciceImages/4-stars.png"
 import { NavBar } from "../../components";
 import {Learn, Footer} from "../../containers";
 import "./style.css";
+import Bot from "../../components/ChatBot";
 function ExercicesPage(props) {
     return (
         <>
@@ -36,6 +37,7 @@ function ExercicesPage(props) {
                 <Learn title={"Level 4"} img={star4Image} text={"A collection of code examples we designed carefully to show you how the calM machine" +
                     "works in action, you can execute them !"} link={"/learn/Exercices/level4"}/>
             </div>
+            <Bot/>
             <Footer></Footer>
         </>
     );

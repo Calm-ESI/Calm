@@ -17,14 +17,14 @@
 
 .part7-2 {
     font-size: medium;
-    font-family: "JetBrains Mono";
+    font-family: "JetBrains Mono", monospace;
     color: #707378;
 }
 
 .part7-3 {
 
     font-size: medium;
-    font-family: "JetBrains Mono";
+    font-family: "JetBrains Mono", monospace;
     color: #707378;
 }
 
@@ -94,8 +94,8 @@
 }
 
 .git-icon {
-    width: 1.56rem;
-    height: 1.56rem;
+    width: 1.7rem;
+    height: 1.7rem;
     transition: 0.3s;
 }
 .git-icon:hover {
@@ -103,8 +103,8 @@
 }
 
 .discord-icon {
-    width: 1.56rem;
-    height: 1.56rem;
+    width: 1.7rem;
+    height: 1.7rem;
     transition: 0.3s;
 }
 .discord-icon:hover {
@@ -112,8 +112,8 @@
 }
 
 .linkedin-icon {
-    width: 1.56rem;
-    height: 1.56rem;
+    width: 1.7rem;
+    height: 1.7rem;
     transition: 0.3s;
 }
 .linkedin-icon:hover {

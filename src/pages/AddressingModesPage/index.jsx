@@ -2,6 +2,7 @@
 import { NavBar, AddressingModeCard } from "../../components";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Bot from "../../components/ChatBot";
 
 // import {properties} from "../../Constants/modesDescription";
 
@@ -33,6 +34,7 @@ const AdressingModes = () => {
                     )}
                 </div>
             </div>
+            <Bot/>
         </>
     );
 };

@@ -7,6 +7,7 @@ import axios from "axios";
 import './style.css';
 
 import React from "react";
+import Bot from "../../components/ChatBot";
 
 
 const Components = () => {
@@ -54,6 +55,7 @@ const Components = () => {
           )
         }
       </div>
+      <Bot/>
     
     </>
   );

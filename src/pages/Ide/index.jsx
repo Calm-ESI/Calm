@@ -296,6 +296,7 @@ const Ide = ({currentUser})=>{
                 className='ide-exec-button' 
                 onClick={()=>{
                   let inputouter=[];
+
                   if(iscode){
                     inputouter=Assembler.assemblecode(handleStoreCode())
                   }else{
@@ -303,10 +304,17 @@ const Ide = ({currentUser})=>{
                   }
                   let input=convertStrings(inputouter);
                   input.push("ff");
-                  if(Errorcalm.errorr===0){
-                  traitement(input)
-                  setdone(true)}
-                  setresult(Errorcalm.printError());
+                  try {
+
+
+                    if (Errorcalm.errorr === 0) {
+                      traitement(input)
+                      setdone(true)
+                    }
+                    setresult(Errorcalm.printError());
+                  } catch (error){
+                    setresult("This is not hexa code.");
+                  }
                 }}>
                   execute
                 </button>

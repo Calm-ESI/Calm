@@ -16,7 +16,7 @@ function Footer() {
           Thanks for everyone who contributed to this project <img className="ceour-vert" src={heart} alt="court-vert"/>
         </h2>
         <h2 className="part7-3">You can always contribute from
-          <a href="https://github.com/Calm-ESI" target="_blank" rel="noopener noreferrer" className=""> here</a>
+           <a href="https://github.com/Calm-ESI" target="_blank" rel="noopener noreferrer" className=""> here</a>
         </h2>
 
       </section>

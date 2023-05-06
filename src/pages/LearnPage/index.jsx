@@ -12,6 +12,7 @@ import exoimage from "../../assets/images/calm/learnImages/exo-icon.png"
 import { NavBar } from "../../components";
 import {Learn, Footer} from "../../containers";
 import "./style.css";
+import Bot from "../../components/ChatBot";
 
 function LearnPage(props) {
   return (
@@ -42,6 +43,7 @@ function LearnPage(props) {
               +"The appendix provides additional resources for those interested in learning more."} link={"https://drive.google.com/uc?export=download&id=1_fxKeCJDMvdTauFxsgz9YGHYVNU0GHeb"}/>
 
       </div>
+        <Bot/>
       <Footer></Footer>
     </>
   );

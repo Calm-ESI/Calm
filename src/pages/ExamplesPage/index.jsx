@@ -5,6 +5,7 @@ import questionMark from "../../assets/images/icons/question-signe-en-cercles.pn
 import {NavBar} from "../../components"
 import {Footer} from "../../containers"
 import { motion } from 'framer-motion'
+import Bot from "../../components/ChatBot";
 
 const ExamplesPage = () => {
     
@@ -97,6 +98,7 @@ const ExamplesPage = () => {
                 </div>
             </div>
         </section>
+        <Bot/>
     
         <Footer></Footer>
     </>
