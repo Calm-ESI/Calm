@@ -1,5 +1,8 @@
 import axios from 'axios'
 import React from 'react'
+import deleteImage from '../../assets/images/decorations/bin.png'
+import editImage from '../../assets/images/decorations/edit.png'
+import './style.css'
 import { useNavigate } from 'react-router-dom'
 
 const ProgramContainer = ({userId, program, removeProgram}) => {
@@ -27,14 +30,11 @@ const ProgramContainer = ({userId, program, removeProgram}) => {
     }
     
     return (
-        <div key={program.name} className="program-container">
-            <img src="" alt="delete button" onClick={handleDeleteProgram} />
-            <img src="" alt="edit button" onClick={handleEditProgram} />
-            <h3>{program.name}</h3>
-            <div className="code-container">
-                {program.content.split(/\n/).map( (line, index) => 
-                    <p>{line}</p>    
-                )}
+        <div key={program.name} className="program-card">
+            <h3 style={{width:"15rem", textAlign:"left"}}>{program.name}</h3>
+            <div style={{display:"flex", justifyContent: "space-between", gap: "1rem"}}>
+                <img src={editImage} alt="edit button" onClick={handleEditProgram} className="delete-image" />
+                <img src={deleteImage} alt="delete button" onClick={handleDeleteProgram} className="delete-image" />
             </div>
         </div>
     )

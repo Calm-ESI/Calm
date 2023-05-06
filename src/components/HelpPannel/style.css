@@ -63,6 +63,22 @@
     overflow-y: scroll;
 
 }
+.desciptionContainer::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.desciptionContainer::-webkit-scrollbar-track {
+    border-radius: 0.5rem;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+}
+
+.desciptionContainer::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: #1BE985;
+    border: 1px solid #1b1f24;
+}
+
 
 .help-description{
     font-size: 1.3rem;

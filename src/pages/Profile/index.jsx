@@ -5,6 +5,8 @@ import './style.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { ProgramContainer } from '../../components';
+import { motion } from 'framer-motion';
+import {Footer} from "../../containers";
 
 const Profile = ({currentUser, updateCurrentUser}) => {
     const navigate = useNavigate();
@@ -69,32 +71,53 @@ const Profile = ({currentUser, updateCurrentUser}) => {
                     </>
                     : 
                     <>
-                        <h1 className='profile-title'>Profile Information</h1>
-                        <p>Email: {currentUser.email}</p>
-                        <p>Score: {currentUser.score}</p>
-                        <p>Saved programs:</p>
+
+                        <div className="profile-info-container">
+                            <h1 className='profile-title'>Profile Information</h1>
+                        <div style={{ padding: "1rem"}}>
+                            <p>Email: {currentUser.email}</p>
+                            <p>Score: {currentUser.score}</p>
+
+                        </div>
+                            <p>Saved Programs</p>
                         {programs === null 
                             ? <p>Loading programs...</p>
                             : programs.length === 0 
                                 ? 
                                     <p>No programs saved for this profile!</p>
-                                : 
-                                    programs.slice(0).reverse().map( program => 
-                                        <ProgramContainer key={program.id} program={program} removeProgram={removeProgram} userId={currentUser.id}/>
+                                :
+                                <div className="program-container">
+                                {
+                                    programs.slice(0).reverse().map(program =>
+                                        <ProgramContainer key={program.id} program={program}
+                                                          removeProgram={removeProgram} userId={currentUser.id}/>
                                     )
-                            
+                                }
+                                </div>
                         }
+                        </div>
                         
 
                         <div className='buttons-container'>
-                            <button className='profile-button' onClick={handlePasswordResetRequest}>Reset Password</button>
-                            <button className='profile-button' onClick={logout}>Logout</button>
+                            <motion.button className='profile-button'
+                                           onClick={handlePasswordResetRequest}
+                                           whileHover={{scale: 1.1}}
+                                           whileTap={{scale: 0.9}}
+                                           transition={{type: "spring", stiffness: 400, damping: 17}}
+                            >Reset Password</motion.button>
+                            <motion.button
+                                whileHover={{scale: 1.1}}
+                                whileTap={{scale: 0.9}}
+                                transition={{type: "spring", stiffness: 400, damping: 17}}
+                                className='profile-button'
+                                onClick={logout}>Logout</motion.button>
                         </div>
                     </>
                 }
                 
                 
             </div>
+            <Footer/>
         </>
     )
 }

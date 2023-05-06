@@ -1,29 +1,110 @@
-.profile-container{
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    
-    align-items: flex-start;
-    /* align-items: center; */
-}
-
 .profile-title {
     align-self: center;
+
+    position: absolute;
+    top: -1.85rem;
+    font-size: 2rem;
+    font-weight: 850;
+    color: white;
+    margin-top: 0;
+    background-color: rgb(48, 54, 61);
+    border-radius: 1.5rem;
+    width: 20rem;
+    height: 3.5rem;
+    text-align: center;
+    line-height: 3.5rem;
+    border: 2px solid #1BE985;
 }
 
-.program-container {
+.program-card {
     width: 50%;
+    display: flex;
+    justify-content: space-around;
     height: fit-content;
     align-self: center;
     background-color: #263238;
     margin-bottom: 2rem;
+
+    border-radius: 2rem;
+
+    box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+    0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+    0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem;
+    border: 1px solid black;
+}
+
+.profile-info-container{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 3rem;
+    border-radius: 2.5rem;
+    background-color: #24292e;
+    box-shadow: 0 0 0 0.5px #000, 0 30px 30px rgba(0, 0, 0, 0.08),
+    0 15px 15px rgba(0, 0, 0, 0.08), 0 10px 8px rgba(0, 0, 0.08),
+    0 4px 4px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+
+    border: 2px solid #1BE985;
+
+}
+
+.program-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 90%;
+    max-height: 25rem;
+    overflow-y: auto;
+    padding-top: 1rem;
+
+    border-radius: 2.5rem;
+}
+
+.program-container::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 70%;
+}
+
+.program-container::-webkit-scrollbar-track {
+
+    border-radius: 0.5rem;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+    margin-bottom: 2.5rem;
+}
+
+.program-container::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: #1BE985;
+    border: 1px solid #1b1f24;
+
+}
+
+.delete-image{
+    width: 2rem;
+    height: 2rem;
+    align-self: center;
+    cursor: pointer;
+}
+.delete-image:hover{
+    transition: 0.3s;
+    transform: scale(1.01);
+    filter: invert(20%) sepia(32%) saturate(2127%) hue-rotate(90deg) brightness(100%) contrast(100%);
 }
 
 .buttons-container {
     align-self: center;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
+    margin-top: 1rem;
+    width: 30%;
 }
 
 .profile-button {
@@ -31,19 +112,22 @@
     appearance: none;
     background-color: #15c871;
     border: 2px solid #1A1A1A;
-    border-radius: 15px;
+    border-radius: 1.4rem;
     color: #FFFFFF;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
-    margin-right: 2rem;
     min-height: 60px;
-    padding: 16px 24px;
+    padding: 1rem 24px;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
     touch-action: manipulation;
     will-change: transform;
+
+    box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.07),
+    0 15px 15px rgba(0, 0, 0, 0.06), 0 10px 8px rgba(0, 0, 0, 0.05),
+    0 4px 4px rgba(0, 0, 0, 0.04), 0 2px 2px rgba(0, 0, 0, 0.03);
 }
 
 .profile-button:hover {
@@ -54,4 +138,20 @@
 .profile-button:active {
     box-shadow: none;
     transform: translateY(0);
+}
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: 70%;
+    justify-content: center;
+    align-self: center;
+
+}
+.profile-container p{
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
 }
