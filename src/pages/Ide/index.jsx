@@ -234,6 +234,7 @@ const Ide = ({currentUser})=>{
   };
 
   useEffect(()=>{
+    
     let storedArray = JSON.parse(localStorage.getItem('arr'));           
     console.log("stored_array",storedArray);
      storedArray=storedArray.join('\n');
