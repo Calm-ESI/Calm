@@ -236,10 +236,11 @@ const Ide = ({currentUser})=>{
   useEffect(()=>{
     
     let storedArray = JSON.parse(localStorage.getItem('arr'));           
+    if(storedArray!=null){
     console.log("stored_array",storedArray);
      storedArray=storedArray.join('\n');
     setCode(storedArray)
-  
+    }
   },[])
 
   return (
