@@ -78,6 +78,7 @@ const Ide = ({currentUser})=>{
   let [stk,setstk]=useState(false);//for showing stack
   let [isHexa,setIsHexa]=useState(false);
   let [iscode,setIsCode]=useState(true);
+  let [iserr,seterr]=useState(false);
 
 
   ///////////////////////////////executions function////////////////////////////////////////
@@ -164,6 +165,7 @@ const Ide = ({currentUser})=>{
 
   ///////////////::
   const codeMirrorRef = useRef(null); 
+  
   const handleStoreCode = () => {
     const editor = codeMirrorRef.current.editor;
     const code = editor.getValue(); // Get the current content of the editor
@@ -199,6 +201,26 @@ const Ide = ({currentUser})=>{
     return codeArray;
   };
   
+  const handleStoreCode2 = () => {
+    const editor = codeMirrorRef.current.editor;
+    const code = editor.getValue(); // Get the current content of the editor
+    
+    // Split the code into lines
+     const lines = code.split('\n');
+  
+    // Create an array to store the full code with comments
+    const codeArray = [];
+  
+    // Loop through each line
+    lines.forEach(line => {
+      // Add the line to the codeArray
+      codeArray.push(line);
+    });
+  
+    return codeArray;
+  };
+  
+ 
   
   const Hexagen= (codeArray,hexaArray) => {
     // Join array elements with newline character
@@ -211,6 +233,13 @@ const Ide = ({currentUser})=>{
     return code;
   };
 
+  useEffect(()=>{
+    let storedArray = JSON.parse(localStorage.getItem('arr'));           
+    console.log("stored_array",storedArray);
+     storedArray=storedArray.join('\n');
+    setCode(storedArray)
+  
+  },[])
 
   return (
     <> 
@@ -295,6 +324,7 @@ const Ide = ({currentUser})=>{
                 <button 
                 className='ide-exec-button' 
                 onClick={()=>{
+                  setdone(true);
                   let inputouter=[];
 
                   if(iscode){
@@ -304,31 +334,56 @@ const Ide = ({currentUser})=>{
                   }
                   let input=convertStrings(inputouter);
                   input.push("ff");
+                  
                   try {
-
-
+    
                     if (Errorcalm.errorr === 0) {
-                      traitement(input)
-                      setdone(true)
+                      traitement(input);
+                     
+                      
+                       
+                    }else{
+                      setresult(Errorcalm.printError());
+                       seterr(true);
                     }
-                    setresult(Errorcalm.printError());
+
+                    
                   } catch (error){
-                    setresult("This is not hexa code.");
+
+                    seterr(true);
+                    setresult("this is not hexa code");
+                    
+                    console.log("hiiiiiiiiiiiiiiiiiiii");
                   }
+                  
                 }}>
                   execute
                 </button>
 
-                <pre style={{color:"red"}}>{result}</pre>
               </div>
             }
+            
+            
+
+
 
             {done && 
               <div className="codeContainer console">
                 <div style={{width:"35%",position:"fixed",backgroundColor:"black", borderRadius: "0.6rem"}}>
-                  <button className='ide-exec-button' onClick={handleRefresh}>re-write</button>
+                  <button className='ide-exec-button' onClick={()=>{
+                  
 
-                  <button 
+                    let arr=[];
+                    // const editor = codeMirrorRef.current.editor;
+                    // const code = editor.getValue(); // Get the current content of the editor
+                    arr=handleStoreCode2();
+                    console.log(arr);
+                    console.log("old arr=",arr);
+                    localStorage.setItem('arr', JSON.stringify(arr));
+                     window.location.reload();
+                  }}>re-write</button>
+
+                  {!iserr &&< button 
                     className='ide-exec-button' 
                     onClick={()=>{
                       const parser = new UAParser();
@@ -337,8 +392,8 @@ const Ide = ({currentUser})=>{
                     }}>
                     animate
                   </button>
-
-                  <button 
+                  }
+                  {!iserr &&<button 
                     className='ide-exec-button' 
                     onClick={()=>{
                       setreg(true)
@@ -348,8 +403,8 @@ const Ide = ({currentUser})=>{
                   >
                     registers
                   </button>
-
-                  <button 
+                  }
+                  {!iserr &&<button 
                   className='ide-exec-button' 
                   onClick={()=>{
                     setmemo(true)
@@ -359,8 +414,8 @@ const Ide = ({currentUser})=>{
                   >
                     memory
                   </button>
-
-                  <button 
+                  } 
+                  {!iserr &&<button 
                   className='ide-exec-button' 
                   onClick={()=>{
                     setstk(true)
@@ -369,7 +424,7 @@ const Ide = ({currentUser})=>{
                   }}>
                     stack
                   </button>
-                
+                  }
                 </div>
                 {reg && 
                   <div className="IdeReg">
@@ -441,6 +496,9 @@ const Ide = ({currentUser})=>{
                     </tbody>
                   </table>
                 }
+                {console.log(result)}
+                <pre style={{color:"red"}}>{`
+${result}`}</pre>
               </div>
             }
           </div>
