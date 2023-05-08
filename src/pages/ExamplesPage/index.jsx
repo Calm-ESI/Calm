@@ -44,8 +44,8 @@ const ExamplesPage = () => {
             </div>
 
             <div id="examplesBloc">
-                <div class="examples">
-                    <p>Manipulating Arrays</p>
+                <div className="examples">
+                    <p>Example 1</p>
                     <motion.div
                         whileHover={{scale: 1.1}}
                         whileTap={{scale: 0.9}}
@@ -56,7 +56,7 @@ const ExamplesPage = () => {
                 </div>
 
                 <div class="examples">
-                    <p>Manipulating Linked Lists</p>
+                    <p>Example 2</p>
                     <motion.div
                         whileHover={{scale: 1.1}}
                         whileTap={{scale: 0.9}}
@@ -67,7 +67,7 @@ const ExamplesPage = () => {
                 </div>
 
                 <div class="examples">
-                    <p>Manipulating Binary Search Tree</p>
+                    <p>Example 3</p>
                     <motion.div
                         whileHover={{scale: 1.1}}
                         whileTap={{scale: 0.9}}
