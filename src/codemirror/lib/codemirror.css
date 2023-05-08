@@ -156,7 +156,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
 }
 
 .CodeMirror-scroll {
-  overflow: scroll !important; /* Things will break if this is overridden */
+  overflow: scroll !important; /*Things will break if this is overridden*/
   /* 50px is the magic margin used to hide the element's real scrollbars */
   /* See overflow: hidden in .CodeMirror */
   margin-bottom: -50px; margin-right: -50px;
@@ -184,6 +184,17 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   right: 0; top: 0;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+  width:8px;
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius:5px;
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+  border-radius:5px;
+  background: #ffffff56;
 }
 .CodeMirror-hscrollbar {
   bottom: 0; left: 0;
