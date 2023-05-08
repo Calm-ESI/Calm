@@ -507,7 +507,7 @@ MC.forEach((element,index) => {
             </div>
         </div>
         <button className="returnBtn" onClick={()=>{
-            
+                window.location.reload(false);
         }}>return</button>
     </div>
     </>

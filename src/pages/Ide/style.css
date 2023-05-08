@@ -66,13 +66,14 @@
 }
 
 .ide-exec-button{
-  height:2em;
-  width: 5rem;
-  background-color: #1BE985;
-  border-radius: 0.625rem;
-  margin: 0.625rem 0.625rem;
-  font-family: 'JetBrains Mono', monospace;
-  padding: 0 0.25rem 0 0.25rem;
+  background-color: #1be985;
+    border-radius: 0.625rem;
+    font-family: JetBrains Mono,monospace;
+    margin: 0.5rem;
+    padding: 0 0.25rem;
+    width: 4.4rem;
+    font-size: 12px;
+    height: 2.3rem;
 }
 .ide_container{
   margin: auto;
