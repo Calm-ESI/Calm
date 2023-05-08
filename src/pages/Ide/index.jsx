@@ -233,15 +233,20 @@ const Ide = ({currentUser})=>{
     return code;
   };
 
+  let [isRefreshed,setIsRefreshed]=useState(true);
+
   useEffect(()=>{
-    
-    let storedArray = JSON.parse(localStorage.getItem('arr'));           
-    if(storedArray!=null){
-    console.log("stored_array",storedArray);
-     storedArray=storedArray.join('\n');
-    setCode(storedArray)
-    }
-  },[])
+      let storedArray = JSON.parse(localStorage.getItem('arr'));  
+      console.log(storedArray)         
+      if(storedArray!=null){
+        console.log("stored_array",storedArray);
+        storedArray=storedArray.join('\n');
+        localStorage.removeItem('arr');
+        setCode(storedArray);
+        setIsRefreshed(false);
+
+      }
+  },[isRefreshed])
 
   return (
     <> 
@@ -341,12 +346,11 @@ const Ide = ({currentUser})=>{
     
                     if (Errorcalm.errorr === 0) {
                       traitement(input);
-                     
                       
-                       
+                      
                     }else{
                       setresult(Errorcalm.printError());
-                       seterr(true);
+                      seterr(true);
                     }
 
                     
@@ -355,7 +359,6 @@ const Ide = ({currentUser})=>{
                     seterr(true);
                     setresult("this is not hexa code");
                     
-                    console.log("hiiiiiiiiiiiiiiiiiiii");
                   }
                   
                 }}>
@@ -382,7 +385,8 @@ const Ide = ({currentUser})=>{
                     console.log(arr);
                     console.log("old arr=",arr);
                     localStorage.setItem('arr', JSON.stringify(arr));
-                     window.location.reload();
+                    console.log("current local storage : ",localStorage.getItem('arr'))
+                    window.location.reload();
                   }}>re-write</button>
 
                   {!iserr &&< button 
