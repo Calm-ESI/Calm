@@ -1,12 +1,9 @@
 .profile-title {
     align-self: center;
-
-    position: absolute;
     top: -1.85rem;
     font-size: 2rem;
     font-weight: 850;
     color: white;
-    margin-top: 0;
     background-color: rgb(48, 54, 61);
     border-radius: 1.5rem;
     width: 20rem;
