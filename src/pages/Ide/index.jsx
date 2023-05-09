@@ -293,7 +293,7 @@ const Ide = ({currentUser})=>{
                   <Toggle 
                     labelRight="hexa" 
                     labelLeft="code" 
-                    backgroundColorChecked="#1BE985" 
+                    backgroundColorChecked="#263238"
                     backgroundColorUnchecked="#263238" 
                     checked={checktest} 
                     onChange={()=>{
