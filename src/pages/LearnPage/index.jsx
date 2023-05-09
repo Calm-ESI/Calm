@@ -25,7 +25,7 @@ function LearnPage(props) {
               comprehensive courses and learning materials.
           </p>
 
-          <Learn title={"Get Started"} link={"/learn"} text={"Embark on a learning journey with our beginner-friendly " +
+          <Learn title={"Get Started"} link={"https://drive.google.com/file/d/1ZlKbyf4KpuEfLZPqDI3ZPrZbb5BLvtqE/view?usp=share_link"} text={"Embark on a learning journey with our beginner-friendly " +
 
               "course and uncover the inner workings of the calM machines."} img={getStartedImage1}/>
 
