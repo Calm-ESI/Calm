@@ -66,42 +66,42 @@ MC.forEach((element,index) => {
                 //decalage par 1
                 gsap.fromTo(".queuearrow",{top:"60%",left:"83%",opacity:"0"},{top:"60%",left:"73%",opacity:"1",duration:0.3});
                 gsap.to(".queuearrow",{opacity:"0",duration:"0.1",delay:"0.3"});
-                if(animqueuelen()===6){
+                if(animqueuelen()==6){
                     gsap.to(".queue6",{opacity:"0",duration:0.4})
                     gsap.to(".queue5",{opacity:"1",duration:0.4})
                     gsap.to(".queue4",{opacity:"1",duration:0.4})
                     gsap.to(".queue3",{opacity:"1",duration:0.4})
                     gsap.to(".queue2",{opacity:"1",duration:0.4})
                     gsap.to(".queue1",{opacity:"1",duration:0.4})
-                }else if(animqueuelen()===5){
+                }else if(animqueuelen()==5){
                     gsap.to(".queue6",{opacity:"0",duration:0.4})
                     gsap.to(".queue5",{opacity:"0",duration:0.4})
                     gsap.to(".queue4",{opacity:"1",duration:0.4})
                     gsap.to(".queue3",{opacity:"1",duration:0.4})
                     gsap.to(".queue2",{opacity:"1",duration:0.4})
                     gsap.to(".queue1",{opacity:"1",duration:0.4})
-                }else if(animqueuelen()===4){
+                }else if(animqueuelen()==4){
                     gsap.to(".queue6",{opacity:"0",duration:0.4})
                     gsap.to(".queue5",{opacity:"0",duration:0.4})
                     gsap.to(".queue4",{opacity:"0",duration:0.4})
                     gsap.to(".queue3",{opacity:"1",duration:0.4})
                     gsap.to(".queue2",{opacity:"1",duration:0.4})
                     gsap.to(".queue1",{opacity:"1",duration:0.4})
-                }else if(animqueuelen()===3){
+                }else if(animqueuelen()==3){
                     gsap.to(".queue6",{opacity:"0",duration:0.4})
                     gsap.to(".queue5",{opacity:"0",duration:0.4})
                     gsap.to(".queue4",{opacity:"0",duration:0.4})
                     gsap.to(".queue3",{opacity:"0",duration:0.4})
                     gsap.to(".queue2",{opacity:"1",duration:0.4})
                     gsap.to(".queue1",{opacity:"1",duration:0.4})
-                }else if(animqueuelen()===2){
+                }else if(animqueuelen()==2){
                     gsap.to(".queue6",{opacity:"0",duration:0.4})
                     gsap.to(".queue5",{opacity:"0",duration:0.4})
                     gsap.to(".queue4",{opacity:"0",duration:0.4})
                     gsap.to(".queue3",{opacity:"0",duration:0.4})
                     gsap.to(".queue2",{opacity:"0",duration:0.4})
                     gsap.to(".queue1",{opacity:"1",duration:0.4})
-                }else if(animqueuelen()===1){
+                }else if(animqueuelen()==1){
                     gsap.to(".queue6",{opacity:"0",duration:0.4})
                     gsap.to(".queue5",{opacity:"0",duration:0.4})
                     gsap.to(".queue4",{opacity:"0",duration:0.4})
@@ -111,7 +111,7 @@ MC.forEach((element,index) => {
                 }
             }
             animation.anim(animation.value,h,w);
-            if(animqueuelen()===6){
+            if(animqueuelen()==6){
                 done=1;
             }
             if(chaine&done===1){
@@ -201,22 +201,22 @@ MC.forEach((element,index) => {
     }
     const animqueuelen=()=>{
         let len=0
-        if(q6.current.style.opacity===1){
+        if(q6.current.style.opacity==1){
             len=len+1;
         }
-        if(q5.current.style.opacity===1){
+        if(q5.current.style.opacity==1){
             len=len+1;
         }
-        if(q4.current.style.opacity===1){
+        if(q4.current.style.opacity==1){
             len=len+1;
         }
-        if(q3.current.style.opacity===1){
+        if(q3.current.style.opacity==1){
             len=len+1;
         }
-        if(q2.current.style.opacity===1){
+        if(q2.current.style.opacity==1){
             len=len+1;
         }
-        if(q1.current.style.opacity===1){
+        if(q1.current.style.opacity==1){
             len=len+1;
         }
         return len;
