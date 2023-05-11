@@ -1,6 +1,6 @@
 import { Lexer } from './Lexer.js';
 import {Errorcalm} from './Errorcalm.js'
-import {SyntaxicAnalysis} from './SyntaxicAnalysis.js'
+import {SemanticAnalysis} from './SemanticAnalysis.js'
 export const FuncInterface ={
 
     adrmap : (txt,size,dep)=>{
@@ -211,7 +211,7 @@ while (hexString.length < size) {
         if (labelobj == false)
         {
             //error
-            Errorcalm.set_syntaxicError(new Errorcalm("Label not found",null,linenumber));
+            Errorcalm.set_SemanticError(new Errorcalm("Label not found",null,linenumber));
             return {type: 'ERROR', value: null};
         }else{
             //return the address
@@ -224,8 +224,8 @@ while (hexString.length < size) {
         var errormsg = []
         var err = false ;
         //console.log(input)
-        // check Errorcalm.SyntaxicError first else do the thing you where doing
-        if (Errorcalm.SyntaxicError.length > 0) {
+        // check Errorcalm.SemanticError first else do the thing you where doing
+        if (Errorcalm.SemanticError.length > 0) {
             Errorcalm.printError();
             }
         else{
@@ -235,7 +235,7 @@ while (hexString.length < size) {
                 err = true
             }
         }}
-        Errorcalm.addtoSyntaxicError(errormsg);
+        Errorcalm.addtoSemanticError(errormsg);
         return {errors: errormsg, status: !err};
     
     },
@@ -283,7 +283,7 @@ while (hexString.length < size) {
         if ( listofparam[0].value >  Assembler.MAXNUM ){
             //errooor
             
-            Errorcalm.SyntaxicError.push(new Errorcalm("Wrong range of number",null,i));
+            Errorcalm.SemanticError.push(new Errorcalm("Wrong range of number",null,i));
             return {type:'ERROR',value:'Wrong range of number'}
 
         }else{
@@ -303,7 +303,7 @@ while (hexString.length < size) {
             if ( listofparam[0].value >  32767 || listofparam[0].value <  -32767 ){
                 //errooor
                 
-                Errorcalm.SyntaxicError.push(new Errorcalm("Wrong range of number",null,i));
+                Errorcalm.SemanticError.push(new Errorcalm("Wrong range of number",null,i));
                 return {type:'ERROR',value:'Wrong range of number'}
     
             }else{
@@ -316,7 +316,7 @@ while (hexString.length < size) {
             //direct
             if(  listofparam[0].type === 'REGISTER' && listofparam[0].value !== 'BR' && listofparam[0].value !== 'IDR'  )
             {
-                Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
+                Errorcalm.SemanticError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                 return {type:'ERROR',value:'Wrong number or type of parameters'}
             }else{
             if ( listofparam[1].value === '*' && (listofparam[0].type === 'NUMBER' || listofparam[0].type === 'TEXT') ) {
@@ -330,7 +330,7 @@ while (hexString.length < size) {
                         return {type:'NUMBER',value:'0',adrmode:4,size:sizeofpar}
 
                     }else{
-                Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
+                Errorcalm.SemanticError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                 return {type:'ERROR',value:'Wrong number or type of parameters'}
             }}}
         }
@@ -340,13 +340,13 @@ while (hexString.length < size) {
             //indirect
             if(  listofparam[0].type ==='REGISTER'   )
             {
-                Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
+                Errorcalm.SemanticError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                 return {type:'ERROR',value:'Wrong number or type of parameters'}
             }else{
             if (listofparam[1].value === '*' && listofparam[2].value === '*' && (listofparam[0].type === 'NUMBER' || listofparam[0].type === 'TEXT')) {
                 return {type:listofparam[0].type,value:listofparam[0].value,adrmode:2,size:sizeofpar} 
             }else{
-                Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
+                Errorcalm.SemanticError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                 return {type:'ERROR',value:'Wrong number or type of parameters'}
             }
         }
@@ -364,7 +364,7 @@ while (hexString.length < size) {
 
                                 }else{
 
-                                Errorcalm.SyntaxicError.push(new Errorcalm("Number size is bigger then MAXNUM",null,i));
+                                Errorcalm.SemanticError.push(new Errorcalm("Number size is bigger then MAXNUM",null,i));
                                 return {type:'ERROR',value:'Number size is bigger then MAXNUM'}
 
                                 }
@@ -379,7 +379,7 @@ while (hexString.length < size) {
                                     {
                                         return {type:'NUMBER',value:listofparam[3].value,adrmode:4,size:sizeofpar}
                                     }else{
-                                        Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
+                                        Errorcalm.SemanticError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                                         return {type:'ERROR',value:'Wrong number or type of parameters'}
                                     }
 
@@ -389,7 +389,7 @@ while (hexString.length < size) {
                         }          
                     
                     }else{
-                        Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
+                        Errorcalm.SemanticError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                         return {type:'ERROR',value:'Wrong number or type of parameters'}              
                     }
                                     
@@ -403,13 +403,13 @@ while (hexString.length < size) {
                     return {type:'NUMBER',value:listofparam[5].value,adrmode:6,size:sizeofpar}
                 }else{                
                    
-                    Errorcalm.SyntaxicError.push(new Errorcalm("Wrong number or type of parameters",null,i));
+                    Errorcalm.SemanticError.push(new Errorcalm("Wrong number or type of parameters",null,i));
                     return {type:'ERROR',value:'Wrong number or type of parameters'};
             }
             break;
 
         default:
-            Errorcalm.SyntaxicError.push(new Errorcalm("Wrong parameters",null,i));
+            Errorcalm.SemanticError.push(new Errorcalm("Wrong parameters",null,i));
             return {type:'ERROR',value:'Wrong number or type of parameters'}
     }
 
@@ -439,8 +439,8 @@ export class Assembler{
         }else{
         this.input = lexicalList;
         console.log("\nLexicalList:\n",lexicalList)
-        this.toAssemble = new SyntaxicAnalysis(this.input);
-        let ret = FuncInterface.confirmationfunction(this.toAssemble.Syntaxiclist);
+        this.toAssemble = new SemanticAnalysis(this.input);
+        let ret = FuncInterface.confirmationfunction(this.toAssemble.Semanticlist);
         if (!ret.status) {
             console.log("\nThere are errors in your code cannot assemble:\n");
             console.log(ret.errors);
@@ -868,9 +868,9 @@ export class Assembler{
         static assemblecode(input){
             let output = new Assembler(input) ;
             var assembledcode = [];
-            var toassmb = (output && output.toAssemble && output.toAssemble.Syntaxiclist) ? output.toAssemble.Syntaxiclist : "Syntaxiclist is undefined";
-            console.log("\nSyntaxic list: \n",toassmb)
-            if ( Errorcalm.SyntaxicError.length ===0 ) {
+            var toassmb = (output && output.toAssemble && output.toAssemble.Semanticlist) ? output.toAssemble.Semanticlist : "Semanticlist is undefined";
+            console.log("\nSemantic list: \n",toassmb)
+            if ( Errorcalm.SemanticError.length ===0 ) {
 
                 for (let index = 0; index < toassmb.length; index++) {
          
@@ -909,9 +909,9 @@ let output = new Assembler(input) ;
 
 console.log("\nLabel list: \n",Assembler.Labellist)
 
-//console.log("\nSyntaxic list: \n", output?.toAssemble?.Syntaxiclist ?? "Syntaxiclist is undefined");
-console.log("\nSyntaxic list: \n", (output && output.toAssemble && output.toAssemble.Syntaxiclist) ? output.toAssemble.Syntaxiclist : "Syntaxiclist is undefined");
-var toassmb = (output && output.toAssemble && output.toAssemble.Syntaxiclist) ? output.toAssemble.Syntaxiclist : "Syntaxiclist is undefined";
+//console.log("\nSemantic list: \n", output?.toAssemble?.Semanticlist ?? "Semanticlist is undefined");
+console.log("\nSemantic list: \n", (output && output.toAssemble && output.toAssemble.Semanticlist) ? output.toAssemble.Semanticlist : "Semanticlist is undefined");
+var toassmb = (output && output.toAssemble && output.toAssemble.Semanticlist) ? output.toAssemble.Semanticlist : "Semanticlist is undefined";
 var assembledcode = []
 
 for (let index = 0; index < toassmb.length; index++) {

@@ -1,12 +1,12 @@
 import { Assembler,FuncInterface } from "./Assembler.js";
-import { SyntaxicAnalysis } from "./SyntaxicAnalysis.js";
+import { SemanticAnalysis } from "./SemanticAnalysis.js";
 import { Lexer } from "./Lexer.js";
 
 export class Errorcalm{
 
 
     static LexicalError = [];
-    static SyntaxicError = [];
+    static SemanticError = [];
     static errorr=0;
     constructor(message,type,linenum){
         this.message = message;
@@ -16,7 +16,7 @@ export class Errorcalm{
 
     static set_LexicalError(lexerror){
 
-            if (Errorcalm.SyntaxicError.find((err) => {
+            if (Errorcalm.SemanticError.find((err) => {
             return err.message === lexerror.message && err.type === lexerror.type && err.linenum === lexerror.linenum;
             })) {
             } else {
@@ -25,28 +25,28 @@ export class Errorcalm{
 
     }
 
-    static set_syntaxicError(synerror){
-        if (Errorcalm.SyntaxicError.find((err) => {
+    static set_SemanticError(synerror){
+        if (Errorcalm.SemanticError.find((err) => {
             return err.message === synerror.message && err.type === synerror.type && err.linenum === synerror.linenum;
             })) {
             } else {
-                Errorcalm.SyntaxicError.push(synerror);
+                Errorcalm.SemanticError.push(synerror);
             }
     }
     static printError(){
         let theError;
-        const numerr = Errorcalm.LexicalError.length + Errorcalm.SyntaxicError.length;
+        const numerr = Errorcalm.LexicalError.length + Errorcalm.SemanticError.length;
         if(numerr ==0){
             return ''
         }else{
             numerr ==1 ? theError="\nThere is 1 error in your code:\n" : theError=`\nThere are ${numerr} errors in your code cannot assemble:\n`;
-        Errorcalm.LexicalError.length == 0 ? theError+="  Syntaxic Errors:\n"+"  "+Errorcalm.SyntaxicError[0].message+"\n the line : "+Errorcalm.SyntaxicError[0].linenum : theError+="Lexical Errors \n"+"  "+Errorcalm.LexicalError[0].message+"\n the line :"+Errorcalm.LexicalError[0].line;
+        Errorcalm.LexicalError.length == 0 ? theError+="  Semantic Errors:\n"+"  "+Errorcalm.SemanticError[0].message+"\n the line : "+Errorcalm.SemanticError[0].linenum : theError+="Lexical Errors \n"+"  "+Errorcalm.LexicalError[0].message+"\n the line :"+Errorcalm.LexicalError[0].line;
         Errorcalm.errorr=1;
-        console.log(this.SyntaxicError);
+        console.log(this.SemanticError);
         return theError;}
     }
-    static addtoSyntaxicError(errs){
-        Errorcalm.SyntaxicError= errs.concat(Errorcalm.SyntaxicError);    }
+    static addtoSemanticError(errs){
+        Errorcalm.SemanticError= errs.concat(Errorcalm.SemanticError);    }
     static addtoLexicalError(errs){
         Errorcalm.LexicalError= errs.concat(Errorcalm.LexicalError);
     }

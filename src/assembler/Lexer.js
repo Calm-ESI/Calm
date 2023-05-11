@@ -1,6 +1,6 @@
 import { Assembler } from './Assembler.js';
 import { Errorcalm } from './Errorcalm.js';
-import { SyntaxicAnalysis } from './SyntaxicAnalysis.js';
+import { SemanticAnalysis } from './SemanticAnalysis.js';
 export class Lexer {
   static Errors = [];
  

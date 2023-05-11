@@ -3,8 +3,8 @@ import { Errorcalm } from './Errorcalm.js';
 import { Assembler,FuncInterface } from "./Assembler.js";
 
 
-export class SyntaxicAnalysis {
-    Syntaxiclist = []
+export class SemanticAnalysis {
+    Semanticlist = []
     
     constructor(input) { 
 
@@ -37,27 +37,27 @@ export class SyntaxicAnalysis {
                                                 }
                                             });
                                         if (!found) {    
-                                        //this.Syntaxiclist.push(lexicalList[i]); 
+                                        //this.Semanticlist.push(lexicalList[i]); 
                                         //stop pushing here because we don't need it
                                         Assembler.Labellist.push({ name: lexicalList[i][1].value, address: lexicalList[i][2].value, linedeclared:i })
                                     }else{
-                                        this.Syntaxiclist.push(new Errorcalm("LABEL already declared",null,i))
+                                        this.Semanticlist.push(new Errorcalm("LABEL already declared",null,i))
                                     }
-                                }else{ this.Syntaxiclist.push(new Errorcalm("LABEL name is not valid",null,i)) }
+                                }else{ this.Semanticlist.push(new Errorcalm("LABEL name is not valid",null,i)) }
                                 }else{
-                                    this.Syntaxiclist.push(new Errorcalm("LABEL name not defined",null,i))
+                                    this.Semanticlist.push(new Errorcalm("LABEL name not defined",null,i))
                               }
                             }else{
-                                 this.Syntaxiclist.push(new Errorcalm("Number size is bigger then MAXNUM",null,i))
+                                 this.Semanticlist.push(new Errorcalm("Number size is bigger then MAXNUM",null,i))
                             }}else{ 
-                                 this.Syntaxiclist.push(new Errorcalm("LABEL must be a number",null,i))
+                                 this.Semanticlist.push(new Errorcalm("LABEL must be a number",null,i))
                             }
                           }else{
                             if (Lexer.isValidString(lexicalList[i][2].value )) {
-                                this.Syntaxiclist.push(new Errorcalm("LABEL must have only two operands",null,i))
+                                this.Semanticlist.push(new Errorcalm("LABEL must have only two operands",null,i))
                             }else
                             {
-                                this.Syntaxiclist.push(new Errorcalm("LABEL name is not valid",null,i))
+                                this.Semanticlist.push(new Errorcalm("LABEL name is not valid",null,i))
                             }
                             }
                       }
@@ -72,9 +72,9 @@ export class SyntaxicAnalysis {
                             const functINST0 = ()=> { 
 
                                 if (lexicalList[i].length == 1) {
-                                    this.Syntaxiclist.push(lexicalList[i]);
+                                    this.Semanticlist.push(lexicalList[i]);
                                 }else{
-                                    this.Syntaxiclist.push(new Errorcalm("INST0 must have no operands",null,i))
+                                    this.Semanticlist.push(new Errorcalm("INST0 must have no operands",null,i))
                             }}
                         
 
@@ -96,10 +96,10 @@ export class SyntaxicAnalysis {
                                 //read or write from or to register only..
                                 // Labels are not allowed
                                 if (firstparam.type == 'REGISTER'  && lexicalList[i].length == 2) {
-                                    this.Syntaxiclist.push([{  type:lexicalList[i][0].type, value: lexicalList[i][0].value, adrmode:0  },lexicalList[i][1]]);
+                                    this.Semanticlist.push([{  type:lexicalList[i][0].type, value: lexicalList[i][0].value, adrmode:0  },lexicalList[i][1]]);
                                 }
                                 else{
-                                    this.Syntaxiclist.push(new Errorcalm("INST1 must have one register as operand",null,i))
+                                    this.Semanticlist.push(new Errorcalm("INST1 must have one register as operand",null,i))
                                 }
 
                             }else{
@@ -115,21 +115,21 @@ export class SyntaxicAnalysis {
                                     
                                     switch (lexicalList[i].length) {
                                         case 2:
-                                            this.Syntaxiclist.push([{type:lexicalList[i][0].type, value: lexicalList[i][0].value, adrmode:0 },lexicalList[i][1]]);
+                                            this.Semanticlist.push([{type:lexicalList[i][0].type, value: lexicalList[i][0].value, adrmode:0 },lexicalList[i][1]]);
                                             
                                             break;
                                        
                                         default:
-                                            this.Syntaxiclist.push(new Errorcalm("Wrong number or type of operands",null,i))
+                                            this.Semanticlist.push(new Errorcalm("Wrong number or type of operands",null,i))
                                             break;
                                     }    }else{
-                                        this.Syntaxiclist.push(new Errorcalm("Number size is bigger then MAXNUM",null,i))
+                                        this.Semanticlist.push(new Errorcalm("Number size is bigger then MAXNUM",null,i))
                                     }                               
                                 
                             break;
                             
                             case 'REGISTER' :
-                                    this.Syntaxiclist.push(new Errorcalm("Instruction cannot have register as operand",null,i))
+                                    this.Semanticlist.push(new Errorcalm("Instruction cannot have register as operand",null,i))
                                break;
                             
                             case 'TEXT' :
@@ -142,22 +142,22 @@ export class SyntaxicAnalysis {
                                     switch (lexicalList[i].length) {
 
                                         case 2:
-                                            this.Syntaxiclist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value, adrmode:0 },{type:FuncInterface.Label_To_Num(firstparam.value,i).type, value:FuncInterface.Label_To_Num(firstparam.value,i).value}]);
+                                            this.Semanticlist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value, adrmode:0 },{type:FuncInterface.Label_To_Num(firstparam.value,i).type, value:FuncInterface.Label_To_Num(firstparam.value,i).value}]);
                                             
                                             break;
                                     
                                         case 5:
                                             // indirect
                                             if (lexicalList[i][2].value == '*' && lexicalList[i][3].value == '+' && lexicalList[i][4].type == 'NUMBER' && (0 < lexicalList[i][4].value) && ( Assembler.MAXNUM > lexicalList[i][4].value) ) {
-                                                this.Syntaxiclist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value, adrmode:3 },{type:FuncInterface.Label_To_Num(firstparam.value,i).type, value:FuncInterface.Label_To_Num(firstparam.value,i).value},{type:lexicalList[i][4].type, value:lexicalList[i][4].value}]);
+                                                this.Semanticlist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value, adrmode:3 },{type:FuncInterface.Label_To_Num(firstparam.value,i).type, value:FuncInterface.Label_To_Num(firstparam.value,i).value},{type:lexicalList[i][4].type, value:lexicalList[i][4].value}]);
                                             }else{
-                                                this.Syntaxiclist.push(new Errorcalm("Wrong expression or wrong size of number",null,i))
+                                                this.Semanticlist.push(new Errorcalm("Wrong expression or wrong size of number",null,i))
                                             }
                                         
                                         break;
                                     
                                         default:
-                                            this.Syntaxiclist.push(new Errorcalm("Wrong number or type of operands",null,i))
+                                            this.Semanticlist.push(new Errorcalm("Wrong number or type of operands",null,i))
                                             break;
                                     }
 
@@ -184,8 +184,8 @@ export class SyntaxicAnalysis {
 
                         if (nocomma)  
                         {
-                            this.Syntaxiclist.push(new Errorcalm("Comma missing",null,i))
-                            Errorcalm.SyntaxicError.push(new Errorcalm("Comma missing",null,i))
+                            this.Semanticlist.push(new Errorcalm("Comma missing",null,i))
+                            Errorcalm.SemanticError.push(new Errorcalm("Comma missing",null,i))
 
                         }
                         else{
@@ -198,8 +198,8 @@ export class SyntaxicAnalysis {
          
                             if( FuncInterface.defadrmod(list1,i).type=='NUMBER' && lexicalList[i][0].value == 'MOV' && FuncInterface.defadrmod(list1,i).adrmode==0 ) {
                                 //console.log("here------------------------")
-                                        this.Syntaxiclist.push(new Errorcalm("Number can't be first operand",null,i))
-                                        Errorcalm.SyntaxicError.push(new Errorcalm("Number can't be first operand",null,i))
+                                        this.Semanticlist.push(new Errorcalm("Number can't be first operand",null,i))
+                                        Errorcalm.SemanticError.push(new Errorcalm("Number can't be first operand",null,i))
                             }else{
                             //console.log("\nlist1",list1,"\nlist2",list2)
                             //console.log("\nlist1",FuncInterface.defadrmod(list1),"\nlist2",FuncInterface.defadrmod(list2))
@@ -207,13 +207,13 @@ export class SyntaxicAnalysis {
                             
                         if ((FuncInterface.defadrmod(list1,i).size !== FuncInterface.defadrmod(list2,i).size && FuncInterface.defadrmod(list2,i).type =='REGISTER' && FuncInterface.defadrmod(list1,i).type =='REGISTER' )  || ( FuncInterface.defadrmod(list1,i).size == 0 && FuncInterface.defadrmod(list2,i).size == 1 && FuncInterface.defadrmod(list1,i).type =='REGISTER' )) {
 
-                                this.Syntaxiclist.push(new Errorcalm("Wrong size or type of operands",null,i))
-                                Errorcalm.SyntaxicError.push(new Errorcalm("Wrong size or type of operands",null,i))
+                                this.Semanticlist.push(new Errorcalm("Wrong size or type of operands",null,i))
+                                Errorcalm.SemanticError.push(new Errorcalm("Wrong size or type of operands",null,i))
 
                             }else{
                                 let asize =  ( FuncInterface.defadrmod(list2,i).size == 1 ) || ( FuncInterface.defadrmod(list1,i).size == 1 )? 1 : 0;
                                 //console.log(asize);
-                                this.Syntaxiclist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value,size:asize},FuncInterface.defadrmod(list1,i),FuncInterface.defadrmod(list2,i)]);
+                                this.Semanticlist.push([{type:lexicalList[i][0].type, value:lexicalList[i][0].value,size:asize},FuncInterface.defadrmod(list1,i),FuncInterface.defadrmod(list2,i)]);
                             }
                             }}
 
@@ -226,7 +226,7 @@ export class SyntaxicAnalysis {
              
                   
             }
-            //console.log(this.Syntaxiclist)
+            //console.log(this.Semanticlist)
 
            
           
@@ -280,6 +280,6 @@ var input = ["LABEL imo 145537", "MOV R1, 14", " ADD R1,R2**","PUSHA 55"]
 
 //console.log(new Lexer(input[0]).LexicalList)
 
-var output = new syntaxicAnalysis(["LABEL 145537"])
+var output = new SemanticAnalysis(["LABEL 145537"])
 
-console.log(output.Syntaxiclist)*/
+console.log(output.Semanticlist)*/
