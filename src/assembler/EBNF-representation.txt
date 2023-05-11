@@ -1,10 +1,14 @@
 EBNF representation of calM assembly:
 
-expression ::= ( INST1 ( REG | NUM ) ) | ( INST2 [ REGIND[*] + ] ( REG | NUM [*][*] ) , ( REG | NUM [*][*] )  ) | (I NST3 ( REG | NUM*[*] ), ( REG | NUM [*][*] ) ) 
-INST0 ::= RET, PUSHA, POPA
-INST1 ::= NEG, NOT, SHL, SHR, READ, WRITE, PUSH, POP, ROR, ROL, CALL, BE, BNE, BS, BI, BIE, BSE, BR 
-INST2 ::= NAND, CMP, ADD, SUB, MUL, DIV, AND, OR, XOR, NOR
+Expression ::= ( INST1 ( REG | NUM ) )
+               | ( INST2 [ REGIND [*] + ] ( REG | NUM [*] [*] ) , ( REG | NUM [*] [*] ) )
+               | ( INST3 ( REG | NUM* [*] ) , ( REG | NUM [*] [*] ) )
+
+INST0 ::= RET | PUSHA | POPA
+INST1 ::= NEG | NOT | SHL | SHR | READ | WRITE | PUSH | POP | ROR | ROL | CALL | BE | BNE | BZ | BI | BIE | BSE | BR
+INST2 ::= NAND | CMP | ADD | SUB | MUL | DIV | AND | OR | XOR | NOR
 INST3 ::= MOV
+
 REG ::= R1 | R2 | R3 | R4 | ACC | BR | IDR | SR | R1R | R2R | R3R | ACCR | R1L | R2L | R3L | ACCL
-REGIND ::= BR | IDR 
-NUM ::= 0 | ((1-9){[0-9]})
+REGIND ::= BR | IDR
+NUM ::= -?[1-9][0-9]*
