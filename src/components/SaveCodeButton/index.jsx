@@ -8,7 +8,11 @@ const SaveCodeButton = ({code, currentUser, editMode}) => {
 
     const saveCode = (e) => {
         
-
+        if(!currentUser || editMode.programId < 0){
+            alert("You have to login to be able to save the program to your account");
+            return;
+        }
+        
         console.log("Saving your code..."); 
         // console.log(code) isEditMode
         const URL = process.env.REACT_APP_API_URL+`/user/${currentUser.id}/code` + 

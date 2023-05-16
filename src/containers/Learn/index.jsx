@@ -1,7 +1,7 @@
 import LearnCard from "../../components/LearnCard";
 import {motion} from "framer-motion";
 import "./style.css";
-const Learn = ({ title, link, text, img,download }) => {
+const Learn = ({ title, link, text, img, download, buttonText }) => {
   return (
     <div className="LearnSectionContainer">
       <p
@@ -19,8 +19,8 @@ const Learn = ({ title, link, text, img,download }) => {
           whileTap={{scale: 0.9}}
           transition={{type: "spring", stiffness: 400, damping: 17}}
           className="LearnButton" style={{gridColumn: "2 / 3", gridRow: " 4 / 5", justifySelf: "center"}}>
-        {  download ===1 ? <a href={link} style={{textDecoration: "none", color: "black"}}>Download</a>  :<a href={link} style={{textDecoration: "none", color: "black"}}>Discover</a> 
-        }
+          <a href={link} style={{textDecoration: "none", color: "black"}}>{buttonText}</a> 
+        
         </motion.div>
     </div>
   );

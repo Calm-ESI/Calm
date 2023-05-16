@@ -1,0 +1,54 @@
+.examples {
+    width: 90%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line-break-color);
+    padding: 1em;
+}
+
+.examples p {
+    font-family: "Mona sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    display: inline-block;
+    color: #ffffff;
+    position: relative;
+}
+
+.examples p:hover {
+    color: var(--main-accent-color);
+    transition: 0.25s;
+    cursor: default;
+    /* box-shadow: 0px 0px 35px #1be985; */
+}
+
+.execButton {
+    position: relative;
+    height: 1.5rem;
+    width: 4.375rem;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Mona sans", sans-serif;
+    color: white;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 12px 34px;
+    cursor: pointer;
+    background-color: var(--button-color);
+    box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.07), 0 15px 15px rgba(0, 0, 0, 0.06), 0 10px 8px rgba(0, 0, 0, 0.05), 0 4px 4px rgba(0, 0, 0, 0.04), 0 2px 2px rgba(0, 0, 0, 0.03);
+}
+
+.execButton:hover {
+    font-family: "Mona sans", sans-serif;
+    font-weight: 900;
+    border: 1px solid black;
+    background: var(--main-accent-color);
+    color: #000;
+
+}

@@ -151,9 +151,9 @@ const Ide = ({currentUser})=>{
 
   /////////////////////returning the component//////////////////
   const [code, setCode] = useState("");
-  const [editMode, setEditMode] = useState({isEditMode: false, programName: null, programId: null});
+  const [editMode, setEditMode] = useState({isEditMode: false, programName: null, programId: -1});
 
-  const {state} = useLocation();
+  const {state} = useLocation()
   console.log("ide state:",state);
   useEffect(()=>{
     if(state){

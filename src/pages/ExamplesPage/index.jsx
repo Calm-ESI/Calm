@@ -4,8 +4,10 @@ import questionMark from "../../assets/images/icons/question-signe-en-cercles.pn
 
 import {NavBar} from "../../components"
 import {Footer} from "../../containers"
-import { motion } from 'framer-motion'
 import Bot from "../../components/ChatBot";
+
+import { Example } from '../../components'
+import programs from '../../Constants/programs'
 
 const ExamplesPage = () => {
     
@@ -35,7 +37,6 @@ const ExamplesPage = () => {
   return (
     <>
         <NavBar></NavBar>
-        {/* <Title></Title> */}
 
         <section style={{marginTop: "3em", position: "relative", display: "flex", justifyContent: "center"}}>
             <div id="example-icon">
@@ -44,60 +45,10 @@ const ExamplesPage = () => {
             </div>
 
             <div id="examplesBloc">
-                <div className="examples">
-                    <p>Example 1</p>
-                    <motion.div
-                        whileHover={{scale: 1.1}}
-                        whileTap={{scale: 0.9}}
-                        transition={{type: "spring", stiffness: 400, damping: 17}}
-                        class="execButton">
-                        Execute
-                    </motion.div>
-                </div>
-
-                <div class="examples">
-                    <p>Example 2</p>
-                    <motion.div
-                        whileHover={{scale: 1.1}}
-                        whileTap={{scale: 0.9}}
-                        transition={{type: "spring", stiffness: 400, damping: 17}}
-                        class="execButton">
-                        Execute
-                    </motion.div>
-                </div>
-
-                <div class="examples">
-                    <p>Example 3</p>
-                    <motion.div
-                        whileHover={{scale: 1.1}}
-                        whileTap={{scale: 0.9}}
-                        transition={{type: "spring", stiffness: 400, damping: 17}}
-                        class="execButton">
-                        Execute
-                    </motion.div>
-                </div>
-                <div class="examples">
-                    <p>Example 4</p>
-                    <motion.div
-                        whileHover={{scale: 1.1}}
-                        whileTap={{scale: 0.9}}
-                        transition={{type: "spring", stiffness: 400, damping: 17}}
-                        class="execButton">
-                        Execute
-                    </motion.div>
-                </div>
-                <div class="examples">
-                    <p>Example 5</p>
-                    <motion.div
-                        whileHover={{scale: 1.1}}
-                        whileTap={{scale: 0.9}}
-                        transition={{type: "spring", stiffness: 400, damping: 17}}
-                        class="execButton">
-                        Execute
-                    </motion.div>
-                </div>
+                {programs.map(program => <Example title={program.title} content={program.content}/>)}
             </div>
         </section>
+        
         <Bot/>
     
         <Footer></Footer>
