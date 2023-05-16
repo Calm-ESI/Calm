@@ -602,7 +602,7 @@ export class Assembler{
                             code = opcode + ind + regmod1 + regmod2 ;
                             code=code +op1+dep1;
 
-                            //return {codehex:FuncInterface.binaryToHex(code,code.length/4),codebin:code};   
+                            //return {codehex:FuncInterface.binaryToHex(code,code.length/4),codebin:code};   s;ldk
                             return FuncInterface.binaryToHex(code,code.length/4)
                                                      break;  
 
