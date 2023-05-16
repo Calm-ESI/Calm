@@ -1,24 +1,4 @@
-import { Register } from "./Register.js";
 import { generalPurposeRegister } from "./Register.js";
-//!! notes
-//RUAL1 AND RUAL2 must be devided into two parts -------------------
-// l'acc is of a general purpose -----------------
-//complemnt a deux fonction serai dans l'interface :-----------------
-// le resultat de la multiplication est dans la variables res sur (16 ou 32 )------
-// nhotou noss louwel fi (ACCL/ACCH) wela(ACC/R4)----------
-// SHL SHR ram 3and aoufar .-----------------
-//size rani hatha tedkhol 8 wela 16 a la place de 0 et 1-----------------
-//l'overflow est reglé pour toutes les fonctions mais!!!!!------------------
-//les autres premier bits de sont pas regler pour toutes les fonctions---------
-//revoir le carry !!!!!!
-//set overflow to 0 where there is no overflow et mm chose pour les autres flags
-//shif en gardant le bit de signe 
-/* 
-
-dok ni ktbt la fonction du complement a deux donc on peut optimiser le nombre de lignes 
-par remplacer quelques ligne avec cette fonction  
-
-*/
 
 function TwosComplement(num,size) { //a is a string 
     let a=num.toString(2);
@@ -253,14 +233,7 @@ class Alu{
                  }
             }
         }
-         //il faut regler le problem de l'overflow
-         if (parseInt(this.Acc.getvalue())==0) {this.Flags[0]='1'}//zero
-         this.Flags[1]=this.Acc.getvalue()[0];//signe
-        //this.Flags[2]=carry.toString();//carry
-         let figure="1"
-         this.Flags[3] = ((this.Acc.value.match(new RegExp(figure, "g")) || []).length %2).toString();//parity
-         this.Flags[4]=this.Acc.getvalue()[size-1];//p/imp
-
+        
         console.log(res);
         if(res.length>16){
             let resacc=res.substring(16,32);
@@ -270,10 +243,15 @@ class Alu{
         }else{
             this.Acc.setvalue(res);
         }
-         //!!!!!!! note 
-         // we must add conditions about size to divied the res into two parts 
-         //the first part will be in the ACC and the second part will be in the 4th register
-         //overflow detection:
+
+        //il faut regler le problem de l'overflow
+        if (parseInt(this.Acc.getvalue())==0) {this.Flags[0]='1'}//zero
+        this.Flags[1]=this.Acc.getvalue()[0];//signe
+       //this.Flags[2]=carry.toString();//carry
+        let figure="1"
+        this.Flags[3] = ((this.Acc.value.match(new RegExp(figure, "g")) || []).length %2).toString();//parity
+        this.Flags[4]=this.Acc.getvalue()[size-1];//p/imp
+        
         if (res.length>size) {
                 this.Flags[5]='1';
             }
@@ -594,18 +572,6 @@ class Alu{
     }
 
 }
- //let name="aymen";
- //console.log(fullzero(10,"aymen"));
 
-//const Alu1=new Alu();
-
-// Alu1.Rual1.setvalue("1100000000001001")
-// Alu1.Rual2.setvalue("0100000000000010")
-
-//Alu1.binaryMultiply(16);
-
-// console.log(TwosComplement(-3,16));
- //sur 8 bits tout marche bien avec la sustraction 
- //mmavec 16 bits tout marche bien elhamdoulilah .
 export default Alu;
 export {TwosComplement,replaceAt,fullzero};
