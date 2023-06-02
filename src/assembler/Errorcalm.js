@@ -16,12 +16,12 @@ export class Errorcalm{
 
     static set_LexicalError(lexerror){
 
-            if (Errorcalm.SemanticError.find((err) => {
-            return err.message === lexerror.message && err.type === lexerror.type && err.linenum === lexerror.linenum;
-            })) {
-            } else {
+           // if (Errorcalm.SemanticError.find((err) => {
+            //return err.message === lexerror.message && err.type === lexerror.type && err.linenum === lexerror.linenum;
+            //})) {
+            //} else {
                 Errorcalm.LexicalError.push(lexerror);
-            }
+            //}
 
     }
 
