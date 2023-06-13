@@ -54,9 +54,7 @@ const Hero = () => {
                         This project was created by a team of six 2nd-year students from ESI-Alger as
                         part of a class project. The objective was to develop a pedagogical machine with a simulation of
                         code execution to
-                        teach computer architecture. We were a team of four teams assigned to develop different projects
-                        for the class.
-                        We successfully designed and developed the learning platform, which includes the calm machine,
+                        teach computer architecture. We successfully designed and developed the learning platform, which includes the calm machine,
                         with its emulator and simulator to meet the pedagogical goals.
                     </div>
                     <img className="esi-logo" src={esiLogo} alt="esi logo"/>
